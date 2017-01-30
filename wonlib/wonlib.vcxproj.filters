@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\won\woniface.cpp" />
+    <ClCompile Include="..\won\networking\Messages.cxx">
+      <Filter>networking</Filter>
+    </ClCompile>
+    <ClCompile Include="..\won\networking\Networking.cxx">
+      <Filter>networking</Filter>
+    </ClCompile>
+    <ClCompile Include="..\won\networking\SendableEventMessage.cxx">
+      <Filter>networking</Filter>
+    </ClCompile>
+    <ClCompile Include="..\won\networking\messages\EventConnect.cxx">
+      <Filter>networking\messages</Filter>
+    </ClCompile>
+    <ClCompile Include="..\won\networking\messages\EventDisconnect.cxx">
+      <Filter>networking\messages</Filter>
+    </ClCompile>
+    <ClCompile Include="..\won\networking\messages\ChatMessage.cxx">
+      <Filter>networking\messages</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\won\woniface.h" />
+    <ClInclude Include="..\won\networking\Messages.hxx">
+      <Filter>networking</Filter>
+    </ClInclude>
+    <ClInclude Include="..\won\networking\Networking.hxx">
+      <Filter>networking</Filter>
+    </ClInclude>
+    <ClInclude Include="..\won\networking\SendableEventMessage.hxx">
+      <Filter>networking</Filter>
+    </ClInclude>
+    <ClInclude Include="..\won\networking\messages\ChatMessage.hxx">
+      <Filter>networking\messages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\won\networking\messages\EventConnect.hxx">
+      <Filter>networking\messages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\won\networking\messages\EventDisconnect.hxx">
+      <Filter>networking\messages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\won\cereal\cereal.hpp">
+      <Filter>include\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\won\cereal\macros.hpp">
+      <Filter>include\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\won\cereal\access.hpp">
+      <Filter>include\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\won\enet\list.h">
+      <Filter>include\enet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\won\enet\protocol.h">
+      <Filter>include\enet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\won\enet\time.h">
+      <Filter>include\enet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\won\enet\types.h">
+      <Filter>include\enet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\won\enet\unix.h">
+      <Filter>include\enet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\won\enet\utility.h">
+      <Filter>include\enet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\won\enet\win32.h">
+      <Filter>include\enet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\won\enet\callbacks.h">
+      <Filter>include\enet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\won\enet\enet.h">
+      <Filter>include\enet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\won\enet\enetpp.hxx">
+      <Filter>include\enet</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="include">
+      <UniqueIdentifier>{fb86dfe5-d4dd-4f53-a59d-745c1ac1990d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\enet">
+      <UniqueIdentifier>{197d3136-6928-4c59-89ba-08409d4fa73a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="networking">
+      <UniqueIdentifier>{be2076fb-59ee-4e1c-afe0-a4fc1b2b6e11}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="networking\messages">
+      <UniqueIdentifier>{74cbe003-49bc-4d27-9e60-df31d3fd8983}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\cereal">
+      <UniqueIdentifier>{c8d322ab-72d5-43c6-a42d-b70bcb1b42d8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

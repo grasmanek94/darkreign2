@@ -1,0 +1,493 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="bucket">
+      <UniqueIdentifier>{e6461356-6a43-4dba-95dc-449ccf17d780}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="camera">
+      <UniqueIdentifier>{018ba76d-4f9e-46b5-96a3-702d4899026c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="light">
+      <UniqueIdentifier>{13f464fc-f35e-4548-af96-a856b5c01ef7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="material">
+      <UniqueIdentifier>{bd32f3c9-df5f-4ff3-bcfd-c4c70dbc004b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="mesh">
+      <UniqueIdentifier>{7bb821ca-1925-4028-8bbc-c50ef22c22a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="mesheffects">
+      <UniqueIdentifier>{c906e429-2da7-4fd9-a1b9-85dbd981e293}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="mrm">
+      <UniqueIdentifier>{477e6177-29c8-4234-8f96-5e619a92d2db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="terrain">
+      <UniqueIdentifier>{19c5c2e4-6d87-4d74-80ad-9efce85bf727}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="util">
+      <UniqueIdentifier>{d2a2df14-3629-4bfe-b58c-6d704a399b17}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vid">
+      <UniqueIdentifier>{aafdcac9-cf5d-4c97-abf0-989b95b96a1a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="bucket.cpp">
+      <Filter>bucket</Filter>
+    </ClCompile>
+    <ClCompile Include="BucketDesc.cpp">
+      <Filter>bucket</Filter>
+    </ClCompile>
+    <ClCompile Include="buckets_light.cpp">
+      <Filter>bucket</Filter>
+    </ClCompile>
+    <ClCompile Include="buckets_lock.cpp">
+      <Filter>bucket</Filter>
+    </ClCompile>
+    <ClCompile Include="Primitive.cpp">
+      <Filter>bucket</Filter>
+    </ClCompile>
+    <ClCompile Include="TranBucket.cpp">
+      <Filter>bucket</Filter>
+    </ClCompile>
+    <ClCompile Include="camera.cpp">
+      <Filter>camera</Filter>
+    </ClCompile>
+    <ClCompile Include="camera_test.cpp">
+      <Filter>camera</Filter>
+    </ClCompile>
+    <ClCompile Include="light.cpp">
+      <Filter>light</Filter>
+    </ClCompile>
+    <ClCompile Include="lightrend.cpp">
+      <Filter>light</Filter>
+    </ClCompile>
+    <ClCompile Include="lightvertscamera.cpp">
+      <Filter>light</Filter>
+    </ClCompile>
+    <ClCompile Include="lightvertsmodel.cpp">
+      <Filter>light</Filter>
+    </ClCompile>
+    <ClCompile Include="bitmap.cpp">
+      <Filter>material</Filter>
+    </ClCompile>
+    <ClCompile Include="bitmap_manager.cpp">
+      <Filter>material</Filter>
+    </ClCompile>
+    <ClCompile Include="bitmapprimitive.cpp">
+      <Filter>material</Filter>
+    </ClCompile>
+    <ClCompile Include="material.cpp">
+      <Filter>material</Filter>
+    </ClCompile>
+    <ClCompile Include="anim.cpp">
+      <Filter>mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="family.cpp">
+      <Filter>mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="godfile.cpp">
+      <Filter>mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="mesh.cpp">
+      <Filter>mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="mesh_render_vertex.cpp">
+      <Filter>mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="mesh_render_vertex_1.cpp">
+      <Filter>mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="mesh_render_vertextl.cpp">
+      <Filter>mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="meshconfig.cpp">
+      <Filter>mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="meshent.cpp">
+      <Filter>mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="meshent_render_vertex.cpp">
+      <Filter>mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="meshent_render_vertextl.cpp">
+      <Filter>mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="meshent_select.cpp">
+      <Filter>mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="meshload.cpp">
+      <Filter>mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="meshman.cpp">
+      <Filter>mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="meshoptions.cpp">
+      <Filter>mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="meshread.cpp">
+      <Filter>mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="meshview.cpp">
+      <Filter>mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="meshwrite.cpp">
+      <Filter>mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="effects_utils.cpp">
+      <Filter>mesheffects</Filter>
+    </ClCompile>
+    <ClCompile Include="mesheffect.cpp">
+      <Filter>mesheffects</Filter>
+    </ClCompile>
+    <ClCompile Include="mesheffect_base_color.cpp">
+      <Filter>mesheffects</Filter>
+    </ClCompile>
+    <ClCompile Include="mesheffect_color.cpp">
+      <Filter>mesheffects</Filter>
+    </ClCompile>
+    <ClCompile Include="mesheffect_fade.cpp">
+      <Filter>mesheffects</Filter>
+    </ClCompile>
+    <ClCompile Include="mesheffect_glow.cpp">
+      <Filter>mesheffects</Filter>
+    </ClCompile>
+    <ClCompile Include="mesheffect_liquidmetal.cpp">
+      <Filter>mesheffects</Filter>
+    </ClCompile>
+    <ClCompile Include="mesheffect_plane.cpp">
+      <Filter>mesheffects</Filter>
+    </ClCompile>
+    <ClCompile Include="mesheffect_planebuild.cpp">
+      <Filter>mesheffects</Filter>
+    </ClCompile>
+    <ClCompile Include="mesheffect_resource.cpp">
+      <Filter>mesheffects</Filter>
+    </ClCompile>
+    <ClCompile Include="mesheffect_scale.cpp">
+      <Filter>mesheffects</Filter>
+    </ClCompile>
+    <ClCompile Include="mesheffect_system.cpp">
+      <Filter>mesheffects</Filter>
+    </ClCompile>
+    <ClCompile Include="mesheffect_textcrossfade.cpp">
+      <Filter>mesheffects</Filter>
+    </ClCompile>
+    <ClCompile Include="mesheffecttype.cpp">
+      <Filter>mesheffects</Filter>
+    </ClCompile>
+    <ClCompile Include="mesheffecttype_color.cpp">
+      <Filter>mesheffects</Filter>
+    </ClCompile>
+    <ClCompile Include="mesheffecttype_fade.cpp">
+      <Filter>mesheffects</Filter>
+    </ClCompile>
+    <ClCompile Include="mesheffecttype_glow.cpp">
+      <Filter>mesheffects</Filter>
+    </ClCompile>
+    <ClCompile Include="mesheffecttype_resource.cpp">
+      <Filter>mesheffects</Filter>
+    </ClCompile>
+    <ClCompile Include="mesheffecttype_scale.cpp">
+      <Filter>mesheffects</Filter>
+    </ClCompile>
+    <ClCompile Include="mesheffecttype_textcrossfade.cpp">
+      <Filter>mesheffects</Filter>
+    </ClCompile>
+    <ClCompile Include="IMESHUtil.cpp">
+      <Filter>mrm</Filter>
+    </ClCompile>
+    <ClCompile Include="MRMUpdate.cpp">
+      <Filter>mrm</Filter>
+    </ClCompile>
+    <ClCompile Include="heightfield.cpp">
+      <Filter>terrain</Filter>
+    </ClCompile>
+    <ClCompile Include="terrain.cpp">
+      <Filter>terrain</Filter>
+    </ClCompile>
+    <ClCompile Include="terrain_lod.cpp">
+      <Filter>terrain</Filter>
+    </ClCompile>
+    <ClCompile Include="terrain_render_isometric.cpp">
+      <Filter>terrain</Filter>
+    </ClCompile>
+    <ClCompile Include="terrain_render_quick.cpp">
+      <Filter>terrain</Filter>
+    </ClCompile>
+    <ClCompile Include="terrain_render_rect.cpp">
+      <Filter>terrain</Filter>
+    </ClCompile>
+    <ClCompile Include="terrain_render_vertexc.cpp">
+      <Filter>terrain</Filter>
+    </ClCompile>
+    <ClCompile Include="terrain_render_vertextl.cpp">
+      <Filter>terrain</Filter>
+    </ClCompile>
+    <ClCompile Include="terrain_sky.cpp">
+      <Filter>terrain</Filter>
+    </ClCompile>
+    <ClCompile Include="terrain_sprite.cpp">
+      <Filter>terrain</Filter>
+    </ClCompile>
+    <ClCompile Include="gamemath.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="statistics.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="vid.cpp">
+      <Filter>vid</Filter>
+    </ClCompile>
+    <ClCompile Include="vid_cmd.cpp">
+      <Filter>vid</Filter>
+    </ClCompile>
+    <ClCompile Include="vid_cmd_dialog.cpp">
+      <Filter>vid</Filter>
+    </ClCompile>
+    <ClCompile Include="vid_cmd_mesh.cpp">
+      <Filter>vid</Filter>
+    </ClCompile>
+    <ClCompile Include="vid_cmd_terrain.cpp">
+      <Filter>vid</Filter>
+    </ClCompile>
+    <ClCompile Include="vid_config.cpp">
+      <Filter>vid</Filter>
+    </ClCompile>
+    <ClCompile Include="vid_enumdx.cpp">
+      <Filter>vid</Filter>
+    </ClCompile>
+    <ClCompile Include="vid_heap.cpp">
+      <Filter>vid</Filter>
+    </ClCompile>
+    <ClCompile Include="vid_math.cpp">
+      <Filter>vid</Filter>
+    </ClCompile>
+    <ClCompile Include="vid_settings.cpp">
+      <Filter>vid</Filter>
+    </ClCompile>
+    <ClCompile Include="vid_sprite.cpp">
+      <Filter>vid</Filter>
+    </ClCompile>
+    <ClCompile Include="vidclip.cpp">
+      <Filter>vid</Filter>
+    </ClCompile>
+    <ClCompile Include="vidclip_line.cpp">
+      <Filter>vid</Filter>
+    </ClCompile>
+    <ClCompile Include="vidclip_screen.cpp">
+      <Filter>vid</Filter>
+    </ClCompile>
+    <ClCompile Include="vidclip_xtra.cpp">
+      <Filter>vid</Filter>
+    </ClCompile>
+    <ClCompile Include="viderror.cpp">
+      <Filter>vid</Filter>
+    </ClCompile>
+    <ClCompile Include="vidgraphics.cpp">
+      <Filter>vid</Filter>
+    </ClCompile>
+    <ClCompile Include="vidmirror.cpp">
+      <Filter>vid</Filter>
+    </ClCompile>
+    <ClCompile Include="vidoptions.cpp">
+      <Filter>vid</Filter>
+    </ClCompile>
+    <ClCompile Include="vidrend.cpp">
+      <Filter>vid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\system\pchbuilder.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="bucket.h">
+      <Filter>bucket</Filter>
+    </ClInclude>
+    <ClInclude Include="bucket_inline.h">
+      <Filter>bucket</Filter>
+    </ClInclude>
+    <ClInclude Include="BucketDesc.h">
+      <Filter>bucket</Filter>
+    </ClInclude>
+    <ClInclude Include="Primitive.h">
+      <Filter>bucket</Filter>
+    </ClInclude>
+    <ClInclude Include="TranBucket.h">
+      <Filter>bucket</Filter>
+    </ClInclude>
+    <ClInclude Include="camera.h">
+      <Filter>camera</Filter>
+    </ClInclude>
+    <ClInclude Include="light.h">
+      <Filter>light</Filter>
+    </ClInclude>
+    <ClInclude Include="bitmap.h">
+      <Filter>material</Filter>
+    </ClInclude>
+    <ClInclude Include="bitmapclip.h">
+      <Filter>material</Filter>
+    </ClInclude>
+    <ClInclude Include="bitmapdec.h">
+      <Filter>material</Filter>
+    </ClInclude>
+    <ClInclude Include="bitmapprimitive.h">
+      <Filter>material</Filter>
+    </ClInclude>
+    <ClInclude Include="material.h">
+      <Filter>material</Filter>
+    </ClInclude>
+    <ClInclude Include="anim.h">
+      <Filter>mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="family.h">
+      <Filter>mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="godfile.h">
+      <Filter>mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="lex.h">
+      <Filter>mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="mesh.h">
+      <Filter>mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="meshconfig.h">
+      <Filter>mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="meshent.h">
+      <Filter>mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="meshmrm.h">
+      <Filter>mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="meshoptions.h">
+      <Filter>mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="meshview.h">
+      <Filter>mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="effects_utils.h">
+      <Filter>mesheffects</Filter>
+    </ClInclude>
+    <ClInclude Include="mesheffect.h">
+      <Filter>mesheffects</Filter>
+    </ClInclude>
+    <ClInclude Include="mesheffect_base_color.h">
+      <Filter>mesheffects</Filter>
+    </ClInclude>
+    <ClInclude Include="mesheffect_color.h">
+      <Filter>mesheffects</Filter>
+    </ClInclude>
+    <ClInclude Include="mesheffect_fade.h">
+      <Filter>mesheffects</Filter>
+    </ClInclude>
+    <ClInclude Include="mesheffect_glow.h">
+      <Filter>mesheffects</Filter>
+    </ClInclude>
+    <ClInclude Include="mesheffect_liquidmetal.h">
+      <Filter>mesheffects</Filter>
+    </ClInclude>
+    <ClInclude Include="mesheffect_plane.h">
+      <Filter>mesheffects</Filter>
+    </ClInclude>
+    <ClInclude Include="mesheffect_planebuild.h">
+      <Filter>mesheffects</Filter>
+    </ClInclude>
+    <ClInclude Include="mesheffect_resource.h">
+      <Filter>mesheffects</Filter>
+    </ClInclude>
+    <ClInclude Include="mesheffect_scale.h">
+      <Filter>mesheffects</Filter>
+    </ClInclude>
+    <ClInclude Include="mesheffect_system.h">
+      <Filter>mesheffects</Filter>
+    </ClInclude>
+    <ClInclude Include="mesheffect_textcrossfade.h">
+      <Filter>mesheffects</Filter>
+    </ClInclude>
+    <ClInclude Include="mesheffecttype.h">
+      <Filter>mesheffects</Filter>
+    </ClInclude>
+    <ClInclude Include="mesheffecttype_color.h">
+      <Filter>mesheffects</Filter>
+    </ClInclude>
+    <ClInclude Include="mesheffecttype_fade.h">
+      <Filter>mesheffects</Filter>
+    </ClInclude>
+    <ClInclude Include="mesheffecttype_glow.h">
+      <Filter>mesheffects</Filter>
+    </ClInclude>
+    <ClInclude Include="mesheffecttype_resource.h">
+      <Filter>mesheffects</Filter>
+    </ClInclude>
+    <ClInclude Include="mesheffecttype_scale.h">
+      <Filter>mesheffects</Filter>
+    </ClInclude>
+    <ClInclude Include="mesheffecttype_textcrossfade.h">
+      <Filter>mesheffects</Filter>
+    </ClInclude>
+    <ClInclude Include="IMESH.h">
+      <Filter>mrm</Filter>
+    </ClInclude>
+    <ClInclude Include="IMESHUtil.h">
+      <Filter>mrm</Filter>
+    </ClInclude>
+    <ClInclude Include="MRMGen.h">
+      <Filter>mrm</Filter>
+    </ClInclude>
+    <ClInclude Include="MRMGenParams.h">
+      <Filter>mrm</Filter>
+    </ClInclude>
+    <ClInclude Include="MRMUpdate.h">
+      <Filter>mrm</Filter>
+    </ClInclude>
+    <ClInclude Include="terrain.h">
+      <Filter>terrain</Filter>
+    </ClInclude>
+    <ClInclude Include="terrain_priv.h">
+      <Filter>terrain</Filter>
+    </ClInclude>
+    <ClInclude Include="gamemath.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="statistics.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="Vertex.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="vid.h">
+      <Filter>vid</Filter>
+    </ClInclude>
+    <ClInclude Include="vid_cmd.h">
+      <Filter>vid</Filter>
+    </ClInclude>
+    <ClInclude Include="vid_cmd_var.h">
+      <Filter>vid</Filter>
+    </ClInclude>
+    <ClInclude Include="vid_decl.h">
+      <Filter>vid</Filter>
+    </ClInclude>
+    <ClInclude Include="vid_heap.h">
+      <Filter>vid</Filter>
+    </ClInclude>
+    <ClInclude Include="vid_math.h">
+      <Filter>vid</Filter>
+    </ClInclude>
+    <ClInclude Include="vid_private.h">
+      <Filter>vid</Filter>
+    </ClInclude>
+    <ClInclude Include="vid_public.h">
+      <Filter>vid</Filter>
+    </ClInclude>
+    <ClInclude Include="vidclip.h">
+      <Filter>vid</Filter>
+    </ClInclude>
+    <ClInclude Include="vidclip_priv.h">
+      <Filter>vid</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

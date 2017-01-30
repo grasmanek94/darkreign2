@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="var">
+      <UniqueIdentifier>{517944c3-5dc7-4acb-adbd-4f156f4f12a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="types">
+      <UniqueIdentifier>{3e1f906b-4f36-4f38-8109-6890469515ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="multilanguage">
+      <UniqueIdentifier>{e67ba6be-d214-41d2-bb6d-5e8e420fd66c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="operators">
+      <UniqueIdentifier>{6d24a774-9b97-473b-9933-33573caec327}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="varfile.cpp">
+      <Filter>var</Filter>
+    </ClCompile>
+    <ClCompile Include="varitem.cpp">
+      <Filter>var</Filter>
+    </ClCompile>
+    <ClCompile Include="varptr.cpp">
+      <Filter>var</Filter>
+    </ClCompile>
+    <ClCompile Include="varscope.cpp">
+      <Filter>var</Filter>
+    </ClCompile>
+    <ClCompile Include="varsys.cpp">
+      <Filter>var</Filter>
+    </ClCompile>
+    <ClCompile Include="mathtypes.cpp">
+      <Filter>types</Filter>
+    </ClCompile>
+    <ClCompile Include="utiltypes.cpp">
+      <Filter>types</Filter>
+    </ClCompile>
+    <ClCompile Include="babel.cpp">
+      <Filter>multilanguage</Filter>
+    </ClCompile>
+    <ClCompile Include="multilanguage.cpp">
+      <Filter>multilanguage</Filter>
+    </ClCompile>
+    <ClCompile Include="comparison.cpp">
+      <Filter>operators</Filter>
+    </ClCompile>
+    <ClCompile Include="operation.cpp">
+      <Filter>operators</Filter>
+    </ClCompile>
+    <ClCompile Include="relationaloperator.cpp">
+      <Filter>operators</Filter>
+    </ClCompile>
+    <ClCompile Include="switch.cpp">
+      <Filter>operators</Filter>
+    </ClCompile>
+    <ClCompile Include="console.cpp" />
+    <ClCompile Include="event.cpp" />
+    <ClCompile Include="param.cpp" />
+    <ClCompile Include="..\system\pchbuilder.cpp" />
+    <ClCompile Include="perfstats.cpp" />
+    <ClCompile Include="plasma.cpp" />
+    <ClCompile Include="..\coregame\spline.cpp" />
+    <ClCompile Include="stats.cpp" />
+    <ClCompile Include="stdload.cpp" />
+    <ClCompile Include="sunpos.cpp" />
+    <ClCompile Include="tracksys.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="varfile.h">
+      <Filter>var</Filter>
+    </ClInclude>
+    <ClInclude Include="varsys.h">
+      <Filter>var</Filter>
+    </ClInclude>
+    <ClInclude Include="area.h">
+      <Filter>types</Filter>
+    </ClInclude>
+    <ClInclude Include="color.h">
+      <Filter>types</Filter>
+    </ClInclude>
+    <ClInclude Include="mathtypes.h">
+      <Filter>types</Filter>
+    </ClInclude>
+    <ClInclude Include="utiltypes.h">
+      <Filter>types</Filter>
+    </ClInclude>
+    <ClInclude Include="babel.h">
+      <Filter>multilanguage</Filter>
+    </ClInclude>
+    <ClInclude Include="multilanguage.h">
+      <Filter>multilanguage</Filter>
+    </ClInclude>
+    <ClInclude Include="arithmeticoperator.h">
+      <Filter>operators</Filter>
+    </ClInclude>
+    <ClInclude Include="comparison.h">
+      <Filter>operators</Filter>
+    </ClInclude>
+    <ClInclude Include="operation.h">
+      <Filter>operators</Filter>
+    </ClInclude>
+    <ClInclude Include="relationaloperator.h">
+      <Filter>operators</Filter>
+    </ClInclude>
+    <ClInclude Include="switch.h">
+      <Filter>operators</Filter>
+    </ClInclude>
+    <ClInclude Include="balancetable.h" />
+    <ClInclude Include="bitarray.h" />
+    <ClInclude Include="console.h" />
+    <ClInclude Include="event.h" />
+    <ClInclude Include="lopassfilter.h" />
+    <ClInclude Include="midpointline.h" />
+    <ClInclude Include="param.h" />
+    <ClInclude Include="perfstats.h" />
+    <ClInclude Include="plasma.h" />
+    <ClInclude Include="promotelink.h" />
+    <ClInclude Include="..\coregame\spline.h" />
+    <ClInclude Include="statemachine.h" />
+    <ClInclude Include="stats.h" />
+    <ClInclude Include="stdload.h" />
+    <ClInclude Include="sunpos.h" />
+    <ClInclude Include="tracksys.h" />
+  </ItemGroup>
+</Project>

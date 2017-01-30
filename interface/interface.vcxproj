@@ -1,0 +1,297 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Development|Win32">
+      <Configuration>Development</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="kkk|Win32">
+      <Configuration>kkk</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Template|Win32">
+      <Configuration>Template</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <ProjectGuid>{A6A64C3C-9370-4084-A176-7E62C76D229E}</ProjectGuid>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Template|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Development|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='kkk|Win32'">
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Template|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Development|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>.\../Release/interface\</OutDir>
+    <IntDir>.\../Release/interface\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>.\../Debug/interface\</OutDir>
+    <IntDir>.\../Debug/interface\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Development|Win32'">
+    <OutDir>.\../Development/interface\</OutDir>
+    <IntDir>.\../Development/interface\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <StringPooling>true</StringPooling>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <Optimization>MaxSpeed</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>Level4</WarningLevel>
+      <OmitFramePointers>false</OmitFramePointers>
+      <AdditionalIncludeDirectories>../3rdparty;../coregame;../coregame_ai;../coregame_interface;../coregame_objects;../coregame_orders;../coregame_particles;../coregame_tasks;../game;../graphics;../interface;../main;../multiplayer;../sound;../system;../util;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>stdinc_interface.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PreprocessorDefinitions>WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerOutput>All</AssemblerOutput>
+      <AssemblerListingLocation>.\../Release/interface\</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>.\../Release/interface\interface.pch</PrecompiledHeaderOutputFile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdinc_interface.h</PrecompiledHeaderFile>
+      <ObjectFileName>.\../Release/interface\</ObjectFileName>
+      <ProgramDataBaseFileName>.\../Release/interface\</ProgramDataBaseFileName>
+      <CallingConvention>FastCall</CallingConvention>
+      <DisableSpecificWarnings>4996;</DisableSpecificWarnings>
+    </ClCompile>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\../Release/interface\interface.bsc</OutputFile>
+    </Bscmake>
+    <Lib>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\../Release/interface\interface.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <Optimization>Disabled</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>Level4</WarningLevel>
+      <AdditionalIncludeDirectories>../3rdparty;../coregame;../coregame_ai;../coregame_interface;../coregame_objects;../coregame_orders;../coregame_particles;../coregame_tasks;../game;../graphics;../interface;../main;../multiplayer;../sound;../system;../util;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>stdinc_interface.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PreprocessorDefinitions>WIN32;</PreprocessorDefinitions>
+      <AssemblerListingLocation>.\../Debug/interface\</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>.\../Debug/interface\interface.pch</PrecompiledHeaderOutputFile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdinc_interface.h</PrecompiledHeaderFile>
+      <ObjectFileName>.\../Debug/interface\</ObjectFileName>
+      <ProgramDataBaseFileName>.\../Debug/interface\</ProgramDataBaseFileName>
+      <CallingConvention>FastCall</CallingConvention>
+      <DisableSpecificWarnings>4996;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\../Debug/interface\interface.bsc</OutputFile>
+    </Bscmake>
+    <Lib>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\../Debug/interface\interface.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Development|Win32'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <StringPooling>true</StringPooling>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <Optimization>MaxSpeed</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>Level4</WarningLevel>
+      <OmitFramePointers>false</OmitFramePointers>
+      <AdditionalIncludeDirectories>../3rdparty;../coregame;../coregame_ai;../coregame_interface;../coregame_objects;../coregame_orders;../coregame_particles;../coregame_tasks;../game;../graphics;../interface;../main;../multiplayer;../sound;../system;../util;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>stdinc_interface.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PreprocessorDefinitions>WIN32;NDEBUG;DEVELOPMENT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerOutput>All</AssemblerOutput>
+      <AssemblerListingLocation>.\../Development/interface\</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>.\../Development/interface\interface.pch</PrecompiledHeaderOutputFile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdinc_interface.h</PrecompiledHeaderFile>
+      <ObjectFileName>.\../Development/interface\</ObjectFileName>
+      <ProgramDataBaseFileName>.\../Development/interface\</ProgramDataBaseFileName>
+      <CallingConvention>FastCall</CallingConvention>
+    </ClCompile>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\../Development/interface\interface.bsc</OutputFile>
+    </Bscmake>
+    <Lib>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\../Development/interface\interface.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="icbutton.cpp" />
+    <ClCompile Include="icdroplist.cpp" />
+    <ClCompile Include="icedit.cpp" />
+    <ClCompile Include="icgauge.cpp" />
+    <ClCompile Include="icgrid.cpp" />
+    <ClCompile Include="icgridwindow.cpp" />
+    <ClCompile Include="iclistbox.cpp" />
+    <ClCompile Include="iclistslider.cpp" />
+    <ClCompile Include="icmenu.cpp" />
+    <ClCompile Include="icmesh.cpp" />
+    <ClCompile Include="icmonoview.cpp" />
+    <ClCompile Include="icontrol.cpp" />
+    <ClCompile Include="icroot.cpp" />
+    <ClCompile Include="icslider.cpp" />
+    <ClCompile Include="icstatic.cpp" />
+    <ClCompile Include="icsystembutton.cpp" />
+    <ClCompile Include="ictabgroup.cpp" />
+    <ClCompile Include="icticker.cpp" />
+    <ClCompile Include="ictimer.cpp" />
+    <ClCompile Include="ictipwindow.cpp" />
+    <ClCompile Include="icwindow.cpp" />
+    <ClCompile Include="console_edit.cpp" />
+    <ClCompile Include="console_viewer.cpp" />
+    <ClCompile Include="ictetris.cpp" />
+    <ClCompile Include="cursor.cpp" />
+    <ClCompile Include="input.cpp" />
+    <ClCompile Include="keybind.cpp" />
+    <ClCompile Include="iface_messagebox.cpp" />
+    <ClCompile Include="messagebox_event.cpp" />
+    <ClCompile Include="font.cpp" />
+    <ClCompile Include="fontsys.cpp" />
+    <ClCompile Include="iface.cpp" />
+    <ClCompile Include="iface_controls.cpp" />
+    <ClCompile Include="iface_sound.cpp" />
+    <ClCompile Include="iface_util.cpp" />
+    <ClCompile Include="ifvar.cpp" />
+    <ClCompile Include="colorbutton.cpp" />
+    <ClCompile Include="coloreditor.cpp" />
+    <ClCompile Include="ickeyview.cpp" />
+    <ClCompile Include="iconwindow.cpp" />
+    <ClCompile Include="icsoundconfig.cpp" />
+    <ClCompile Include="..\system\pchbuilder.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">stdinc_interface.h</PrecompiledHeaderFile>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">stdinc_interface.h</PrecompiledHeaderFile>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Development|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Development|Win32'">stdinc_interface.h</PrecompiledHeaderFile>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="icbutton.h" />
+    <ClInclude Include="icclass.h" />
+    <ClInclude Include="icdroplist.h" />
+    <ClInclude Include="icedit.h" />
+    <ClInclude Include="icgauge.h" />
+    <ClInclude Include="icgrid.h" />
+    <ClInclude Include="icgridwindow.h" />
+    <ClInclude Include="iclistbox.h" />
+    <ClInclude Include="iclistslider.h" />
+    <ClInclude Include="icmenu.h" />
+    <ClInclude Include="icmesh.h" />
+    <ClInclude Include="icmonoview.h" />
+    <ClInclude Include="icontrol.h" />
+    <ClInclude Include="icroot.h" />
+    <ClInclude Include="icslider.h" />
+    <ClInclude Include="icstatic.h" />
+    <ClInclude Include="icsystembutton.h" />
+    <ClInclude Include="ictabgroup.h" />
+    <ClInclude Include="icticker.h" />
+    <ClInclude Include="ictimer.h" />
+    <ClInclude Include="ictipwindow.h" />
+    <ClInclude Include="icwindow.h" />
+    <ClInclude Include="console_edit.h" />
+    <ClInclude Include="console_viewer.h" />
+    <ClInclude Include="ictetris.h" />
+    <ClInclude Include="cursor.h" />
+    <ClInclude Include="input.h" />
+    <ClInclude Include="keybind.h" />
+    <ClInclude Include="iface_messagebox.h" />
+    <ClInclude Include="messagebox_event.h" />
+    <ClInclude Include="font.h" />
+    <ClInclude Include="fontsys.h" />
+    <ClInclude Include="iface.h" />
+    <ClInclude Include="iface_controls.h" />
+    <ClInclude Include="iface_priv.h" />
+    <ClInclude Include="iface_sound.h" />
+    <ClInclude Include="iface_types.h" />
+    <ClInclude Include="iface_util.h" />
+    <ClInclude Include="iftypes.h" />
+    <ClInclude Include="ifvar.h" />
+    <ClInclude Include="colorbutton.h" />
+    <ClInclude Include="coloreditor.h" />
+    <ClInclude Include="ickeyview.h" />
+    <ClInclude Include="iconwindow.h" />
+    <ClInclude Include="icsoundconfig.h" />
+    <ClInclude Include="stdinc_interface.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

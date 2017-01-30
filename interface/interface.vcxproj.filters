@@ -1,0 +1,290 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="base controls">
+      <UniqueIdentifier>{9c1c195f-996d-4a19-8129-98c6d124197f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="console">
+      <UniqueIdentifier>{1d153cc0-3c1b-469b-9ff4-a3e484535103}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game controls">
+      <UniqueIdentifier>{d8b42393-68f5-4371-a530-500578abd416}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="input">
+      <UniqueIdentifier>{a52a6391-8eb6-460d-b59c-a7762fca486a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="messagebox">
+      <UniqueIdentifier>{50b64d78-bc31-43ca-8a90-9cf680922d09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="system">
+      <UniqueIdentifier>{c95c7ef7-b1bd-435a-8cd0-599c2c579591}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="system controls">
+      <UniqueIdentifier>{acff3546-6221-4fb9-a142-9d76080af34e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="icbutton.cpp">
+      <Filter>base controls</Filter>
+    </ClCompile>
+    <ClCompile Include="icdroplist.cpp">
+      <Filter>base controls</Filter>
+    </ClCompile>
+    <ClCompile Include="icedit.cpp">
+      <Filter>base controls</Filter>
+    </ClCompile>
+    <ClCompile Include="icgauge.cpp">
+      <Filter>base controls</Filter>
+    </ClCompile>
+    <ClCompile Include="icgrid.cpp">
+      <Filter>base controls</Filter>
+    </ClCompile>
+    <ClCompile Include="icgridwindow.cpp">
+      <Filter>base controls</Filter>
+    </ClCompile>
+    <ClCompile Include="iclistbox.cpp">
+      <Filter>base controls</Filter>
+    </ClCompile>
+    <ClCompile Include="iclistslider.cpp">
+      <Filter>base controls</Filter>
+    </ClCompile>
+    <ClCompile Include="icmenu.cpp">
+      <Filter>base controls</Filter>
+    </ClCompile>
+    <ClCompile Include="icmesh.cpp">
+      <Filter>base controls</Filter>
+    </ClCompile>
+    <ClCompile Include="icmonoview.cpp">
+      <Filter>base controls</Filter>
+    </ClCompile>
+    <ClCompile Include="icontrol.cpp">
+      <Filter>base controls</Filter>
+    </ClCompile>
+    <ClCompile Include="icroot.cpp">
+      <Filter>base controls</Filter>
+    </ClCompile>
+    <ClCompile Include="icslider.cpp">
+      <Filter>base controls</Filter>
+    </ClCompile>
+    <ClCompile Include="icstatic.cpp">
+      <Filter>base controls</Filter>
+    </ClCompile>
+    <ClCompile Include="icsystembutton.cpp">
+      <Filter>base controls</Filter>
+    </ClCompile>
+    <ClCompile Include="ictabgroup.cpp">
+      <Filter>base controls</Filter>
+    </ClCompile>
+    <ClCompile Include="icticker.cpp">
+      <Filter>base controls</Filter>
+    </ClCompile>
+    <ClCompile Include="ictimer.cpp">
+      <Filter>base controls</Filter>
+    </ClCompile>
+    <ClCompile Include="ictipwindow.cpp">
+      <Filter>base controls</Filter>
+    </ClCompile>
+    <ClCompile Include="icwindow.cpp">
+      <Filter>base controls</Filter>
+    </ClCompile>
+    <ClCompile Include="console_edit.cpp">
+      <Filter>console</Filter>
+    </ClCompile>
+    <ClCompile Include="console_viewer.cpp">
+      <Filter>console</Filter>
+    </ClCompile>
+    <ClCompile Include="ictetris.cpp">
+      <Filter>game controls</Filter>
+    </ClCompile>
+    <ClCompile Include="cursor.cpp">
+      <Filter>input</Filter>
+    </ClCompile>
+    <ClCompile Include="input.cpp">
+      <Filter>input</Filter>
+    </ClCompile>
+    <ClCompile Include="keybind.cpp">
+      <Filter>input</Filter>
+    </ClCompile>
+    <ClCompile Include="iface_messagebox.cpp">
+      <Filter>messagebox</Filter>
+    </ClCompile>
+    <ClCompile Include="messagebox_event.cpp">
+      <Filter>messagebox</Filter>
+    </ClCompile>
+    <ClCompile Include="font.cpp">
+      <Filter>system</Filter>
+    </ClCompile>
+    <ClCompile Include="fontsys.cpp">
+      <Filter>system</Filter>
+    </ClCompile>
+    <ClCompile Include="iface.cpp">
+      <Filter>system</Filter>
+    </ClCompile>
+    <ClCompile Include="iface_controls.cpp">
+      <Filter>system</Filter>
+    </ClCompile>
+    <ClCompile Include="iface_sound.cpp">
+      <Filter>system</Filter>
+    </ClCompile>
+    <ClCompile Include="iface_util.cpp">
+      <Filter>system</Filter>
+    </ClCompile>
+    <ClCompile Include="ifvar.cpp">
+      <Filter>system</Filter>
+    </ClCompile>
+    <ClCompile Include="colorbutton.cpp">
+      <Filter>system controls</Filter>
+    </ClCompile>
+    <ClCompile Include="coloreditor.cpp">
+      <Filter>system controls</Filter>
+    </ClCompile>
+    <ClCompile Include="ickeyview.cpp">
+      <Filter>system controls</Filter>
+    </ClCompile>
+    <ClCompile Include="iconwindow.cpp">
+      <Filter>system controls</Filter>
+    </ClCompile>
+    <ClCompile Include="icsoundconfig.cpp">
+      <Filter>system controls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\system\pchbuilder.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="icbutton.h">
+      <Filter>base controls</Filter>
+    </ClInclude>
+    <ClInclude Include="icclass.h">
+      <Filter>base controls</Filter>
+    </ClInclude>
+    <ClInclude Include="icdroplist.h">
+      <Filter>base controls</Filter>
+    </ClInclude>
+    <ClInclude Include="icedit.h">
+      <Filter>base controls</Filter>
+    </ClInclude>
+    <ClInclude Include="icgauge.h">
+      <Filter>base controls</Filter>
+    </ClInclude>
+    <ClInclude Include="icgrid.h">
+      <Filter>base controls</Filter>
+    </ClInclude>
+    <ClInclude Include="icgridwindow.h">
+      <Filter>base controls</Filter>
+    </ClInclude>
+    <ClInclude Include="iclistbox.h">
+      <Filter>base controls</Filter>
+    </ClInclude>
+    <ClInclude Include="iclistslider.h">
+      <Filter>base controls</Filter>
+    </ClInclude>
+    <ClInclude Include="icmenu.h">
+      <Filter>base controls</Filter>
+    </ClInclude>
+    <ClInclude Include="icmesh.h">
+      <Filter>base controls</Filter>
+    </ClInclude>
+    <ClInclude Include="icmonoview.h">
+      <Filter>base controls</Filter>
+    </ClInclude>
+    <ClInclude Include="icontrol.h">
+      <Filter>base controls</Filter>
+    </ClInclude>
+    <ClInclude Include="icroot.h">
+      <Filter>base controls</Filter>
+    </ClInclude>
+    <ClInclude Include="icslider.h">
+      <Filter>base controls</Filter>
+    </ClInclude>
+    <ClInclude Include="icstatic.h">
+      <Filter>base controls</Filter>
+    </ClInclude>
+    <ClInclude Include="icsystembutton.h">
+      <Filter>base controls</Filter>
+    </ClInclude>
+    <ClInclude Include="ictabgroup.h">
+      <Filter>base controls</Filter>
+    </ClInclude>
+    <ClInclude Include="icticker.h">
+      <Filter>base controls</Filter>
+    </ClInclude>
+    <ClInclude Include="ictimer.h">
+      <Filter>base controls</Filter>
+    </ClInclude>
+    <ClInclude Include="ictipwindow.h">
+      <Filter>base controls</Filter>
+    </ClInclude>
+    <ClInclude Include="icwindow.h">
+      <Filter>base controls</Filter>
+    </ClInclude>
+    <ClInclude Include="console_edit.h">
+      <Filter>console</Filter>
+    </ClInclude>
+    <ClInclude Include="console_viewer.h">
+      <Filter>console</Filter>
+    </ClInclude>
+    <ClInclude Include="ictetris.h">
+      <Filter>game controls</Filter>
+    </ClInclude>
+    <ClInclude Include="cursor.h">
+      <Filter>input</Filter>
+    </ClInclude>
+    <ClInclude Include="input.h">
+      <Filter>input</Filter>
+    </ClInclude>
+    <ClInclude Include="keybind.h">
+      <Filter>input</Filter>
+    </ClInclude>
+    <ClInclude Include="iface_messagebox.h">
+      <Filter>messagebox</Filter>
+    </ClInclude>
+    <ClInclude Include="messagebox_event.h">
+      <Filter>messagebox</Filter>
+    </ClInclude>
+    <ClInclude Include="font.h">
+      <Filter>system</Filter>
+    </ClInclude>
+    <ClInclude Include="fontsys.h">
+      <Filter>system</Filter>
+    </ClInclude>
+    <ClInclude Include="iface.h">
+      <Filter>system</Filter>
+    </ClInclude>
+    <ClInclude Include="iface_controls.h">
+      <Filter>system</Filter>
+    </ClInclude>
+    <ClInclude Include="iface_priv.h">
+      <Filter>system</Filter>
+    </ClInclude>
+    <ClInclude Include="iface_sound.h">
+      <Filter>system</Filter>
+    </ClInclude>
+    <ClInclude Include="iface_types.h">
+      <Filter>system</Filter>
+    </ClInclude>
+    <ClInclude Include="iface_util.h">
+      <Filter>system</Filter>
+    </ClInclude>
+    <ClInclude Include="iftypes.h">
+      <Filter>system</Filter>
+    </ClInclude>
+    <ClInclude Include="ifvar.h">
+      <Filter>system</Filter>
+    </ClInclude>
+    <ClInclude Include="colorbutton.h">
+      <Filter>system controls</Filter>
+    </ClInclude>
+    <ClInclude Include="coloreditor.h">
+      <Filter>system controls</Filter>
+    </ClInclude>
+    <ClInclude Include="ickeyview.h">
+      <Filter>system controls</Filter>
+    </ClInclude>
+    <ClInclude Include="iconwindow.h">
+      <Filter>system controls</Filter>
+    </ClInclude>
+    <ClInclude Include="icsoundconfig.h">
+      <Filter>system controls</Filter>
+    </ClInclude>
+    <ClInclude Include="stdinc_interface.h" />
+  </ItemGroup>
+</Project>

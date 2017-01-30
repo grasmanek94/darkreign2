@@ -1,0 +1,347 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Development|Win32">
+      <Configuration>Development</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="kkk|Win32">
+      <Configuration>kkk</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Template|Win32">
+      <Configuration>Template</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <ProjectGuid>{B2392F3F-72B2-4F7B-848E-531680F3F2CA}</ProjectGuid>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Template|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Development|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='kkk|Win32'">
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Template|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Development|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>.\../Debug/coregame_interface\</OutDir>
+    <IntDir>.\../Debug/coregame_interface\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Development|Win32'">
+    <OutDir>.\../Development/coregame_interface\</OutDir>
+    <IntDir>.\../Development/coregame_interface\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>.\../Release/coregame_interface\</OutDir>
+    <IntDir>.\../Release/coregame_interface\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <Optimization>Disabled</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>Level4</WarningLevel>
+      <AdditionalIncludeDirectories>../3rdparty;../coregame;../coregame_ai;../coregame_interface;../coregame_objects;../coregame_orders;../coregame_particles;../coregame_tasks;../game;../graphics;../interface;../main;../multiplayer;../sound;../system;../util;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>stdinc_coregame.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PreprocessorDefinitions>WIN32;</PreprocessorDefinitions>
+      <AssemblerListingLocation>.\../Debug/coregame_interface\</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>.\../Debug/coregame_interface\coregame_interface.pch</PrecompiledHeaderOutputFile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdinc_coregame.h</PrecompiledHeaderFile>
+      <ObjectFileName>.\../Debug/coregame_interface\</ObjectFileName>
+      <ProgramDataBaseFileName>.\../Debug/coregame_interface\</ProgramDataBaseFileName>
+      <CallingConvention>FastCall</CallingConvention>
+      <DisableSpecificWarnings>4996;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\../Debug/coregame_interface\coregame_interface.bsc</OutputFile>
+    </Bscmake>
+    <Lib>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\../Debug/coregame_interface\coregame_interface.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Development|Win32'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <StringPooling>true</StringPooling>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <Optimization>MaxSpeed</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>Level4</WarningLevel>
+      <OmitFramePointers>false</OmitFramePointers>
+      <AdditionalIncludeDirectories>../3rdparty;../coregame;../coregame_ai;../coregame_interface;../coregame_objects;../coregame_orders;../coregame_particles;../coregame_tasks;../game;../graphics;../interface;../main;../multiplayer;../sound;../system;../util;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>stdinc_coregame.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PreprocessorDefinitions>WIN32;NDEBUG;DEVELOPMENT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerOutput>All</AssemblerOutput>
+      <AssemblerListingLocation>.\../Development/coregame_interface\</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>.\../Development/coregame_interface\coregame_interface.pch</PrecompiledHeaderOutputFile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdinc_coregame.h</PrecompiledHeaderFile>
+      <ObjectFileName>.\../Development/coregame_interface\</ObjectFileName>
+      <ProgramDataBaseFileName>.\../Development/coregame_interface\</ProgramDataBaseFileName>
+      <CallingConvention>FastCall</CallingConvention>
+    </ClCompile>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\../Development/coregame_interface\coregame_interface.bsc</OutputFile>
+    </Bscmake>
+    <Lib>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\../Development/coregame_interface\coregame_interface.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <StringPooling>true</StringPooling>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <Optimization>MaxSpeed</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>Level4</WarningLevel>
+      <OmitFramePointers>false</OmitFramePointers>
+      <AdditionalIncludeDirectories>../3rdparty;../coregame;../coregame_ai;../coregame_interface;../coregame_objects;../coregame_orders;../coregame_particles;../coregame_tasks;../game;../graphics;../interface;../main;../multiplayer;../sound;../system;../util;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>stdinc_coregame.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PreprocessorDefinitions>WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerOutput>All</AssemblerOutput>
+      <AssemblerListingLocation>.\../Release/coregame_interface\</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>.\../Release/coregame_interface\coregame_interface.pch</PrecompiledHeaderOutputFile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdinc_coregame.h</PrecompiledHeaderFile>
+      <ObjectFileName>.\../Release/coregame_interface\</ObjectFileName>
+      <ProgramDataBaseFileName>.\../Release/coregame_interface\</ProgramDataBaseFileName>
+      <CallingConvention>FastCall</CallingConvention>
+      <DisableSpecificWarnings>4996;</DisableSpecificWarnings>
+    </ClCompile>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\../Release/coregame_interface\coregame_interface.bsc</OutputFile>
+    </Bscmake>
+    <Lib>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\../Release/coregame_interface\coregame_interface.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="client_clustermap.cpp" />
+    <ClCompile Include="client_commandpoints.cpp" />
+    <ClCompile Include="client_construction.cpp" />
+    <ClCompile Include="client_controls.cpp" />
+    <ClCompile Include="client_debriefing.cpp" />
+    <ClCompile Include="client_displayobjectives.cpp" />
+    <ClCompile Include="client_facility.cpp" />
+    <ClCompile Include="client_orderlag.cpp" />
+    <ClCompile Include="client_power.cpp" />
+    <ClCompile Include="client_resource.cpp" />
+    <ClCompile Include="client_scorchcontrol.cpp" />
+    <ClCompile Include="client_squadcontrol.cpp" />
+    <ClCompile Include="client_tactical.cpp" />
+    <ClCompile Include="client_timeofday.cpp" />
+    <ClCompile Include="client_unitcontext.cpp" />
+    <ClCompile Include="client_unitselection.cpp" />
+    <ClCompile Include="client.cpp" />
+    <ClCompile Include="client_cmd.cpp" />
+    <ClCompile Include="client_debug.cpp" />
+    <ClCompile Include="client_display.cpp" />
+    <ClCompile Include="client_events.cpp" />
+    <ClCompile Include="client_group.cpp" />
+    <ClCompile Include="client_hud.cpp" />
+    <ClCompile Include="client_trail.cpp" />
+    <ClCompile Include="common_calendar.cpp" />
+    <ClCompile Include="common_cursorpos.cpp" />
+    <ClCompile Include="common_gamewindow.cpp" />
+    <ClCompile Include="common_mapwindow.cpp" />
+    <ClCompile Include="common_messagewindow.cpp" />
+    <ClCompile Include="common_prereqlist.cpp" />
+    <ClCompile Include="common_prereqtree.cpp" />
+    <ClCompile Include="common_stats.cpp" />
+    <ClCompile Include="common_teamlistbox.cpp" />
+    <ClCompile Include="common_typelist.cpp" />
+    <ClCompile Include="common_typepreview.cpp" />
+    <ClCompile Include="common.cpp" />
+    <ClCompile Include="common_cycle.cpp" />
+    <ClCompile Include="common_display.cpp" />
+    <ClCompile Include="studio_brush.cpp" />
+    <ClCompile Include="studio_brush_apply.cpp" />
+    <ClCompile Include="studio_brush_applycell.cpp" />
+    <ClCompile Include="studio_brush_area.cpp" />
+    <ClCompile Include="studio_brush_curve.cpp" />
+    <ClCompile Include="studio_brush_objects.cpp" />
+    <ClCompile Include="studio_brush_overlay.cpp" />
+    <ClCompile Include="studio_brush_pathsearch.cpp" />
+    <ClCompile Include="studio_brush_region.cpp" />
+    <ClCompile Include="studio_brush_tag.cpp" />
+    <ClCompile Include="studio_brush_terrain.cpp" />
+    <ClCompile Include="studio_brush_terraintweak.cpp" />
+    <ClCompile Include="studio_brush_trail.cpp" />
+    <ClCompile Include="studio_brush_water.cpp" />
+    <ClCompile Include="studio_history.cpp" />
+    <ClCompile Include="studio_history_objects.cpp" />
+    <ClCompile Include="studio_history_terrain.cpp" />
+    <ClCompile Include="studio_attachlist.cpp" />
+    <ClCompile Include="studio_bookmarklist.cpp" />
+    <ClCompile Include="studio_bookmarklistbox.cpp" />
+    <ClCompile Include="studio_controls.cpp" />
+    <ClCompile Include="studio_footeditor.cpp" />
+    <ClCompile Include="studio_lighteditor.cpp" />
+    <ClCompile Include="studio_mission.cpp" />
+    <ClCompile Include="studio_objecttweak_baseobj.cpp" />
+    <ClCompile Include="studio_objecttweak_mapobj.cpp" />
+    <ClCompile Include="studio_objecttweak_resourceobj.cpp" />
+    <ClCompile Include="studio_objecttweak_unitobj.cpp" />
+    <ClCompile Include="studio_regionlist.cpp" />
+    <ClCompile Include="studio_taglist.cpp" />
+    <ClCompile Include="studio_teameditor.cpp" />
+    <ClCompile Include="studio_teamlist.cpp" />
+    <ClCompile Include="studio_weather.cpp" />
+    <ClCompile Include="studio.cpp" />
+    <ClCompile Include="studio_cmd.cpp" />
+    <ClCompile Include="studio_display.cpp" />
+    <ClCompile Include="studio_event.cpp" />
+    <ClCompile Include="..\system\pchbuilder.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">stdinc_coregame.h</PrecompiledHeaderFile>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Development|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Development|Win32'">stdinc_coregame.h</PrecompiledHeaderFile>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">stdinc_coregame.h</PrecompiledHeaderFile>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="client_clustermap.h" />
+    <ClInclude Include="client_commandpoints.h" />
+    <ClInclude Include="client_construction.h" />
+    <ClInclude Include="client_debriefing.h" />
+    <ClInclude Include="client_displayobjectives.h" />
+    <ClInclude Include="client_facility.h" />
+    <ClInclude Include="client_orderlag.h" />
+    <ClInclude Include="client_power.h" />
+    <ClInclude Include="client_resource.h" />
+    <ClInclude Include="client_scorchcontrol.h" />
+    <ClInclude Include="client_squadcontrol.h" />
+    <ClInclude Include="client_tactical.h" />
+    <ClInclude Include="client_timeofday.h" />
+    <ClInclude Include="client_unitcontext.h" />
+    <ClInclude Include="client_unitselection.h" />
+    <ClInclude Include="client.h" />
+    <ClInclude Include="client_private.h" />
+    <ClInclude Include="common_calendar.h" />
+    <ClInclude Include="common_cursorpos.h" />
+    <ClInclude Include="common_gamewindow.h" />
+    <ClInclude Include="common_mapwindow.h" />
+    <ClInclude Include="common_messagewindow.h" />
+    <ClInclude Include="common_prereqlist.h" />
+    <ClInclude Include="common_prereqtree.h" />
+    <ClInclude Include="common_stats.h" />
+    <ClInclude Include="common_teamlistbox.h" />
+    <ClInclude Include="common_typelist.h" />
+    <ClInclude Include="common_typepreview.h" />
+    <ClInclude Include="common.h" />
+    <ClInclude Include="studio_brush.h" />
+    <ClInclude Include="studio_brush_apply.h" />
+    <ClInclude Include="studio_brush_applycell.h" />
+    <ClInclude Include="studio_brush_area.h" />
+    <ClInclude Include="studio_brush_curve.h" />
+    <ClInclude Include="studio_brush_objects.h" />
+    <ClInclude Include="studio_brush_overlay.h" />
+    <ClInclude Include="studio_brush_pathsearch.h" />
+    <ClInclude Include="studio_brush_region.h" />
+    <ClInclude Include="studio_brush_tag.h" />
+    <ClInclude Include="studio_brush_terrain.h" />
+    <ClInclude Include="studio_brush_terraintweak.h" />
+    <ClInclude Include="studio_brush_trail.h" />
+    <ClInclude Include="studio_brush_water.h" />
+    <ClInclude Include="studio_history.h" />
+    <ClInclude Include="studio_history_objects.h" />
+    <ClInclude Include="studio_history_terrain.h" />
+    <ClInclude Include="studio_attachlist.h" />
+    <ClInclude Include="studio_bookmarklist.h" />
+    <ClInclude Include="studio_bookmarklistbox.h" />
+    <ClInclude Include="studio_controls.h" />
+    <ClInclude Include="studio_footeditor.h" />
+    <ClInclude Include="studio_lighteditor.h" />
+    <ClInclude Include="studio_mission.h" />
+    <ClInclude Include="studio_objecttweak.h" />
+    <ClInclude Include="studio_regionlist.h" />
+    <ClInclude Include="studio_taglist.h" />
+    <ClInclude Include="studio_teameditor.h" />
+    <ClInclude Include="studio_teamlist.h" />
+    <ClInclude Include="studio_weather.h" />
+    <ClInclude Include="studio.h" />
+    <ClInclude Include="studio_private.h" />
+    <ClInclude Include="..\coregame\stdinc_coregame.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

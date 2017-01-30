@@ -1,0 +1,283 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Development|Win32">
+      <Configuration>Development</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="kkk|Win32">
+      <Configuration>kkk</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Template|Win32">
+      <Configuration>Template</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <ProjectGuid>{24739E0E-9F11-4831-A24B-1C647B6ACA7D}</ProjectGuid>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Template|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Development|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='kkk|Win32'">
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Template|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Development|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>.\../Debug/coregame_orders\</OutDir>
+    <IntDir>.\../Debug/coregame_orders\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>.\../Release/coregame_orders\</OutDir>
+    <IntDir>.\../Release/coregame_orders\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Development|Win32'">
+    <OutDir>.\../Development/coregame_orders\</OutDir>
+    <IntDir>.\../Development/coregame_orders\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <Optimization>Disabled</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>Level4</WarningLevel>
+      <AdditionalIncludeDirectories>../3rdparty;../coregame;../coregame_ai;../coregame_interface;../coregame_objects;../coregame_orders;../coregame_particles;../coregame_tasks;../game;../graphics;../interface;../main;../multiplayer;../sound;../system;../util;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>stdinc_coregame.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PreprocessorDefinitions>WIN32;</PreprocessorDefinitions>
+      <AssemblerListingLocation>.\../Debug/coregame_orders/</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>../Debug/coregame_orders/coregame_orders.pch</PrecompiledHeaderOutputFile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdinc_coregame.h</PrecompiledHeaderFile>
+      <ObjectFileName>../Debug/coregame_orders/</ObjectFileName>
+      <ProgramDataBaseFileName>../Debug/coregame_orders/</ProgramDataBaseFileName>
+      <CallingConvention>FastCall</CallingConvention>
+      <DisableSpecificWarnings>4996;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\../Debug/coregame_objects\coregame_orders.bsc</OutputFile>
+    </Bscmake>
+    <Lib>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>..\Debug\coregame_orders\coregame_orders.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <StringPooling>true</StringPooling>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <Optimization>MaxSpeed</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>Level4</WarningLevel>
+      <OmitFramePointers>false</OmitFramePointers>
+      <AdditionalIncludeDirectories>../3rdparty;../coregame;../coregame_ai;../coregame_interface;../coregame_objects;../coregame_orders;../coregame_particles;../coregame_tasks;../game;../graphics;../interface;../main;../multiplayer;../sound;../system;../util;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>stdinc_coregame.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PreprocessorDefinitions>WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerOutput>All</AssemblerOutput>
+      <AssemblerListingLocation>.\../Release/coregame_orders\</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>.\../Release/coregame_orders\coregame_orders.pch</PrecompiledHeaderOutputFile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdinc_coregame.h</PrecompiledHeaderFile>
+      <ObjectFileName>.\../Release/coregame_orders\</ObjectFileName>
+      <ProgramDataBaseFileName>.\../Release/coregame_orders\</ProgramDataBaseFileName>
+      <CallingConvention>FastCall</CallingConvention>
+      <DisableSpecificWarnings>4996;</DisableSpecificWarnings>
+    </ClCompile>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\../Release/coregame_orders\coregame_orders.bsc</OutputFile>
+    </Bscmake>
+    <Lib>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\../Release/coregame_orders\coregame_orders.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Development|Win32'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <StringPooling>true</StringPooling>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <Optimization>MaxSpeed</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>Level4</WarningLevel>
+      <OmitFramePointers>false</OmitFramePointers>
+      <AdditionalIncludeDirectories>../3rdparty;../coregame;../coregame_ai;../coregame_interface;../coregame_objects;../coregame_orders;../coregame_particles;../coregame_tasks;../game;../graphics;../interface;../main;../multiplayer;../sound;../system;../util;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>stdinc_coregame.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PreprocessorDefinitions>WIN32;NDEBUG;DEVELOPMENT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerOutput>All</AssemblerOutput>
+      <AssemblerListingLocation>.\../Development/coregame_orders\</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>.\../Development/coregame_orders\coregame_orders.pch</PrecompiledHeaderOutputFile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdinc_coregame.h</PrecompiledHeaderFile>
+      <ObjectFileName>.\../Development/coregame_orders\</ObjectFileName>
+      <ProgramDataBaseFileName>.\../Development/coregame_orders\</ProgramDataBaseFileName>
+      <CallingConvention>FastCall</CallingConvention>
+    </ClCompile>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\../Development/coregame_orders\coregame_orders.bsc</OutputFile>
+    </Bscmake>
+    <Lib>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\../Development/coregame_orders\coregame_orders.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="orders_game.cpp" />
+    <ClCompile Include="orders_game_addselected.cpp" />
+    <ClCompile Include="orders_game_attack.cpp" />
+    <ClCompile Include="orders_game_board.cpp" />
+    <ClCompile Include="orders_game_build.cpp" />
+    <ClCompile Include="orders_game_clearselected.cpp" />
+    <ClCompile Include="orders_game_collect.cpp" />
+    <ClCompile Include="orders_game_constructor.cpp" />
+    <ClCompile Include="orders_game_debug.cpp" />
+    <ClCompile Include="orders_game_delete.cpp" />
+    <ClCompile Include="orders_game_dumpsync.cpp" />
+    <ClCompile Include="orders_game_ejectspy.cpp" />
+    <ClCompile Include="orders_game_explore.cpp" />
+    <ClCompile Include="orders_game_fire.cpp" />
+    <ClCompile Include="orders_game_formation.cpp" />
+    <ClCompile Include="orders_game_give.cpp" />
+    <ClCompile Include="orders_game_guard.cpp" />
+    <ClCompile Include="orders_game_infiltrate.cpp" />
+    <ClCompile Include="orders_game_morph.cpp" />
+    <ClCompile Include="orders_game_move.cpp" />
+    <ClCompile Include="orders_game_offmap.cpp" />
+    <ClCompile Include="orders_game_pause.cpp" />
+    <ClCompile Include="orders_game_playerleft.cpp" />
+    <ClCompile Include="orders_game_postevent.cpp" />
+    <ClCompile Include="orders_game_powerdown.cpp" />
+    <ClCompile Include="orders_game_recycle.cpp" />
+    <ClCompile Include="orders_game_restore.cpp" />
+    <ClCompile Include="orders_game_restoremobile.cpp" />
+    <ClCompile Include="orders_game_restorestatic.cpp" />
+    <ClCompile Include="orders_game_return.cpp" />
+    <ClCompile Include="orders_game_revealspy.cpp" />
+    <ClCompile Include="orders_game_scatter.cpp" />
+    <ClCompile Include="orders_game_selfdestruct.cpp" />
+    <ClCompile Include="orders_game_setrally.cpp" />
+    <ClCompile Include="orders_game_setrestore.cpp" />
+    <ClCompile Include="orders_game_steponce.cpp" />
+    <ClCompile Include="orders_game_stop.cpp" />
+    <ClCompile Include="orders_game_store.cpp" />
+    <ClCompile Include="orders_game_tactical.cpp" />
+    <ClCompile Include="orders_game_trail.cpp" />
+    <ClCompile Include="orders_game_trailpoints.cpp" />
+    <ClCompile Include="orders_game_transport.cpp" />
+    <ClCompile Include="orders_game_turn.cpp" />
+    <ClCompile Include="orders_game_unload.cpp" />
+    <ClCompile Include="orders_game_upgrade.cpp" />
+    <ClCompile Include="orders_game_wall.cpp" />
+    <ClCompile Include="orders_squad.cpp" />
+    <ClCompile Include="orders_squad_addselected.cpp" />
+    <ClCompile Include="orders_squad_attack.cpp" />
+    <ClCompile Include="orders_squad_board.cpp" />
+    <ClCompile Include="orders_squad_create.cpp" />
+    <ClCompile Include="orders_squad_defect.cpp" />
+    <ClCompile Include="orders_squad_delete.cpp" />
+    <ClCompile Include="orders_squad_destroy.cpp" />
+    <ClCompile Include="orders_squad_empty.cpp" />
+    <ClCompile Include="orders_squad_explore.cpp" />
+    <ClCompile Include="orders_squad_followtag.cpp" />
+    <ClCompile Include="orders_squad_formation.cpp" />
+    <ClCompile Include="orders_squad_guard.cpp" />
+    <ClCompile Include="orders_squad_move.cpp" />
+    <ClCompile Include="orders_squad_notify.cpp" />
+    <ClCompile Include="orders_squad_removeselected.cpp" />
+    <ClCompile Include="orders_squad_restore.cpp" />
+    <ClCompile Include="orders_squad_spawn.cpp" />
+    <ClCompile Include="orders_squad_stop.cpp" />
+    <ClCompile Include="orders_squad_tactical.cpp" />
+    <ClCompile Include="orders_squad_trail.cpp" />
+    <ClCompile Include="orders_squad_transportspawn.cpp" />
+    <ClCompile Include="orders.cpp" />
+    <ClCompile Include="..\system\pchbuilder.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">stdinc_coregame.h</PrecompiledHeaderFile>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">stdinc_coregame.h</PrecompiledHeaderFile>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Development|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Development|Win32'">stdinc_coregame.h</PrecompiledHeaderFile>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="orders_game.h" />
+    <ClInclude Include="orders_squad.h" />
+    <ClInclude Include="orders.h" />
+    <ClInclude Include="..\coregame\stdinc_coregame.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

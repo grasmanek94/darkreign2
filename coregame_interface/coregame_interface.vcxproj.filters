@@ -1,0 +1,449 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="client">
+      <UniqueIdentifier>{a265aac0-12a3-4e05-9bf7-d2cc6aff4e18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="client\client controls">
+      <UniqueIdentifier>{33eb0ce5-62a2-4f48-bdd5-85f9d7071ea1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common">
+      <UniqueIdentifier>{85ddd8dc-69e5-4cc5-9115-60b66166785e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common\common controls">
+      <UniqueIdentifier>{478da0d7-aeab-4fab-a53b-9ccd353190fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="studio">
+      <UniqueIdentifier>{6bf70aa0-a3ef-410f-83b4-5e17648f87f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="studio\studio brushes">
+      <UniqueIdentifier>{9a54b993-1f12-4fa8-958f-2656369a6dd3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="studio\studio brushes\base brushes">
+      <UniqueIdentifier>{7aa97fc6-e533-4539-8018-b5390058949c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="studio\studio brushes\user brushes">
+      <UniqueIdentifier>{dc10ccf5-8629-48f6-a878-7aa8aa6402d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="studio\studio brushes\history">
+      <UniqueIdentifier>{57737a71-7784-4821-818c-f1090d245642}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="studio\studio controls">
+      <UniqueIdentifier>{11bccc6d-4a9a-482e-857c-9538c6df9881}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="client_clustermap.cpp">
+      <Filter>client\client controls</Filter>
+    </ClCompile>
+    <ClCompile Include="client_commandpoints.cpp">
+      <Filter>client\client controls</Filter>
+    </ClCompile>
+    <ClCompile Include="client_construction.cpp">
+      <Filter>client\client controls</Filter>
+    </ClCompile>
+    <ClCompile Include="client_controls.cpp">
+      <Filter>client\client controls</Filter>
+    </ClCompile>
+    <ClCompile Include="client_debriefing.cpp">
+      <Filter>client\client controls</Filter>
+    </ClCompile>
+    <ClCompile Include="client_displayobjectives.cpp">
+      <Filter>client\client controls</Filter>
+    </ClCompile>
+    <ClCompile Include="client_facility.cpp">
+      <Filter>client\client controls</Filter>
+    </ClCompile>
+    <ClCompile Include="client_orderlag.cpp">
+      <Filter>client\client controls</Filter>
+    </ClCompile>
+    <ClCompile Include="client_power.cpp">
+      <Filter>client\client controls</Filter>
+    </ClCompile>
+    <ClCompile Include="client_resource.cpp">
+      <Filter>client\client controls</Filter>
+    </ClCompile>
+    <ClCompile Include="client_scorchcontrol.cpp">
+      <Filter>client\client controls</Filter>
+    </ClCompile>
+    <ClCompile Include="client_squadcontrol.cpp">
+      <Filter>client\client controls</Filter>
+    </ClCompile>
+    <ClCompile Include="client_tactical.cpp">
+      <Filter>client\client controls</Filter>
+    </ClCompile>
+    <ClCompile Include="client_timeofday.cpp">
+      <Filter>client\client controls</Filter>
+    </ClCompile>
+    <ClCompile Include="client_unitcontext.cpp">
+      <Filter>client\client controls</Filter>
+    </ClCompile>
+    <ClCompile Include="client_unitselection.cpp">
+      <Filter>client\client controls</Filter>
+    </ClCompile>
+    <ClCompile Include="client.cpp">
+      <Filter>client</Filter>
+    </ClCompile>
+    <ClCompile Include="client_cmd.cpp">
+      <Filter>client</Filter>
+    </ClCompile>
+    <ClCompile Include="client_debug.cpp">
+      <Filter>client</Filter>
+    </ClCompile>
+    <ClCompile Include="client_display.cpp">
+      <Filter>client</Filter>
+    </ClCompile>
+    <ClCompile Include="client_events.cpp">
+      <Filter>client</Filter>
+    </ClCompile>
+    <ClCompile Include="client_group.cpp">
+      <Filter>client</Filter>
+    </ClCompile>
+    <ClCompile Include="client_hud.cpp">
+      <Filter>client</Filter>
+    </ClCompile>
+    <ClCompile Include="client_trail.cpp">
+      <Filter>client</Filter>
+    </ClCompile>
+    <ClCompile Include="common_calendar.cpp">
+      <Filter>common\common controls</Filter>
+    </ClCompile>
+    <ClCompile Include="common_cursorpos.cpp">
+      <Filter>common\common controls</Filter>
+    </ClCompile>
+    <ClCompile Include="common_gamewindow.cpp">
+      <Filter>common\common controls</Filter>
+    </ClCompile>
+    <ClCompile Include="common_mapwindow.cpp">
+      <Filter>common\common controls</Filter>
+    </ClCompile>
+    <ClCompile Include="common_messagewindow.cpp">
+      <Filter>common\common controls</Filter>
+    </ClCompile>
+    <ClCompile Include="common_prereqlist.cpp">
+      <Filter>common\common controls</Filter>
+    </ClCompile>
+    <ClCompile Include="common_prereqtree.cpp">
+      <Filter>common\common controls</Filter>
+    </ClCompile>
+    <ClCompile Include="common_stats.cpp">
+      <Filter>common\common controls</Filter>
+    </ClCompile>
+    <ClCompile Include="common_teamlistbox.cpp">
+      <Filter>common\common controls</Filter>
+    </ClCompile>
+    <ClCompile Include="common_typelist.cpp">
+      <Filter>common\common controls</Filter>
+    </ClCompile>
+    <ClCompile Include="common_typepreview.cpp">
+      <Filter>common\common controls</Filter>
+    </ClCompile>
+    <ClCompile Include="common.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="common_cycle.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="common_display.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="studio_brush.cpp">
+      <Filter>studio\studio brushes\base brushes</Filter>
+    </ClCompile>
+    <ClCompile Include="studio_brush_apply.cpp">
+      <Filter>studio\studio brushes\base brushes</Filter>
+    </ClCompile>
+    <ClCompile Include="studio_brush_applycell.cpp">
+      <Filter>studio\studio brushes\base brushes</Filter>
+    </ClCompile>
+    <ClCompile Include="studio_brush_area.cpp">
+      <Filter>studio\studio brushes\base brushes</Filter>
+    </ClCompile>
+    <ClCompile Include="studio_brush_curve.cpp">
+      <Filter>studio\studio brushes\user brushes</Filter>
+    </ClCompile>
+    <ClCompile Include="studio_brush_objects.cpp">
+      <Filter>studio\studio brushes\user brushes</Filter>
+    </ClCompile>
+    <ClCompile Include="studio_brush_overlay.cpp">
+      <Filter>studio\studio brushes\user brushes</Filter>
+    </ClCompile>
+    <ClCompile Include="studio_brush_pathsearch.cpp">
+      <Filter>studio\studio brushes\user brushes</Filter>
+    </ClCompile>
+    <ClCompile Include="studio_brush_region.cpp">
+      <Filter>studio\studio brushes\user brushes</Filter>
+    </ClCompile>
+    <ClCompile Include="studio_brush_tag.cpp">
+      <Filter>studio\studio brushes\user brushes</Filter>
+    </ClCompile>
+    <ClCompile Include="studio_brush_terrain.cpp">
+      <Filter>studio\studio brushes\user brushes</Filter>
+    </ClCompile>
+    <ClCompile Include="studio_brush_terraintweak.cpp">
+      <Filter>studio\studio brushes\user brushes</Filter>
+    </ClCompile>
+    <ClCompile Include="studio_brush_trail.cpp">
+      <Filter>studio\studio brushes\user brushes</Filter>
+    </ClCompile>
+    <ClCompile Include="studio_brush_water.cpp">
+      <Filter>studio\studio brushes\user brushes</Filter>
+    </ClCompile>
+    <ClCompile Include="studio_history.cpp">
+      <Filter>studio\studio brushes\history</Filter>
+    </ClCompile>
+    <ClCompile Include="studio_history_objects.cpp">
+      <Filter>studio\studio brushes\history</Filter>
+    </ClCompile>
+    <ClCompile Include="studio_history_terrain.cpp">
+      <Filter>studio\studio brushes\history</Filter>
+    </ClCompile>
+    <ClCompile Include="studio_attachlist.cpp">
+      <Filter>studio\studio controls</Filter>
+    </ClCompile>
+    <ClCompile Include="studio_bookmarklist.cpp">
+      <Filter>studio\studio controls</Filter>
+    </ClCompile>
+    <ClCompile Include="studio_bookmarklistbox.cpp">
+      <Filter>studio\studio controls</Filter>
+    </ClCompile>
+    <ClCompile Include="studio_controls.cpp">
+      <Filter>studio\studio controls</Filter>
+    </ClCompile>
+    <ClCompile Include="studio_footeditor.cpp">
+      <Filter>studio\studio controls</Filter>
+    </ClCompile>
+    <ClCompile Include="studio_lighteditor.cpp">
+      <Filter>studio\studio controls</Filter>
+    </ClCompile>
+    <ClCompile Include="studio_mission.cpp">
+      <Filter>studio\studio controls</Filter>
+    </ClCompile>
+    <ClCompile Include="studio_objecttweak_baseobj.cpp">
+      <Filter>studio\studio controls</Filter>
+    </ClCompile>
+    <ClCompile Include="studio_objecttweak_mapobj.cpp">
+      <Filter>studio\studio controls</Filter>
+    </ClCompile>
+    <ClCompile Include="studio_objecttweak_resourceobj.cpp">
+      <Filter>studio\studio controls</Filter>
+    </ClCompile>
+    <ClCompile Include="studio_objecttweak_unitobj.cpp">
+      <Filter>studio\studio controls</Filter>
+    </ClCompile>
+    <ClCompile Include="studio_regionlist.cpp">
+      <Filter>studio\studio controls</Filter>
+    </ClCompile>
+    <ClCompile Include="studio_taglist.cpp">
+      <Filter>studio\studio controls</Filter>
+    </ClCompile>
+    <ClCompile Include="studio_teameditor.cpp">
+      <Filter>studio\studio controls</Filter>
+    </ClCompile>
+    <ClCompile Include="studio_teamlist.cpp">
+      <Filter>studio\studio controls</Filter>
+    </ClCompile>
+    <ClCompile Include="studio_weather.cpp">
+      <Filter>studio\studio controls</Filter>
+    </ClCompile>
+    <ClCompile Include="studio.cpp">
+      <Filter>studio</Filter>
+    </ClCompile>
+    <ClCompile Include="studio_cmd.cpp">
+      <Filter>studio</Filter>
+    </ClCompile>
+    <ClCompile Include="studio_display.cpp">
+      <Filter>studio</Filter>
+    </ClCompile>
+    <ClCompile Include="studio_event.cpp">
+      <Filter>studio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\system\pchbuilder.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="client_clustermap.h">
+      <Filter>client\client controls</Filter>
+    </ClInclude>
+    <ClInclude Include="client_commandpoints.h">
+      <Filter>client\client controls</Filter>
+    </ClInclude>
+    <ClInclude Include="client_construction.h">
+      <Filter>client\client controls</Filter>
+    </ClInclude>
+    <ClInclude Include="client_debriefing.h">
+      <Filter>client\client controls</Filter>
+    </ClInclude>
+    <ClInclude Include="client_displayobjectives.h">
+      <Filter>client\client controls</Filter>
+    </ClInclude>
+    <ClInclude Include="client_facility.h">
+      <Filter>client\client controls</Filter>
+    </ClInclude>
+    <ClInclude Include="client_orderlag.h">
+      <Filter>client\client controls</Filter>
+    </ClInclude>
+    <ClInclude Include="client_power.h">
+      <Filter>client\client controls</Filter>
+    </ClInclude>
+    <ClInclude Include="client_resource.h">
+      <Filter>client\client controls</Filter>
+    </ClInclude>
+    <ClInclude Include="client_scorchcontrol.h">
+      <Filter>client\client controls</Filter>
+    </ClInclude>
+    <ClInclude Include="client_squadcontrol.h">
+      <Filter>client\client controls</Filter>
+    </ClInclude>
+    <ClInclude Include="client_tactical.h">
+      <Filter>client\client controls</Filter>
+    </ClInclude>
+    <ClInclude Include="client_timeofday.h">
+      <Filter>client\client controls</Filter>
+    </ClInclude>
+    <ClInclude Include="client_unitcontext.h">
+      <Filter>client\client controls</Filter>
+    </ClInclude>
+    <ClInclude Include="client_unitselection.h">
+      <Filter>client\client controls</Filter>
+    </ClInclude>
+    <ClInclude Include="client.h">
+      <Filter>client</Filter>
+    </ClInclude>
+    <ClInclude Include="client_private.h">
+      <Filter>client</Filter>
+    </ClInclude>
+    <ClInclude Include="common_calendar.h">
+      <Filter>common\common controls</Filter>
+    </ClInclude>
+    <ClInclude Include="common_cursorpos.h">
+      <Filter>common\common controls</Filter>
+    </ClInclude>
+    <ClInclude Include="common_gamewindow.h">
+      <Filter>common\common controls</Filter>
+    </ClInclude>
+    <ClInclude Include="common_mapwindow.h">
+      <Filter>common\common controls</Filter>
+    </ClInclude>
+    <ClInclude Include="common_messagewindow.h">
+      <Filter>common\common controls</Filter>
+    </ClInclude>
+    <ClInclude Include="common_prereqlist.h">
+      <Filter>common\common controls</Filter>
+    </ClInclude>
+    <ClInclude Include="common_prereqtree.h">
+      <Filter>common\common controls</Filter>
+    </ClInclude>
+    <ClInclude Include="common_stats.h">
+      <Filter>common\common controls</Filter>
+    </ClInclude>
+    <ClInclude Include="common_teamlistbox.h">
+      <Filter>common\common controls</Filter>
+    </ClInclude>
+    <ClInclude Include="common_typelist.h">
+      <Filter>common\common controls</Filter>
+    </ClInclude>
+    <ClInclude Include="common_typepreview.h">
+      <Filter>common\common controls</Filter>
+    </ClInclude>
+    <ClInclude Include="common.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="studio_brush.h">
+      <Filter>studio\studio brushes\base brushes</Filter>
+    </ClInclude>
+    <ClInclude Include="studio_brush_apply.h">
+      <Filter>studio\studio brushes\base brushes</Filter>
+    </ClInclude>
+    <ClInclude Include="studio_brush_applycell.h">
+      <Filter>studio\studio brushes\base brushes</Filter>
+    </ClInclude>
+    <ClInclude Include="studio_brush_area.h">
+      <Filter>studio\studio brushes\base brushes</Filter>
+    </ClInclude>
+    <ClInclude Include="studio_brush_curve.h">
+      <Filter>studio\studio brushes\user brushes</Filter>
+    </ClInclude>
+    <ClInclude Include="studio_brush_objects.h">
+      <Filter>studio\studio brushes\user brushes</Filter>
+    </ClInclude>
+    <ClInclude Include="studio_brush_overlay.h">
+      <Filter>studio\studio brushes\user brushes</Filter>
+    </ClInclude>
+    <ClInclude Include="studio_brush_pathsearch.h">
+      <Filter>studio\studio brushes\user brushes</Filter>
+    </ClInclude>
+    <ClInclude Include="studio_brush_region.h">
+      <Filter>studio\studio brushes\user brushes</Filter>
+    </ClInclude>
+    <ClInclude Include="studio_brush_tag.h">
+      <Filter>studio\studio brushes\user brushes</Filter>
+    </ClInclude>
+    <ClInclude Include="studio_brush_terrain.h">
+      <Filter>studio\studio brushes\user brushes</Filter>
+    </ClInclude>
+    <ClInclude Include="studio_brush_terraintweak.h">
+      <Filter>studio\studio brushes\user brushes</Filter>
+    </ClInclude>
+    <ClInclude Include="studio_brush_trail.h">
+      <Filter>studio\studio brushes\user brushes</Filter>
+    </ClInclude>
+    <ClInclude Include="studio_brush_water.h">
+      <Filter>studio\studio brushes\user brushes</Filter>
+    </ClInclude>
+    <ClInclude Include="studio_history.h">
+      <Filter>studio\studio brushes\history</Filter>
+    </ClInclude>
+    <ClInclude Include="studio_history_objects.h">
+      <Filter>studio\studio brushes\history</Filter>
+    </ClInclude>
+    <ClInclude Include="studio_history_terrain.h">
+      <Filter>studio\studio brushes\history</Filter>
+    </ClInclude>
+    <ClInclude Include="studio_attachlist.h">
+      <Filter>studio\studio controls</Filter>
+    </ClInclude>
+    <ClInclude Include="studio_bookmarklist.h">
+      <Filter>studio\studio controls</Filter>
+    </ClInclude>
+    <ClInclude Include="studio_bookmarklistbox.h">
+      <Filter>studio\studio controls</Filter>
+    </ClInclude>
+    <ClInclude Include="studio_controls.h">
+      <Filter>studio\studio controls</Filter>
+    </ClInclude>
+    <ClInclude Include="studio_footeditor.h">
+      <Filter>studio\studio controls</Filter>
+    </ClInclude>
+    <ClInclude Include="studio_lighteditor.h">
+      <Filter>studio\studio controls</Filter>
+    </ClInclude>
+    <ClInclude Include="studio_mission.h">
+      <Filter>studio\studio controls</Filter>
+    </ClInclude>
+    <ClInclude Include="studio_objecttweak.h">
+      <Filter>studio\studio controls</Filter>
+    </ClInclude>
+    <ClInclude Include="studio_regionlist.h">
+      <Filter>studio\studio controls</Filter>
+    </ClInclude>
+    <ClInclude Include="studio_taglist.h">
+      <Filter>studio\studio controls</Filter>
+    </ClInclude>
+    <ClInclude Include="studio_teameditor.h">
+      <Filter>studio\studio controls</Filter>
+    </ClInclude>
+    <ClInclude Include="studio_teamlist.h">
+      <Filter>studio\studio controls</Filter>
+    </ClInclude>
+    <ClInclude Include="studio_weather.h">
+      <Filter>studio\studio controls</Filter>
+    </ClInclude>
+    <ClInclude Include="studio.h">
+      <Filter>studio</Filter>
+    </ClInclude>
+    <ClInclude Include="studio_private.h">
+      <Filter>studio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\coregame\stdinc_coregame.h" />
+  </ItemGroup>
+</Project>

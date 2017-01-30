@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="client">
+      <UniqueIdentifier>{0f8b30a7-0bf7-4ca9-901e-9eddb894831d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="explorer">
+      <UniqueIdentifier>{736bc2cc-ef49-4e22-a3fa-ba9c2fee0c12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="internals">
+      <UniqueIdentifier>{c74e75a1-60d6-4e0d-ad43-5bbc1eeaf33b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="network">
+      <UniqueIdentifier>{336e395c-af41-4cf3-87fc-d863536b50c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="server">
+      <UniqueIdentifier>{f37c041c-1044-4d87-bd17-abd5c2b6100e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="transfer">
+      <UniqueIdentifier>{e27bfe75-d92a-4f88-89fd-85af07d2c459}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="util">
+      <UniqueIdentifier>{bd866b56-8798-4ab3-876f-ebec0e66e0e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="win32">
+      <UniqueIdentifier>{8c3e6a63-1184-489b-84e0-e4f5d3ce47cc}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="styxnet_client.cpp">
+      <Filter>client</Filter>
+    </ClCompile>
+    <ClCompile Include="styxnet_client_session.cpp">
+      <Filter>client</Filter>
+    </ClCompile>
+    <ClCompile Include="styxnet_client_user.cpp">
+      <Filter>client</Filter>
+    </ClCompile>
+    <ClCompile Include="styxnet_explorer.cpp">
+      <Filter>explorer</Filter>
+    </ClCompile>
+    <ClCompile Include="styxnet.cpp">
+      <Filter>internals</Filter>
+    </ClCompile>
+    <ClCompile Include="styxnet_data.cpp">
+      <Filter>internals</Filter>
+    </ClCompile>
+    <ClCompile Include="styxnet_eventqueue.cpp">
+      <Filter>internals</Filter>
+    </ClCompile>
+    <ClCompile Include="styxnet_packet.cpp">
+      <Filter>internals</Filter>
+    </ClCompile>
+    <ClCompile Include="styxnet_std.cpp">
+      <Filter>internals</Filter>
+    </ClCompile>
+    <ClCompile Include="network_http.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="network_ip.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="network_ping.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="network_url.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="styxnet_server.cpp">
+      <Filter>server</Filter>
+    </ClCompile>
+    <ClCompile Include="styxnet_server_item.cpp">
+      <Filter>server</Filter>
+    </ClCompile>
+    <ClCompile Include="styxnet_server_migration.cpp">
+      <Filter>server</Filter>
+    </ClCompile>
+    <ClCompile Include="styxnet_server_session.cpp">
+      <Filter>server</Filter>
+    </ClCompile>
+    <ClCompile Include="styxnet_server_user.cpp">
+      <Filter>server</Filter>
+    </ClCompile>
+    <ClCompile Include="styxnet_transfer.cpp">
+      <Filter>transfer</Filter>
+    </ClCompile>
+    <ClCompile Include="logging.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="logging_destconsole.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="logging_destdr2.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="win32_critsec.cpp">
+      <Filter>win32</Filter>
+    </ClCompile>
+    <ClCompile Include="win32_dns.cpp">
+      <Filter>win32</Filter>
+    </ClCompile>
+    <ClCompile Include="win32_event.cpp">
+      <Filter>win32</Filter>
+    </ClCompile>
+    <ClCompile Include="win32_file.cpp">
+      <Filter>win32</Filter>
+    </ClCompile>
+    <ClCompile Include="win32_guid.cpp">
+      <Filter>win32</Filter>
+    </ClCompile>
+    <ClCompile Include="win32_mutex.cpp">
+      <Filter>win32</Filter>
+    </ClCompile>
+    <ClCompile Include="win32_socket.cpp">
+      <Filter>win32</Filter>
+    </ClCompile>
+    <ClCompile Include="win32_thread.cpp">
+      <Filter>win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\system\pchbuilder.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="styxnet_client.h">
+      <Filter>client</Filter>
+    </ClInclude>
+    <ClInclude Include="styxnet_client_private.h">
+      <Filter>client</Filter>
+    </ClInclude>
+    <ClInclude Include="styxnet_clientmessage.h">
+      <Filter>client</Filter>
+    </ClInclude>
+    <ClInclude Include="styxnet_clientresponse.h">
+      <Filter>client</Filter>
+    </ClInclude>
+    <ClInclude Include="styxnet_explorer.h">
+      <Filter>explorer</Filter>
+    </ClInclude>
+    <ClInclude Include="styxnet_eventqueue.h">
+      <Filter>internals</Filter>
+    </ClInclude>
+    <ClInclude Include="styxnet_packet.h">
+      <Filter>internals</Filter>
+    </ClInclude>
+    <ClInclude Include="styxnet_private.h">
+      <Filter>internals</Filter>
+    </ClInclude>
+    <ClInclude Include="network_http.h">
+      <Filter>network</Filter>
+    </ClInclude>
+    <ClInclude Include="network_icmp.h">
+      <Filter>network</Filter>
+    </ClInclude>
+    <ClInclude Include="network_ip.h">
+      <Filter>network</Filter>
+    </ClInclude>
+    <ClInclude Include="network_ping.h">
+      <Filter>network</Filter>
+    </ClInclude>
+    <ClInclude Include="network_url.h">
+      <Filter>network</Filter>
+    </ClInclude>
+    <ClInclude Include="styxnet_server.h">
+      <Filter>server</Filter>
+    </ClInclude>
+    <ClInclude Include="styxnet_server_private.h">
+      <Filter>server</Filter>
+    </ClInclude>
+    <ClInclude Include="styxnet_servermessage.h">
+      <Filter>server</Filter>
+    </ClInclude>
+    <ClInclude Include="styxnet_serverresponse.h">
+      <Filter>server</Filter>
+    </ClInclude>
+    <ClInclude Include="styxnet_transfer.h">
+      <Filter>transfer</Filter>
+    </ClInclude>
+    <ClInclude Include="ident.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="logging.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="logging_dest.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="logging_destconsole.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="logging_destdr2.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="stream.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="win32_critsec.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="win32_dns.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="win32_event.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="win32_file.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="win32_guid.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="win32_mutex.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="win32_socket.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="win32_thread.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="styxnet.h" />
+    <ClInclude Include="styxnet_data.h" />
+    <ClInclude Include="styxnet_event.h" />
+    <ClInclude Include="styxnet_session.h" />
+    <ClInclude Include="styxnet_std.h" />
+  </ItemGroup>
+</Project>

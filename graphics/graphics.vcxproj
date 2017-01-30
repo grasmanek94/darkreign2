@@ -1,0 +1,361 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Development|Win32">
+      <Configuration>Development</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="kkk|Win32">
+      <Configuration>kkk</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Template|Win32">
+      <Configuration>Template</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <ProjectGuid>{15430EFD-9710-45B8-9B17-B2326B2D32CB}</ProjectGuid>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Template|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Development|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='kkk|Win32'">
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Template|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Development|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>.\../Release/graphics\</OutDir>
+    <IntDir>.\../Release/graphics\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Development|Win32'">
+    <OutDir>.\../Development/graphics\</OutDir>
+    <IntDir>.\../Development/graphics\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>.\../Debug/graphics\</OutDir>
+    <IntDir>.\../Debug/graphics\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <StringPooling>true</StringPooling>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <Optimization>MaxSpeed</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>Level4</WarningLevel>
+      <OmitFramePointers>false</OmitFramePointers>
+      <AdditionalIncludeDirectories>../3rdparty;../coregame;../coregame_ai;../coregame_interface;../coregame_objects;../coregame_orders;../coregame_particles;../coregame_tasks;../game;../graphics;../interface;../main;../multiplayer;../sound;../system;../util;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>std.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PreprocessorDefinitions>WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerOutput>All</AssemblerOutput>
+      <AssemblerListingLocation>.\../Release/graphics\</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>.\../Release/graphics\graphics.pch</PrecompiledHeaderOutputFile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>std.h</PrecompiledHeaderFile>
+      <ObjectFileName>.\../Release/graphics\</ObjectFileName>
+      <ProgramDataBaseFileName>.\../Release/graphics\</ProgramDataBaseFileName>
+      <CallingConvention>FastCall</CallingConvention>
+      <DisableSpecificWarnings>4996;</DisableSpecificWarnings>
+    </ClCompile>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\../Release/graphics\graphics.bsc</OutputFile>
+    </Bscmake>
+    <Lib>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\../Release/graphics\graphics.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Development|Win32'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <StringPooling>true</StringPooling>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <Optimization>MaxSpeed</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>Level4</WarningLevel>
+      <OmitFramePointers>false</OmitFramePointers>
+      <AdditionalIncludeDirectories>../3rdparty;../coregame;../coregame_ai;../coregame_interface;../coregame_objects;../coregame_orders;../coregame_particles;../coregame_tasks;../game;../graphics;../interface;../main;../multiplayer;../sound;../system;../util;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>std.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PreprocessorDefinitions>WIN32;NDEBUG;DEVELOPMENT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerOutput>All</AssemblerOutput>
+      <AssemblerListingLocation>.\../Development/graphics\</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>.\../Development/graphics\graphics.pch</PrecompiledHeaderOutputFile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>std.h</PrecompiledHeaderFile>
+      <ObjectFileName>.\../Development/graphics\</ObjectFileName>
+      <ProgramDataBaseFileName>.\../Development/graphics\</ProgramDataBaseFileName>
+      <CallingConvention>FastCall</CallingConvention>
+    </ClCompile>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\../Development/graphics\graphics.bsc</OutputFile>
+    </Bscmake>
+    <Lib>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\../Development/graphics\graphics.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <Optimization>Disabled</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>Level4</WarningLevel>
+      <AdditionalIncludeDirectories>../3rdparty;../coregame;../coregame_ai;../coregame_interface;../coregame_objects;../coregame_orders;../coregame_particles;../coregame_tasks;../game;../graphics;../interface;../main;../multiplayer;../sound;../system;../util;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>std.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PreprocessorDefinitions>WIN32;</PreprocessorDefinitions>
+      <AssemblerListingLocation>.\../Debug/graphics\</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>.\../Debug/graphics\graphics.pch</PrecompiledHeaderOutputFile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>std.h</PrecompiledHeaderFile>
+      <ObjectFileName>.\../Debug/graphics\</ObjectFileName>
+      <ProgramDataBaseFileName>.\../Debug/graphics\</ProgramDataBaseFileName>
+      <CallingConvention>FastCall</CallingConvention>
+      <DisableSpecificWarnings>4996;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\../Debug/graphics\graphics.bsc</OutputFile>
+    </Bscmake>
+    <Lib>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\../Debug/graphics\graphics.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="bucket.cpp" />
+    <ClCompile Include="BucketDesc.cpp" />
+    <ClCompile Include="buckets_light.cpp" />
+    <ClCompile Include="buckets_lock.cpp" />
+    <ClCompile Include="Primitive.cpp" />
+    <ClCompile Include="TranBucket.cpp" />
+    <ClCompile Include="camera.cpp" />
+    <ClCompile Include="camera_test.cpp" />
+    <ClCompile Include="light.cpp" />
+    <ClCompile Include="lightrend.cpp" />
+    <ClCompile Include="lightvertscamera.cpp" />
+    <ClCompile Include="lightvertsmodel.cpp" />
+    <ClCompile Include="bitmap.cpp" />
+    <ClCompile Include="bitmap_manager.cpp" />
+    <ClCompile Include="bitmapprimitive.cpp" />
+    <ClCompile Include="material.cpp" />
+    <ClCompile Include="anim.cpp" />
+    <ClCompile Include="family.cpp" />
+    <ClCompile Include="godfile.cpp" />
+    <ClCompile Include="mesh.cpp" />
+    <ClCompile Include="mesh_render_vertex.cpp" />
+    <ClCompile Include="mesh_render_vertex_1.cpp" />
+    <ClCompile Include="mesh_render_vertextl.cpp" />
+    <ClCompile Include="meshconfig.cpp" />
+    <ClCompile Include="meshent.cpp" />
+    <ClCompile Include="meshent_render_vertex.cpp" />
+    <ClCompile Include="meshent_render_vertextl.cpp" />
+    <ClCompile Include="meshent_select.cpp" />
+    <ClCompile Include="meshload.cpp" />
+    <ClCompile Include="meshman.cpp" />
+    <ClCompile Include="meshoptions.cpp" />
+    <ClCompile Include="meshread.cpp" />
+    <ClCompile Include="meshview.cpp" />
+    <ClCompile Include="meshwrite.cpp" />
+    <ClCompile Include="effects_utils.cpp" />
+    <ClCompile Include="mesheffect.cpp" />
+    <ClCompile Include="mesheffect_base_color.cpp" />
+    <ClCompile Include="mesheffect_color.cpp" />
+    <ClCompile Include="mesheffect_fade.cpp" />
+    <ClCompile Include="mesheffect_glow.cpp" />
+    <ClCompile Include="mesheffect_liquidmetal.cpp" />
+    <ClCompile Include="mesheffect_plane.cpp" />
+    <ClCompile Include="mesheffect_planebuild.cpp" />
+    <ClCompile Include="mesheffect_resource.cpp" />
+    <ClCompile Include="mesheffect_scale.cpp" />
+    <ClCompile Include="mesheffect_system.cpp" />
+    <ClCompile Include="mesheffect_textcrossfade.cpp" />
+    <ClCompile Include="mesheffecttype.cpp" />
+    <ClCompile Include="mesheffecttype_color.cpp" />
+    <ClCompile Include="mesheffecttype_fade.cpp" />
+    <ClCompile Include="mesheffecttype_glow.cpp" />
+    <ClCompile Include="mesheffecttype_resource.cpp" />
+    <ClCompile Include="mesheffecttype_scale.cpp" />
+    <ClCompile Include="mesheffecttype_textcrossfade.cpp" />
+    <ClCompile Include="IMESHUtil.cpp" />
+    <ClCompile Include="MRMUpdate.cpp" />
+    <ClCompile Include="heightfield.cpp" />
+    <ClCompile Include="terrain.cpp" />
+    <ClCompile Include="terrain_lod.cpp" />
+    <ClCompile Include="terrain_render_isometric.cpp" />
+    <ClCompile Include="terrain_render_quick.cpp" />
+    <ClCompile Include="terrain_render_rect.cpp" />
+    <ClCompile Include="terrain_render_vertexc.cpp" />
+    <ClCompile Include="terrain_render_vertextl.cpp" />
+    <ClCompile Include="terrain_sky.cpp" />
+    <ClCompile Include="terrain_sprite.cpp" />
+    <ClCompile Include="gamemath.cpp" />
+    <ClCompile Include="statistics.cpp" />
+    <ClCompile Include="vid.cpp" />
+    <ClCompile Include="vid_cmd.cpp" />
+    <ClCompile Include="vid_cmd_dialog.cpp" />
+    <ClCompile Include="vid_cmd_mesh.cpp" />
+    <ClCompile Include="vid_cmd_terrain.cpp" />
+    <ClCompile Include="vid_config.cpp" />
+    <ClCompile Include="vid_enumdx.cpp" />
+    <ClCompile Include="vid_heap.cpp" />
+    <ClCompile Include="vid_math.cpp" />
+    <ClCompile Include="vid_settings.cpp" />
+    <ClCompile Include="vid_sprite.cpp" />
+    <ClCompile Include="vidclip.cpp" />
+    <ClCompile Include="vidclip_line.cpp" />
+    <ClCompile Include="vidclip_screen.cpp" />
+    <ClCompile Include="vidclip_xtra.cpp" />
+    <ClCompile Include="viderror.cpp" />
+    <ClCompile Include="vidgraphics.cpp" />
+    <ClCompile Include="vidmirror.cpp" />
+    <ClCompile Include="vidoptions.cpp" />
+    <ClCompile Include="vidrend.cpp" />
+    <ClCompile Include="..\system\pchbuilder.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">std.h</PrecompiledHeaderFile>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Development|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Development|Win32'">std.h</PrecompiledHeaderFile>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">std.h</PrecompiledHeaderFile>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="bucket.h" />
+    <ClInclude Include="bucket_inline.h" />
+    <ClInclude Include="BucketDesc.h" />
+    <ClInclude Include="Primitive.h" />
+    <ClInclude Include="TranBucket.h" />
+    <ClInclude Include="camera.h" />
+    <ClInclude Include="light.h" />
+    <ClInclude Include="bitmap.h" />
+    <ClInclude Include="bitmapclip.h" />
+    <ClInclude Include="bitmapdec.h" />
+    <ClInclude Include="bitmapprimitive.h" />
+    <ClInclude Include="material.h" />
+    <ClInclude Include="anim.h" />
+    <ClInclude Include="family.h" />
+    <ClInclude Include="godfile.h" />
+    <ClInclude Include="lex.h" />
+    <ClInclude Include="mesh.h" />
+    <ClInclude Include="meshconfig.h" />
+    <ClInclude Include="meshent.h" />
+    <ClInclude Include="meshmrm.h" />
+    <ClInclude Include="meshoptions.h" />
+    <ClInclude Include="meshview.h" />
+    <ClInclude Include="effects_utils.h" />
+    <ClInclude Include="mesheffect.h" />
+    <ClInclude Include="mesheffect_base_color.h" />
+    <ClInclude Include="mesheffect_color.h" />
+    <ClInclude Include="mesheffect_fade.h" />
+    <ClInclude Include="mesheffect_glow.h" />
+    <ClInclude Include="mesheffect_liquidmetal.h" />
+    <ClInclude Include="mesheffect_plane.h" />
+    <ClInclude Include="mesheffect_planebuild.h" />
+    <ClInclude Include="mesheffect_resource.h" />
+    <ClInclude Include="mesheffect_scale.h" />
+    <ClInclude Include="mesheffect_system.h" />
+    <ClInclude Include="mesheffect_textcrossfade.h" />
+    <ClInclude Include="mesheffecttype.h" />
+    <ClInclude Include="mesheffecttype_color.h" />
+    <ClInclude Include="mesheffecttype_fade.h" />
+    <ClInclude Include="mesheffecttype_glow.h" />
+    <ClInclude Include="mesheffecttype_resource.h" />
+    <ClInclude Include="mesheffecttype_scale.h" />
+    <ClInclude Include="mesheffecttype_textcrossfade.h" />
+    <ClInclude Include="IMESH.h" />
+    <ClInclude Include="IMESHUtil.h" />
+    <ClInclude Include="MRMGen.h" />
+    <ClInclude Include="MRMGenParams.h" />
+    <ClInclude Include="MRMUpdate.h" />
+    <ClInclude Include="terrain.h" />
+    <ClInclude Include="terrain_priv.h" />
+    <ClInclude Include="gamemath.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="statistics.h" />
+    <ClInclude Include="Vertex.h" />
+    <ClInclude Include="vid.h" />
+    <ClInclude Include="vid_cmd.h" />
+    <ClInclude Include="vid_cmd_var.h" />
+    <ClInclude Include="vid_decl.h" />
+    <ClInclude Include="vid_heap.h" />
+    <ClInclude Include="vid_math.h" />
+    <ClInclude Include="vid_private.h" />
+    <ClInclude Include="vid_public.h" />
+    <ClInclude Include="vidclip.h" />
+    <ClInclude Include="vidclip_priv.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

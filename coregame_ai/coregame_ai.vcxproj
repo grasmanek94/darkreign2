@@ -1,0 +1,327 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Development|Win32">
+      <Configuration>Development</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="kkk|Win32">
+      <Configuration>kkk</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Template|Win32">
+      <Configuration>Template</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <ProjectGuid>{D1EE3C8D-B78B-49BA-843B-9E23C9E8816C}</ProjectGuid>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Template|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Development|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='kkk|Win32'">
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Template|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Development|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>.\../Release/coregame_ai\</OutDir>
+    <IntDir>.\../Release/coregame_ai\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Development|Win32'">
+    <OutDir>.\../Development/coregame_ai\</OutDir>
+    <IntDir>.\../Development/coregame_ai\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>.\../Debug/coregame_ai\</OutDir>
+    <IntDir>.\../Debug/coregame_ai\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <StringPooling>true</StringPooling>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <Optimization>MaxSpeed</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>Level4</WarningLevel>
+      <OmitFramePointers>false</OmitFramePointers>
+      <AdditionalIncludeDirectories>../3rdparty;../coregame;../coregame_ai;../coregame_interface;../coregame_objects;../coregame_orders;../coregame_particles;../coregame_tasks;../game;../graphics;../interface;../main;../multiplayer;../sound;../system;../util;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>stdinc_coregame.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PreprocessorDefinitions>WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerOutput>All</AssemblerOutput>
+      <AssemblerListingLocation>.\../Release/coregame_ai\</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>.\../Release/coregame_ai\coregame_ai.pch</PrecompiledHeaderOutputFile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdinc_coregame.h</PrecompiledHeaderFile>
+      <ObjectFileName>.\../Release/coregame_ai\</ObjectFileName>
+      <ProgramDataBaseFileName>.\../Release/coregame_ai\</ProgramDataBaseFileName>
+      <CallingConvention>FastCall</CallingConvention>
+      <DisableSpecificWarnings>4996;</DisableSpecificWarnings>
+    </ClCompile>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\../Release/coregame_ai\coregame_ai.bsc</OutputFile>
+    </Bscmake>
+    <Lib>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\../Release/coregame_ai\coregame_ai.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Development|Win32'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <StringPooling>true</StringPooling>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <Optimization>MaxSpeed</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>Level4</WarningLevel>
+      <OmitFramePointers>false</OmitFramePointers>
+      <AdditionalIncludeDirectories>../3rdparty;../coregame;../coregame_ai;../coregame_interface;../coregame_objects;../coregame_orders;../coregame_particles;../coregame_tasks;../game;../graphics;../interface;../main;../multiplayer;../sound;../system;../util;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>stdinc_coregame.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PreprocessorDefinitions>WIN32;NDEBUG;DEVELOPMENT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerOutput>All</AssemblerOutput>
+      <AssemblerListingLocation>.\../Development/coregame_ai\</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>.\../Development/coregame_ai\coregame_ai.pch</PrecompiledHeaderOutputFile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdinc_coregame.h</PrecompiledHeaderFile>
+      <ObjectFileName>.\../Development/coregame_ai\</ObjectFileName>
+      <ProgramDataBaseFileName>.\../Development/coregame_ai\</ProgramDataBaseFileName>
+      <CallingConvention>FastCall</CallingConvention>
+    </ClCompile>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\../Development/coregame_ai\coregame_ai.bsc</OutputFile>
+    </Bscmake>
+    <Lib>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\../Development/coregame_ai\coregame_ai.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <Optimization>Disabled</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>Level4</WarningLevel>
+      <AdditionalIncludeDirectories>../3rdparty;../coregame;../coregame_ai;../coregame_interface;../coregame_objects;../coregame_orders;../coregame_particles;../coregame_tasks;../game;../graphics;../interface;../main;../multiplayer;../sound;../system;../util;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>stdinc_coregame.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PreprocessorDefinitions>WIN32;</PreprocessorDefinitions>
+      <AssemblerListingLocation>.\../Debug/coregame_ai\</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>.\../Debug/coregame_ai\coregame_ai.pch</PrecompiledHeaderOutputFile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdinc_coregame.h</PrecompiledHeaderFile>
+      <ObjectFileName>.\../Debug/coregame_ai\</ObjectFileName>
+      <ProgramDataBaseFileName>.\../Debug/coregame_ai\</ProgramDataBaseFileName>
+      <CallingConvention>FastCall</CallingConvention>
+      <DisableSpecificWarnings>4996;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\../Debug/coregame_ai\coregame_ai.bsc</OutputFile>
+    </Bscmake>
+    <Lib>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\../Debug/coregame_ai\coregame_ai.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="ai_debug.cpp" />
+    <ClCompile Include="ai_debug_info.cpp" />
+    <ClCompile Include="ai_debug_teamlist.cpp" />
+    <ClCompile Include="formation.cpp" />
+    <ClCompile Include="strategic_asset.cpp" />
+    <ClCompile Include="strategic_asset_manager.cpp" />
+    <ClCompile Include="strategic_asset_request.cpp" />
+    <ClCompile Include="strategic_asset_request_force.cpp" />
+    <ClCompile Include="strategic_asset_request_forcemap.cpp" />
+    <ClCompile Include="strategic_asset_request_squad.cpp" />
+    <ClCompile Include="strategic_asset_request_tag.cpp" />
+    <ClCompile Include="strategic_asset_request_type.cpp" />
+    <ClCompile Include="strategic_asset_request_typebase.cpp" />
+    <ClCompile Include="strategic_base.cpp" />
+    <ClCompile Include="strategic_base_manager.cpp" />
+    <ClCompile Include="strategic_base_orderer.cpp" />
+    <ClCompile Include="strategic_base_orderer_manifests.cpp" />
+    <ClCompile Include="strategic_base_orderer_type.cpp" />
+    <ClCompile Include="strategic_base_recycler.cpp" />
+    <ClCompile Include="strategic_base_state.cpp" />
+    <ClCompile Include="strategic_base_token.cpp" />
+    <ClCompile Include="strategic_bombardier.cpp" />
+    <ClCompile Include="strategic_bombardier_manager.cpp" />
+    <ClCompile Include="strategic_bombardier_offmap.cpp" />
+    <ClCompile Include="strategic_bombardier_ruleset.cpp" />
+    <ClCompile Include="strategic_bombardier_unit.cpp" />
+    <ClCompile Include="strategic_intel.cpp" />
+    <ClCompile Include="strategic_intel_manager.cpp" />
+    <ClCompile Include="strategic_placement.cpp" />
+    <ClCompile Include="strategic_placement_cluster.cpp" />
+    <ClCompile Include="strategic_placement_clusterset.cpp" />
+    <ClCompile Include="strategic_placement_locator.cpp" />
+    <ClCompile Include="strategic_placement_manager.cpp" />
+    <ClCompile Include="strategic_placement_manager_clusterinfo.cpp" />
+    <ClCompile Include="strategic_placement_ruleset.cpp" />
+    <ClCompile Include="strategic_resource.cpp" />
+    <ClCompile Include="strategic_resource_decomposition.cpp" />
+    <ClCompile Include="strategic_resource_manager.cpp" />
+    <ClCompile Include="strategic_rule.cpp" />
+    <ClCompile Include="strategic_rule_manager.cpp" />
+    <ClCompile Include="strategic_script.cpp" />
+    <ClCompile Include="strategic_script_manager.cpp" />
+    <ClCompile Include="strategic_script_recruiter.cpp" />
+    <ClCompile Include="strategic_script_state.cpp" />
+    <ClCompile Include="strategic_script_state_actions.cpp" />
+    <ClCompile Include="strategic_script_state_conditions.cpp" />
+    <ClCompile Include="strategic_script_state_settings.cpp" />
+    <ClCompile Include="strategic_script_state_transitions.cpp" />
+    <ClCompile Include="strategic_transport.cpp" />
+    <ClCompile Include="strategic_transport_manager.cpp" />
+    <ClCompile Include="strategic_water.cpp" />
+    <ClCompile Include="strategic_water_decomposition.cpp" />
+    <ClCompile Include="strategic_water_manager.cpp" />
+    <ClCompile Include="strategic.cpp" />
+    <ClCompile Include="strategic_config.cpp" />
+    <ClCompile Include="strategic_location.cpp" />
+    <ClCompile Include="strategic_object.cpp" />
+    <ClCompile Include="strategic_util.cpp" />
+    <ClCompile Include="tactical.cpp" />
+    <ClCompile Include="tactical_process.cpp" />
+    <ClCompile Include="ai.cpp" />
+    <ClCompile Include="ai_map.cpp" />
+    <ClCompile Include="..\system\pchbuilder.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">stdinc_coregame.h</PrecompiledHeaderFile>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Development|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Development|Win32'">stdinc_coregame.h</PrecompiledHeaderFile>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">stdinc_coregame.h</PrecompiledHeaderFile>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ai_debug.h" />
+    <ClInclude Include="ai_debug_info.h" />
+    <ClInclude Include="ai_debug_teamlist.h" />
+    <ClInclude Include="formation.h" />
+    <ClInclude Include="strategic_asset.h" />
+    <ClInclude Include="strategic_asset_manager.h" />
+    <ClInclude Include="strategic_asset_request.h" />
+    <ClInclude Include="strategic_base.h" />
+    <ClInclude Include="strategic_base_manager.h" />
+    <ClInclude Include="strategic_base_orderer.h" />
+    <ClInclude Include="strategic_base_orderer_manifest.h" />
+    <ClInclude Include="strategic_base_orderer_type.h" />
+    <ClInclude Include="strategic_base_recycler.h" />
+    <ClInclude Include="strategic_base_state.h" />
+    <ClInclude Include="strategic_base_token.h" />
+    <ClInclude Include="strategic_bombardier.h" />
+    <ClInclude Include="strategic_bombardier_manager.h" />
+    <ClInclude Include="strategic_bombardier_ruleset.h" />
+    <ClInclude Include="strategic_intel.h" />
+    <ClInclude Include="strategic_intel_manager.h" />
+    <ClInclude Include="strategic_placement.h" />
+    <ClInclude Include="strategic_placement_cluster.h" />
+    <ClInclude Include="strategic_placement_clusterset.h" />
+    <ClInclude Include="strategic_placement_locator.h" />
+    <ClInclude Include="strategic_placement_manager.h" />
+    <ClInclude Include="strategic_placement_manager_clusterinfo.h" />
+    <ClInclude Include="strategic_placement_ruleset.h" />
+    <ClInclude Include="strategic_resource.h" />
+    <ClInclude Include="strategic_resource_decomposition.h" />
+    <ClInclude Include="strategic_resource_manager.h" />
+    <ClInclude Include="strategic_rule.h" />
+    <ClInclude Include="strategic_rule_manager.h" />
+    <ClInclude Include="strategic_script.h" />
+    <ClInclude Include="strategic_script_manager.h" />
+    <ClInclude Include="strategic_script_recruiter.h" />
+    <ClInclude Include="strategic_script_state.h" />
+    <ClInclude Include="strategic_transport.h" />
+    <ClInclude Include="strategic_transport_manager.h" />
+    <ClInclude Include="strategic_water.h" />
+    <ClInclude Include="strategic_water_decomposition.h" />
+    <ClInclude Include="strategic_water_manager.h" />
+    <ClInclude Include="strategic.h" />
+    <ClInclude Include="strategic_config.h" />
+    <ClInclude Include="strategic_location.h" />
+    <ClInclude Include="strategic_notification.h" />
+    <ClInclude Include="strategic_object.h" />
+    <ClInclude Include="strategic_pqueue.h" />
+    <ClInclude Include="strategic_private.h" />
+    <ClInclude Include="strategic_util.h" />
+    <ClInclude Include="strategic_weighting.h" />
+    <ClInclude Include="tactical.h" />
+    <ClInclude Include="tactical_private.h" />
+    <ClInclude Include="ai.h" />
+    <ClInclude Include="ai_map.h" />
+    <ClInclude Include="..\coregame\stdinc_coregame.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

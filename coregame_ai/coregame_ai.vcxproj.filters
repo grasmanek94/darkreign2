@@ -1,0 +1,393 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="debug">
+      <UniqueIdentifier>{bf432115-c3a7-490a-ac58-a6cf777fcf1a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="formation">
+      <UniqueIdentifier>{b3b93e3d-e453-44b7-8f9b-789663606998}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="strategic">
+      <UniqueIdentifier>{8d8ff318-6219-417a-ada7-86d7332409ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="strategic\strategic asset">
+      <UniqueIdentifier>{e6ee39ec-501c-4267-bb0f-b6f9512a38f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="strategic\strategic base">
+      <UniqueIdentifier>{865c6e81-e5f1-44dd-a681-c76d3746328c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="strategic\strategic bombardier">
+      <UniqueIdentifier>{6084a3e6-e924-489e-9c2b-a399d7429c4a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="strategic\strategic intel">
+      <UniqueIdentifier>{52049793-da5c-45e5-88d8-9449948d7b2c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="strategic\strategic placement">
+      <UniqueIdentifier>{41104735-efa1-4d06-83ad-b4c830643d6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="strategic\strategic resource">
+      <UniqueIdentifier>{6ee9044f-6cd9-469b-8ff6-1c3f4d27f3a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="strategic\strategic rule">
+      <UniqueIdentifier>{8ddd9524-b708-4897-ab86-1ed6a963b289}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="strategic\strategic script">
+      <UniqueIdentifier>{068a2d6f-295d-4903-9128-7e41b49a583f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="strategic\strategic transport">
+      <UniqueIdentifier>{3d22d936-253f-4981-9fa0-71a7079d7f75}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="strategic\strategic water">
+      <UniqueIdentifier>{8cb6bf69-ef66-487e-a9eb-45f391319828}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tactical">
+      <UniqueIdentifier>{1abad760-1fae-4267-886a-f89489908d81}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ai_debug.cpp">
+      <Filter>debug</Filter>
+    </ClCompile>
+    <ClCompile Include="ai_debug_info.cpp">
+      <Filter>debug</Filter>
+    </ClCompile>
+    <ClCompile Include="ai_debug_teamlist.cpp">
+      <Filter>debug</Filter>
+    </ClCompile>
+    <ClCompile Include="formation.cpp">
+      <Filter>formation</Filter>
+    </ClCompile>
+    <ClCompile Include="strategic_asset.cpp">
+      <Filter>strategic\strategic asset</Filter>
+    </ClCompile>
+    <ClCompile Include="strategic_asset_manager.cpp">
+      <Filter>strategic\strategic asset</Filter>
+    </ClCompile>
+    <ClCompile Include="strategic_asset_request.cpp">
+      <Filter>strategic\strategic asset</Filter>
+    </ClCompile>
+    <ClCompile Include="strategic_asset_request_force.cpp">
+      <Filter>strategic\strategic asset</Filter>
+    </ClCompile>
+    <ClCompile Include="strategic_asset_request_forcemap.cpp">
+      <Filter>strategic\strategic asset</Filter>
+    </ClCompile>
+    <ClCompile Include="strategic_asset_request_squad.cpp">
+      <Filter>strategic\strategic asset</Filter>
+    </ClCompile>
+    <ClCompile Include="strategic_asset_request_tag.cpp">
+      <Filter>strategic\strategic asset</Filter>
+    </ClCompile>
+    <ClCompile Include="strategic_asset_request_type.cpp">
+      <Filter>strategic\strategic asset</Filter>
+    </ClCompile>
+    <ClCompile Include="strategic_asset_request_typebase.cpp">
+      <Filter>strategic\strategic asset</Filter>
+    </ClCompile>
+    <ClCompile Include="strategic_base.cpp">
+      <Filter>strategic\strategic base</Filter>
+    </ClCompile>
+    <ClCompile Include="strategic_base_manager.cpp">
+      <Filter>strategic\strategic base</Filter>
+    </ClCompile>
+    <ClCompile Include="strategic_base_orderer.cpp">
+      <Filter>strategic\strategic base</Filter>
+    </ClCompile>
+    <ClCompile Include="strategic_base_orderer_manifests.cpp">
+      <Filter>strategic\strategic base</Filter>
+    </ClCompile>
+    <ClCompile Include="strategic_base_orderer_type.cpp">
+      <Filter>strategic\strategic base</Filter>
+    </ClCompile>
+    <ClCompile Include="strategic_base_recycler.cpp">
+      <Filter>strategic\strategic base</Filter>
+    </ClCompile>
+    <ClCompile Include="strategic_base_state.cpp">
+      <Filter>strategic\strategic base</Filter>
+    </ClCompile>
+    <ClCompile Include="strategic_base_token.cpp">
+      <Filter>strategic\strategic base</Filter>
+    </ClCompile>
+    <ClCompile Include="strategic_bombardier.cpp">
+      <Filter>strategic\strategic bombardier</Filter>
+    </ClCompile>
+    <ClCompile Include="strategic_bombardier_manager.cpp">
+      <Filter>strategic\strategic bombardier</Filter>
+    </ClCompile>
+    <ClCompile Include="strategic_bombardier_offmap.cpp">
+      <Filter>strategic\strategic bombardier</Filter>
+    </ClCompile>
+    <ClCompile Include="strategic_bombardier_ruleset.cpp">
+      <Filter>strategic\strategic bombardier</Filter>
+    </ClCompile>
+    <ClCompile Include="strategic_bombardier_unit.cpp">
+      <Filter>strategic\strategic bombardier</Filter>
+    </ClCompile>
+    <ClCompile Include="strategic_intel.cpp">
+      <Filter>strategic\strategic intel</Filter>
+    </ClCompile>
+    <ClCompile Include="strategic_intel_manager.cpp">
+      <Filter>strategic\strategic intel</Filter>
+    </ClCompile>
+    <ClCompile Include="strategic_placement.cpp">
+      <Filter>strategic\strategic placement</Filter>
+    </ClCompile>
+    <ClCompile Include="strategic_placement_cluster.cpp">
+      <Filter>strategic\strategic placement</Filter>
+    </ClCompile>
+    <ClCompile Include="strategic_placement_clusterset.cpp">
+      <Filter>strategic\strategic placement</Filter>
+    </ClCompile>
+    <ClCompile Include="strategic_placement_locator.cpp">
+      <Filter>strategic\strategic placement</Filter>
+    </ClCompile>
+    <ClCompile Include="strategic_placement_manager.cpp">
+      <Filter>strategic\strategic placement</Filter>
+    </ClCompile>
+    <ClCompile Include="strategic_placement_manager_clusterinfo.cpp">
+      <Filter>strategic\strategic placement</Filter>
+    </ClCompile>
+    <ClCompile Include="strategic_placement_ruleset.cpp">
+      <Filter>strategic\strategic placement</Filter>
+    </ClCompile>
+    <ClCompile Include="strategic_resource.cpp">
+      <Filter>strategic\strategic resource</Filter>
+    </ClCompile>
+    <ClCompile Include="strategic_resource_decomposition.cpp">
+      <Filter>strategic\strategic resource</Filter>
+    </ClCompile>
+    <ClCompile Include="strategic_resource_manager.cpp">
+      <Filter>strategic\strategic resource</Filter>
+    </ClCompile>
+    <ClCompile Include="strategic_rule.cpp">
+      <Filter>strategic\strategic rule</Filter>
+    </ClCompile>
+    <ClCompile Include="strategic_rule_manager.cpp">
+      <Filter>strategic\strategic rule</Filter>
+    </ClCompile>
+    <ClCompile Include="strategic_script.cpp">
+      <Filter>strategic\strategic script</Filter>
+    </ClCompile>
+    <ClCompile Include="strategic_script_manager.cpp">
+      <Filter>strategic\strategic script</Filter>
+    </ClCompile>
+    <ClCompile Include="strategic_script_recruiter.cpp">
+      <Filter>strategic\strategic script</Filter>
+    </ClCompile>
+    <ClCompile Include="strategic_script_state.cpp">
+      <Filter>strategic\strategic script</Filter>
+    </ClCompile>
+    <ClCompile Include="strategic_script_state_actions.cpp">
+      <Filter>strategic\strategic script</Filter>
+    </ClCompile>
+    <ClCompile Include="strategic_script_state_conditions.cpp">
+      <Filter>strategic\strategic script</Filter>
+    </ClCompile>
+    <ClCompile Include="strategic_script_state_settings.cpp">
+      <Filter>strategic\strategic script</Filter>
+    </ClCompile>
+    <ClCompile Include="strategic_script_state_transitions.cpp">
+      <Filter>strategic\strategic script</Filter>
+    </ClCompile>
+    <ClCompile Include="strategic_transport.cpp">
+      <Filter>strategic\strategic transport</Filter>
+    </ClCompile>
+    <ClCompile Include="strategic_transport_manager.cpp">
+      <Filter>strategic\strategic transport</Filter>
+    </ClCompile>
+    <ClCompile Include="strategic_water.cpp">
+      <Filter>strategic\strategic water</Filter>
+    </ClCompile>
+    <ClCompile Include="strategic_water_decomposition.cpp">
+      <Filter>strategic\strategic water</Filter>
+    </ClCompile>
+    <ClCompile Include="strategic_water_manager.cpp">
+      <Filter>strategic\strategic water</Filter>
+    </ClCompile>
+    <ClCompile Include="strategic.cpp">
+      <Filter>strategic</Filter>
+    </ClCompile>
+    <ClCompile Include="strategic_config.cpp">
+      <Filter>strategic</Filter>
+    </ClCompile>
+    <ClCompile Include="strategic_location.cpp">
+      <Filter>strategic</Filter>
+    </ClCompile>
+    <ClCompile Include="strategic_object.cpp">
+      <Filter>strategic</Filter>
+    </ClCompile>
+    <ClCompile Include="strategic_util.cpp">
+      <Filter>strategic</Filter>
+    </ClCompile>
+    <ClCompile Include="tactical.cpp">
+      <Filter>tactical</Filter>
+    </ClCompile>
+    <ClCompile Include="tactical_process.cpp">
+      <Filter>tactical</Filter>
+    </ClCompile>
+    <ClCompile Include="ai.cpp" />
+    <ClCompile Include="ai_map.cpp" />
+    <ClCompile Include="..\system\pchbuilder.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ai_debug.h">
+      <Filter>debug</Filter>
+    </ClInclude>
+    <ClInclude Include="ai_debug_info.h">
+      <Filter>debug</Filter>
+    </ClInclude>
+    <ClInclude Include="ai_debug_teamlist.h">
+      <Filter>debug</Filter>
+    </ClInclude>
+    <ClInclude Include="formation.h">
+      <Filter>formation</Filter>
+    </ClInclude>
+    <ClInclude Include="strategic_asset.h">
+      <Filter>strategic\strategic asset</Filter>
+    </ClInclude>
+    <ClInclude Include="strategic_asset_manager.h">
+      <Filter>strategic\strategic asset</Filter>
+    </ClInclude>
+    <ClInclude Include="strategic_asset_request.h">
+      <Filter>strategic\strategic asset</Filter>
+    </ClInclude>
+    <ClInclude Include="strategic_base.h">
+      <Filter>strategic\strategic base</Filter>
+    </ClInclude>
+    <ClInclude Include="strategic_base_manager.h">
+      <Filter>strategic\strategic base</Filter>
+    </ClInclude>
+    <ClInclude Include="strategic_base_orderer.h">
+      <Filter>strategic\strategic base</Filter>
+    </ClInclude>
+    <ClInclude Include="strategic_base_orderer_manifest.h">
+      <Filter>strategic\strategic base</Filter>
+    </ClInclude>
+    <ClInclude Include="strategic_base_orderer_type.h">
+      <Filter>strategic\strategic base</Filter>
+    </ClInclude>
+    <ClInclude Include="strategic_base_recycler.h">
+      <Filter>strategic\strategic base</Filter>
+    </ClInclude>
+    <ClInclude Include="strategic_base_state.h">
+      <Filter>strategic\strategic base</Filter>
+    </ClInclude>
+    <ClInclude Include="strategic_base_token.h">
+      <Filter>strategic\strategic base</Filter>
+    </ClInclude>
+    <ClInclude Include="strategic_bombardier.h">
+      <Filter>strategic\strategic bombardier</Filter>
+    </ClInclude>
+    <ClInclude Include="strategic_bombardier_manager.h">
+      <Filter>strategic\strategic bombardier</Filter>
+    </ClInclude>
+    <ClInclude Include="strategic_bombardier_ruleset.h">
+      <Filter>strategic\strategic bombardier</Filter>
+    </ClInclude>
+    <ClInclude Include="strategic_intel.h">
+      <Filter>strategic\strategic intel</Filter>
+    </ClInclude>
+    <ClInclude Include="strategic_intel_manager.h">
+      <Filter>strategic\strategic intel</Filter>
+    </ClInclude>
+    <ClInclude Include="strategic_placement.h">
+      <Filter>strategic\strategic placement</Filter>
+    </ClInclude>
+    <ClInclude Include="strategic_placement_cluster.h">
+      <Filter>strategic\strategic placement</Filter>
+    </ClInclude>
+    <ClInclude Include="strategic_placement_clusterset.h">
+      <Filter>strategic\strategic placement</Filter>
+    </ClInclude>
+    <ClInclude Include="strategic_placement_locator.h">
+      <Filter>strategic\strategic placement</Filter>
+    </ClInclude>
+    <ClInclude Include="strategic_placement_manager.h">
+      <Filter>strategic\strategic placement</Filter>
+    </ClInclude>
+    <ClInclude Include="strategic_placement_manager_clusterinfo.h">
+      <Filter>strategic\strategic placement</Filter>
+    </ClInclude>
+    <ClInclude Include="strategic_placement_ruleset.h">
+      <Filter>strategic\strategic placement</Filter>
+    </ClInclude>
+    <ClInclude Include="strategic_resource.h">
+      <Filter>strategic\strategic resource</Filter>
+    </ClInclude>
+    <ClInclude Include="strategic_resource_decomposition.h">
+      <Filter>strategic\strategic resource</Filter>
+    </ClInclude>
+    <ClInclude Include="strategic_resource_manager.h">
+      <Filter>strategic\strategic resource</Filter>
+    </ClInclude>
+    <ClInclude Include="strategic_rule.h">
+      <Filter>strategic\strategic rule</Filter>
+    </ClInclude>
+    <ClInclude Include="strategic_rule_manager.h">
+      <Filter>strategic\strategic rule</Filter>
+    </ClInclude>
+    <ClInclude Include="strategic_script.h">
+      <Filter>strategic\strategic script</Filter>
+    </ClInclude>
+    <ClInclude Include="strategic_script_manager.h">
+      <Filter>strategic\strategic script</Filter>
+    </ClInclude>
+    <ClInclude Include="strategic_script_recruiter.h">
+      <Filter>strategic\strategic script</Filter>
+    </ClInclude>
+    <ClInclude Include="strategic_script_state.h">
+      <Filter>strategic\strategic script</Filter>
+    </ClInclude>
+    <ClInclude Include="strategic_transport.h">
+      <Filter>strategic\strategic transport</Filter>
+    </ClInclude>
+    <ClInclude Include="strategic_transport_manager.h">
+      <Filter>strategic\strategic transport</Filter>
+    </ClInclude>
+    <ClInclude Include="strategic_water.h">
+      <Filter>strategic\strategic water</Filter>
+    </ClInclude>
+    <ClInclude Include="strategic_water_decomposition.h">
+      <Filter>strategic\strategic water</Filter>
+    </ClInclude>
+    <ClInclude Include="strategic_water_manager.h">
+      <Filter>strategic\strategic water</Filter>
+    </ClInclude>
+    <ClInclude Include="strategic.h">
+      <Filter>strategic</Filter>
+    </ClInclude>
+    <ClInclude Include="strategic_config.h">
+      <Filter>strategic</Filter>
+    </ClInclude>
+    <ClInclude Include="strategic_location.h">
+      <Filter>strategic</Filter>
+    </ClInclude>
+    <ClInclude Include="strategic_notification.h">
+      <Filter>strategic</Filter>
+    </ClInclude>
+    <ClInclude Include="strategic_object.h">
+      <Filter>strategic</Filter>
+    </ClInclude>
+    <ClInclude Include="strategic_pqueue.h">
+      <Filter>strategic</Filter>
+    </ClInclude>
+    <ClInclude Include="strategic_private.h">
+      <Filter>strategic</Filter>
+    </ClInclude>
+    <ClInclude Include="strategic_util.h">
+      <Filter>strategic</Filter>
+    </ClInclude>
+    <ClInclude Include="strategic_weighting.h">
+      <Filter>strategic</Filter>
+    </ClInclude>
+    <ClInclude Include="tactical.h">
+      <Filter>tactical</Filter>
+    </ClInclude>
+    <ClInclude Include="tactical_private.h">
+      <Filter>tactical</Filter>
+    </ClInclude>
+    <ClInclude Include="ai.h" />
+    <ClInclude Include="ai_map.h" />
+    <ClInclude Include="..\coregame\stdinc_coregame.h" />
+  </ItemGroup>
+</Project>

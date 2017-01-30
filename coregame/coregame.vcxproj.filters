@@ -1,0 +1,518 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="connected region">
+      <UniqueIdentifier>{5f28b640-c90d-434b-9b5c-e800c6f53ef3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="environment">
+      <UniqueIdentifier>{8e61b44f-cd2b-4007-b2b1-ea5731f120a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="footprint">
+      <UniqueIdentifier>{c71ff1dc-ad98-4205-8ce3-ee7131d621be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="fx">
+      <UniqueIdentifier>{e5ce1e6f-e2e1-4725-9d1b-d069e348e216}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game">
+      <UniqueIdentifier>{abf35d7e-bfd9-4389-8178-96f7711a6ff5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="message">
+      <UniqueIdentifier>{39da8f62-eb7f-442a-a575-ddd039b76a95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="misc">
+      <UniqueIdentifier>{c8e88bbf-d27f-493e-81c7-d0b9bac1e999}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="movement">
+      <UniqueIdentifier>{31388995-5ca8-4ce1-9c4c-d4f5960b6954}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="pathsearch">
+      <UniqueIdentifier>{e1a0137d-1f78-4d1b-8908-d26027d7959d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="physics">
+      <UniqueIdentifier>{8a79d58e-4ca7-41d3-8462-8a9d7e66226a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sight">
+      <UniqueIdentifier>{9ad3bb96-a6d4-402c-8f81-5746134c1dfb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="system">
+      <UniqueIdentifier>{69e04ee1-963a-4673-b312-d6535ada3483}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="team">
+      <UniqueIdentifier>{e38a8837-1f6a-45a5-b8e5-e22b8c3d0400}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="team\conditions">
+      <UniqueIdentifier>{4abec7e1-e17c-4bd6-ab6a-f2cb2dad3c41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="terrain">
+      <UniqueIdentifier>{dc07955a-10ad-40e0-80fe-c71ca01a1a68}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="viewer">
+      <UniqueIdentifier>{ef1f13a3-5a44-4e6a-b4bf-2e0a6a59dc58}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="weapons">
+      <UniqueIdentifier>{3931bd5a-42d7-40bd-9128-63a026b010bb}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="blobs.cpp">
+      <Filter>connected region</Filter>
+    </ClCompile>
+    <ClCompile Include="connectedregion.cpp">
+      <Filter>connected region</Filter>
+    </ClCompile>
+    <ClCompile Include="environment.cpp">
+      <Filter>environment</Filter>
+    </ClCompile>
+    <ClCompile Include="environment_light.cpp">
+      <Filter>environment</Filter>
+    </ClCompile>
+    <ClCompile Include="environment_quake.cpp">
+      <Filter>environment</Filter>
+    </ClCompile>
+    <ClCompile Include="environment_rain.cpp">
+      <Filter>environment</Filter>
+    </ClCompile>
+    <ClCompile Include="environment_time.cpp">
+      <Filter>environment</Filter>
+    </ClCompile>
+    <ClCompile Include="footprint.cpp">
+      <Filter>footprint</Filter>
+    </ClCompile>
+    <ClCompile Include="footprint_instance.cpp">
+      <Filter>footprint</Filter>
+    </ClCompile>
+    <ClCompile Include="footprint_layer.cpp">
+      <Filter>footprint</Filter>
+    </ClCompile>
+    <ClCompile Include="footprint_placement.cpp">
+      <Filter>footprint</Filter>
+    </ClCompile>
+    <ClCompile Include="footprint_type.cpp">
+      <Filter>footprint</Filter>
+    </ClCompile>
+    <ClCompile Include="fx.cpp">
+      <Filter>fx</Filter>
+    </ClCompile>
+    <ClCompile Include="meshfx.cpp">
+      <Filter>fx</Filter>
+    </ClCompile>
+    <ClCompile Include="particlefx.cpp">
+      <Filter>fx</Filter>
+    </ClCompile>
+    <ClCompile Include="soundfx.cpp">
+      <Filter>fx</Filter>
+    </ClCompile>
+    <ClCompile Include="game.cpp">
+      <Filter>game</Filter>
+    </ClCompile>
+    <ClCompile Include="game_config.cpp">
+      <Filter>game</Filter>
+    </ClCompile>
+    <ClCompile Include="game_preview.cpp">
+      <Filter>game</Filter>
+    </ClCompile>
+    <ClCompile Include="game_rc.cpp">
+      <Filter>game</Filter>
+    </ClCompile>
+    <ClCompile Include="missionvar.cpp">
+      <Filter>game</Filter>
+    </ClCompile>
+    <ClCompile Include="message.cpp">
+      <Filter>message</Filter>
+    </ClCompile>
+    <ClCompile Include="ray.cpp">
+      <Filter>misc</Filter>
+    </ClCompile>
+    <ClCompile Include="render.cpp">
+      <Filter>misc</Filter>
+    </ClCompile>
+    <ClCompile Include="movement.cpp">
+      <Filter>movement</Filter>
+    </ClCompile>
+    <ClCompile Include="movement_pathfollow.cpp">
+      <Filter>movement</Filter>
+    </ClCompile>
+    <ClCompile Include="pathsearch.cpp">
+      <Filter>pathsearch</Filter>
+    </ClCompile>
+    <ClCompile Include="pathsearch_cmd.cpp">
+      <Filter>pathsearch</Filter>
+    </ClCompile>
+    <ClCompile Include="pathsearch_finder.cpp">
+      <Filter>pathsearch</Filter>
+    </ClCompile>
+    <ClCompile Include="pathsearch_path.cpp">
+      <Filter>pathsearch</Filter>
+    </ClCompile>
+    <ClCompile Include="collisionctrl.cpp">
+      <Filter>physics</Filter>
+    </ClCompile>
+    <ClCompile Include="physics_type.cpp">
+      <Filter>physics</Filter>
+    </ClCompile>
+    <ClCompile Include="physicsctrl.cpp">
+      <Filter>physics</Filter>
+    </ClCompile>
+    <ClCompile Include="sight.cpp">
+      <Filter>sight</Filter>
+    </ClCompile>
+    <ClCompile Include="sight_bytemap.cpp">
+      <Filter>sight</Filter>
+    </ClCompile>
+    <ClCompile Include="sight_map.cpp">
+      <Filter>sight</Filter>
+    </ClCompile>
+    <ClCompile Include="sight_tables.cpp">
+      <Filter>sight</Filter>
+    </ClCompile>
+    <ClCompile Include="claim.cpp">
+      <Filter>system</Filter>
+    </ClCompile>
+    <ClCompile Include="coregame.cpp">
+      <Filter>system</Filter>
+    </ClCompile>
+    <ClCompile Include="gamebabel.cpp">
+      <Filter>system</Filter>
+    </ClCompile>
+    <ClCompile Include="instance_modifier.cpp">
+      <Filter>system</Filter>
+    </ClCompile>
+    <ClCompile Include="movetable.cpp">
+      <Filter>system</Filter>
+    </ClCompile>
+    <ClCompile Include="worldctrl.cpp">
+      <Filter>system</Filter>
+    </ClCompile>
+    <ClCompile Include="worldload.cpp">
+      <Filter>system</Filter>
+    </ClCompile>
+    <ClCompile Include="condition.cpp">
+      <Filter>team\conditions</Filter>
+    </ClCompile>
+    <ClCompile Include="condition_cineractive.cpp">
+      <Filter>team\conditions</Filter>
+    </ClCompile>
+    <ClCompile Include="condition_game.cpp">
+      <Filter>team\conditions</Filter>
+    </ClCompile>
+    <ClCompile Include="action.cpp">
+      <Filter>team</Filter>
+    </ClCompile>
+    <ClCompile Include="displayobjective.cpp">
+      <Filter>team</Filter>
+    </ClCompile>
+    <ClCompile Include="objective.cpp">
+      <Filter>team</Filter>
+    </ClCompile>
+    <ClCompile Include="player.cpp">
+      <Filter>team</Filter>
+    </ClCompile>
+    <ClCompile Include="power.cpp">
+      <Filter>team</Filter>
+    </ClCompile>
+    <ClCompile Include="prereq.cpp">
+      <Filter>team</Filter>
+    </ClCompile>
+    <ClCompile Include="radio.cpp">
+      <Filter>team</Filter>
+    </ClCompile>
+    <ClCompile Include="relation.cpp">
+      <Filter>team</Filter>
+    </ClCompile>
+    <ClCompile Include="sideplacement.cpp">
+      <Filter>team</Filter>
+    </ClCompile>
+    <ClCompile Include="team.cpp">
+      <Filter>team</Filter>
+    </ClCompile>
+    <ClCompile Include="unitlimits.cpp">
+      <Filter>team</Filter>
+    </ClCompile>
+    <ClCompile Include="terraindata.cpp">
+      <Filter>terrain</Filter>
+    </ClCompile>
+    <ClCompile Include="terraingroup.cpp">
+      <Filter>terrain</Filter>
+    </ClCompile>
+    <ClCompile Include="viewer.cpp">
+      <Filter>viewer</Filter>
+    </ClCompile>
+    <ClCompile Include="viewer_action.cpp">
+      <Filter>viewer</Filter>
+    </ClCompile>
+    <ClCompile Include="viewer_base.cpp">
+      <Filter>viewer</Filter>
+    </ClCompile>
+    <ClCompile Include="viewer_cinema.cpp">
+      <Filter>viewer</Filter>
+    </ClCompile>
+    <ClCompile Include="viewer_custom.cpp">
+      <Filter>viewer</Filter>
+    </ClCompile>
+    <ClCompile Include="viewer_padlock.cpp">
+      <Filter>viewer</Filter>
+    </ClCompile>
+    <ClCompile Include="viewer_playback.cpp">
+      <Filter>viewer</Filter>
+    </ClCompile>
+    <ClCompile Include="viewer_standard.cpp">
+      <Filter>viewer</Filter>
+    </ClCompile>
+    <ClCompile Include="viewer_track.cpp">
+      <Filter>viewer</Filter>
+    </ClCompile>
+    <ClCompile Include="armourclass.cpp">
+      <Filter>weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="damage.cpp">
+      <Filter>weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="firing.cpp">
+      <Filter>weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="target.cpp">
+      <Filter>weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="weapon_manager.cpp">
+      <Filter>weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="weapon_object.cpp">
+      <Filter>weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="weapon_type.cpp">
+      <Filter>weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\system\pchbuilder.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="blobs.h">
+      <Filter>connected region</Filter>
+    </ClInclude>
+    <ClInclude Include="connectedregion.h">
+      <Filter>connected region</Filter>
+    </ClInclude>
+    <ClInclude Include="environment.h">
+      <Filter>environment</Filter>
+    </ClInclude>
+    <ClInclude Include="environment_light.h">
+      <Filter>environment</Filter>
+    </ClInclude>
+    <ClInclude Include="environment_quake.h">
+      <Filter>environment</Filter>
+    </ClInclude>
+    <ClInclude Include="environment_rain.h">
+      <Filter>environment</Filter>
+    </ClInclude>
+    <ClInclude Include="environment_rain_priv.h">
+      <Filter>environment</Filter>
+    </ClInclude>
+    <ClInclude Include="environment_time.h">
+      <Filter>environment</Filter>
+    </ClInclude>
+    <ClInclude Include="footprint.h">
+      <Filter>footprint</Filter>
+    </ClInclude>
+    <ClInclude Include="footprint_private.h">
+      <Filter>footprint</Filter>
+    </ClInclude>
+    <ClInclude Include="fx.h">
+      <Filter>fx</Filter>
+    </ClInclude>
+    <ClInclude Include="fx_object.h">
+      <Filter>fx</Filter>
+    </ClInclude>
+    <ClInclude Include="fx_type.h">
+      <Filter>fx</Filter>
+    </ClInclude>
+    <ClInclude Include="meshfx_object.h">
+      <Filter>fx</Filter>
+    </ClInclude>
+    <ClInclude Include="meshfx_type.h">
+      <Filter>fx</Filter>
+    </ClInclude>
+    <ClInclude Include="particlefx_object.h">
+      <Filter>fx</Filter>
+    </ClInclude>
+    <ClInclude Include="particlefx_type.h">
+      <Filter>fx</Filter>
+    </ClInclude>
+    <ClInclude Include="soundfx_object.h">
+      <Filter>fx</Filter>
+    </ClInclude>
+    <ClInclude Include="soundfx_type.h">
+      <Filter>fx</Filter>
+    </ClInclude>
+    <ClInclude Include="game.h">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="game_config.h">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="game_preview.h">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="game_rc.h">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="gameconstants.h">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="missionvar.h">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="message.h">
+      <Filter>message</Filter>
+    </ClInclude>
+    <ClInclude Include="propertylist.h">
+      <Filter>misc</Filter>
+    </ClInclude>
+    <ClInclude Include="ray.h">
+      <Filter>misc</Filter>
+    </ClInclude>
+    <ClInclude Include="render.h">
+      <Filter>misc</Filter>
+    </ClInclude>
+    <ClInclude Include="movement.h">
+      <Filter>movement</Filter>
+    </ClInclude>
+    <ClInclude Include="movement_pathfollow.h">
+      <Filter>movement</Filter>
+    </ClInclude>
+    <ClInclude Include="pathsearch.h">
+      <Filter>pathsearch</Filter>
+    </ClInclude>
+    <ClInclude Include="pathsearch_pqueue.h">
+      <Filter>pathsearch</Filter>
+    </ClInclude>
+    <ClInclude Include="pathsearch_priv.h">
+      <Filter>pathsearch</Filter>
+    </ClInclude>
+    <ClInclude Include="collisionctrl.h">
+      <Filter>physics</Filter>
+    </ClInclude>
+    <ClInclude Include="physics_const.h">
+      <Filter>physics</Filter>
+    </ClInclude>
+    <ClInclude Include="physics_type.h">
+      <Filter>physics</Filter>
+    </ClInclude>
+    <ClInclude Include="physicsctrl.h">
+      <Filter>physics</Filter>
+    </ClInclude>
+    <ClInclude Include="sight.h">
+      <Filter>sight</Filter>
+    </ClInclude>
+    <ClInclude Include="sight_bytemap.h">
+      <Filter>sight</Filter>
+    </ClInclude>
+    <ClInclude Include="sight_map.h">
+      <Filter>sight</Filter>
+    </ClInclude>
+    <ClInclude Include="sight_tables.h">
+      <Filter>sight</Filter>
+    </ClInclude>
+    <ClInclude Include="claim.h">
+      <Filter>system</Filter>
+    </ClInclude>
+    <ClInclude Include="coregame.h">
+      <Filter>system</Filter>
+    </ClInclude>
+    <ClInclude Include="gamebabel.h">
+      <Filter>system</Filter>
+    </ClInclude>
+    <ClInclude Include="instance_modifier.h">
+      <Filter>system</Filter>
+    </ClInclude>
+    <ClInclude Include="instance_modifier_private.h">
+      <Filter>system</Filter>
+    </ClInclude>
+    <ClInclude Include="movetable.h">
+      <Filter>system</Filter>
+    </ClInclude>
+    <ClInclude Include="promote.h">
+      <Filter>system</Filter>
+    </ClInclude>
+    <ClInclude Include="resolver.h">
+      <Filter>system</Filter>
+    </ClInclude>
+    <ClInclude Include="worldctrl.h">
+      <Filter>system</Filter>
+    </ClInclude>
+    <ClInclude Include="worldctrldec.h">
+      <Filter>system</Filter>
+    </ClInclude>
+    <ClInclude Include="worldload.h">
+      <Filter>system</Filter>
+    </ClInclude>
+    <ClInclude Include="condition.h">
+      <Filter>team\conditions</Filter>
+    </ClInclude>
+    <ClInclude Include="condition_private.h">
+      <Filter>team\conditions</Filter>
+    </ClInclude>
+    <ClInclude Include="action.h">
+      <Filter>team</Filter>
+    </ClInclude>
+    <ClInclude Include="displayobjective.h">
+      <Filter>team</Filter>
+    </ClInclude>
+    <ClInclude Include="objective.h">
+      <Filter>team</Filter>
+    </ClInclude>
+    <ClInclude Include="player.h">
+      <Filter>team</Filter>
+    </ClInclude>
+    <ClInclude Include="power.h">
+      <Filter>team</Filter>
+    </ClInclude>
+    <ClInclude Include="prereq.h">
+      <Filter>team</Filter>
+    </ClInclude>
+    <ClInclude Include="radio.h">
+      <Filter>team</Filter>
+    </ClInclude>
+    <ClInclude Include="relation.h">
+      <Filter>team</Filter>
+    </ClInclude>
+    <ClInclude Include="sideplacement.h">
+      <Filter>team</Filter>
+    </ClInclude>
+    <ClInclude Include="team.h">
+      <Filter>team</Filter>
+    </ClInclude>
+    <ClInclude Include="unitlimits.h">
+      <Filter>team</Filter>
+    </ClInclude>
+    <ClInclude Include="terraindata.h">
+      <Filter>terrain</Filter>
+    </ClInclude>
+    <ClInclude Include="terraindatadec.h">
+      <Filter>terrain</Filter>
+    </ClInclude>
+    <ClInclude Include="terraingroup.h">
+      <Filter>terrain</Filter>
+    </ClInclude>
+    <ClInclude Include="viewer.h">
+      <Filter>viewer</Filter>
+    </ClInclude>
+    <ClInclude Include="viewer_private.h">
+      <Filter>viewer</Filter>
+    </ClInclude>
+    <ClInclude Include="armourclass.h">
+      <Filter>weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="damage.h">
+      <Filter>weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="firing.h">
+      <Filter>weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="target.h">
+      <Filter>weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="weapon.h">
+      <Filter>weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="stdinc_coregame.h" />
+  </ItemGroup>
+</Project>

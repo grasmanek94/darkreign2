@@ -1,0 +1,229 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="game orders">
+      <UniqueIdentifier>{10bd196c-b23c-4a5a-adc9-d3abd98f3071}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="squad orders">
+      <UniqueIdentifier>{bd5cd189-a146-40b4-a4de-bb0c6d6c1f92}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="orders_game.cpp">
+      <Filter>game orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_game_addselected.cpp">
+      <Filter>game orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_game_attack.cpp">
+      <Filter>game orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_game_board.cpp">
+      <Filter>game orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_game_build.cpp">
+      <Filter>game orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_game_clearselected.cpp">
+      <Filter>game orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_game_collect.cpp">
+      <Filter>game orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_game_constructor.cpp">
+      <Filter>game orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_game_debug.cpp">
+      <Filter>game orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_game_delete.cpp">
+      <Filter>game orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_game_dumpsync.cpp">
+      <Filter>game orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_game_ejectspy.cpp">
+      <Filter>game orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_game_explore.cpp">
+      <Filter>game orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_game_fire.cpp">
+      <Filter>game orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_game_formation.cpp">
+      <Filter>game orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_game_give.cpp">
+      <Filter>game orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_game_guard.cpp">
+      <Filter>game orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_game_infiltrate.cpp">
+      <Filter>game orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_game_morph.cpp">
+      <Filter>game orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_game_move.cpp">
+      <Filter>game orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_game_offmap.cpp">
+      <Filter>game orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_game_pause.cpp">
+      <Filter>game orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_game_playerleft.cpp">
+      <Filter>game orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_game_postevent.cpp">
+      <Filter>game orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_game_powerdown.cpp">
+      <Filter>game orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_game_recycle.cpp">
+      <Filter>game orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_game_restore.cpp">
+      <Filter>game orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_game_restoremobile.cpp">
+      <Filter>game orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_game_restorestatic.cpp">
+      <Filter>game orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_game_return.cpp">
+      <Filter>game orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_game_revealspy.cpp">
+      <Filter>game orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_game_scatter.cpp">
+      <Filter>game orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_game_selfdestruct.cpp">
+      <Filter>game orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_game_setrally.cpp">
+      <Filter>game orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_game_setrestore.cpp">
+      <Filter>game orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_game_steponce.cpp">
+      <Filter>game orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_game_stop.cpp">
+      <Filter>game orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_game_store.cpp">
+      <Filter>game orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_game_tactical.cpp">
+      <Filter>game orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_game_trail.cpp">
+      <Filter>game orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_game_trailpoints.cpp">
+      <Filter>game orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_game_transport.cpp">
+      <Filter>game orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_game_turn.cpp">
+      <Filter>game orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_game_unload.cpp">
+      <Filter>game orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_game_upgrade.cpp">
+      <Filter>game orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_game_wall.cpp">
+      <Filter>game orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_squad.cpp">
+      <Filter>squad orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_squad_addselected.cpp">
+      <Filter>squad orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_squad_attack.cpp">
+      <Filter>squad orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_squad_board.cpp">
+      <Filter>squad orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_squad_create.cpp">
+      <Filter>squad orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_squad_defect.cpp">
+      <Filter>squad orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_squad_delete.cpp">
+      <Filter>squad orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_squad_destroy.cpp">
+      <Filter>squad orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_squad_empty.cpp">
+      <Filter>squad orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_squad_explore.cpp">
+      <Filter>squad orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_squad_followtag.cpp">
+      <Filter>squad orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_squad_formation.cpp">
+      <Filter>squad orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_squad_guard.cpp">
+      <Filter>squad orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_squad_move.cpp">
+      <Filter>squad orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_squad_notify.cpp">
+      <Filter>squad orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_squad_removeselected.cpp">
+      <Filter>squad orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_squad_restore.cpp">
+      <Filter>squad orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_squad_spawn.cpp">
+      <Filter>squad orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_squad_stop.cpp">
+      <Filter>squad orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_squad_tactical.cpp">
+      <Filter>squad orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_squad_trail.cpp">
+      <Filter>squad orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders_squad_transportspawn.cpp">
+      <Filter>squad orders</Filter>
+    </ClCompile>
+    <ClCompile Include="orders.cpp" />
+    <ClCompile Include="..\system\pchbuilder.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="orders_game.h">
+      <Filter>game orders</Filter>
+    </ClInclude>
+    <ClInclude Include="orders_squad.h">
+      <Filter>squad orders</Filter>
+    </ClInclude>
+    <ClInclude Include="orders.h" />
+    <ClInclude Include="..\coregame\stdinc_coregame.h" />
+  </ItemGroup>
+</Project>

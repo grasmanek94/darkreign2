@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="controls">
+      <UniqueIdentifier>{0869a08e-34ab-4017-83a3-521ad0df61ca}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="game_addonlist.cpp">
+      <Filter>controls</Filter>
+    </ClCompile>
+    <ClCompile Include="game_campaignselection.cpp">
+      <Filter>controls</Filter>
+    </ClCompile>
+    <ClCompile Include="game_difficultylist.cpp">
+      <Filter>controls</Filter>
+    </ClCompile>
+    <ClCompile Include="game_login.cpp">
+      <Filter>controls</Filter>
+    </ClCompile>
+    <ClCompile Include="game_missionselection.cpp">
+      <Filter>controls</Filter>
+    </ClCompile>
+    <ClCompile Include="game_saveload.cpp">
+      <Filter>controls</Filter>
+    </ClCompile>
+    <ClCompile Include="campaigns.cpp" />
+    <ClCompile Include="demo.cpp" />
+    <ClCompile Include="difficulty.cpp" />
+    <ClCompile Include="gamegod.cpp" />
+    <ClCompile Include="gameruncodes.cpp" />
+    <ClCompile Include="gamesound.cpp" />
+    <ClCompile Include="gametime.cpp" />
+    <ClCompile Include="guid.cpp" />
+    <ClCompile Include="missions.cpp" />
+    <ClCompile Include="mods.cpp" />
+    <ClCompile Include="movieplayer.cpp" />
+    <ClCompile Include="..\system\pchbuilder.cpp" />
+    <ClCompile Include="savegame.cpp" />
+    <ClCompile Include="sides.cpp" />
+    <ClCompile Include="sync.cpp" />
+    <ClCompile Include="trackplayer.cpp" />
+    <ClCompile Include="user.cpp" />
+    <ClCompile Include="win32reg.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="game_addonlist.h">
+      <Filter>controls</Filter>
+    </ClInclude>
+    <ClInclude Include="game_campaignselection.h">
+      <Filter>controls</Filter>
+    </ClInclude>
+    <ClInclude Include="game_difficultylist.h">
+      <Filter>controls</Filter>
+    </ClInclude>
+    <ClInclude Include="game_login.h">
+      <Filter>controls</Filter>
+    </ClInclude>
+    <ClInclude Include="game_missionselection.h">
+      <Filter>controls</Filter>
+    </ClInclude>
+    <ClInclude Include="game_saveload.h">
+      <Filter>controls</Filter>
+    </ClInclude>
+    <ClInclude Include="campaigns.h" />
+    <ClInclude Include="demo.h" />
+    <ClInclude Include="difficulty.h" />
+    <ClInclude Include="gamegod.h" />
+    <ClInclude Include="gameruncodes.h" />
+    <ClInclude Include="gamesound.h" />
+    <ClInclude Include="gametime.h" />
+    <ClInclude Include="guid.h" />
+    <ClInclude Include="missions.h" />
+    <ClInclude Include="mods.h" />
+    <ClInclude Include="movieplayer.h" />
+    <ClInclude Include="savegame.h" />
+    <ClInclude Include="sides.h" />
+    <ClInclude Include="sync.h" />
+    <ClInclude Include="trackplayer.h" />
+    <ClInclude Include="user.h" />
+    <ClInclude Include="win32reg.h" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,286 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Development|Win32">
+      <Configuration>Development</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="kkk|Win32">
+      <Configuration>kkk</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Template|Win32">
+      <Configuration>Template</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <ProjectGuid>{64842B0F-72A2-4EA8-818E-C434974482C9}</ProjectGuid>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Template|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Development|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='kkk|Win32'">
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Template|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Development|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>.\../Debug/multiplayer\</OutDir>
+    <IntDir>.\../Debug/multiplayer\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Development|Win32'">
+    <OutDir>.\../Development/multiplayer\</OutDir>
+    <IntDir>.\../Development/multiplayer\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>.\../Release/multiplayer\</OutDir>
+    <IntDir>.\../Release/multiplayer\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <Optimization>Disabled</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>Level4</WarningLevel>
+      <AdditionalIncludeDirectories>../3rdparty;../coregame;../coregame_ai;../coregame_interface;../coregame_objects;../coregame_orders;../coregame_particles;../coregame_tasks;../game;../graphics;../interface;../main;../multiplayer;../sound;../system;../styxnet;../util;../won;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>std.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PreprocessorDefinitions>WIN32;</PreprocessorDefinitions>
+      <AssemblerListingLocation>.\../Debug/multiplayer\</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>.\../Debug/multiplayer\multiplayer.pch</PrecompiledHeaderOutputFile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>std.h</PrecompiledHeaderFile>
+      <ObjectFileName>.\../Debug/multiplayer\</ObjectFileName>
+      <ProgramDataBaseFileName>.\../Debug/multiplayer\</ProgramDataBaseFileName>
+      <CallingConvention>FastCall</CallingConvention>
+      <DisableSpecificWarnings>4996;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\../Debug/multiplayer\multiplayer.bsc</OutputFile>
+    </Bscmake>
+    <Lib>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\../Debug/multiplayer\multiplayer.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Development|Win32'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <StringPooling>true</StringPooling>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <Optimization>MaxSpeed</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>Level4</WarningLevel>
+      <OmitFramePointers>false</OmitFramePointers>
+      <AdditionalIncludeDirectories>../3rdparty;../coregame;../coregame_ai;../coregame_interface;../coregame_objects;../coregame_orders;../coregame_particles;../coregame_tasks;../game;../graphics;../interface;../main;../multiplayer;../sound;../system;../styxnet;../util;../won;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>std.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PreprocessorDefinitions>WIN32;NDEBUG;DEVELOPMENT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerOutput>All</AssemblerOutput>
+      <AssemblerListingLocation>.\../Development/multiplayer\</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>.\../Development/multiplayer\multiplayer.pch</PrecompiledHeaderOutputFile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>std.h</PrecompiledHeaderFile>
+      <ObjectFileName>.\../Development/multiplayer\</ObjectFileName>
+      <ProgramDataBaseFileName>.\../Development/multiplayer\</ProgramDataBaseFileName>
+      <CallingConvention>FastCall</CallingConvention>
+    </ClCompile>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\../Development/multiplayer\multiplayer.bsc</OutputFile>
+    </Bscmake>
+    <Lib>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\../Development/multiplayer\multiplayer.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <StringPooling>true</StringPooling>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <Optimization>MaxSpeed</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>Level4</WarningLevel>
+      <OmitFramePointers>false</OmitFramePointers>
+      <AdditionalIncludeDirectories>../3rdparty;../coregame;../coregame_ai;../coregame_interface;../coregame_objects;../coregame_orders;../coregame_particles;../coregame_tasks;../game;../graphics;../interface;../main;../multiplayer;../sound;../system;../styxnet;../util;../won;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>std.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PreprocessorDefinitions>WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerOutput>All</AssemblerOutput>
+      <AssemblerListingLocation>.\../Release/multiplayer\</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>.\../Release/multiplayer\multiplayer.pch</PrecompiledHeaderOutputFile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>std.h</PrecompiledHeaderFile>
+      <ObjectFileName>.\../Release/multiplayer\</ObjectFileName>
+      <ProgramDataBaseFileName>.\../Release/multiplayer\</ProgramDataBaseFileName>
+      <CallingConvention>FastCall</CallingConvention>
+      <DisableSpecificWarnings>4996;</DisableSpecificWarnings>
+    </ClCompile>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\../Release/multiplayer\multiplayer.bsc</OutputFile>
+    </Bscmake>
+    <Lib>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\../Release/multiplayer\multiplayer.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="multiplayer_cmd.cpp" />
+    <ClCompile Include="multiplayer_controls_color.cpp" />
+    <ClCompile Include="multiplayer_controls_context.cpp" />
+    <ClCompile Include="multiplayer_controls_hostconfig.cpp" />
+    <ClCompile Include="multiplayer_controls_mission.cpp" />
+    <ClCompile Include="multiplayer_controls_playerlist.cpp" />
+    <ClCompile Include="multiplayer_controls_propertylist.cpp" />
+    <ClCompile Include="multiplayer_controls_transferlist.cpp" />
+    <ClCompile Include="multiplayer_controls_localpings.cpp" />
+    <ClCompile Include="multiplayer_controls_playerinfo.cpp" />
+    <ClCompile Include="multiplayer_controls_report.cpp" />
+    <ClCompile Include="multiplayer_controls_addressbook.cpp" />
+    <ClCompile Include="multiplayer_controls_sessions.cpp" />
+    <ClCompile Include="multiplayer_controls.cpp" />
+    <ClCompile Include="multiplayer_controls_chatedit.cpp" />
+    <ClCompile Include="multiplayer_controls_download.cpp" />
+    <ClCompile Include="multiplayer_controls_earth.cpp" />
+    <ClCompile Include="multiplayer_controls_options.cpp" />
+    <ClCompile Include="multiplayer_controls_synclist.cpp" />
+    <ClCompile Include="multiplayer_data.cpp" />
+    <ClCompile Include="multiplayer_network.cpp" />
+    <ClCompile Include="multiplayer_transfer.cpp" />
+    <ClCompile Include="multiplayer.cpp" />
+    <ClCompile Include="multiplayer_addressbook.cpp" />
+    <ClCompile Include="multiplayer_download.cpp" />
+    <ClCompile Include="multiplayer_host.cpp" />
+    <ClCompile Include="multiplayer_pingdisplay.cpp" />
+    <ClCompile Include="multiplayer_settings.cpp" />
+    <ClCompile Include="won_controls.cpp" />
+    <ClCompile Include="won_controls_gameinfo.cpp" />
+    <ClCompile Include="won_controls_gamelist.cpp" />
+    <ClCompile Include="won_controls_playerlist.cpp" />
+    <ClCompile Include="won_controls_roomlist.cpp" />
+    <ClCompile Include="won.cpp" />
+    <ClCompile Include="won_cmd.cpp" />
+    <ClCompile Include="..\system\pchbuilder.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">std.h</PrecompiledHeaderFile>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Development|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Development|Win32'">std.h</PrecompiledHeaderFile>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">std.h</PrecompiledHeaderFile>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="multiplayer_cmd.h" />
+    <ClInclude Include="multiplayer_cmd_private.h" />
+    <ClInclude Include="multiplayer_controls_color.h" />
+    <ClInclude Include="multiplayer_controls_context.h" />
+    <ClInclude Include="multiplayer_controls_hostconfig.h" />
+    <ClInclude Include="multiplayer_controls_mission.h" />
+    <ClInclude Include="multiplayer_controls_playerlist.h" />
+    <ClInclude Include="multiplayer_controls_propertylist.h" />
+    <ClInclude Include="multiplayer_controls_localpings.h" />
+    <ClInclude Include="multiplayer_controls_playerinfo.h" />
+    <ClInclude Include="multiplayer_controls_report.h" />
+    <ClInclude Include="multiplayer_controls_transferlist.h" />
+    <ClInclude Include="multiplayer_controls_addressbook.h" />
+    <ClInclude Include="multiplayer_controls_sessions.h" />
+    <ClInclude Include="multiplayer_controls.h" />
+    <ClInclude Include="multiplayer_controls_chatedit.h" />
+    <ClInclude Include="multiplayer_controls_download.h" />
+    <ClInclude Include="multiplayer_controls_earth.h" />
+    <ClInclude Include="multiplayer_controls_options.h" />
+    <ClInclude Include="multiplayer_controls_synclist.h" />
+    <ClInclude Include="multiplayer_data.h" />
+    <ClInclude Include="multiplayer_data_private.h" />
+    <ClInclude Include="multiplayer_network.h" />
+    <ClInclude Include="multiplayer_network_private.h" />
+    <ClInclude Include="multiplayer_transfer.h" />
+    <ClInclude Include="multiplayer_transfer_private.h" />
+    <ClInclude Include="multiplayer.h" />
+    <ClInclude Include="multiplayer_addressbook.h" />
+    <ClInclude Include="multiplayer_download.h" />
+    <ClInclude Include="multiplayer_host.h" />
+    <ClInclude Include="multiplayer_pingdisplay.h" />
+    <ClInclude Include="multiplayer_private.h" />
+    <ClInclude Include="multiplayer_settings.h" />
+    <ClInclude Include="won_controls.h" />
+    <ClInclude Include="won_controls_gameinfo.h" />
+    <ClInclude Include="won_controls_gamelist.h" />
+    <ClInclude Include="won_controls_playerlist.h" />
+    <ClInclude Include="won_controls_roomlist.h" />
+    <ClInclude Include="won.h" />
+    <ClInclude Include="won_cmd.h" />
+    <ClInclude Include="won_private.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

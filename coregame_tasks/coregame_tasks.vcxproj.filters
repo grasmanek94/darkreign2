@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="advanced tasks">
+      <UniqueIdentifier>{73042d20-36b2-4a56-865e-1be263d2f04f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="map tasks">
+      <UniqueIdentifier>{c09916ff-987c-4902-ae2c-372243b66304}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="squad tasks">
+      <UniqueIdentifier>{39876c56-2b7a-40a2-9d39-4c8f09d65392}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="unit tasks">
+      <UniqueIdentifier>{e6101b99-bc93-4046-9f3a-a5ad494c4863}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="tasks_offmapidle.cpp">
+      <Filter>advanced tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="tasks_parasite.cpp">
+      <Filter>advanced tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="tasks_parasitebomb.cpp">
+      <Filter>advanced tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="tasks_parasitesight.cpp">
+      <Filter>advanced tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="tasks_resource.cpp">
+      <Filter>advanced tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="tasks_resourceregen.cpp">
+      <Filter>advanced tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="tasks_restore.cpp">
+      <Filter>advanced tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="tasks_restoremobile.cpp">
+      <Filter>advanced tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="tasks_restorestatic.cpp">
+      <Filter>advanced tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="tasks_spyidle.cpp">
+      <Filter>advanced tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="tasks_transport.cpp">
+      <Filter>advanced tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="tasks_transportpad.cpp">
+      <Filter>advanced tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="tasks_transportunload.cpp">
+      <Filter>advanced tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="tasks_trapidle.cpp">
+      <Filter>advanced tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="tasks_wallidle.cpp">
+      <Filter>advanced tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="tasks_map.cpp">
+      <Filter>map tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="tasks_mapdeath.cpp">
+      <Filter>map tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="tasks_mapidle.cpp">
+      <Filter>map tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="tasks_squad.cpp">
+      <Filter>squad tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="tasks_squadattack.cpp">
+      <Filter>squad tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="tasks_squadboard.cpp">
+      <Filter>squad tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="tasks_squadexplore.cpp">
+      <Filter>squad tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="tasks_squadfollowtag.cpp">
+      <Filter>squad tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="tasks_squadformation.cpp">
+      <Filter>squad tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="tasks_squadguard.cpp">
+      <Filter>squad tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="tasks_squadmove.cpp">
+      <Filter>squad tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="tasks_squadmovetogether.cpp">
+      <Filter>squad tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="tasks_squadrestore.cpp">
+      <Filter>squad tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="tasks_unit.cpp">
+      <Filter>unit tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="tasks_unitanimate.cpp">
+      <Filter>unit tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="tasks_unitattack.cpp">
+      <Filter>unit tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="tasks_unitboard.cpp">
+      <Filter>unit tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="tasks_unitbuild.cpp">
+      <Filter>unit tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="tasks_unitcloak.cpp">
+      <Filter>unit tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="tasks_unitcollect.cpp">
+      <Filter>unit tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="tasks_unitconstruct.cpp">
+      <Filter>unit tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="tasks_unitconstructor.cpp">
+      <Filter>unit tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="tasks_unitexplore.cpp">
+      <Filter>unit tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="tasks_unitfire.cpp">
+      <Filter>unit tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="tasks_unitgorestore.cpp">
+      <Filter>unit tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="tasks_unitguard.cpp">
+      <Filter>unit tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="tasks_unitidle.cpp">
+      <Filter>unit tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="tasks_unitmove.cpp">
+      <Filter>unit tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="tasks_unitmoveover.cpp">
+      <Filter>unit tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="tasks_unitpowerdown.cpp">
+      <Filter>unit tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="tasks_unitrecycle.cpp">
+      <Filter>unit tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="tasks_unitrefinery.cpp">
+      <Filter>unit tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="tasks_unitsquadmiddle.cpp">
+      <Filter>unit tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="tasks_unitupgrade.cpp">
+      <Filter>unit tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\system\pchbuilder.cpp" />
+    <ClCompile Include="taskctrl.cpp" />
+    <ClCompile Include="taskutil.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="tasks_offmapidle.h">
+      <Filter>advanced tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="tasks_parasitebomb.h">
+      <Filter>advanced tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="tasks_parasitesight.h">
+      <Filter>advanced tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="tasks_resourceregen.h">
+      <Filter>advanced tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="tasks_restoremobile.h">
+      <Filter>advanced tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="tasks_restorestatic.h">
+      <Filter>advanced tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="tasks_spyidle.h">
+      <Filter>advanced tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="tasks_transportpad.h">
+      <Filter>advanced tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="tasks_transportunload.h">
+      <Filter>advanced tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="tasks_trapidle.h">
+      <Filter>advanced tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="tasks_wallidle.h">
+      <Filter>advanced tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="tasks_mapdeath.h">
+      <Filter>map tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="tasks_mapidle.h">
+      <Filter>map tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="tasks_squadattack.h">
+      <Filter>squad tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="tasks_squadboard.h">
+      <Filter>squad tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="tasks_squadexplore.h">
+      <Filter>squad tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="tasks_squadfollowtag.h">
+      <Filter>squad tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="tasks_squadformation.h">
+      <Filter>squad tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="tasks_squadguard.h">
+      <Filter>squad tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="tasks_squadmove.h">
+      <Filter>squad tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="tasks_squadmovetogether.h">
+      <Filter>squad tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="tasks_squadrestore.h">
+      <Filter>squad tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="tasks_unitanimate.h">
+      <Filter>unit tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="tasks_unitattack.h">
+      <Filter>unit tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="tasks_unitboard.h">
+      <Filter>unit tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="tasks_unitbuild.h">
+      <Filter>unit tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="tasks_unitcloak.h">
+      <Filter>unit tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="tasks_unitcollect.h">
+      <Filter>unit tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="tasks_unitconstruct.h">
+      <Filter>unit tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="tasks_unitconstructor.h">
+      <Filter>unit tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="tasks_unitexplore.h">
+      <Filter>unit tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="tasks_unitfire.h">
+      <Filter>unit tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="tasks_unitgorestore.h">
+      <Filter>unit tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="tasks_unitguard.h">
+      <Filter>unit tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="tasks_unitidle.h">
+      <Filter>unit tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="tasks_unitmove.h">
+      <Filter>unit tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="tasks_unitmoveover.h">
+      <Filter>unit tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="tasks_unitpowerdown.h">
+      <Filter>unit tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="tasks_unitrecycle.h">
+      <Filter>unit tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="tasks_unitrefinery.h">
+      <Filter>unit tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="tasks_unitsquadmiddle.h">
+      <Filter>unit tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="tasks_unitupgrade.h">
+      <Filter>unit tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\coregame\stdinc_coregame.h" />
+    <ClInclude Include="task.h" />
+    <ClInclude Include="taskctrl.h" />
+    <ClInclude Include="taskutil.h" />
+  </ItemGroup>
+</Project>

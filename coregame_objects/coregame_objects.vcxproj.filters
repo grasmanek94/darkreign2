@@ -1,0 +1,311 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="game objects">
+      <UniqueIdentifier>{563412dc-96c4-4575-b36f-27451f855a89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="map objects">
+      <UniqueIdentifier>{14aab420-e5e8-4319-bc6a-87bd8f6d2f63}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="misc objects">
+      <UniqueIdentifier>{741fc3ee-b3f2-4272-a9a2-6e78a33cfcd3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="offmap objects">
+      <UniqueIdentifier>{fe731e22-48c6-4fb5-a035-c7b85a459ad2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resource objects">
+      <UniqueIdentifier>{445c4416-94f2-4a78-afbe-de94e5ed73d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="squad objects">
+      <UniqueIdentifier>{cb9da57b-8a97-41bf-986d-2294853df3a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="unit objects">
+      <UniqueIdentifier>{582e44cc-ed37-4e5b-88f6-cbe655a3a815}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="unit objects\advanced unit objects">
+      <UniqueIdentifier>{3644dbae-5862-4eff-8762-388a63d55e40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="unit objects\base unit objects">
+      <UniqueIdentifier>{46659dfb-14ae-435a-b521-46e228192815}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="weapon objects">
+      <UniqueIdentifier>{ac3127b5-638c-4dec-82cd-7b52f618cd10}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="gameobj.cpp">
+      <Filter>game objects</Filter>
+    </ClCompile>
+    <ClCompile Include="gameobjctrl.cpp">
+      <Filter>game objects</Filter>
+    </ClCompile>
+    <ClCompile Include="mapobj.cpp">
+      <Filter>map objects</Filter>
+    </ClCompile>
+    <ClCompile Include="mapobjctrl.cpp">
+      <Filter>map objects</Filter>
+    </ClCompile>
+    <ClCompile Include="mapobjiter.cpp">
+      <Filter>map objects</Filter>
+    </ClCompile>
+    <ClCompile Include="propobj.cpp">
+      <Filter>map objects</Filter>
+    </ClCompile>
+    <ClCompile Include="bookmarkobj.cpp">
+      <Filter>misc objects</Filter>
+    </ClCompile>
+    <ClCompile Include="markerobj.cpp">
+      <Filter>misc objects</Filter>
+    </ClCompile>
+    <ClCompile Include="regionobj.cpp">
+      <Filter>misc objects</Filter>
+    </ClCompile>
+    <ClCompile Include="tagobj.cpp">
+      <Filter>misc objects</Filter>
+    </ClCompile>
+    <ClCompile Include="trailobj.cpp">
+      <Filter>misc objects</Filter>
+    </ClCompile>
+    <ClCompile Include="offmapbombobj.cpp">
+      <Filter>offmap objects</Filter>
+    </ClCompile>
+    <ClCompile Include="offmapobj.cpp">
+      <Filter>offmap objects</Filter>
+    </ClCompile>
+    <ClCompile Include="offmapspawnobj.cpp">
+      <Filter>offmap objects</Filter>
+    </ClCompile>
+    <ClCompile Include="offmapstrikeobj.cpp">
+      <Filter>offmap objects</Filter>
+    </ClCompile>
+    <ClCompile Include="offmapteamobj.cpp">
+      <Filter>offmap objects</Filter>
+    </ClCompile>
+    <ClCompile Include="resourceobj.cpp">
+      <Filter>resource objects</Filter>
+    </ClCompile>
+    <ClCompile Include="resourceobjiter.cpp">
+      <Filter>resource objects</Filter>
+    </ClCompile>
+    <ClCompile Include="squadobj.cpp">
+      <Filter>squad objects</Filter>
+    </ClCompile>
+    <ClCompile Include="squadobjctrl.cpp">
+      <Filter>squad objects</Filter>
+    </ClCompile>
+    <ClCompile Include="parasiteobj.cpp">
+      <Filter>unit objects\advanced unit objects</Filter>
+    </ClCompile>
+    <ClCompile Include="restoreobj.cpp">
+      <Filter>unit objects\advanced unit objects</Filter>
+    </ClCompile>
+    <ClCompile Include="spyobj.cpp">
+      <Filter>unit objects\advanced unit objects</Filter>
+    </ClCompile>
+    <ClCompile Include="transportobj.cpp">
+      <Filter>unit objects\advanced unit objects</Filter>
+    </ClCompile>
+    <ClCompile Include="trapobj.cpp">
+      <Filter>unit objects\advanced unit objects</Filter>
+    </ClCompile>
+    <ClCompile Include="wallobj.cpp">
+      <Filter>unit objects\advanced unit objects</Filter>
+    </ClCompile>
+    <ClCompile Include="unitevacuate.cpp">
+      <Filter>unit objects\base unit objects</Filter>
+    </ClCompile>
+    <ClCompile Include="unitobj.cpp">
+      <Filter>unit objects\base unit objects</Filter>
+    </ClCompile>
+    <ClCompile Include="unitobjctrl.cpp">
+      <Filter>unit objects\base unit objects</Filter>
+    </ClCompile>
+    <ClCompile Include="unitobjfinder.cpp">
+      <Filter>unit objects\base unit objects</Filter>
+    </ClCompile>
+    <ClCompile Include="unitobjinfo.cpp">
+      <Filter>unit objects\base unit objects</Filter>
+    </ClCompile>
+    <ClCompile Include="unitobjiter.cpp">
+      <Filter>unit objects\base unit objects</Filter>
+    </ClCompile>
+    <ClCompile Include="deliveryprojectileobj.cpp">
+      <Filter>weapon objects</Filter>
+    </ClCompile>
+    <ClCompile Include="explosionobj.cpp">
+      <Filter>weapon objects</Filter>
+    </ClCompile>
+    <ClCompile Include="projectileobj.cpp">
+      <Filter>weapon objects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\system\pchbuilder.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="gameobj.h">
+      <Filter>game objects</Filter>
+    </ClInclude>
+    <ClInclude Include="gameobjctrl.h">
+      <Filter>game objects</Filter>
+    </ClInclude>
+    <ClInclude Include="gameobjdec.h">
+      <Filter>game objects</Filter>
+    </ClInclude>
+    <ClInclude Include="objdec.h">
+      <Filter>game objects</Filter>
+    </ClInclude>
+    <ClInclude Include="mapobj.h">
+      <Filter>map objects</Filter>
+    </ClInclude>
+    <ClInclude Include="mapobjctrl.h">
+      <Filter>map objects</Filter>
+    </ClInclude>
+    <ClInclude Include="mapobjdec.h">
+      <Filter>map objects</Filter>
+    </ClInclude>
+    <ClInclude Include="mapobjiter.h">
+      <Filter>map objects</Filter>
+    </ClInclude>
+    <ClInclude Include="mapobjlist.h">
+      <Filter>map objects</Filter>
+    </ClInclude>
+    <ClInclude Include="mapobjouchlist.h">
+      <Filter>map objects</Filter>
+    </ClInclude>
+    <ClInclude Include="propobj.h">
+      <Filter>map objects</Filter>
+    </ClInclude>
+    <ClInclude Include="bookmarkobj.h">
+      <Filter>misc objects</Filter>
+    </ClInclude>
+    <ClInclude Include="bookmarkobjdec.h">
+      <Filter>misc objects</Filter>
+    </ClInclude>
+    <ClInclude Include="markerobj.h">
+      <Filter>misc objects</Filter>
+    </ClInclude>
+    <ClInclude Include="markerobjdec.h">
+      <Filter>misc objects</Filter>
+    </ClInclude>
+    <ClInclude Include="regionobj.h">
+      <Filter>misc objects</Filter>
+    </ClInclude>
+    <ClInclude Include="regionobjdec.h">
+      <Filter>misc objects</Filter>
+    </ClInclude>
+    <ClInclude Include="tagobj.h">
+      <Filter>misc objects</Filter>
+    </ClInclude>
+    <ClInclude Include="tagobjdec.h">
+      <Filter>misc objects</Filter>
+    </ClInclude>
+    <ClInclude Include="trailobj.h">
+      <Filter>misc objects</Filter>
+    </ClInclude>
+    <ClInclude Include="trailobjdec.h">
+      <Filter>misc objects</Filter>
+    </ClInclude>
+    <ClInclude Include="offmapbombobj.h">
+      <Filter>offmap objects</Filter>
+    </ClInclude>
+    <ClInclude Include="offmapobj.h">
+      <Filter>offmap objects</Filter>
+    </ClInclude>
+    <ClInclude Include="offmapobjdec.h">
+      <Filter>offmap objects</Filter>
+    </ClInclude>
+    <ClInclude Include="offmapspawnobj.h">
+      <Filter>offmap objects</Filter>
+    </ClInclude>
+    <ClInclude Include="offmapstrikeobj.h">
+      <Filter>offmap objects</Filter>
+    </ClInclude>
+    <ClInclude Include="offmapteamobj.h">
+      <Filter>offmap objects</Filter>
+    </ClInclude>
+    <ClInclude Include="resourceobj.h">
+      <Filter>resource objects</Filter>
+    </ClInclude>
+    <ClInclude Include="resourceobjdec.h">
+      <Filter>resource objects</Filter>
+    </ClInclude>
+    <ClInclude Include="resourceobjiter.h">
+      <Filter>resource objects</Filter>
+    </ClInclude>
+    <ClInclude Include="squadobj.h">
+      <Filter>squad objects</Filter>
+    </ClInclude>
+    <ClInclude Include="squadobjctrl.h">
+      <Filter>squad objects</Filter>
+    </ClInclude>
+    <ClInclude Include="squadobjdec.h">
+      <Filter>squad objects</Filter>
+    </ClInclude>
+    <ClInclude Include="parasiteobj.h">
+      <Filter>unit objects\advanced unit objects</Filter>
+    </ClInclude>
+    <ClInclude Include="restoreobj.h">
+      <Filter>unit objects\advanced unit objects</Filter>
+    </ClInclude>
+    <ClInclude Include="restoreobjdec.h">
+      <Filter>unit objects\advanced unit objects</Filter>
+    </ClInclude>
+    <ClInclude Include="spyobj.h">
+      <Filter>unit objects\advanced unit objects</Filter>
+    </ClInclude>
+    <ClInclude Include="spyobjdec.h">
+      <Filter>unit objects\advanced unit objects</Filter>
+    </ClInclude>
+    <ClInclude Include="transportobj.h">
+      <Filter>unit objects\advanced unit objects</Filter>
+    </ClInclude>
+    <ClInclude Include="trapobj.h">
+      <Filter>unit objects\advanced unit objects</Filter>
+    </ClInclude>
+    <ClInclude Include="wallobj.h">
+      <Filter>unit objects\advanced unit objects</Filter>
+    </ClInclude>
+    <ClInclude Include="wallobjdec.h">
+      <Filter>unit objects\advanced unit objects</Filter>
+    </ClInclude>
+    <ClInclude Include="unitevacuate.h">
+      <Filter>unit objects\base unit objects</Filter>
+    </ClInclude>
+    <ClInclude Include="unitobj.h">
+      <Filter>unit objects\base unit objects</Filter>
+    </ClInclude>
+    <ClInclude Include="unitobjctrl.h">
+      <Filter>unit objects\base unit objects</Filter>
+    </ClInclude>
+    <ClInclude Include="unitobjdec.h">
+      <Filter>unit objects\base unit objects</Filter>
+    </ClInclude>
+    <ClInclude Include="unitobjfinder.h">
+      <Filter>unit objects\base unit objects</Filter>
+    </ClInclude>
+    <ClInclude Include="unitobjinfo.h">
+      <Filter>unit objects\base unit objects</Filter>
+    </ClInclude>
+    <ClInclude Include="unitobjiter.h">
+      <Filter>unit objects\base unit objects</Filter>
+    </ClInclude>
+    <ClInclude Include="unitobjlist.h">
+      <Filter>unit objects\base unit objects</Filter>
+    </ClInclude>
+    <ClInclude Include="deliveryprojectileobj.h">
+      <Filter>weapon objects</Filter>
+    </ClInclude>
+    <ClInclude Include="explosionobj.h">
+      <Filter>weapon objects</Filter>
+    </ClInclude>
+    <ClInclude Include="explosionobjdec.h">
+      <Filter>weapon objects</Filter>
+    </ClInclude>
+    <ClInclude Include="projectileobj.h">
+      <Filter>weapon objects</Filter>
+    </ClInclude>
+    <ClInclude Include="projectileobjdec.h">
+      <Filter>weapon objects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\coregame\stdinc_coregame.h" />
+  </ItemGroup>
+</Project>

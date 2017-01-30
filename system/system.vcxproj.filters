@@ -1,0 +1,270 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="containers">
+      <UniqueIdentifier>{38ce8e87-683b-4f73-9b3b-aec59126a719}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="util">
+      <UniqueIdentifier>{904fa596-5f2b-4217-a8df-622e57ed9460}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="filesys">
+      <UniqueIdentifier>{e2b1c5e5-f3d4-4297-b4a4-c1a7238e16fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="core">
+      <UniqueIdentifier>{ac7210e9-d1d7-413c-b4fe-03cf39f362ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="parse">
+      <UniqueIdentifier>{60b240c7-aff3-4e6d-8203-4d0d137ec3e5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="array.h">
+      <Filter>containers</Filter>
+    </ClInclude>
+    <ClInclude Include="heap.h">
+      <Filter>containers</Filter>
+    </ClInclude>
+    <ClInclude Include="list.h">
+      <Filter>containers</Filter>
+    </ClInclude>
+    <ClInclude Include="nlist.h">
+      <Filter>containers</Filter>
+    </ClInclude>
+    <ClInclude Include="ntree.h">
+      <Filter>containers</Filter>
+    </ClInclude>
+    <ClInclude Include="queue.h">
+      <Filter>containers</Filter>
+    </ClInclude>
+    <ClInclude Include="reaperlist.h">
+      <Filter>containers</Filter>
+    </ClInclude>
+    <ClInclude Include="stack.h">
+      <Filter>containers</Filter>
+    </ClInclude>
+    <ClInclude Include="tree.h">
+      <Filter>containers</Filter>
+    </ClInclude>
+    <ClInclude Include="weightedlist.h">
+      <Filter>containers</Filter>
+    </ClInclude>
+    <ClInclude Include="blockfile.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="configfile.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="crc.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="dlgtemplate.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="dtrack.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="fixme.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="md5.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="random.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="str.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="strbuf.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="strcrc.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="utils.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="version.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="filesrcdir.h">
+      <Filter>filesys</Filter>
+    </ClInclude>
+    <ClInclude Include="filesrcpack.h">
+      <Filter>filesys</Filter>
+    </ClInclude>
+    <ClInclude Include="filesrcstream.h">
+      <Filter>filesys</Filter>
+    </ClInclude>
+    <ClInclude Include="filesys.h">
+      <Filter>filesys</Filter>
+    </ClInclude>
+    <ClInclude Include="filesys_private.h">
+      <Filter>filesys</Filter>
+    </ClInclude>
+    <ClInclude Include="filetypes.h">
+      <Filter>filesys</Filter>
+    </ClInclude>
+    <ClInclude Include="packdef.h">
+      <Filter>filesys</Filter>
+    </ClInclude>
+    <ClInclude Include="clock.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="debug.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="debug_memory.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="debug_memory_win32.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="debug_symbol.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="debug_win32.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="file.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="filemap.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="hardware.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="log.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="mono.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="profile.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="registry.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="system.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="win32.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="fscope.h">
+      <Filter>parse</Filter>
+    </ClInclude>
+    <ClInclude Include="ptree.h">
+      <Filter>parse</Filter>
+    </ClInclude>
+    <ClInclude Include="stdparse.h">
+      <Filter>parse</Filter>
+    </ClInclude>
+    <ClInclude Include="tbuf.h">
+      <Filter>parse</Filter>
+    </ClInclude>
+    <ClInclude Include="vnode.h">
+      <Filter>parse</Filter>
+    </ClInclude>
+    <ClInclude Include="defines.h" />
+    <ClInclude Include="std.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="heap.cpp">
+      <Filter>containers</Filter>
+    </ClCompile>
+    <ClCompile Include="blockfile.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="configfile.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="crc.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="dlgtemplate.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="dtrack.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="fixme.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="md5.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="random.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="str.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="utils.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="version.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="filesrcdir.cpp">
+      <Filter>filesys</Filter>
+    </ClCompile>
+    <ClCompile Include="filesrcpack.cpp">
+      <Filter>filesys</Filter>
+    </ClCompile>
+    <ClCompile Include="filesrcstream.cpp">
+      <Filter>filesys</Filter>
+    </ClCompile>
+    <ClCompile Include="filesys.cpp">
+      <Filter>filesys</Filter>
+    </ClCompile>
+    <ClCompile Include="clock.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="debug.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="debug_memory.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="debug_symbol.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="file.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="filemap.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="hardware.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="log.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="mono.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="profile.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="fscope.cpp">
+      <Filter>parse</Filter>
+    </ClCompile>
+    <ClCompile Include="ptree.cpp">
+      <Filter>parse</Filter>
+    </ClCompile>
+    <ClCompile Include="stdparse.cpp">
+      <Filter>parse</Filter>
+    </ClCompile>
+    <ClCompile Include="tbuf.cpp">
+      <Filter>parse</Filter>
+    </ClCompile>
+    <ClCompile Include="vnode.cpp">
+      <Filter>parse</Filter>
+    </ClCompile>
+    <ClCompile Include="pchbuilder.cpp" />
+  </ItemGroup>
+</Project>

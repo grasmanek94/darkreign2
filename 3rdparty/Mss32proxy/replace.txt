@@ -1,0 +1,27 @@
+(.*)@0\r\n
+__declspec(dllexport, naked) void __stdcall $1() { }\r\n
+
+(.*)@4\r\n
+__declspec(dllexport, naked) void __stdcall $1(long arg1) { }\r\n
+
+(.*)@8\r\n
+__declspec(dllexport, naked) void __stdcall $1(long arg1, long arg2) { }\r\n
+
+(.*)@12\r\n
+__declspec(dllexport, naked) void __stdcall $1(long arg1, long arg2, long arg3) { }\r\n
+
+(.*)@16\r\n
+__declspec(dllexport, naked) void __stdcall $1(long arg1, long arg2, long arg3, long arg4) { }\r\n
+
+(.*)@20\r\n
+__declspec(dllexport, naked) void __stdcall $1(long arg1, long arg2, long arg3, long arg4, long arg5) { }\r\n
+
+(.*)@24\r\n
+__declspec(dllexport, naked) void __stdcall $1(long arg1, long arg2, long arg3, long arg4, long arg5, long arg6) { }\r\n
+
+(.*)@28\r\n
+__declspec(dllexport, naked) void __stdcall $1(long arg1, long arg2, long arg3, long arg4, long arg5, long arg6, long arg7) { }\r\n
+
+(.*)@32\r\n
+__declspec(dllexport, naked) void __stdcall $1(long arg1, long arg2, long arg3, long arg4, long arg5, long arg6, long arg7, long arg8) { }\r\n
+

@@ -1,0 +1,271 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="multiplayer">
+      <UniqueIdentifier>{21af077b-9adf-40bc-b740-608d83c411d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="multiplayer\multiplayer cmd">
+      <UniqueIdentifier>{f4b0680f-36c9-4ea6-a43b-341ecf5e8a67}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="multiplayer\multiplayer controls">
+      <UniqueIdentifier>{c0c8ce2b-feab-4d61-aee8-4018cae256d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="multiplayer\multiplayer controls\setup">
+      <UniqueIdentifier>{3dfddefc-0b37-4482-bdfb-1496a1baf42b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="multiplayer\multiplayer controls\stats">
+      <UniqueIdentifier>{ade7c33f-bb2c-4556-a032-119d29fe2f3b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="multiplayer\multiplayer controls\sessions">
+      <UniqueIdentifier>{63550630-5c40-432e-b869-488ae6283ace}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="multiplayer\multiplayer data">
+      <UniqueIdentifier>{5491978f-7117-4431-80f5-6140ffc25984}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="multiplayer\multiplayer network">
+      <UniqueIdentifier>{746142bc-9603-45d7-8324-8dc99cb0609d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="multiplayer\multiplayer transfer">
+      <UniqueIdentifier>{e8bc6486-02bc-44ae-a24d-e8b5bcd1821b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="won">
+      <UniqueIdentifier>{3e808c2e-d9e7-4faf-ac47-710fbea09bcc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="won\won controls">
+      <UniqueIdentifier>{07c7f102-d347-4f55-9479-b26c2acab9ea}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="multiplayer_cmd.cpp">
+      <Filter>multiplayer\multiplayer cmd</Filter>
+    </ClCompile>
+    <ClCompile Include="multiplayer_controls_color.cpp">
+      <Filter>multiplayer\multiplayer controls\setup</Filter>
+    </ClCompile>
+    <ClCompile Include="multiplayer_controls_context.cpp">
+      <Filter>multiplayer\multiplayer controls\setup</Filter>
+    </ClCompile>
+    <ClCompile Include="multiplayer_controls_hostconfig.cpp">
+      <Filter>multiplayer\multiplayer controls\setup</Filter>
+    </ClCompile>
+    <ClCompile Include="multiplayer_controls_mission.cpp">
+      <Filter>multiplayer\multiplayer controls\setup</Filter>
+    </ClCompile>
+    <ClCompile Include="multiplayer_controls_playerlist.cpp">
+      <Filter>multiplayer\multiplayer controls\setup</Filter>
+    </ClCompile>
+    <ClCompile Include="multiplayer_controls_propertylist.cpp">
+      <Filter>multiplayer\multiplayer controls\setup</Filter>
+    </ClCompile>
+    <ClCompile Include="multiplayer_controls_transferlist.cpp">
+      <Filter>multiplayer\multiplayer controls\setup</Filter>
+    </ClCompile>
+    <ClCompile Include="multiplayer_controls_localpings.cpp">
+      <Filter>multiplayer\multiplayer controls\stats</Filter>
+    </ClCompile>
+    <ClCompile Include="multiplayer_controls_playerinfo.cpp">
+      <Filter>multiplayer\multiplayer controls\stats</Filter>
+    </ClCompile>
+    <ClCompile Include="multiplayer_controls_report.cpp">
+      <Filter>multiplayer\multiplayer controls\stats</Filter>
+    </ClCompile>
+    <ClCompile Include="multiplayer_controls_addressbook.cpp">
+      <Filter>multiplayer\multiplayer controls\sessions</Filter>
+    </ClCompile>
+    <ClCompile Include="multiplayer_controls_sessions.cpp">
+      <Filter>multiplayer\multiplayer controls\sessions</Filter>
+    </ClCompile>
+    <ClCompile Include="multiplayer_controls.cpp">
+      <Filter>multiplayer\multiplayer controls</Filter>
+    </ClCompile>
+    <ClCompile Include="multiplayer_controls_chatedit.cpp">
+      <Filter>multiplayer\multiplayer controls</Filter>
+    </ClCompile>
+    <ClCompile Include="multiplayer_controls_download.cpp">
+      <Filter>multiplayer\multiplayer controls</Filter>
+    </ClCompile>
+    <ClCompile Include="multiplayer_controls_earth.cpp">
+      <Filter>multiplayer\multiplayer controls</Filter>
+    </ClCompile>
+    <ClCompile Include="multiplayer_controls_options.cpp">
+      <Filter>multiplayer\multiplayer controls</Filter>
+    </ClCompile>
+    <ClCompile Include="multiplayer_controls_synclist.cpp">
+      <Filter>multiplayer\multiplayer controls</Filter>
+    </ClCompile>
+    <ClCompile Include="multiplayer_data.cpp">
+      <Filter>multiplayer\multiplayer data</Filter>
+    </ClCompile>
+    <ClCompile Include="multiplayer_network.cpp">
+      <Filter>multiplayer\multiplayer network</Filter>
+    </ClCompile>
+    <ClCompile Include="multiplayer_transfer.cpp">
+      <Filter>multiplayer\multiplayer transfer</Filter>
+    </ClCompile>
+    <ClCompile Include="multiplayer.cpp">
+      <Filter>multiplayer</Filter>
+    </ClCompile>
+    <ClCompile Include="multiplayer_addressbook.cpp">
+      <Filter>multiplayer</Filter>
+    </ClCompile>
+    <ClCompile Include="multiplayer_download.cpp">
+      <Filter>multiplayer</Filter>
+    </ClCompile>
+    <ClCompile Include="multiplayer_host.cpp">
+      <Filter>multiplayer</Filter>
+    </ClCompile>
+    <ClCompile Include="multiplayer_pingdisplay.cpp">
+      <Filter>multiplayer</Filter>
+    </ClCompile>
+    <ClCompile Include="multiplayer_settings.cpp">
+      <Filter>multiplayer</Filter>
+    </ClCompile>
+    <ClCompile Include="won_controls.cpp">
+      <Filter>won\won controls</Filter>
+    </ClCompile>
+    <ClCompile Include="won_controls_gameinfo.cpp">
+      <Filter>won\won controls</Filter>
+    </ClCompile>
+    <ClCompile Include="won_controls_gamelist.cpp">
+      <Filter>won\won controls</Filter>
+    </ClCompile>
+    <ClCompile Include="won_controls_playerlist.cpp">
+      <Filter>won\won controls</Filter>
+    </ClCompile>
+    <ClCompile Include="won_controls_roomlist.cpp">
+      <Filter>won\won controls</Filter>
+    </ClCompile>
+    <ClCompile Include="won.cpp">
+      <Filter>won</Filter>
+    </ClCompile>
+    <ClCompile Include="won_cmd.cpp">
+      <Filter>won</Filter>
+    </ClCompile>
+    <ClCompile Include="..\system\pchbuilder.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="multiplayer_cmd.h">
+      <Filter>multiplayer\multiplayer cmd</Filter>
+    </ClInclude>
+    <ClInclude Include="multiplayer_cmd_private.h">
+      <Filter>multiplayer\multiplayer cmd</Filter>
+    </ClInclude>
+    <ClInclude Include="multiplayer_controls_color.h">
+      <Filter>multiplayer\multiplayer controls\setup</Filter>
+    </ClInclude>
+    <ClInclude Include="multiplayer_controls_context.h">
+      <Filter>multiplayer\multiplayer controls\setup</Filter>
+    </ClInclude>
+    <ClInclude Include="multiplayer_controls_hostconfig.h">
+      <Filter>multiplayer\multiplayer controls\setup</Filter>
+    </ClInclude>
+    <ClInclude Include="multiplayer_controls_mission.h">
+      <Filter>multiplayer\multiplayer controls\setup</Filter>
+    </ClInclude>
+    <ClInclude Include="multiplayer_controls_playerlist.h">
+      <Filter>multiplayer\multiplayer controls\setup</Filter>
+    </ClInclude>
+    <ClInclude Include="multiplayer_controls_propertylist.h">
+      <Filter>multiplayer\multiplayer controls\setup</Filter>
+    </ClInclude>
+    <ClInclude Include="multiplayer_controls_localpings.h">
+      <Filter>multiplayer\multiplayer controls\stats</Filter>
+    </ClInclude>
+    <ClInclude Include="multiplayer_controls_playerinfo.h">
+      <Filter>multiplayer\multiplayer controls\stats</Filter>
+    </ClInclude>
+    <ClInclude Include="multiplayer_controls_report.h">
+      <Filter>multiplayer\multiplayer controls\stats</Filter>
+    </ClInclude>
+    <ClInclude Include="multiplayer_controls_transferlist.h">
+      <Filter>multiplayer\multiplayer controls\stats</Filter>
+    </ClInclude>
+    <ClInclude Include="multiplayer_controls_addressbook.h">
+      <Filter>multiplayer\multiplayer controls\sessions</Filter>
+    </ClInclude>
+    <ClInclude Include="multiplayer_controls_sessions.h">
+      <Filter>multiplayer\multiplayer controls\sessions</Filter>
+    </ClInclude>
+    <ClInclude Include="multiplayer_controls.h">
+      <Filter>multiplayer\multiplayer controls</Filter>
+    </ClInclude>
+    <ClInclude Include="multiplayer_controls_chatedit.h">
+      <Filter>multiplayer\multiplayer controls</Filter>
+    </ClInclude>
+    <ClInclude Include="multiplayer_controls_download.h">
+      <Filter>multiplayer\multiplayer controls</Filter>
+    </ClInclude>
+    <ClInclude Include="multiplayer_controls_earth.h">
+      <Filter>multiplayer\multiplayer controls</Filter>
+    </ClInclude>
+    <ClInclude Include="multiplayer_controls_options.h">
+      <Filter>multiplayer\multiplayer controls</Filter>
+    </ClInclude>
+    <ClInclude Include="multiplayer_controls_synclist.h">
+      <Filter>multiplayer\multiplayer controls</Filter>
+    </ClInclude>
+    <ClInclude Include="multiplayer_data.h">
+      <Filter>multiplayer\multiplayer data</Filter>
+    </ClInclude>
+    <ClInclude Include="multiplayer_data_private.h">
+      <Filter>multiplayer\multiplayer data</Filter>
+    </ClInclude>
+    <ClInclude Include="multiplayer_network.h">
+      <Filter>multiplayer\multiplayer network</Filter>
+    </ClInclude>
+    <ClInclude Include="multiplayer_network_private.h">
+      <Filter>multiplayer\multiplayer network</Filter>
+    </ClInclude>
+    <ClInclude Include="multiplayer_transfer.h">
+      <Filter>multiplayer\multiplayer transfer</Filter>
+    </ClInclude>
+    <ClInclude Include="multiplayer_transfer_private.h">
+      <Filter>multiplayer\multiplayer transfer</Filter>
+    </ClInclude>
+    <ClInclude Include="multiplayer.h">
+      <Filter>multiplayer</Filter>
+    </ClInclude>
+    <ClInclude Include="multiplayer_addressbook.h">
+      <Filter>multiplayer</Filter>
+    </ClInclude>
+    <ClInclude Include="multiplayer_download.h">
+      <Filter>multiplayer</Filter>
+    </ClInclude>
+    <ClInclude Include="multiplayer_host.h">
+      <Filter>multiplayer</Filter>
+    </ClInclude>
+    <ClInclude Include="multiplayer_pingdisplay.h">
+      <Filter>multiplayer</Filter>
+    </ClInclude>
+    <ClInclude Include="multiplayer_private.h">
+      <Filter>multiplayer</Filter>
+    </ClInclude>
+    <ClInclude Include="multiplayer_settings.h">
+      <Filter>multiplayer</Filter>
+    </ClInclude>
+    <ClInclude Include="won_controls.h">
+      <Filter>won\won controls</Filter>
+    </ClInclude>
+    <ClInclude Include="won_controls_gameinfo.h">
+      <Filter>won\won controls</Filter>
+    </ClInclude>
+    <ClInclude Include="won_controls_gamelist.h">
+      <Filter>won\won controls</Filter>
+    </ClInclude>
+    <ClInclude Include="won_controls_playerlist.h">
+      <Filter>won\won controls</Filter>
+    </ClInclude>
+    <ClInclude Include="won_controls_roomlist.h">
+      <Filter>won\won controls</Filter>
+    </ClInclude>
+    <ClInclude Include="won.h">
+      <Filter>won</Filter>
+    </ClInclude>
+    <ClInclude Include="won_cmd.h">
+      <Filter>won</Filter>
+    </ClInclude>
+    <ClInclude Include="won_private.h">
+      <Filter>won</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
