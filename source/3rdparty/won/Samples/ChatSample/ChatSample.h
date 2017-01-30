@@ -1,3 +1,0 @@
-// ChatSample.h
-
-
