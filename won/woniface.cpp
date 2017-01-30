@@ -22,7 +22,7 @@
 #include "queue.h"
 #include "utils.h"
 
-
+#include <vector>
 ///////////////////////////////////////////////////////////////////////////////
 //
 // Libraries
@@ -34,6 +34,8 @@
 //#define ALLOW_BETA_KEYS
 //#pragma message("ALLOW BETA KEYS")
 
+#include <enet/enetpp.hxx>
+#include <networking/Networking.hxx>
 
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -91,39 +93,23 @@ namespace WonIface
   //
   struct ServerArray
   {
-    // Number of servers
-    U16 num;
-
     // Array of servers
-    WONAPI::IPSocket::Address *servers;
+    std::vector<std::wstring> servers;
 
     // Constructor
     ServerArray()
-    : num(0),
-      servers(NULL)
     {
     }
 
     // Destructor
     ~ServerArray()
     {
-      ASSERT(!num)
     }
 
     // Clear
     void Clear()
     {
-      if (num)
-      {
-        ASSERT(servers)
-        delete servers;
-        servers = NULL;
-        num = 0;
-      }
-      else
-      {
-        ASSERT(!servers)
-      }
+		servers.clear();
     }
 
     // Resize
@@ -133,8 +119,7 @@ namespace WonIface
 
       if (size)
       {
-        num = size;
-        servers = new WONAPI::IPSocket::Address[num];
+		  servers.resize(size);
       }
     }
 
@@ -154,7 +139,7 @@ namespace WonIface
     RoomName name;
 
     // Address of the chat server
-    WONAPI::IPSocket::Address address;
+    std::wstring address;
 
     // Num players
     U32 numPlayers;
@@ -166,7 +151,7 @@ namespace WonIface
     Bool permanent;
 
     // Constructor
-    ChatServer(const CH *name, const WONAPI::IPSocket::Address &address, U32 numPlayers, Bool password, Bool permanent)
+    ChatServer(const CH *name, const std::wstring &address, U32 numPlayers, Bool password, Bool permanent)
     : name(name), 
       address(address),
       numPlayers(numPlayers),
@@ -257,7 +242,7 @@ namespace WonIface
   struct CreateRoomContext : public AbortableContext
   {
     // Address
-    WONAPI::IPSocket::Address address;
+	std::wstring address;
 
     // Port
     U16 port;
