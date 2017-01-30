@@ -1,0 +1,86 @@
+Microsoft Developer Studio Workspace File, Format Version 6.00
+# WARNING: DO NOT EDIT OR DELETE THIS WORKSPACE FILE!
+
+###############################################################################
+
+Project: "DLL Matchmaker"=".\DLL Matchmaker.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Titan/API/Samples/matchmaker", LSKBAAAA
+    .
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name WONDLL
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "TitanAPI"=..\..\TitanAPI.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "WONDLL"=..\..\WONDLL.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name TitanAPI
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "matchmaker"=.\matchmaker.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Titan/API/Samples/matchmaker", LSKBAAAA
+    .
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name TitanAPI
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Global:
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Titan/API/Samples/matchmaker", LSKBAAAA
+    .
+    end source code control
+}}}
+
+Package=<3>
+{{{
+}}}
+
+###############################################################################
+

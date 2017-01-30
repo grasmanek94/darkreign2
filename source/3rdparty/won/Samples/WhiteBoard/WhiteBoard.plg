@@ -1,0 +1,37 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: WhiteBoard - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\WINDOWS\TEMP\RSPA1B6.TMP" with contents
+[
+titanapi.lib /nologo /subsystem:windows /incremental:no /pdb:"Release/WhiteBoard.pdb" /machine:I386 /out:"Release/WhiteBoard.exe" /libpath:"../../TitanAPI___Win32_Release_for_MFC_DLL" 
+.\Release\BlankView.obj
+.\Release\BoardsDialog.obj
+.\Release\ChatRoomsDialog.obj
+.\Release\ChatView.obj
+.\Release\InputView.obj
+.\Release\LoginDialog.obj
+.\Release\MainFrm.obj
+.\Release\StdAfx.obj
+.\Release\Stroke.obj
+.\Release\StrokeSizeDialog.obj
+.\Release\WhiteBoard.obj
+.\Release\WhiteBoardDoc.obj
+.\Release\WhiteBoardView.obj
+.\Release\WhiteBoard.res
+]
+Creating command line "link.exe @C:\WINDOWS\TEMP\RSPA1B6.TMP"
+<h3>Output Window</h3>
+Linking...
+
+
+
+<h3>Results</h3>
+WhiteBoard.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

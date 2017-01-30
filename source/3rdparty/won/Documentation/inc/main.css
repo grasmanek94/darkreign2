@@ -1,0 +1,175 @@
+/*
+color1=#99CCCC - Header, TOC, and footer - teal
+color2=#336666 - TOC header - dark green
+color3=#E0FFFF - Quick link bar - light blue
+*/
+
+/*for content frame*/
+body
+{
+	color: #000000;
+	font-variant: normal;
+	font-size: 12px;
+	font-family: arial;
+	text-decoration: none;
+	font-weight: normal
+}
+
+/*for other frames, to get rid of margins*/
+body.framedbody
+{
+	margin-top:0;
+	margin-bottom:0;
+	margin-left:0;
+	margin-right:0;
+}
+
+a
+{
+	color:black;
+	text-decoration:none;
+}
+
+a:hover
+{
+	color:black;
+	font-weight:bold;
+}
+
+
+/*Main header in header frame*/
+.topheaderlarge
+{
+	font-size:30px;
+	font-weight:bold;
+}
+
+/*little icon images in header frame*/
+.headericon
+{
+	height:30px;
+	width:30px;
+	border-style:none;
+}
+
+table.main
+{
+	border-collapse:collapse;
+}
+
+tr
+{
+
+}
+
+td {
+	padding:0px;
+	margin:0px;
+	/*border-style:solid;
+	border-width:1px;
+	border-color:red;*/
+}
+
+td.color1
+{
+	background:#99CCCC;
+}
+
+td.color2
+{
+
+}
+
+/*six quicklinks in header frame*/
+td.quicklink
+{
+	width:16%;
+	height:20px;
+	background-color:#E0FFFF;
+	font-size:12px;
+	text-align:center;
+	vert-align:center;
+}
+
+/*toc frame*/
+td.leftbar
+{
+	width:200px;
+	background:#99CCCC;
+}
+
+/*toc frame header bar*/
+td.leftbarheader
+{
+	height:30px;
+	background-color:#336666;
+	color:white;
+	font-size:16px;
+	font-weight:bold;
+	vert-align:center;
+}
+
+/**********************************
+.tocheader
+{
+	font-size:14px;
+	font-weight:bold;
+}
+
+a.leftbarlink
+{
+	font-size:12px;
+}
+***********************************/
+
+table.footertable
+{
+	border-top-style:solid;
+	border-top-width:4px;
+	border-top-color:#336666;
+	border-collapse:collapse;
+	margin-left:-10px;
+}
+
+td.footer
+{
+	width:33%;
+	background-color:#99CCCC;
+	font-size:12px;
+	padding-bottom:0px;
+	padding-top:0px;
+	text-align:center;
+	vert-align:center;
+}
+
+/***************** expanding TOC *****************/
+.TOCDIV {
+	font-family: Arial, Helvetica;
+	font-size: 12px;
+	font-weight: ;
+	list-style-type: none;
+	margin-left: 15pt;
+	}
+.TOCtopDIV {
+	font-family: Arial, Helvetica;
+	font-size: 12px;
+	font-weight: ;
+	list-style-type: none;
+	}
+.showTOCLI {
+	display: block;
+	margin-left: 0pt;
+	list-style-image: circle;
+	list-style-type: none;
+	}
+.hideTOCLI {
+	display: none;
+	margin-left: 0pt;
+	list-style-image: circle;
+	list-style-type: none;
+	}
+
+.plusminus {
+	height:10px;
+	width:10px;
+}

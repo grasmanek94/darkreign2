@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Dark Reign 2 Construction Kit - 6.5 Creating a Weapon</title>
+</head>
+
+<body bgcolor="#000000" link="#33ff00" alink="#00ff00" vlink="#11cc00">
+<table border=0 cellpadding=0 cellspacing=0 width="100%">
+<TR>
+	<td bgcolor="#004400" width="100%">
+		<table border=0 cellpadding=4 border=0 cellspacing=2 width="100%">
+		<tr>
+			<td width="100%" bgcolor="#000000"><font color="#00cc00" face="Arial" size="2">
+<!-- Start Text -->
+<font size="4"><b>6.5 Creating a Weapon</b></font><p>
+The weapon is usually referenced at the bottom of the UnitObj, under "Weapon".  The weapon config is generally much simpler than the object that creates it.  Here is the Guardian's weapon config.
+<hr>
+<blockquote><font color="#00CCCC" face="courier">
+CreateWeaponType("jda.weapon.guardian")<BR>
+{<BR>
+&nbsp;Style("Instant");<BR>
+&nbsp;MaxRange(48);<BR>
+&nbsp;HorizAngle(90);<BR>
+&nbsp;HorizSeparation(30);<BR>
+&nbsp;VertAngle(90);<BR>
+&nbsp;VertSeparation(45);<BR>
+&nbsp;Damage()<BR>
+&nbsp;{<BR>
+&nbsp;&nbsp;&nbsp;Amount(6);<p>
+
+&nbsp;&nbsp;&nbsp;Effective("armor_infantry", 100%);<BR>
+&nbsp;&nbsp;&nbsp;Effective("armor_vehicle", 50%);<BR>
+&nbsp;&nbsp;&nbsp;Effective("armor_structure", 50%);<BR>
+&nbsp;&nbsp;&nbsp;Effective("armor_flyer", 0%);<BR>
+&nbsp;&nbsp;&nbsp;Effective("armor_naval", 50%);<BR>
+&nbsp;&nbsp;&nbsp;Effective("armor_mine", 50%);<BR>
+&nbsp;}<BR>
+&nbsp;Delay(0.5);<BR>
+&nbsp;FirePoints()<BR>
+&nbsp;{<BR>
+&nbsp;&nbsp;&nbsp;Add("HP-FIRE");<BR>
+&nbsp;}<BR>
+}<BR>
+</font></blockquote>
+<hr>
+
+<br><font color="#00CCCC" face="courier">Style</font> - There are two distinct styles of weapon that are used in the game (there's also a third type, Constant, that isn't used in the game and I'm not going to get into).<p>
+<blockquote>
+<font color="#00CCCC" face="courier">Instant</font> - This is the simpler form that doesn't actually travel from the weapon to the target.  It just damages the target the moment it is fired.<p>
+<font color="#00CCCC" face="courier">Projectile</font> - When a projectile weapon is fired, it creates another object which travels to its target and does damage when it hits.  If no explosion is specified, the projectile will default to the damage amounts specified in the weapon.  If an explosion is created, it will use those damage numbers and ignore the ones inside the weapon.  Explosions will be explained later on.<p>
+</blockquote>
+<font color="#00CCCC" face="courier">NodeStyle</font> - If the art asset you are creating is going to move in any way, namely as a turret, it needs to have a node style specified in the config to dictate how it moves.  Here are all the node styles, pilfered directly from the technical manual.<p>
+<blockquote>
+<font color="#00CCCC" face="courier">NULL</font> - The NULL node stlyle indicates that no manipulation is required. This is the default. There should be no nodes specified for this node style.<p>
+<font color="#00CCCC" face="courier">XYZ</font> - The XYZ node style freely rotates about a single node. There should be one node specified for this node style.<p>
+<font color="#00CCCC" face="courier">X</font> - The X node style rotates only about the X (right) axis. There should be one node specified for this node style.<p>
+<font color="#00CCCC" face="courier">Y</font> - The Y node style rotates only about the Y (up) axis. There should be one node specified for this node style.<p>
+<font color="#00CCCC" face="courier">Y_X</font> - The Y_X node style rotates about the Y (up) axis and then about the X (right) axis. There should be two nodes specified for this node style.<p>
+</blockquote>
+<font color="#00CCCC" face="courier">Nodes</font> - This is where you list the nodes that are used by the asset.  All nodes should be prefixed by "CP-".  For example, the two nodes for the Scorpion Tank would be listed as follows.
+<hr>
+<blockquote><font color="#00CCCC" face="courier">
+Nodes("cp-weapon", "cp-weapon2");
+</font></blockquote>
+<hr>
+
+<br><font color="#00CCCC" face="courier">MaxRange</font> - Self-explanatory.  This specifies the maximum distance that the weapon can fire.<p>
+<font color="#00CCCC" face="courier">MinRange</font> - Used mainly in weapons that do radius damage to prevent them from hurting themselves.  This defines a minimum distance for firing.<p>
+<font color="#00CCCC" face="courier">HorizAngle</font> - "The centre of the allowed firing frustrum measured in degrees from right increasing anti-clockwise."  What that means in American is: the direction the unit fires.  Keep it at 90.<p>
+<font color="#00CCCC" face="courier">HorizSeparation</font> - "The seperation from the HorizAngle of the allowed firing frustrum in degrees."  Another way of saying that would be: the width of the cone around the HorizAngle.<p>
+<font color="#00CCCC" face="courier">VertAngle</font> - "The centre of the allowed firing frustrum measured in degrees from directly up."  Keep it at 90 to shoot straight ahead.  Lower it to point the weapon higher.<p>
+<font color="#00CCCC" face="courier">VertSeparation</font> - "The seperation from the VertAngle of the allowed firing frustrum in degress."  Same as Horiz.<p>
+
+<font color="#00CCCC" face="courier">Damage</font> - The all-important damage list.<p>
+<blockquote>
+	<font color="#00CCCC" face="courier">Amount</font> - How much damage is done with each shot.<p>
+	<font color="#00CCCC" face="courier">Effective</font> - Percentage of the total damage amount that the weapon can do against a specific armor type.  The default is 0%, so every armor type that you want to damage must be listed.  Keep in mind that hit point numbers vary widely between different unit categories, so giving equal effectiveness against infantry and vehicles will still allow vehicles to last longer under fire.  Also, flyers generally have very low hit points, so doing a relatively small amount of damage will still be effective.  The game has six armor types, listed as follows.<p>
+	<blockquote>
+		<font color="#00CCCC" face="courier">Armor_Infantry</font> - Units that are on foot.  This generally falls in line with units that have the biological filter, though there are some exceptions.<p>
+		<font color="#00CCCC" face="courier">Armor_Vehicle</font> - Any ground unit that has wheels, tracks, or hover ability.  It corresponds to the unit having some kind of armored shell that must be pierced in order for the unit to be destroyed.<p>
+		<font color="#00CCCC" face="courier">Armor_Structure</font> - Used for buildings and turrets.  Most anything that doesn't move has this armor type.<p>
+		<font color="#00CCCC" face="courier">Armor_Flyer</font> - Air units.  This armor type is very important, as there are currently very few units that can hit it.<p>
+		<font color="#00CCCC" face="courier">Armor_Naval</font> - Boats.  Generally its percentages are close to vehicle, but a little bit lower to give boats more of an advantage.<p>
+		<font color="#00CCCC" face="courier">Armor_Mine</font> - This is the wild card of the bunch.  It is used for mines, but it is also used for units that create short-range explosions with radius damage.  If you want to prevent a unit from hurting itself with its own explosion, give it an armor type of mine in its UnitObj and give its explosion a 0% effectiveness against that armor type.  This technique is used with the Baron Samedi, so that it can do lots of damage when it slams its fists on the ground without killing itself.<p>
+	</blockquote>
+	<font color="#00CCCC" face="courier">Delay</font> - Rate of fire.  Multiply the amount of damage a unit does by its effectiveness % against a targeted unit, then multiply that number by the delay to get its damage per second against a specific armor type.<p>
+	<font color="#00CCCC" face="courier">FirePoints</font> - This connects the weapon that we are creating to the hardpoint on the art asset.  In order for it to work, the art asset needs to have an existing hardpoint with the name that is referenced inside the FirePoint's scope.<p>
+	<blockquote>
+		<b>VERY IMPORTANT NOTE:</b> Many units have multiple hardpoints, such as the Scorpion Tank and the Lightning Tower.  If the weapon it is firing is a Projectile, you must divide the amount of damage it does per shot by the number of hardpoints to get the total damage done per shot.<p>
+		<blockquote>
+			<i>Example: Say you want the Lightning Tower to do 40 points of damage every time it fires.  Looking at the art asset, you will notice that it fires from 4 different hardpoints.  So you must divide the amount of damage done by 4, thus doing 10 points of damage from each hardpoint each time it fires.</i><p>
+		</blockquote>
+		<b>VERY IMPORTANT SUB-NOTE:</b> Dividing the damage amounts between hardpoints does not apply if it is an Instant weapon.  Instant weapons do not create projectiles, so no matter how many hardpoints it has, you still list the total amount of damage per shot.  See the Judas config for an example of this.<p>
+	</blockquote>
+	<font color="#00CCCC" face="courier">TurnRate</font> - Number of degrees per second that the turret rotates.  The unit must have a turret in the art asset and have the nodes properly configured for this to work.<p>
+	<font color="#00CCCC" face="courier">Ammunition</font> - Number of shots that a unit can fire.  This is only used on some flyers in the game.  The unit will automatically display its ammo as a yellow bar at the top of its HUD if this entry is used.<p>
+	<font color="#00CCCC" face="courier">Fixed</font> - A unit with the Fixed flag set will always fire in the direction its hardpoint is pointed.  This is used on the Sky Fortress to get it to always shoot straight down.<p>
+	<font color="#00CCCC" face="courier">KillUser</font> - If this flag is set, the unit will automatically self-destruct when it fires.  It is used on the Suicide Tograns in the J04 mission.<p>
+	<font color="#00CCCC" face="courier">HighTrajectory</font> - Fires arc projectiles at a steeper angle.  Arc projectiles are defined in the ProjectileObj.  This flag is not currently used in the game.<p>
+	<font color="#00CCCC" face="courier">OneShot</font> - Fires once and then stops firing.<p>
+	<font color="#00CCCC" face="courier">LeadAngle</font> - Weapon will fire at the predicted position of the target. Can make hitting of moving targets better.  Used on most projectile weapons.<p>
+	<font color="#00CCCC" face="courier">PotShot</font> - Allows unit to fire while moving.  Used to great affect on the Scorpion Tank and the Gogo, as well as a few others.<p>
+	<font color="#00CCCC" face="courier">Speed</font> - The initial speed of projectiles in kilometers per hour.<p>
+	<font color="#00CCCC" face="courier">Projectile</font> - The name of the projectile that is fired by the weapon.  Should point to an existing projectile object.<p>
+</blockquote>
+<!-- End Text -->
+
+		</font></td>
+		</tr>
+		</table>
+	</td>
+</tr>
+</table>
+
+
+</body>
+</html><br>

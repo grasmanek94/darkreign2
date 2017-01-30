@@ -1,0 +1,446 @@
+Document Type: WSE
+item: Global
+  Version=6.0
+  Flags=00000100
+  Split=1420
+  Languages=65 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+  Japanese Font Name=MS Gothic
+  Japanese Font Size=10
+  Start Gradient=0 0 255
+  End Gradient=0 0 0
+  Windows Flags=00000100000000010010110000001000
+  Message Font=MS Sans Serif
+  Font Size=8
+  Disk Filename=SETUP
+  Patch Flags=0000000000000001
+  Patch Threshold=85
+  Patch Memory=4000
+  FTP Cluster Size=20
+  Per-User Version ID=1
+  Dialogs Version=6
+end
+item: Remark
+end
+item: Remark
+end
+item: Remark
+  Text=     Manually set a product name and beta product flag  (0=false, 1=true)
+end
+item: Set Variable
+  Variable=PRODUCTNAME
+  Value=Homeworld
+end
+item: Set Variable
+  Variable=ISBETAALLOWED
+  Value=0
+end
+item: Remark
+end
+item: Remark
+  Text=     (Call DLL must load DLL path from a VARIABLE)
+end
+item: Set Variable
+  Variable=DLLPATH
+  Value=C:\TITAN\API\SAMPLES\INSTALLERS\CDKeyVerifier(DLL)\RELEASE
+end
+item: Remark
+end
+item: Remark
+  Text=     Call the DLL function, result is stored in ISVALIDCDKEY
+end
+item: Set Variable
+  Variable=ISVALIDCDKEY
+  Value=0
+end
+item: Remark
+end
+item: Remark
+  Text=     Ask the user for CD Key and userinfo, this custom dialog stores the CD Key 
+end
+item: Remark
+  Text=    in a variable called "CDKEY"
+end
+item: Custom Dialog Set
+  Name=Get Registration Information
+  item: Dialog
+    Title=Get Registration Information
+    Title French=Obtenir les informations l'enregistrement
+    Title German=Angaben zur Registrierung
+    Title Portuguese=Obter Informação de Registo
+    Title Spanish=Obtener información sobre Inscripción
+    Title Italian=Inserisci dati registrazione
+    Title Danish=Get Registration Information
+    Title Dutch=Vraag om registratie-informatie.
+    Title Norwegian=Få registreringsinformasjon
+    Title Swedish=Ta upp registreringsinformation
+    Width=280
+    Height=224
+    Font Name=Helv
+    Font Size=8
+    item: Static
+      Rectangle=90 10 260 49
+      Create Flags=01010000000000000000000000000000
+      Text=Please enter the name and company of the registered owner of SAMPLEAPP into the fields below. All fields must be filled in to proceed.
+      Text French=Veuillez entrer le nom et la société du propriétaire enregistré de %APPTITLE% dans les champs ci-dessous. Tous les champs doivent être complétés afin de pouvoir poursuivre
+      Text German=Bitte tragen Sie in den Feldern unten den Namen und die Unternehmen des registrierten Eigentümers von %APPTITLE% ein. Um fortzufahren müssen alle Felder ausgefüllt sein.
+      Text Portuguese=É favor introduzir o nome e a companhia do proprietário registado de %APPTITLE% nos campos abaixo. Todos os campos devem ser preenchidos para prosseguir.
+      Text Spanish=Introduzca el nombre y la empresa del propietario autorizado de %APPTITLE% en los campos que se ofrecen a continuación. Para continuar deben rellenarse todos los campos.
+      Text Italian=Inserisci il nome e la società del proprietario registrato di  %APPTITLE% nei campi sotto. Per poter procedere devi completare tutti i campi.
+      Text Danish=Indtast navn og selskab for den indregistrerede ejer af %APPTITLE% i nedenstående felter. Alle felter skal udfyldes, inden man kan fortsætte.
+      Text Dutch=Voer de naam en het bedrijf van de geregistreerde eigenaar van %APPTITLE% in onderstaande velden in. Alle velden moeten ingevuld zijn voordat u verder kunt.
+      Text Norwegian=Tast inn personnavnet og firmaet til den registrerte eieren av %APPTITLE% i feltet nedenfor. Alle felt må fylles inn før du kan fortsette.
+      Text Swedish=Ange namn och företag för den registrerade ägaren till %APPTITLE% i fälten nedan. Samtliga fält måste vara ifyllda för att du ska kunna fortsätta.
+    end
+    item: Static
+      Rectangle=90 52 251 63
+      Create Flags=01010000000000000000000000000000
+      Text=Name:
+      Text French=Nom
+      Text German=Name:
+      Text Portuguese=Nome:
+      Text Spanish=Nombre:
+      Text Italian=Nome e cognome:
+      Text Danish=Navn:
+      Text Dutch=Naam
+      Text Norwegian=Navn:
+      Text Swedish=Namn:
+    end
+    item: Editbox
+      Rectangle=90 61 260 73
+      Variable=NAME
+      Help Context=16711681
+      Create Flags=01010000100000010000000010000000
+      Text French=%NAME%
+      Text German=%NAME%
+      Text Portuguese=%NAME%
+      Text Spanish=%NAME%
+      Text Italian=%NAME%
+      Text Danish=%NAME%
+      Text Dutch=%NAME%
+      Text Norwegian=%NAME%
+      Text Swedish=%NAME%
+    end
+    item: Static
+      Rectangle=90 80 251 91
+      Create Flags=01010000000000000000000000000000
+      Text=Company:
+      Text French=Société
+      Text German=Gesellschaft:
+      Text Portuguese=Companhia:
+      Text Spanish=Empresa:
+      Text Italian=Società:
+      Text Danish=Selskab:
+      Text Dutch=Bedrijf
+      Text Norwegian=Firma:
+      Text Swedish=Företag:
+    end
+    item: Editbox
+      Rectangle=90 89 260 101
+      Variable=COMPANY
+      Help Context=16711681
+      Create Flags=01010000100000010000000010000000
+      Text French=%COMPANY%
+      Text German=%COMPANY%
+      Text Portuguese=%COMPANY%
+      Text Spanish=%COMPANY%
+      Text Italian=%COMPANY%
+      Text Danish=%COMPANY%
+      Text Dutch=%COMPANY%
+      Text Norwegian=%COMPANY%
+      Text Swedish=%COMPANY%
+    end
+    item: Push Button
+      Rectangle=172 185 214 199
+      Variable=DIRECTION
+      Value=N
+      Action=1
+      Create Flags=01010000000000010000000000000001
+      Text=&Next >
+      Text French=&Suivant>
+      Text German=&Weiter>
+      Text Portuguese=&Próximo>
+      Text Spanish=&Siguiente >
+      Text Italian=&Avanti >
+      Text Danish=&Næste>
+      Text Dutch=&Volgende>
+      Text Norwegian=&Neste>
+      Text Swedish=&Nästa >
+    end
+    item: Push Button
+      Rectangle=222 185 264 199
+      Action=3
+      Create Flags=01010000000000010000000000000000
+      Text=Cancel
+      Text French=Annuler
+      Text German=Abbrechen
+      Text Portuguese=Cancelar
+      Text Spanish=Cancelar
+      Text Italian=Annulla
+      Text Danish=Annuller
+      Text Dutch=Annuleren
+      Text Norwegian=Avbryt
+      Text Swedish=Avbryt
+    end
+    item: Static
+      Rectangle=9 177 263 178
+      Action=3
+      Create Flags=01010000000000000000000000000111
+    end
+    item: Static
+      Rectangle=90 108 251 119
+      Create Flags=01010000000000000000000000000000
+      Text=CD Key:
+      Text French=Société
+      Text German=Gesellschaft:
+      Text Portuguese=Companhia:
+      Text Spanish=Empresa:
+      Text Italian=Società:
+      Text Danish=Selskab:
+      Text Dutch=Bedrijf
+      Text Norwegian=Firma:
+      Text Swedish=Företag:
+    end
+    item: Editbox
+      Rectangle=90 117 260 129
+      Variable=CDKEY
+      Help Context=16711681
+      Create Flags=01010000100000010000000010000000
+      Text=%CDKEY%
+      Text French=%COMPANY%
+      Text German=%COMPANY%
+      Text Portuguese=%COMPANY%
+      Text Spanish=%COMPANY%
+      Text Italian=%COMPANY%
+      Text Danish=%COMPANY%
+      Text Dutch=%COMPANY%
+      Text Norwegian=%COMPANY%
+      Text Swedish=%COMPANY%
+    end
+  end
+end
+item: Remark
+end
+item: Remark
+  Text=    This is actually a function call AND an IF statement  
+end
+item: Remark
+  Text=    Hidden parameters are (PRODUCTNAME, CDKEY, ISBETAALLOWED)
+end
+item: Call DLL Function
+  Pathname=%DLLPATH%\cdkeyvalidate.dll
+  Function Name=ValidateCDKeyWISE
+  Parameter=PRODUCTNAME, CDKEY, ISBETAALLOWED
+  Return Variable=0
+  Flags=00000010
+end
+item: Remark
+  Text=     Enters this block if ValidateCDKeyWISE returns TRUE
+end
+item: Set Variable
+  Variable=ISVALIDCDKEY
+  Value=1
+end
+item: Custom Dialog Set
+  Name=Finished
+  item: Dialog
+    Title=Installation Complete
+    Title French=Installation en cours
+    Title German=Installation abgeschlossen
+    Title Portuguese=Instalação Completa 
+    Title Spanish=Se ha completado la Instalación
+    Title Italian=Installazione completata
+    Title Danish=Installation gennemført
+    Title Dutch=Installatie afgerond
+    Title Norwegian=Installasjonen er fullført
+    Title Swedish=Installationen klar
+    Width=280
+    Height=224
+    Font Name=Helv
+    Font Size=8
+    item: Push Button
+      Rectangle=170 185 212 199
+      Variable=DIRECTION
+      Value=N
+      Create Flags=01010000000000010000000000000001
+      Text=&Finish >
+      Text French=&Terminer>
+      Text German=&Fertigstellen>
+      Text Portuguese=&Terminar >
+      Text Spanish=&Finalizar>
+      Text Italian=&Fine >
+      Text Danish=&Afslut >
+      Text Dutch=&Klaar>
+      Text Norwegian=&Avslutt>
+      Text Swedish=&Sluta>
+    end
+    item: Push Button
+      Control Name=CANCEL
+      Rectangle=222 185 264 199
+      Action=3
+      Create Flags=01010000000000010000000000000000
+      Text=Cancel
+      Text French=Annuler
+      Text German=Abbrechen
+      Text Portuguese=Cancelar
+      Text Spanish=Cancelar
+      Text Italian=Annulla
+      Text Danish=Annuller
+      Text Dutch=Annuleren
+      Text Norwegian=Avbryt
+      Text Swedish=Avbryt
+    end
+    item: Static
+      Rectangle=9 177 263 178
+      Action=3
+      Create Flags=01010000000000000000000000000111
+    end
+    item: Static
+      Rectangle=90 10 260 63
+      Enabled Color=00000000000000001111111111111111
+      Create Flags=01010000000000000000000000000000
+      Text=SAMPLEAPP has been successfully installed.
+      Text=
+      Text=
+      Text=Press the Finish button to exit this installation.
+      Text=
+      Text French=L'installation de %APPTITLE% est réussie
+      Text French=
+      Text French=
+      Text French=Cliquez sur Terminer pour quitter cette installation
+      Text French=
+      Text German=%APPTITLE% wurde erfolgreich installiert.
+      Text German=
+      Text German=
+      Text German=Zum Beenden dieser Installation Fertigstellen anklicken.
+      Text German=
+      Text Portuguese=%APPTITLE% foi instalado com êxito
+      Text Portuguese=
+      Text Portuguese=
+      Text Portuguese=Pressionar o botão Terminar para sair desta instalação
+      Text Portuguese=
+      Text Spanish=%APPTITLE% se ha instalado con éxito.
+      Text Spanish=
+      Text Spanish=
+      Text Spanish=Pulse el botón de Finalizar para salir de esta instalación.
+      Text Spanish=
+      Text Italian=%APPTITLE% è stato installato.
+      Text Italian=
+      Text Italian=
+      Text Italian=Premi il pulsante Fine per uscire dal programma di installazione
+      Text Italian=
+      Text Danish=%APPTITLE% er nu installeret korrekt.
+      Text Danish=
+      Text Danish=
+      Text Danish=Klik på Afslut for at afslutte installationen.
+      Text Danish=
+      Text Dutch=%APPTITLE% is met succes geïnstalleerd.
+      Text Dutch=
+      Text Dutch=
+      Text Dutch=Druk op Klaar om deze installatie af te ronden.
+      Text Dutch=
+      Text Norwegian=Installasjonen av %APPTITLE% er suksessfull.
+      Text Norwegian=
+      Text Norwegian=
+      Text Norwegian=Trykk på Avslutt-tasten for å avslutte denne installasjonen.
+      Text Norwegian=
+      Text Swedish=Installationen av %APPTITLE% har lyckats.
+      Text Swedish=
+      Text Swedish=
+      Text Swedish=Tryck på Sluta för att gå ur installationsprogrammet.
+      Text Swedish=
+    end
+    item: Push Button
+      Control Name=BACK
+      Rectangle=128 185 170 199
+      Variable=DIRECTION
+      Value=B
+      Create Flags=01010000000000010000000000000000
+      Text=< &Back
+      Text French=<&Retour
+      Text German=<&Zurück
+      Text Portuguese=<&Retornar
+      Text Spanish=<&Retroceder
+      Text Italian=< &Indietro
+      Text Danish=<&Tilbage
+      Text Dutch=<&Terug
+      Text Norwegian=<&Tilbake
+      Text Swedish=< &Tillbaka
+    end
+    item: Set Control Attribute
+      Control Name=BACK
+      Operation=1
+    end
+    item: Set Control Attribute
+      Control Name=CANCEL
+      Operation=1
+    end
+  end
+end
+item: Else Statement
+end
+item: Display Message
+  Title=ERROR
+  Text=You must have a valid CD Key to install this product!
+  Flags=00001000
+end
+item: Custom Dialog Set
+  Name=Installation Options
+  Flags=11001101
+  item: Dialog
+    Width=201
+    Height=196
+    Font Name=Helv
+    Font Size=8
+    item: Editbox
+      Rectangle=3 5 192 133
+      Value=%1%
+      Help Context=16711681
+      Create Flags=01010000101000000000100000000100
+    end
+    item: Static
+      Rectangle=3 139 192 155
+      Create Flags=01010000000000000000000010000001
+      Text=%2%
+      Text French=%2%
+      Text German=%2%
+      Text Portuguese=%2%
+      Text Spanish=%2%
+      Text Italian=%2%
+      Text Danish=%2%
+      Text Dutch=%2%
+      Text Norwegian=%2%
+      Text Swedish=%2%
+    end
+    item: Push Button
+      Rectangle=19 161 69 175
+      Create Flags=01010000000000010000000000000001
+      Text=%27%
+      Text French=%27%
+      Text German=%27%
+      Text Portuguese=%27%
+      Text Spanish=%27%
+      Text Italian=%27%
+      Text Danish=%27%
+      Text Dutch=%27%
+      Text Norwegian=%27%
+      Text Swedish=%27%
+    end
+    item: Push Button
+      Rectangle=125 161 175 175
+      Action=3
+      Create Flags=01010000000000010000000000000000
+      Text=%28%
+      Text French=%28%
+      Text German=%28%
+      Text Portuguese=%28%
+      Text Spanish=%28%
+      Text Italian=%28%
+      Text Danish=%28%
+      Text Dutch=%28%
+      Text Norwegian=%28%
+      Text Swedish=%28%
+    end
+  end
+end
+item: End Block
+end

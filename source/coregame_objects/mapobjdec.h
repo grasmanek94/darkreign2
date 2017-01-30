@@ -1,0 +1,25 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+// Copyright 1997-1999 Pandemic Studios, Dark Reign II
+//
+// Map Objects Declaration
+//
+// 27-OCT-1998
+//
+
+
+#ifndef __MAPOBJDEC_H
+#define __MAPOBJDEC_H
+
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Includes
+//
+#include "reaperlist.h"
+#include "objdec.h"
+
+OBJDEC(MapObj)
+
+
+#endif

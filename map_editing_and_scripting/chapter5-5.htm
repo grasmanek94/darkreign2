@@ -1,0 +1,195 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Dark Reign 2 Construction Kit - 5.5 More Scripting Basics and Examples</title>
+</head>
+
+<body bgcolor="#000000" link="#33ff00" alink="#00ff00" vlink="#11cc00">
+<table border=0 cellpadding=0 cellspacing=0 width="100%">
+<TR>
+	<td bgcolor="#004400" width="100%">
+		<table border=0 cellpadding=4 border=0 cellspacing=2 width="100%">
+		<tr>
+			<td width="100%" bgcolor="#000000"><font color="#00cc00" face="Arial" size="2">
+<!-- Start Text -->
+<font size="4"><b>5.5 More Scripting Basics and Examples</b></font><p>
+
+The following section will provide more help on how to do the most common things that a single player mission requires that weren't covered in the previous tutorial.  It is by no means comprehensive, and is only to provide some extra help and examples.<p>
+
+Condition Types<br>
+Condition Types followed by an example.<p>
+
+TRUE - Condition becomes true when objective loaded
+
+<hr>
+<blockquote><font color="#00CCCC" face="courier">
+CreateObjectType("[objective name]", "Objective")<br>
+{ <br>
+&nbsp;GameObj();<br>
+&nbsp;ObjectiveObj()<br>
+&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;Condition("TRUE");<br>
+&nbsp;&nbsp;&nbsp;Action()<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[action];<br>
+&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;}<br>
+}
+</font></blockquote>
+<hr>
+
+<br>FALSE - Condition always false, will never trigger action.  Used only for testing (if you want to disable an action).  Same usage as TRUE.<p>
+
+NOT - See following example. Within the NOT condition is another condition running an InRegion check.  In this case, we are testing to see when a particular object is NOT in that region.  The action would be triggered as soon as the tag "juggernaut" left the region. NOT can be used with any Condition Type.
+<hr>
+<blockquote><font color="#00CCCC" face="courier">
+CreateObjectType("[objective name]"), "Objective")<br>
+{<br>
+&nbsp;GameObj();<br>
+&nbsp;ObjectiveObj()<br>
+&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;Condition("NOT")<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Condition("InRegion")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Region("JDA_base");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tag("juggernaut")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Amount(0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Operator(">");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Team("JDA");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;}<br>
+
+&nbsp;&nbsp;&nbsp;Action()<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[action];<br>
+&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;}<br>
+}
+</font></blockquote>
+<hr>
+
+<br>AND - Requires two sub-conditions to become true before executing the Action scope.  In this example, both the TagCount and InRegion checks have to become true to make the entire condition true
+
+<hr>
+<blockquote><font color="#00CCCC" face="courier">
+CreateObjectType("[objective name]", "Objective")<br>
+{<br>
+&nbsp;GameObj();<br>
+&nbsp;ObjectiveObj()<br>
+&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;Condition("AND")<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Condition("TagCount")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tag("players_units")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Operator("==");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Amount(0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Condition("InRegion")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Region("goal");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tag("players_units")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Amount(0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Operator(">");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Team("player");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;}<br>
+
+&nbsp;&nbsp;&nbsp;Action()<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[action];<br>
+&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;}<br>
+}
+</font></blockquote>
+<hr>
+
+<br>OR - Condition will become true if ANY sub-conditions become true.  In this example, if either the TagCount OR the InRegion check become true, the entire condition will be true.
+
+<hr>
+<blockquote><font color="#00CCCC" face="courier">
+CreateObjectType("[objective name]", "Objective")<br>
+{<br>
+&nbsp;GameObj();<br>
+&nbsp;ObjectiveObj()<br>
+&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;Condition("OR")<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Condition("TagCount")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tag("players_units")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Operator("==");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Amount(0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Condition("InRegion")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Region("goal");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tag("players_units")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Amount(0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Operator(">");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Team("player");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;}<br>
+
+&nbsp;&nbsp;&nbsp;Action()<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[action];<br>
+&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;}<br>
+}
+</font></blockquote>
+<hr>
+
+<br>TIMER - Condition becomes true after the specified time has elapsed (in seconds).<p>
+(<b>note:</b> if you enter two values in the Time() line, i.e. Time(60,120), it will trigger at a random time between those intervals)
+
+<hr>
+<blockquote><font color="#00CCCC" face="courier">
+CreateObjectType("[objective_name]", "Objective")<br>
+{<br>
+&nbsp;GameObj();<br>
+&nbsp;ObjectiveObj()<br>
+&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;Condition("Timer")<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Time(60);  <br>
+&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;Action()<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[action];<br>
+&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;}<br>
+}</font>
+</blockquote>
+<hr>
+
+<br>These are the most common condition types, but there are several more that are handy.  See the DR2 Technical Reference Manual for more info.
+
+
+
+<!-- End Text -->
+
+		</font></td>
+		</tr>
+		</table>
+	</td>
+</tr>
+</table>
+
+
+</body>
+</html>

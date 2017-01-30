@@ -1,0 +1,271 @@
+<HTML>
+<BLOCKQUOTE>
+<H1>Particles</H1><BR>
+
+<B>CreateParticleType( string nameNew, string nameBase)</B><BR>
+nameNew:  name of the new particle<BR>
+nameBase: name of particle the new one is derived from<BR><BR>
+
+  <BLOCKQUOTE>
+  <B><I>Base Simulators</I></B><BR>
+  <B><I>Particle:</I></B> moves and rotates with initial values<BR>
+  <B><I>Smoke:</I></B> floats with wind<BR>
+  <B><I>Ember:</I></B> falls to ground and bounces<BR>
+  <B><I>Stain:</I></B> falls to the ground as a sprite, then becomes a groundsprite on contact<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>LifeTime( float life)</B><BR>
+  <I>Required</I><BR>
+  life: duration of particle<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>RenderBase( string name)</B><BR>
+  <I>Required, Multiple</I><BR>
+  name: name of particle render type<BR>
+  a single simulator can reference several Renderers<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>Priority( float value)</B><BR>
+  <I>Optional(1)</I><BR>
+  value: 0 = high priority, 1 = low priority<BR>
+  this value adjusts the global priority for this type of particle<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>ShowUnderFog( bool flag)</B><BR>
+  <I>Optional(FALSE)</I><BR>
+  flag: 0 = don't show under fog, 1 = show under fog<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>MakeUnderFog( bool flag)</B><BR>
+  <I>Optional(FALSE)</I><BR>
+  flag: 0 = don't make under fog, 1 = make under fog<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B><I>Chunk</I></B>mesh particle, falls to ground and bounces<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>KickVeloc( Vector velocity)</B><BR>
+  <I>Optional( 10,10,10)</I><BR>
+  velocity: the maxium for a random velocity applied to the chunk<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>KickOmega( Vector omega)</B><BR>
+  <I>Optional( 5,5,5)</I><BR>
+  omega: the maxium for a random rotation applied to the chunk<BR>
+  </BLOCKQUOTE>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>CreateParticleRenderType( string nameNew, string nameBase)</B><BR>
+<I>Multiple</I><BR>
+nameNew:  name of the new particle renderer<BR>
+nameBase: name of renderer that the new one is derived from<BR><BR>
+
+  <BLOCKQUOTE>
+  <B><I>Base Renderers</I></B><BR>
+  <B><I>Sprite</I></B><BR>
+  <B><I>GroundSprite</I></B><BR>
+  <B><I>WaterSprite</I></B><BR>
+  <B><I>Stain</I></B><BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>Radius (or Scale)( float radius)</B><BR>
+  <I>Optional(1)</I><BR>
+  radius: radius of the sprite in meters<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>RadiusKey (or ScaleKey)( float key, float radius)</B><BR>
+  <I>Multiple, Optional(null)</I><BR>
+  key: active time for this key<BR>
+  radius: radius at this key<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>ColorKey( float key, int r, int g, int b, int a)</B><BR>
+  <I>Multiple, Optional(null)</I><BR>
+  key: active time for this key<BR>
+  r: red component of color<BR>
+  g: green component of color<BR>
+  b: blue component of color<BR>
+  a: alpha component of color<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>Texture( string name)</B><BR>
+  <I>Optional(null)</I><BR>
+  name: name of the texture file<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>TextureReduce( int reduce)</B><BR>
+  <I>Optional(2)</I><BR>
+  reduce: 0 for no reduction, 1 for some reduction, 2 for full reduction<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>TextureBlend( string blend)</B><BR>
+  <I>Optional( srcalpha invsrcalpha modulatealpha)</I><BR>
+  blend: a string specifing sourceblend destblend and textureblend<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>TextureKey( float key, string name)</B><BR>
+  <I>Multiple, Optional(null)</I><BR>
+  key: active time for this key<BR>
+  name: name of the texture file<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>TextureListAnim( string name)</B><BR>
+  <I>Optional(null)</I><BR>
+  name: base name of a list of animating textures like "name0.bmp", "name1.bmp", etc<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>TextureAnim( string name)</B><BR>
+  <I>Multiple, Optional(null)</I><BR>
+  name: name of a single texture file in an animating list<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B><I>Trail</I></B><BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>SegmentTime( float time)</B><BR>
+  <I>Optional(1)</I><BR>
+  time: lifetime of a single segment in the trail<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>Decay( float time)</B><BR>
+  <I>Optional(0)</I><BR>
+  time: how fast the segment decays<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B><I>Geometry</I></B><BR>
+  <B><I>GeometryScale</I></B><BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>GodFile (or GeometryName)( string name)</B><BR>
+  <I>Required</I><BR>
+  name: name of a .god file<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B><I>Beam</I></B><BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>BeamCount( int count)</B><BR>
+  <I>Optional(1)</I><BR>
+  count: total number of beams<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>Slave( bool flag)</B><BR>
+  <I>Optional(1)</I><BR>
+  flag: should the extra beams be slaves to the main beam (spiral around it)<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>PointCount( int count)</B><BR>
+  <I>Optional(3)</I><BR>
+  count: how many points int the beam<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>Distance( float distance)</B><BR>
+  <I>Optional(.6)</I><BR>
+  distance: how far the slave beams stand off the main beam<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>RandomFactor( float random)</B><BR>
+  <I>Optional(.6)</I><BR>
+  random: how random should the distance between slave and main beams be<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>Rotation( float rotate)</B><BR>
+  <I>Optional(.2)</I><BR>
+  rotate: how fast should the slave beams rotate around the main beam<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>Twist( float twist)</B><BR>
+  <I>Optional(3)</I><BR>
+  twist: how tight should the slave beams spiral around the main beam<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>Curvature( float curve)</B><BR>
+  <I>Optional(.5)</I><BR>
+  curve: how tightly should beam be able to bend<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>Wiggle( float wiggle)</B><BR>
+  <I>Optional(.4)</I><BR>
+  wiggle: how wiggly should the beam be<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>WiggleSpeed( float speed)</B><BR>
+  <I>Optional(.8)</I><BR>
+  speed: how fast should the beam wiggle<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>Flares( bool flag)</B><BR>
+  <I>Optional(1)</I><BR>
+  flag: are there flare sprites at the ends of the beam<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>Light( bool flag)</B><BR>
+  <I>Optional(1)</I><BR>
+  flag: does the beam cast light<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>Taper( bool flag)</B><BR>
+  <I>Optional(1)</I><BR>
+  taper: does the beam taper to a single point at the ends<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>Oriented( bool flag)</B><BR>
+  <I>Optional(1)</I><BR>
+  flag: does the have orientation and bend, or is it strait point to point<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>UVScale( float scale)</B><BR>
+  <I>Optional(1)</I><BR>
+  scale: how is the texture repeated down the length of the beam<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>UVAnimRate( float rate)</B><BR>
+  <I>Optional(0)</I><BR>
+  flag: how quickly does the texture uv animate down its length<BR>
+  </BLOCKQUOTE>
+
+</BLOCKQUOTE>
+
+</HTML>
+
+

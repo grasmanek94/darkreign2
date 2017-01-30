@@ -1,0 +1,259 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Dark Reign 2 Construction Kit - 5.6 Messages/Objectives</title>
+</head>
+
+<body bgcolor="#000000" link="#33ff00" alink="#00ff00" vlink="#11cc00">
+<table border=0 cellpadding=0 cellspacing=0 width="100%">
+<TR>
+	<td bgcolor="#004400" width="100%">
+		<table border=0 cellpadding=4 border=0 cellspacing=2 width="100%">
+		<tr>
+			<td width="100%" bgcolor="#000000"><font color="#00cc00" face="Arial" size="2">
+<!-- Start Text -->
+<font size="4"><b>5.6 Messages/Objectives</b></font><p>
+
+<font size="3">Display Objectives</font><br>
+This section will describe how to make the objectives that are displayed in the "O" window that tell you what your mission objectives are.<p>
+
+The script command to manipulate objectives is called "DisplayObjective".  All of the following lines would be placed inside an Action scope.<p>
+
+To add a new display objective:
+<hr>
+<blockquote><font color="#00CCCC" face="courier">
+DisplayObjective("Add", "[name of display objective]")<br>
+{<br>
+&nbsp;Text("[text that will be displayed]");<br>
+}
+</font></blockquote>
+<hr>
+
+<br>"name of display objective" is the name you are giving the objective as far as the script is concerned (won't be displayed in game).  "Text" is what is displayed in the "O" window.<p>
+
+To make an Objective complete:
+<hr>
+<blockquote><font color="#00CCCC" face="courier">
+DisplayObjective("Complete", "[name of display objective]");
+</font></blockquote>
+<hr>
+
+This will change the color of the objective text in the "O" window indicating the objective has been completed.<p>
+
+To remove an Objective:
+<hr>
+<blockquote><font color="#00CCCC" face="courier">
+DisplayObjective("Remove", "[name of display objective]");
+</font></blockquote>
+<hr>
+
+This will remove the objective text from the "O" window.<p>
+
+Below is an example of the DisplayObjective command in a complete objective.
+<hr>
+<blockquote><font color="#00CCCC" face="courier">
+CreateObjectType("objective_destroy_base", "Objective")<br>
+{<br>
+&nbsp;GameObj();<br>
+&nbsp;ObjectiveObj()<br>
+&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;Condition("TRUE");<br>
+&nbsp;&nbsp;&nbsp;Action()<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DisplayObjective("Add", "destroy_enemy_base")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Text("Destroy the enemy base before they can fortify");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;)<br>
+}
+</font></blockquote>
+<hr>
+<br><font size="3"><b>Game Messages</b></font><br>
+Game messages are used to display a message in the upper left area of the screen, and also to play sound events.  In DR2, game messages were seldom used to display a message on the screen (design decision), and almost exclusively used to play sounds.<p>
+
+The use of game messages requires an additional .cfg file, and an inclusion of that file in <b>types_mission.cfg</b>.  Create a text file called "<b>types_game_messages.cfg</b>" and put it in your mission folder.  Open your <b>types_mission.cfg</b>.  Add the line:<p>
+<hr>
+<blockquote>
+<font color="#00CCCC" face="courier"># include "types_game_messages.cfg"</font><p>
+</blockquote>
+<hr>
+
+<br>and save. <b>types_game_messages.cfg</b> is the file where you configure each game message, which will later be called by your main script.  The following shows how to configure each type of game message. Each message you configure needs to have a unique name.<p>
+
+Playing a sound (you can specify a .wav or .mp3. If you're using custom sounds, drop the sound file into your mission folder)
+<hr>
+<blockquote><font color="#00CCCC" face="courier">
+ConfigureGameMessage ("[message name]") <br>
+{<br>
+&nbsp;Interval()<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Type("Interval::None");<br>
+&nbsp;&nbsp;&nbsp;}<br>
+
+&nbsp;&nbsp;&nbsp;Sound()<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Type("Sound::Stream");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Add("[sound file name]"); <br>
+&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;Message();<br>
+}
+</font></blockquote>
+<hr>
+
+<br><font size="3"><b>Displaying a message</b></font>
+
+<hr>
+<blockquote><font color="#00CCCC" face="courier">
+ConfigureGameMessage("[message name]")<br>
+{<br>
+&nbsp;Interval()<br>
+&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;Type("Interval::None");<br>
+&nbsp;}<br>
+&nbsp;Sound();<br>
+&nbsp;Message()<br>
+&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;Type("Message::Console");<br>
+&nbsp;&nbsp;&nbsp;Add("[Message text that will be displayed]");<br>
+&nbsp;}<br>
+}
+</font></blockquote>
+<hr>
+
+<br>Play a sound and display message simultaneously.
+
+<hr>
+<blockquote><font color="#00CCCC" face="courier">
+ConfigureGameMessage("[message name]")<br>
+{<br>
+&nbsp;Interval()<br>
+&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;Type("Interval::None");<br>
+&nbsp;}<br>
+
+&nbsp;Sound()<br>
+&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;Type("Sound::Stream");<br>
+&nbsp;&nbsp;&nbsp;Add("[sound file name]");<br>
+&nbsp;}<br>
+
+&nbsp;Message()<br>
+&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;Type("Message::Console");<br>
+&nbsp;&nbsp;&nbsp;Add("[Message text that will be displayed]");<br>
+&nbsp;}<br>
+}
+</font></blockquote>
+<hr>
+
+<br>The command to make the Game Messages play will be executed in your mission script (such as <b>objectives_player.cfg</b> or <b>objectives_ai.cfg</b>) in an action scope.  See below.
+
+<hr>
+<blockquote><font color="#00CCCC" face="courier">
+CreateObjectType("[objective_name]", "Objective")<br>
+{<br>
+&nbsp;GameObj();<br>
+&nbsp;ObjectiveObj()<br>
+&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;Condition("[type]")<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[condition];<br>
+&nbsp;&nbsp;&nbsp;}<p>
+
+&nbsp;&nbsp;&nbsp;Action()<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GameMessage()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Message("[message name]");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;}<br>
+}
+</font></blockquote>
+<hr>
+
+<br><font size="3"><b>Location/Region Messages</b></font><br>
+Location messages are similar to game messages, except they are used to mark areas on the map.  Most commonly used in singleplayer to create the flashing rings on the minimap that show where your next objective is.<p>
+Region messages are also configured in the file <b>types_game_messages.cfg</b> (if you haven't made this file, do so now and include it in <b>types_mission.cfg</b>).  Here's the configuration for a location message (it doesn't specify much info, but it needs to be there.  You can attach a sound or message if you want)
+
+<hr>
+<blockquote><font color="#00CCCC" face="courier">
+ConfigureLocationMessage("[message name]")<br>
+{<br>
+&nbsp;Interval()<br>
+&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;Type("Interval::None");<br>
+&nbsp;}<br>
+&nbsp;Sound();<br>
+&nbsp;Message();<br>
+}
+</font></blockquote>
+<hr>
+
+<br>Location messages for the minimap usually use a repeating objective like the one below.  Look at the Action scope.  After the RegionMessage is played, it gives a NewObjective command that re-loads the objective.  Since the Condition is a timer of 1.5 seconds, the RegionMessage will be played every 1.5 seconds (creating continual blips on the mini map).
+
+<hr>
+<blockquote><font color="#00CCCC" face="courier">
+CreateObjectType("location_message1", "Objective")<br>
+{<br>
+&nbsp;GameObj();<br>
+&nbsp;ObjectiveObj()<br>
+&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;Condition("Timer")<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Time(1.5);<br>
+&nbsp;&nbsp;&nbsp;}<p>
+
+&nbsp;&nbsp;&nbsp;Action()<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RegionMessage()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Region("[region name]");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Message("[message name]");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NewObjective("location_message1");<br>
+&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;}<br>
+}
+</font></blockquote>
+<hr>
+
+<br>"Region" is the name of the region at which the circular blip will be shown on the minimap.  Create a reagion at the location to mark.  "Message" is the message name to play (name of location message you configured in <b>types_game_messages.cfg</b>)<p>
+Note that the above objective is an infinite loop, once loaded it would never stop.  If you want the location message to stop playing (i.e. when the player gets there!), you'll need to use a handy command called ObjectiveAbandoned.  ObjectiveAbandoned will unload any objective that is currently loaded and remove it from the game's memory.  See below example
+
+<hr>
+<blockquote><font color="#00CCCC" face="courier">
+CreateObjectType("stop_location_message1", "Objective")<br>
+{<br>
+&nbsp;GameObj();<br>
+&nbsp;ObjectiveObj()<br>
+&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;Condition([type])<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[condition];<br>
+&nbsp;&nbsp;&nbsp;}<p>
+
+&nbsp;&nbsp;&nbsp;Action()<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ObjectiveAbandoned("[objective name]"); <br>
+&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;}<br>
+}
+</font></blockquote>
+<hr>
+
+
+<!-- End Text -->
+
+		</font></td>
+		</tr>
+		</table>
+	</td>
+</tr>
+</table>
+
+
+</body>
+</html><br>

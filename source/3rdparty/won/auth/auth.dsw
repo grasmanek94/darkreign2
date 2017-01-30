@@ -1,0 +1,102 @@
+Microsoft Developer Studio Workspace File, Format Version 5.00
+# WARNING: DO NOT EDIT OR DELETE THIS WORKSPACE FILE!
+
+###############################################################################
+
+Project: "AuthTest"=.\AuthTest.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name common
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name crypt
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name auth
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name WONAuth
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "WONAuth"=.\WONAuth.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name auth
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name common
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name crypt
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "auth"=.\auth.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "common"=..\common\common.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Titan/lib/common", VKOAAAAA
+    ..\common
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "crypt"=..\crypt\crypt.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Global:
+
+Package=<5>
+{{{
+}}}
+
+Package=<3>
+{{{
+}}}
+
+###############################################################################
+

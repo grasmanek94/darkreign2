@@ -1,0 +1,26 @@
+I've done some reorganizing of the FTP site (in an attempt) to make things easier to find.  In the past, we've had a single zip file named WONSDKxxxxxx.zip that contained the API, our servers, clients, pre-built libs, etc.  This zip was very large (~50 megs), Win32-specific, and frequently contained much more than the user was looking for at any point in time.
+
+Here's how the site is organized now (note that xxxxxx is a placeholder for a date formatted as MMDDYY):
+
+Platform Independent Stuff
+--------------------------
+/what_should_i_download.txt - this file
+/docsxxxxxx.zip             - documentation (overview docs, server specs, etc.)
+
+Win32 Stuff
+-----------
+/win32/APIxxxxxx.zip        - API distribution (source and VC6 project files)
+/win32/libsxxxxxx.zip       - prebuilt static libs and DLLs
+/win32/clientsxxxxxx.zip    - client applications (ex. Directory Client)
+/win32/serversxxxxxx.zip    - a subset of our server applications
+
+Linux Stuff
+-----------
+/linux/APIxxxxxx.zip        - API distribution (source and Makefile; 
+                                requires compiler w/ namespace support)
+/linux/libsxxxxxx-libc5.zip - prebuilt static libs requiring libc5/glibc2.0 (ex. RedHat 5.2)
+/linux/libsxxxxxx-libc6.zip - prebuilt static libs requiring libc6/glibc2.1 (ex. RedHat 6.1)
+
+Mac Stuff
+---------
+/mac/APIxxxxxx.sit          - API distribution (source and CodeWarrior 5 project files)

@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Dark Reign 2 Construction Kit - 5.7 Variables</title>
+</head>
+
+<body bgcolor="#000000" link="#33ff00" alink="#00ff00" vlink="#11cc00">
+<table border=0 cellpadding=0 cellspacing=0 width="100%">
+<TR>
+	<td bgcolor="#004400" width="100%">
+		<table border=0 cellpadding=4 border=0 cellspacing=2 width="100%">
+		<tr>
+			<td width="100%" bgcolor="#000000"><font color="#00cc00" face="Arial" size="2">
+<!-- Start Text -->
+<font size="4"><b>5.7 Variables</b></font><p>
+Variable Integers can be used as a trigger when nothing else will fit the situation.  They are usually used when an event on one team causes an event on another team, and none of the usual condition types are viable.  A variable is a numeric tag that can be set to any number.  In DR2 we typically just used the values 0 and 1, like a switch.   All the following commands are executed from an Action scope.<br>
+
+The command to create a variable is:
+<hr>
+<blockquote><font color="#00CCCC" face="courier">
+CreateVarInteger("@.[var name]", 0);
+</font></blockquote>
+<hr>
+
+<br>Give the variable a name.  The number is the value that the variable will start as.  This command is put in the Action scope and is usually called in the starting objectives for a team (created at beginning of mission).<p>
+
+To change the value of a var, the following command is used. The number is the new value to assign the var.  This line goes in an Action scope.
+<hr>
+<blockquote><font color="#00CCCC" face="courier">
+Op("@.[var name]", "=", 1);
+</font></blockquote>
+<hr>
+
+<br>Finally, use a Condition statement to test when the var has been changed.  
+<hr>
+<blockquote><font color="#00CCCC" face="courier">
+Condition("If", "@.[var name]", "==", 1);
+</font></blockquote>
+<hr>
+
+<br>The above condition would become true when the specified var's value has changed to 1.   <p>
+
+For more on variables and how they are used, see <a href="chapter7-1.htm#variables">Section 7.1</a>.
+
+
+
+<!-- End Text -->
+
+		</font></td>
+		</tr>
+		</table>
+	</td>
+</tr>
+</table>
+
+
+</body>
+</html><br>

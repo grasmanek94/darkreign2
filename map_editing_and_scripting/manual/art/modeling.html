@@ -1,0 +1,557 @@
+<html>
+
+<head>
+<title>General Modeling</title>
+<meta name="Microsoft Theme" content="laverne 010">
+<script LANGUAGE="JavaScript" FPTYPE="dynamicoutline">
+<!--
+  // If you want to change this script, you must also make the following
+  // changes so that FrontPage will not overwrite your new script.
+  // In the script tag, change type="dynamicoutline" to type="mydynamicoutline"
+  // In function dynOutlineEnabled, change "dynamicoutline" to "mydynamicoutline"
+  // Throughout the HTML content, change dynamicoutline to mydynamicoutline
+  // Change function dynOutline to function mydynOutline in the script
+  // In the body tag, change onclick="dynOutline()" to onclick="mydynOutline()"
+  function getControlTag(src)
+  {
+    TRok = false
+    while ("HTML" != src.tagName)
+    {
+      if ("IMG" == src.tagName || "FONT" == src.tagName || "A" == src.tagName)
+        TRok = true
+      if ("LI" == src.tagName)
+        return src
+      if ("TR" == src.tagName)
+      {
+        if(TRok)
+          return src
+        return null
+      }
+      src = src.parentElement
+    }
+    return null
+  }
+  function dynOutlineEnabled(src)
+  {
+    while ("HTML" != src.tagName)
+    {
+      if("OL" == src.tagName || "UL" == src.tagName || "TABLE" == src.tagName)
+        if(null != src.getAttribute("dynamicoutline", false))
+          return true
+      src = src.parentElement
+    }
+    return false
+  }
+  function containedIn(src, dest)
+  {
+    while ("HTML" != src.tagName)
+    {
+      if (src == dest)
+        return true
+      src = src.parentElement
+    }
+    return false
+  }
+  function dynOutline()
+  {
+    var ms = navigator.appVersion.indexOf("MSIE");
+    ie4 = (ms>0) && (parseInt(navigator.appVersion.substring(ms+5, ms+6)) >= 4);
+    if(!ie4)
+        return;
+    var src = event.srcElement
+    src = getControlTag(src)
+    if (null == src)
+      return
+    if (!dynOutlineEnabled(src))
+      return
+    var idx = src.sourceIndex+1
+    while (idx < document.all.length && containedIn(document.all[idx].parentElement, src))
+    {
+      srcTmp = document.all[idx]
+      tag = srcTmp.tagName
+      if ("UL" == tag || "OL" == tag || "TABLE" == tag)
+        srcTmp.style.display = srcTmp.style.display == "none" ? "" : "none"
+      idx++;
+    }
+  }
+//-->
+</script></head>
+
+<body onclick="dynOutline()"
+background="file:///C:/Program%20Files/Microsoft%20FrontPage/themes/laverne/"
+bgcolor="#CCCCCC" text="#333333" link="#339999" vlink="#666666" alink="#FFFFFF">
+<!--mstheme--><font face="trebuchet ms, arial, helvetica"><!--mstheme--></font>
+
+<h1><!--mstheme--><font face="trebuchet ms, arial, helvetica" color="#999966">General Modeling<!--mstheme--></font></h1>
+<!--mstheme--><font face="trebuchet ms, arial, helvetica">
+
+<p><a href="#General:Modeling">Modeling</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a
+href="#General:Textures">Texturing</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a
+href="#General:Animating">Animating</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a
+href="#General:MRM">MRM</a></p>
+<!--mstheme--></font><!--msthemelist-->
+
+<table dynamicoutline border="0" cellpadding="0" cellspacing="0" width="100%">
+<!--msthemelist-->  <tr>
+<!--msthemelist-->    <td valign="baseline" width="42"><img src="alvbull1.gif" width="20" height="20"
+    hspace="11"></td>
+    <td valign="top" width="100%"><!--mstheme--><font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><h3><!--mstheme--><font
+    face="trebuchet ms, arial, helvetica" color="#666666"><a name="General:Modeling"><strong>Modeling</strong></a>
+<!--mstheme-->    </font></h3>
+<!--mstheme-->    <font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><!--msthemelist--><table border="0" cellpadding="0"
+    cellspacing="0" width="100%">
+<!--msthemelist-->      <tr>
+<!--msthemelist-->        <td valign="baseline" width="42"><img src="alvbull2.gif" width="12" height="12"
+        hspace="15"></td>
+        <td valign="top" width="100%"><!--mstheme--><font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><h4><!--mstheme--><font
+        face="trebuchet ms, arial, helvetica" color="#999966">Try to build models at the same
+        scale that they will be used at in game (1 SI unit = 1 metre).<!--mstheme--></font></h4>
+<!--mstheme-->        <font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><!--msthemelist--><table border="0" cellpadding="0"
+        cellspacing="0" width="100%">
+<!--msthemelist-->          <tr>
+<!--msthemelist-->            <td valign="baseline" width="42"><img src="alvbull3.gif" width="12" height="12"
+            hspace="15"></td>
+            <td valign="top" width="100%"><!--mstheme--><font face="trebuchet ms, arial, helvetica">This may not be
+            practical for skinned, jointed models in Soft.<br>
+            <br>
+<!--mstheme-->            </font><!--msthemelist--></td>
+          </tr>
+<!--msthemelist-->        </table>
+<!--mstheme-->        <font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><!--msthemelist--></td>
+      </tr>
+<!--msthemelist-->      <tr>
+<!--msthemelist-->        <td valign="baseline" width="42"><img src="alvbull2.gif" width="12" height="12"
+        hspace="15"></td>
+        <td valign="top" width="100%"><!--mstheme--><font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><h4><!--mstheme--><font
+        face="trebuchet ms, arial, helvetica" color="#999966">Models must face front in Soft; that
+        is: looking down the positive Z axis.<br>
+        <br>
+<!--mstheme-->        </font></h4>
+<!--mstheme-->        <font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><!--msthemelist--></td>
+      </tr>
+<!--msthemelist-->      <tr>
+<!--msthemelist-->        <td valign="baseline" width="42"><img src="alvbull2.gif" width="12" height="12"
+        hspace="15"></td>
+        <td valign="top" width="100%"><!--mstheme--><font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><h4><!--mstheme--><font
+        face="trebuchet ms, arial, helvetica" color="#999966">The origin of a heirarchy's root
+        should coincide with Soft's global origin.<!--mstheme--></font></h4>
+<!--mstheme-->        <font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><!--msthemelist--><table border="0" cellpadding="0"
+        cellspacing="0" width="100%">
+<!--msthemelist-->          <tr>
+<!--msthemelist-->            <td valign="baseline" width="42"><img src="alvbull3.gif" width="12" height="12"
+            hspace="15"></td>
+            <td valign="top" width="100%"><!--mstheme--><font face="trebuchet ms, arial, helvetica">Directly below
+            the center of the model at ground level.<!--mstheme--></font><!--msthemelist--></td>
+          </tr>
+<!--msthemelist-->          <tr>
+<!--msthemelist-->            <td valign="baseline" width="42"><img src="alvbull3.gif" width="12" height="12"
+            hspace="15"></td>
+            <td valign="top" width="100%"><!--mstheme--><font face="trebuchet ms, arial, helvetica">If there is no
+            natural origin at that point, create a dummy hard point there and put it at the top of the
+            heirarchy.<br>
+            <br>
+<!--mstheme-->            </font><!--msthemelist--></td>
+          </tr>
+<!--msthemelist-->        </table>
+<!--mstheme-->        <font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><!--msthemelist--></td>
+      </tr>
+<!--msthemelist-->      <tr>
+<!--msthemelist-->        <td valign="baseline" width="42"><img src="alvbull2.gif" width="12" height="12"
+        hspace="15"></td>
+        <td valign="top" width="100%"><!--mstheme--><font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><h4><!--mstheme--><font
+        face="trebuchet ms, arial, helvetica" color="#999966">All sub-objects of a model must be
+        contained in a single heirarchy with a single root object.<br>
+        <br>
+<!--mstheme-->        </font></h4>
+<!--mstheme-->        <font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><!--msthemelist--></td>
+      </tr>
+<!--msthemelist-->      <tr>
+<!--msthemelist-->        <td valign="baseline" width="42"><img src="alvbull2.gif" width="12" height="12"
+        hspace="15"></td>
+        <td valign="top" width="100%"><!--mstheme--><font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><h4><!--mstheme--><font
+        face="trebuchet ms, arial, helvetica" color="#999966">The name of the root object should
+        be descriptive of the whole model.<!--mstheme--></font></h4>
+<!--mstheme-->        <font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><!--msthemelist--><table border="0" cellpadding="0"
+        cellspacing="0" width="100%">
+<!--msthemelist-->          <tr>
+<!--msthemelist-->            <td valign="baseline" width="42"><img src="alvbull3.gif" width="12" height="12"
+            hspace="15"></td>
+            <td valign="top" width="100%"><!--mstheme--><font face="trebuchet ms, arial, helvetica">i.e. rumbler<br>
+            <br>
+<!--mstheme-->            </font><!--msthemelist--></td>
+          </tr>
+<!--msthemelist-->        </table>
+<!--mstheme-->        <font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><!--msthemelist--></td>
+      </tr>
+<!--msthemelist-->      <tr>
+<!--msthemelist-->        <td valign="baseline" width="42"><img src="alvbull2.gif" width="12" height="12"
+        hspace="15"></td>
+        <td valign="top" width="100%"><!--mstheme--><font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><h4><!--mstheme--><font
+        face="trebuchet ms, arial, helvetica" color="#999966">Sub objects' names should be
+        descriptive of that piece.<!--mstheme--></font></h4>
+<!--mstheme-->        <font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><!--msthemelist--><table border="0" cellpadding="0"
+        cellspacing="0" width="100%">
+<!--msthemelist-->          <tr>
+<!--msthemelist-->            <td valign="baseline" width="42"><img src="alvbull3.gif" width="12" height="12"
+            hspace="15"></td>
+            <td valign="top" width="100%"><!--mstheme--><font face="trebuchet ms, arial, helvetica">i.e.&nbsp;
+            spine0, spine1, shoulderR, upperarmR, lowerarmR, handR, etc.<br>
+            <br>
+<!--mstheme-->            </font><!--msthemelist--></td>
+          </tr>
+<!--msthemelist-->        </table>
+<!--mstheme-->        <font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><!--msthemelist--></td>
+      </tr>
+<!--msthemelist-->      <tr>
+<!--msthemelist-->        <td valign="baseline" width="42"><img src="alvbull2.gif" width="12" height="12"
+        hspace="15"></td>
+        <td valign="top" width="100%"><!--mstheme--><font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><h4><!--mstheme--><font
+        face="trebuchet ms, arial, helvetica" color="#999966">Hardpoints can be added for
+        attachments or effects generation;&nbsp; name them: HP-[something desciptive].<!--mstheme--></font></h4>
+<!--mstheme-->        <font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><!--msthemelist--><table border="0" cellpadding="0"
+        cellspacing="0" width="100%">
+<!--msthemelist-->          <tr>
+<!--msthemelist-->            <td valign="baseline" width="42"><img src="alvbull3.gif" width="12" height="12"
+            hspace="15"></td>
+            <td valign="top" width="100%"><!--mstheme--><font face="trebuchet ms, arial, helvetica">They should
+            always be children of the root and not deeper in the hierarchy (I probably can remove this
+            restiction).<br>
+            <br>
+<!--mstheme-->            </font><!--msthemelist--></td>
+          </tr>
+<!--msthemelist-->        </table>
+<!--mstheme-->        <font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><!--msthemelist--></td>
+      </tr>
+<!--msthemelist-->      <tr>
+<!--msthemelist-->        <td valign="baseline" width="42"><img src="alvbull2.gif" width="12" height="12"
+        hspace="15"></td>
+        <td valign="top" width="100%"><!--mstheme--><font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><h4><!--mstheme--><font
+        face="trebuchet ms, arial, helvetica" color="#999966">The local orientation of sub objects
+        in a heirarchy should be natural.<!--mstheme--></font></h4>
+<!--mstheme-->        <font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><!--msthemelist--><table border="0" cellpadding="0"
+        cellspacing="0" width="100%">
+<!--msthemelist-->          <tr>
+<!--msthemelist-->            <td valign="baseline" width="42"><img src="alvbull3.gif" width="12" height="12"
+            hspace="15"></td>
+            <td valign="top" width="100%"><!--mstheme--><font face="trebuchet ms, arial, helvetica">i.e. a foot's
+            local system would have the Z axis coming out the toe, the Y axis going up the leg, and
+            the X axis coming out of the side of the ankle.<!--mstheme--></font><!--msthemelist--></td>
+          </tr>
+<!--msthemelist-->          <tr>
+<!--msthemelist-->            <td valign="baseline" width="42"><img src="alvbull3.gif" width="12" height="12"
+            hspace="15"></td>
+            <td valign="top" width="100%"><!--mstheme--><font face="trebuchet ms, arial, helvetica">i.e. a fire
+            hardpoint's Z axis should come out in the desired direction of fire.<br>
+            <br>
+<!--mstheme-->            </font><!--msthemelist--></td>
+          </tr>
+<!--msthemelist-->        </table>
+<!--mstheme-->        <font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><!--msthemelist--></td>
+      </tr>
+<!--msthemelist-->      <tr>
+<!--msthemelist-->        <td valign="baseline" width="42"><img src="alvbull2.gif" width="12" height="12"
+        hspace="15"></td>
+        <td valign="top" width="100%"><!--mstheme--><font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><h4><!--mstheme--><font
+        face="trebuchet ms, arial, helvetica" color="#999966">There are a few render flags that
+        you can add to the name of any part of heirarchy to control its appearence in game.<!--mstheme--></font></h4>
+<!--mstheme-->        <font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><!--msthemelist--><table border="0" cellpadding="0"
+        cellspacing="0" width="100%">
+<!--msthemelist-->          <tr>
+<!--msthemelist-->            <td valign="baseline" width="42"><img src="alvbull3.gif" width="12" height="12"
+            hspace="15"></td>
+            <td valign="top" width="100%"><!--mstheme--><font face="trebuchet ms, arial, helvetica">2:&nbsp; double
+            sided; probably only for translucent objects.<!--mstheme--></font><!--msthemelist--></td>
+          </tr>
+<!--msthemelist-->          <tr>
+<!--msthemelist-->            <td valign="baseline" width="42"><img src="alvbull3.gif" width="12" height="12"
+            hspace="15"></td>
+            <td valign="top" width="100%"><!--mstheme--><font face="trebuchet ms, arial, helvetica">L:&nbsp; no
+            lighting; always appears fully bright; for luminesient objects.<!--mstheme--></font><!--msthemelist--></td>
+          </tr>
+<!--msthemelist-->          <tr>
+<!--msthemelist-->            <td valign="baseline" width="42"><img src="alvbull3.gif" width="12" height="12"
+            hspace="15"></td>
+            <td valign="top" width="100%"><!--mstheme--><font face="trebuchet ms, arial, helvetica">G: glow
+            blending; for translucent light effects; makes obects behind it appear brighter<!--mstheme--></font><!--msthemelist--></td>
+          </tr>
+<!--msthemelist-->          <tr>
+<!--msthemelist-->            <td valign="baseline" width="42"><img src="alvbull3.gif" width="12" height="12"
+            hspace="15"></td>
+            <td valign="top" width="100%"><!--mstheme--><font face="trebuchet ms, arial, helvetica">H: hidden; not
+            really used in DR2.<!--mstheme--></font><!--msthemelist--></td>
+          </tr>
+<!--msthemelist-->          <tr>
+<!--msthemelist-->            <td valign="baseline" width="42"><img src="alvbull3.gif" width="12" height="12"
+            hspace="15"></td>
+            <td valign="top" width="100%"><!--mstheme--><font face="trebuchet ms, arial, helvetica">The flags appear
+            after 2 underscores at the end of the object's real name; i.e. lightlens__2L.<br>
+            <br>
+<!--mstheme-->            </font><!--msthemelist--></td>
+          </tr>
+<!--msthemelist-->        </table>
+<!--mstheme-->        <font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><!--msthemelist--></td>
+      </tr>
+<!--msthemelist-->      <tr>
+<!--msthemelist-->        <td valign="baseline" width="42"><img src="alvbull2.gif" width="12" height="12"
+        hspace="15"></td>
+        <td valign="top" width="100%"><!--mstheme--><font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><h4><!--mstheme--><font
+        face="trebuchet ms, arial, helvetica" color="#999966">The word 'chunk' in a sub object's
+        name indicates that it should be the root of an automatically generated chunk.<br>
+        <br>
+<!--mstheme-->        </font></h4>
+<!--mstheme-->        <font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><!--msthemelist--></td>
+      </tr>
+<!--msthemelist-->      <tr>
+<!--msthemelist-->        <td valign="baseline" width="42"><img src="alvbull2.gif" width="12" height="12"
+        hspace="15"></td>
+        <td valign="top" width="100%"><!--mstheme--><font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><h4><!--mstheme--><font
+        face="trebuchet ms, arial, helvetica" color="#999966">Light points?&nbsp; (switchable
+        emissive lighting)<br>
+        <br>
+<!--mstheme-->        </font></h4>
+<!--mstheme-->        <font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><!--msthemelist--></td>
+      </tr>
+<!--msthemelist-->    </table>
+<!--mstheme-->    <font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><!--msthemelist--></td>
+  </tr>
+<!--msthemelist-->  <tr>
+<!--msthemelist-->    <td valign="baseline" width="42"><img src="alvbull1.gif" width="20" height="20"
+    hspace="11"></td>
+    <td valign="top" width="100%"><!--mstheme--><font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><h3><!--mstheme--><font
+    face="trebuchet ms, arial, helvetica" color="#666666"><a name="General:Textures"><strong>Applying
+    Textures/Materials</strong> </a><!--mstheme--></font></h3>
+<!--mstheme-->    <font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><!--msthemelist--><table border="0" cellpadding="0"
+    cellspacing="0" width="100%">
+<!--msthemelist-->      <tr>
+<!--msthemelist-->        <td valign="baseline" width="42"><img src="alvbull2.gif" width="12" height="12"
+        hspace="15"></td>
+        <td valign="top" width="100%"><!--mstheme--><font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><h4><!--mstheme--><font
+        face="trebuchet ms, arial, helvetica" color="#999966">Materials should always be applied
+        from a known library.&nbsp; <br>
+        <br>
+<!--mstheme-->        </font></h4>
+<!--mstheme-->        <font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><!--msthemelist--></td>
+      </tr>
+<!--msthemelist-->      <tr>
+<!--msthemelist-->        <td valign="baseline" width="42"><img src="alvbull2.gif" width="12" height="12"
+        hspace="15"></td>
+        <td valign="top" width="100%"><!--mstheme--><font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><h4><!--mstheme--><font
+        face="trebuchet ms, arial, helvetica" color="#999966">Everything gets a 100% white diffuse
+        color.<!--mstheme--></font></h4>
+<!--mstheme-->        <font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><!--msthemelist--><table border="0" cellpadding="0"
+        cellspacing="0" width="100%">
+<!--msthemelist-->          <tr>
+<!--msthemelist-->            <td valign="baseline" width="42"><img src="alvbull3.gif" width="12" height="12"
+            hspace="15"></td>
+            <td valign="top" width="100%"><!--mstheme--><font face="trebuchet ms, arial, helvetica">The game engine
+            overrides the xsi diffuse color.<br>
+            <br>
+<!--mstheme-->            </font><!--msthemelist--></td>
+          </tr>
+<!--msthemelist-->        </table>
+<!--mstheme-->        <font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><!--msthemelist--></td>
+      </tr>
+<!--msthemelist-->      <tr>
+<!--msthemelist-->        <td valign="baseline" width="42"><img src="alvbull2.gif" width="12" height="12"
+        hspace="15"></td>
+        <td valign="top" width="100%"><!--mstheme--><font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><h4><!--mstheme--><font
+        face="trebuchet ms, arial, helvetica" color="#999966">Use specularity sparingly;&nbsp; be
+        careful not to apply it when its not desired in game.<br>
+        <br>
+<!--mstheme-->        </font></h4>
+<!--mstheme-->        <font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><!--msthemelist--></td>
+      </tr>
+<!--msthemelist-->      <tr>
+<!--msthemelist-->        <td valign="baseline" width="42"><img src="alvbull2.gif" width="12" height="12"
+        hspace="15"></td>
+        <td valign="top" width="100%"><!--mstheme--><font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><h4><!--mstheme--><font
+        face="trebuchet ms, arial, helvetica" color="#999966">Vertex coloring should be used
+        sparingly; probably only to tweek the look of a reusable texture.<br>
+<!--mstheme-->        </font></h4>
+<!--mstheme-->        <font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><!--msthemelist--><table border="0" cellpadding="0"
+        cellspacing="0" width="100%">
+<!--msthemelist-->          <tr>
+<!--msthemelist-->            <td valign="baseline" width="42"><img src="alvbull3.gif" width="12" height="12"
+            hspace="15"></td>
+            <td valign="top" width="100%"><!--mstheme--><font face="trebuchet ms, arial, helvetica">i.e. buildings<!--mstheme--></font><!--msthemelist--></td>
+          </tr>
+<!--msthemelist-->          <tr>
+<!--msthemelist-->            <td valign="baseline" width="42"><img src="alvbull3.gif" width="12" height="12"
+            hspace="15"></td>
+            <td valign="top" width="100%"><!--mstheme--><font face="trebuchet ms, arial, helvetica">Switching Soft
+            from vertex color mode to material/phong before export disables vertex colors in the xsi
+            file?<br>
+            <br>
+<!--mstheme-->            </font><!--msthemelist--></td>
+          </tr>
+<!--msthemelist-->        </table>
+<!--mstheme-->        <font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><!--msthemelist--></td>
+      </tr>
+<!--msthemelist-->      <tr>
+<!--msthemelist-->        <td valign="baseline" width="42"><img src="alvbull2.gif" width="12" height="12"
+        hspace="15"></td>
+        <td valign="top" width="100%"><!--mstheme--><font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><h4><!--mstheme--><font
+        face="trebuchet ms, arial, helvetica" color="#999966">To reduce translucency sorting
+        problems, any translucent textures used on a single model must come from one texture
+        sheet.<br>
+        <br>
+<!--mstheme-->        </font></h4>
+<!--mstheme-->        <font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><!--msthemelist--></td>
+      </tr>
+<!--msthemelist-->      <tr>
+<!--msthemelist-->        <td valign="baseline" width="42"><img src="alvbull2.gif" width="12" height="12"
+        hspace="15"></td>
+        <td valign="top" width="100%"><!--mstheme--><font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><h4><!--mstheme--><font
+        face="trebuchet ms, arial, helvetica" color="#999966">Because they are inherently more
+        expensive to render, translucently textured objects should generally be made
+        smaller/simpler.<br>
+        <br>
+<!--mstheme-->        </font></h4>
+<!--mstheme-->        <font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><!--msthemelist--></td>
+      </tr>
+<!--msthemelist-->    </table>
+<!--mstheme-->    <font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><!--msthemelist--></td>
+  </tr>
+<!--msthemelist-->  <tr>
+<!--msthemelist-->    <td valign="baseline" width="42"><img src="alvbull1.gif" width="20" height="20"
+    hspace="11"></td>
+    <td valign="top" width="100%"><!--mstheme--><font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><h3><!--mstheme--><font
+    face="trebuchet ms, arial, helvetica" color="#666666"><a name="General:Animating"><strong>Animating</strong>
+    </a><!--mstheme--></font></h3>
+<!--mstheme-->    <font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><!--msthemelist--><table border="0" cellpadding="0"
+    cellspacing="0" width="100%">
+<!--msthemelist-->      <tr>
+<!--msthemelist-->        <td valign="baseline" width="42"><img src="alvbull2.gif" width="12" height="12"
+        hspace="15"></td>
+        <td valign="top" width="100%"><!--mstheme--><font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><h4><!--mstheme--><font
+        face="trebuchet ms, arial, helvetica" color="#999966">The root object can not animate
+        directly via Soft's IK.&nbsp; Animation of a root skin via joint chains is OK.<br>
+<!--mstheme-->        </font></h4>
+<!--mstheme-->        <font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><!--msthemelist--><table border="0" cellpadding="0"
+        cellspacing="0" width="100%">
+<!--msthemelist-->          <tr>
+<!--msthemelist-->            <td valign="baseline" width="42"><img src="alvbull3.gif" width="12" height="12"
+            hspace="15"></td>
+            <td valign="top" width="100%"><!--mstheme--><font face="trebuchet ms, arial, helvetica">If the root
+            needs to animate make it a child of a dummy root that doesn't animate.<br>
+            <br>
+<!--mstheme-->            </font><!--msthemelist--></td>
+          </tr>
+<!--msthemelist-->        </table>
+<!--mstheme-->        <font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><!--msthemelist--></td>
+      </tr>
+<!--msthemelist-->      <tr>
+<!--msthemelist-->        <td valign="baseline" width="42"><img src="alvbull2.gif" width="12" height="12"
+        hspace="15"></td>
+        <td valign="top" width="100%"><!--mstheme--><font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><h4><!--mstheme--><font
+        face="trebuchet ms, arial, helvetica" color="#999966">Put all non-hardpoint
+        (non-essential) animations below the 2nd heirarchy level.<!--mstheme--></font></h4>
+<!--mstheme-->        <font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><!--msthemelist--><table border="0" cellpadding="0"
+        cellspacing="0" width="100%">
+<!--msthemelist-->          <tr>
+<!--msthemelist-->            <td valign="baseline" width="42"><img src="alvbull3.gif" width="12" height="12"
+            hspace="15"></td>
+            <td valign="top" width="100%"><!--mstheme--><font face="trebuchet ms, arial, helvetica">The root and all
+            its immediate children will always be simulated, everything deeper is only simulated when
+            visible.<br>
+            <br>
+<!--mstheme-->            </font><!--msthemelist--></td>
+          </tr>
+<!--msthemelist-->        </table>
+<!--mstheme-->        <font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><!--msthemelist--></td>
+      </tr>
+<!--msthemelist-->      <tr>
+<!--msthemelist-->        <td valign="baseline" width="42"><img src="alvbull2.gif" width="12" height="12"
+        hspace="15"></td>
+        <td valign="top" width="100%"><!--mstheme--><font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><h4><!--mstheme--><font
+        face="trebuchet ms, arial, helvetica" color="#999966">Every piece in a hierarchy or joint
+        that animates costs at least one matrix multiply each in game, so keep animations simple
+        and efficient.<br>
+        <br>
+<!--mstheme-->        </font></h4>
+<!--mstheme-->        <font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><!--msthemelist--></td>
+      </tr>
+<!--msthemelist-->    </table>
+<!--mstheme-->    <font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><!--msthemelist--></td>
+  </tr>
+<!--msthemelist-->  <tr>
+<!--msthemelist-->    <td valign="baseline" width="42"><img src="alvbull1.gif" width="20" height="20"
+    hspace="11"></td>
+    <td valign="top" width="100%"><!--mstheme--><font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><h3><!--mstheme--><font
+    face="trebuchet ms, arial, helvetica" color="#666666"><a name="General:MRM"><strong>MRMing
+    Constraints</strong> </a><!--mstheme--></font></h3>
+<!--mstheme-->    <font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><!--msthemelist--><table border="0" cellpadding="0"
+    cellspacing="0" width="100%">
+<!--msthemelist-->      <tr>
+<!--msthemelist-->        <td valign="baseline" width="42"><img src="alvbull2.gif" width="12" height="12"
+        hspace="15"></td>
+        <td valign="top" width="100%"><!--mstheme--><font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><h4><!--mstheme--><font
+        face="trebuchet ms, arial, helvetica" color="#999966">Skinned models will generally mrm
+        better than heirarchical ones.<br>
+        <br>
+<!--mstheme-->        </font></h4>
+<!--mstheme-->        <font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><!--msthemelist--></td>
+      </tr>
+<!--msthemelist-->      <tr>
+<!--msthemelist-->        <td valign="baseline" width="42"><img src="alvbull2.gif" width="12" height="12"
+        hspace="15"></td>
+        <td valign="top" width="100%"><!--mstheme--><font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><h4><!--mstheme--><font
+        face="trebuchet ms, arial, helvetica" color="#999966">Texturing models with a single
+        continous skin map should keep distortions during mrming to a minimum.<!--mstheme--></font></h4>
+<!--mstheme-->        <font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><!--msthemelist--><table border="0" cellpadding="0"
+        cellspacing="0" width="100%">
+<!--msthemelist-->          <tr>
+<!--msthemelist-->            <td valign="baseline" width="42"><img src="alvbull3.gif" width="12" height="12"
+            hspace="15"></td>
+            <td valign="top" width="100%"><!--mstheme--><font face="trebuchet ms, arial, helvetica">UV
+            discontinuities will always cause distortion, but it may not be visible in game.<!--mstheme--></font><!--msthemelist--></td>
+          </tr>
+<!--msthemelist-->          <tr>
+<!--msthemelist-->            <td valign="baseline" width="42"><img src="alvbull3.gif" width="12" height="12"
+            hspace="15"></td>
+            <td valign="top" width="100%"><!--mstheme--><font face="trebuchet ms, arial, helvetica">Some distortions
+            can be corrected by forcing mrm behavior in the god file tool (someday).<br>
+            <br>
+<!--mstheme-->            </font><!--msthemelist--></td>
+          </tr>
+<!--msthemelist-->        </table>
+<!--mstheme-->        <font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><!--msthemelist--></td>
+      </tr>
+<!--msthemelist-->      <tr>
+<!--msthemelist-->        <td valign="baseline" width="42"><img src="alvbull2.gif" width="12" height="12"
+        hspace="15"></td>
+        <td valign="top" width="100%"><!--mstheme--><font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><h4><!--mstheme--><font
+        face="trebuchet ms, arial, helvetica" color="#999966">An optional frog pose export can be
+        used to optimize mrm reduction behaior.<!--mstheme--></font></h4>
+<!--mstheme-->        <font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><!--msthemelist--><table border="0" cellpadding="0"
+        cellspacing="0" width="100%">
+<!--msthemelist-->          <tr>
+<!--msthemelist-->            <td valign="baseline" width="42"><img src="alvbull3.gif" width="12" height="12"
+            hspace="15"></td>
+            <td valign="top" width="100%"><!--mstheme--><font face="trebuchet ms, arial, helvetica">Frog pose bends
+            all of a model's joints by no more than 90 degrees so the mrm generator can recognize
+            them.<!--mstheme--></font><!--msthemelist--></td>
+          </tr>
+<!--msthemelist-->          <tr>
+<!--msthemelist-->            <td valign="baseline" width="42"><img src="alvbull3.gif" width="12" height="12"
+            hspace="15"></td>
+            <td valign="top" width="100%"><!--mstheme--><font face="trebuchet ms, arial, helvetica">Sub objects that
+            aren't desired to merge together during mrming should be kept well clear of each other in
+            frog pose.<!--mstheme--></font><!--msthemelist--></td>
+          </tr>
+<!--msthemelist-->          <tr>
+<!--msthemelist-->            <td valign="baseline" width="42"><img src="alvbull3.gif" width="12" height="12"
+            hspace="15"></td>
+            <td valign="top" width="100%"><!--mstheme--><font face="trebuchet ms, arial, helvetica">It should be
+            named the same as the base export with a '-frog' on the end; i.e. rumbler-frog.xsi.<!--mstheme--></font><!--msthemelist--></td>
+          </tr>
+<!--msthemelist-->        </table>
+<!--mstheme-->        <font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><!--msthemelist--></td>
+      </tr>
+<!--msthemelist-->    </table>
+<!--mstheme-->    <font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><!--msthemelist--></td>
+  </tr>
+<!--msthemelist--></table>
+<!--mstheme--><font face="trebuchet ms, arial, helvetica"><!--mstheme--></font>
+</body>
+</html>

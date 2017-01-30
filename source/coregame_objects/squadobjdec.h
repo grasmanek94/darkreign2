@@ -1,0 +1,26 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+// Copyright 1997-1999 Pandemic Studios, Dark Reign II
+//
+// Unit Objects Declaration
+//
+// 27-OCT-1998
+//
+
+
+#ifndef __SQUADOBJDEC_H
+#define __SQUADOBJDEC_H
+
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Includes
+//
+#include "reaperlist.h"
+#include "objdec.h"
+
+OBJDEC(SquadObj)
+
+
+#endif
+

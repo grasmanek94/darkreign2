@@ -1,0 +1,250 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Dark Reign 2 Construction Kit - 5.14 Scripting Cineractives</title>
+</head>
+
+<body bgcolor="#000000" link="#33ff00" alink="#00ff00" vlink="#11cc00">
+<table border=0 cellpadding=0 cellspacing=0 width="100%">
+<TR>
+	<td bgcolor="#004400" width="100%">
+		<table border=0 cellpadding=4 border=0 cellspacing=2 width="100%">
+		<tr>
+			<td width="100%" bgcolor="#000000"><font color="#00cc00" face="Arial" size="2">
+<!-- Start Text -->
+<font size="4"><b>5.14 Scripting Cineractives</b></font><p>
+
+<b><i>Shot 1</i></b><p>
+
+<b>Starting the Cineractive Script</b><br>
+Now we'll go through the same 4 shots again and look at the scripting for them in the file called "<b>objective_destroy_shuttle.cfg</b>".  Scroll down the file in a text editor until you see the word "<font color="#00CCCC" face="courier">Cineractive</font>".  The first chunk of text looks like this:
+<hr>
+<blockquote><font color="#00CCCC" face="courier">
+Cineractive()<br>
+{<br>
+&nbsp;At(0)<br>
+&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;Fade()<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Time(1, 2, 3);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Direction("up");<br>
+&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;}
+</font></blockquote>
+<hr>
+
+<br>What this does is initiate the cineractive and begin the fade.<p>
+
+<b>Timing</b><BR>
+The "<font color="#00CCCC" face="courier">At(0)</font>" means that this event will happen at 0 seconds into the cineractive.  Everything listed within its set of brackets will occur in that instant.<p>
+
+<b>Fading</b><br>
+The Fade has 3 numbers listed in its "<font color="#00CCCC" face="courier">Time</font>" field.  They are explained elsewhere in the manual, but we'll go through it again quickly.  In every Time field, there is a starting number that is implied.  That number is the time at which the fade-out will begin, and it is always 0.  The first number that appears is the time when the fade-out will end.  In this case it is 1.  So at 0 seconds you will have a full view, and at 1 second it will be black.  The next number, 2, specifies when the fade-in will begin.  And the last number, 3, specifies when the fade-in will end, returning us to an un-obscured view.  The "<font color="#00CCCC" face="courier">Direction</font>" field specifies whether we're going from light-to-dark-to-light or dark-to-light-to-dark.  We will always be using the first method, so always keep the direction "<font color="#00CCCC" face="courier">up</font>".<p>
+
+The purpose of this fade is to block the camera view while we switch from gameplay to the start of the cineractive.  If this cineractive were appearing at the start of a mission, you would not need to fade to black at the beginning, and so your first "<font color="#00CCCC" face="courier">Time</font>" number would be 0, followed by a 3 and then a 5, to give you a long, slow fade-in.<p>
+
+<b>Triggering AI Scripts With Vars</b><br>
+Next comes this:
+<hr>
+<blockquote><font color="#00CCCC" face="courier">
+&nbsp;At(1)<br>
+&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;Action()<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Op("@Sprawlers_Hidden.triggerarmy", "=", 1);<br>
+&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;}
+</font></blockquote>
+<hr>
+
+<br>The purpose of this segment is to trigger the Sprawler units to start running towards the camera in Shot 1.  This script uses a simple var to trigger the move action in an AI script that is called in a separate objective.  To learn how to use variables like this one, refer to the section in the manual titled "<font color="#00CCCC" face="courier">Variables</font>".  To learn how to give AI units a move order in an objective, refer to the section titled <a href="Chapter4-9.htm">Scripting Attacks</a>.<p>
+
+The objective that triggers the Sprawler units to move is in the file called "<b>objective_start_sprawlers.cfg</b>" under the script heading "<font color="#00CCCC" face="courier">objective_start_sprawlers_hidden</font>".  You will see that several groups of units are all running the same custom script, "<font color="#00CCCC" face="courier">squad.move.tagtoregion.wait</font>", which is included in this mission folder.  The custom script is set to give the move order the instant the "<font color="#00CCCC" face="courier">triggerarmy</font>" var switches to 1.  There are a million other considerations that need to be taken care of in order for this action to work, but the basic concept is that you are switching a var in a cineractive which triggers units to move in a separate objective.  This is the key to making cool, dynamic cineractives, but it is a very difficult technique to learn and involves a great deal of scripting, and even more patience.  Let's move on, shall we?
+<hr>
+<blockquote><font color="#00CCCC" face="courier">
+&nbsp;At(2)<br>
+&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;DisableIFace(1);<br>
+&nbsp;&nbsp;&nbsp;DisableInput(1);<br>
+&nbsp;&nbsp;&nbsp;DisableShroud(1);<br>
+&nbsp;&nbsp;&nbsp;SetBookmark()<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name("caravan");<br>
+&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;Action()<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GameMessage()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Message("msg_block_ravine");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;Letterbox()<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Time(0, 44, 45);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Direction("down");<br>
+&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;}
+</font></blockquote>
+<hr>
+
+<br>At 2 seconds, the actual cineractive begins.  The fade that we executed at 0 seconds will be just starting to come up now, so we need to trigger the camera path and disable the controls.<p>
+
+<b>Disabling Gameplay</b><br>
+The first 3 lines turn off various aspects of the game.  The first is the visible interface, the second is your ability to use the interface, and the third is the map shroud.  At the end of the cineractive, these 3 things will automatically be turned back on.<p>
+
+<b>Triggering the Camera Path</b><br>
+Next comes the camera path.  Use the "<font color="#00CCCC" face="courier">SetBookmark</font>" command, then specify the name of the camera path that you created.  In this case, it is the "<font color="#00CCCC" face="courier">caravan</font>" path that we looked at earlier.  This will start the path, and all the timing that you used on the nodes will begin here, at 2 seconds into the cineractive.<p>
+
+Note that the "<font color="#00CCCC" face="courier">caravan</font>" camera path that we looked at in the editor was only 7 seconds long, while the next shot doesn't begin until 15 seconds into the cineractive.  This leaves a 6 second gap where nothing seems to be happening.  All this means is that the camera will remain static at the end of its curve for the 6 seconds until the next cut.<p>
+
+<b>Using Actions</b><br>
+There are only a few commands that the Cineractive script understands.  These are pretty much covered  by "<font color="#00CCCC" face="courier">Fade</font>", "<font color="#00CCCC" face="courier">Letterbox</font>", "<font color="#00CCCC" face="courier">SetBookmark</font>", "<font color="#00CCCC" face="courier">DefaultCamera</font>", and "<font color="#00CCCC" face="courier">EndCineractive</font>".  Any command you need to give that is not one of the above must be contained with an "<font color="#00CCCC" face="courier">Action</font>" scope.  In this case, we need to give an audio game message.  The use of the "<font color="#00CCCC" face="courier">Game Message</font>" command is explained earlier in the manual.<p>
+
+<b>Letterboxing</b><br>
+Finally, we need to trigger the letterboxing for this cineractive.  We don't need to fade the letterboxing in, since it happens during total blackness, so the first number under "<font color="#00CCCC" face="courier">Time</font>" can be 0.  The next two numbers give the beginning and end of the letterboxes disappearance at the end of the cineractive.  To determine these numbers, wait until you've reached the end of this script, look at the time for the "<font color="#00CCCC" face="courier">EndCineractive</font>" command, then subtract 3 to get the first number and subtract 2 to get the second.  The reason you are subtracting is because the letterboxing doesn't start until you are 2 seconds into the cineractive, and you need to give 1 second for the letterbox to fade away.  The "<font color="#00CCCC" face="courier">Direction</font>" for letterboxing will always be "<font color="#00CCCC" face="courier">Down</font>".
+<hr>
+<blockquote><font color="#00CCCC" face="courier">
+&nbsp;At(14)<br>
+&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;Fade()<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Time(1, 1, 2);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mode("up");<br>
+&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;}
+</font></blockquote>
+<hr>
+
+<br>We are about to jump from Shot 1 to Shot 2, so we include this fade to smooth the transition.  We start fading down 1 second before the cut, then instantaneously begin fading back up.  You may notice that instead of specifying "<font color="#00CCCC" face="courier">Direction</font>", we specify "<font color="#00CCCC" face="courier">Mode</font>".  They are one in the same and it makes no difference which you use.  Move along.<p>
+
+<i><b>Shot 2</b></i><p>
+
+<b>Removing Cineractive-Only Units</b>
+<hr>
+<blockquote><font color="#00CCCC" face="courier">
+&nbsp;At(15)<br>
+&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;SetBookmark()<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name("DF_intro");<br>
+&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;Action()<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Delete()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tag("CinAll");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;}
+</font></blockquote>
+<hr>
+
+<br>Just as before, the "<font color="#00CCCC" face="courier">SetBookmark</font>" command will start the next camera path going.  The "<font color="#00CCCC" face="courier">Delete</font>" command is used to remove all the Sprawler units that were running in the last shot.  They are no longer in view and they are no longer needed, so it is best to remove them as soon as possible.  Using "<font color="#00CCCC" face="courier">Delete</font>" will remove them with little fanfare, using "<font color="#00CCCC" face="courier">SelfDestruct</font>" will remove them by killing them and causing them to explode.  This can be handy if you want to remove them while they're still in the frame.  Also, notice that the "<font color="#00CCCC" face="courier">Delete</font>" command is contained within and "<font color="#00CCCC" face="courier">Action</font>" scope, since it is not recognized by the Cineractive script.<p>
+
+<i><b>Shot 3</b></i>
+<hr>
+<blockquote><font color="#00CCCC" face="courier">
+&nbsp;At(25)<br>
+&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;Fade()<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Time(1, 1, 2);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mode("up");<br>
+&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;}<br>
+&nbsp;At(26)<br>
+&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;SetBookmark()<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name("DF_intro2");<br>
+&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;Action()<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ExecuteScript("Unique", "squad.move.spawntoregion")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Op("%.types", "=", "rigs");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Op("%.region.src", "=", "SpawnIn");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Op("%.region.dst", "=", "Rigs");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;}
+</font></blockquote>
+<hr>
+
+<br><b>Triggering AI Scripts Inside the Cineractive</b><br>
+After a quick fade, we cut to Shot 3, which again is triggered by the "<font color="#00CCCC" face="courier">SetBookmark</font>" command.  At the same instant that the shot begins, an "<font color="#00CCCC" face="courier">Action</font>" is created with an AI script in it.  This AI script creates 3 rigs in the specified region and moves them to another region on the map.  The script is actually needed for Shot 4 and is not visible in Shot 3.  Spawning units onto the map through a script takes a couple seconds to carry out, so you need to trigger it well ahead of time.  By the time Shot 4 begins, these 3 rigs will have spawned and begun moving on their path.<p>
+
+Technically, the cineractive you are running is in a script that is assigned to the player's team.  As a result, units that are spawned in this objective will always be on the player's team.  The Sprawler units that we spawned in Shot 1 were not on the player's team, so we couldn't create them locally.  But these rigs are, so you can create them in a simple script like the one used above.<p>
+
+<b><i>Shot 4</i></b>
+<hr>
+<blockquote><font color="#00CCCC" face="courier">
+&nbsp;At(34)<BR>
+&nbsp;{<BR>
+&nbsp;&nbsp;&nbsp;Fade()<BR>
+&nbsp;&nbsp;&nbsp;{<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Time(1, 1, 2);<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mode("up");<BR>
+&nbsp;&nbsp;&nbsp;}<BR>
+&nbsp;}<BR>
+&nbsp;At(35)<BR>
+&nbsp;{<BR>
+&nbsp;&nbsp;&nbsp;SetBookmark()<BR>
+&nbsp;&nbsp;&nbsp;{<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name("rigs2");<BR>
+&nbsp;&nbsp;&nbsp;}<BR>
+&nbsp;}<BR> 
+</font></blockquote>
+<hr>
+
+<br>This chunk of text fades down then up, and triggers shot 4.  We've seen it all before, so let's move on.<p>
+
+<b>Blending from Cineractive to Gameplay</b>
+<hr>
+<blockquote><font color="#00CCCC" face="courier">
+&nbsp;At(45)<BR>
+&nbsp;{<BR>
+&nbsp;&nbsp;&nbsp;DisableShroud(0);<BR>
+&nbsp;&nbsp;&nbsp;DefaultCamera(1)<BR>
+&nbsp;&nbsp;&nbsp;{<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pan()<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Region("Start");<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TrackTerrain(0);<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Time(1);<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<BR>
+&nbsp;&nbsp;&nbsp;}<BR>
+&nbsp;}<BR>
+</font></blockquote>
+<hr>
+
+<br>We're at the end of Shot 4 now.  This is where we blend from cineractive into gameplay.  First the Shroud is brought back up.  This will be done automatically when the cineractive ends, but it's done manually here so that it doesn't pop up suddenly.  The camera is facing down at this point and bringing the shroud up here is less noticeable.<p>
+
+Next comes the blend part.  In a non-blending cineractive, you would only need to insert "<font color="#00CCCC" face="courier">DefaultCamera();</font>" during a fade to black and that would bring the camera back to where it was before the cineractive began.  But in this case, we need to include a "<font color="#00CCCC" face="courier">Pan</font>" field that specifies the "<font color="#00CCCC" face="courier">Region</font>" we want to bring the camera back to, and a "<font color="#00CCCC" face="courier">Time</font>" that specifies how long it takes to blend from the end of the camera path to the in-game camera position.  Ideally, the camera path would come pretty close to the final position, and the "<font color="#00CCCC" face="courier">Time</font>" would only be a short duration that smoothly bridges the gap.  There is also a flag called "<font color="#00CCCC" face="courier">TrackTerrain</font>".  If "<font color="#00CCCC" face="courier">TrackTerrain</font>" is set to 1, the camera will move up and down based on the terrain it is passing over.  If it is set to 0, it will ignore the terrain and do a direct blend from one point to the other.  In most cases, it is best to manually set "<font color="#00CCCC" face="courier">TrackTerrain</font>" to 0, as it defaults to 1 otherwise.<p>
+
+<b>Ending the Cineractive</b>
+<hr>
+<blockquote><font color="#00CCCC" face="courier">
+&nbsp;At(47)<BR>
+&nbsp;{<BR>
+&nbsp;&nbsp;&nbsp;EndCineractive();<BR>
+&nbsp;}<BR>
+}
+</font></blockquote>
+<hr>
+
+<br>This is the final step.  "<font color="#00CCCC" face="courier">EndCineractive</font>" turns the interface and input back on, brings up the shroud if it hasn't already been brought up, and returns you fully into the game.  In the actual script, there are a bunch of other mission commands listed inside an "<font color="#00CCCC" face="courier">Action</font>".  They are irrelevant to this tutorial, however, and have been removed.
+
+<!-- End Text -->
+
+		</font></td>
+		</tr>
+		</table>
+	</td>
+</tr>
+</table>
+
+
+</body>
+</html><br>

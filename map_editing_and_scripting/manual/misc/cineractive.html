@@ -1,0 +1,563 @@
+<TITLE>Cineractive Configuration</TITLE>
+<HTML>
+<H1>Cineractive Configuration</H1>
+
+<A HREF="#examples">Examples</A><BR>
+
+<A NAME="cineractive">
+<BLOCKQUOTE>
+<B>Cineractive</B><BR>
+Enter cineractive mode and execute the script which follows.  A cineractive script contains a sequence of <A HREF="#at">At</A> commands.  When the cineractive has progressed the number of seconds in the argument of the <A HREF="#at">At</A> command, the block of instructions inside the <A HREF="#at">At</A> command are executed once.<BR>
+<BR>
+<B>NOTE: <A HREF="#at">At</A> commands must be entered in INCREASING TIME ORDER or the script will not behave as expected</B><BR>
+
+  <A NAME="definedebriefing">
+  <BLOCKQUOTE>
+  <B>DefineDebriefing(string name)</B><BR>
+  Create a named debriefing for <I>later execution</I>.  Instructions inside DefineDebriefing are not executed immediately, but when a Debriefing instruction is given from an <A HREF="../objectiveobj.html#action">Action</A>.<BR>
+  A Debriefing script has a similar syntax to a <A HREF="#cineractive">Cineractive</A> script, and contains a sequence of <A HREF="#at">At</A> commands.<BR>
+  </BLOCKQUOTE>
+
+  <A NAME="at">
+  <BLOCKQUOTE>
+  <B>At(float time)</B><BR>
+  <I>Multiple</I><BR>
+  Contains a group of instructions to execute at "time" seconds into the cineractive.<BR>
+
+    <BLOCKQUOTE>
+    <B>DisableIFace(bool flag)</B><BR>
+    Turn the interface on or off during cineractive.  Interface is automatically turned back on when the cineractive ends.
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>DisableInput(bool flag)</B><BR>
+    Enables or disables mouse and keyboard input during cineractive.  Input is automatically enabled when the cineractive ends.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>DisableShroud(bool flag)</B><BR>
+    Enables or disable terrain shroud and line of sight during cineractive.  Shroud is automatically enabled when the cineractive ends.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>EndCineractive()</B><BR>
+    Ends the cineractive, and returns to the game by default.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>SkipPoint()</B><BR>
+    Specifies that when the user hits the escape key, the cineractive will skip up to the next SkipPoint encountered, or EndCineractive if there are no skip points.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>SetBookMark()</B><BR>
+    Places the camera on a curve and begins moving along it.<BR>
+    An additional block of commands can be specified which will be passed to the camera.  See <A HREF="#SetCamera">SetCamera</A>.<BR>
+
+      <BLOCKQUOTE>
+      <B>Name(string name)</B><BR>
+      <I>Required</I><BR>
+      name: name of curve.<BR>
+      </BLOCKQUOTE>
+
+      <BLOCKQUOTE>
+      <B>Start(float time)</B><BR>
+      <I>Optional(0)</I><BR>
+      Jump to 'time' seconds into the curve before moving.<BR>
+      </BLOCKQUOTE>
+
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>DefaultCamera()</B><BR>
+    If the camera is on a curve, returns to the default user controlled camera (either beginner or advanced).<BR>
+    </BLOCKQUOTE>
+
+    <A NAME="SetCamera">
+    <BLOCKQUOTE>
+    <B>SetCamera(string name)</B><BR>
+    Activate a camera.<BR>
+    name: Name of camera to activate.<BR>
+    An additional block of commands can be specified which will be passed to the camera.<BR>
+
+      <BLOCKQUOTE>
+      <B>Region(string name)</B><BR>
+      <I>Cameras: Padlock</I><BR>
+      Place camera in the region.<BR>
+      </BLOCKQUOTE>
+
+      <BLOCKQUOTE>
+      <B>Position(float x, float y, float z)</B><BR>
+      <I>Cameras: Padlock</I><BR>
+      Move camera to x,y,z.<BR>
+      </BLOCKQUOTE>
+
+      <BLOCKQUOTE>
+      <B>Height(float y)</B><BR>
+      <I>Cameras: Padlock</I><BR>
+      Set camera height above terrain.<BR>
+      </BLOCKQUOTE>
+
+      <BLOCKQUOTE>
+      <B>Tag(string name)</B><BR>
+      <I>Cameras: Padlock, Curve</I><BR>
+      Focus on the centre of the tag.<BR>
+      </BLOCKQUOTE>
+
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Pause()</B><BR>
+    <B>Unpause()</B><BR>
+    Pause or unpause gameplay.  This does not pause playback of the cineractive.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Letterbox()</B><BR>
+    Letterbox mode.<BR>
+
+      <BLOCKQUOTE>
+      <B>Time(float in, float hold, float out)</B><BR>
+      in: Scroll smoothly over 'in' seconds.<BR>
+      hold: Hold for 'hold' - 'in' seconds.<BR>
+      out: Scroll smoothly out over 'out' - 'hold' seconds.<BR>
+      </BLOCKQUOTE>
+
+      <BLOCKQUOTE>
+      <B>Direction(string dir)</B><BR>
+      Specifies the initial direction<BR>
+      <I>Optional(up)</I><BR>
+      dir: "up" to have letterbox open up, "down" to have letterbox close in.<BR>
+      </BLOCKQUOTE>
+
+      <BLOCKQUOTE>
+      <B>Color(integer r, integer g, integer b)</B><BR>
+      <I>Optional(black)</I><BR>
+      Border color.<BR>
+      </BLOCKQUOTE>
+
+      <BLOCKQUOTE>
+      <B>Priority(integer i)</B><BR>
+      <I>Optional(0)</I><BR>
+      Specify the drawing priority, lower means drawn earlier.<BR>
+      </BLOCKQUOTE>
+
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Fade()</B><BR>
+    Screen fade.<BR>
+
+      <BLOCKQUOTE>
+      <B>Time(float in, float hold, float out)</B><BR>
+      in: Fade smoothly over 'in' seconds.<BR>
+      hold: Hold for 'hold' - 'in' seconds.<BR>
+      out: Fade smoothly out over 'out' - 'hold' seconds.<BR>
+      </BLOCKQUOTE>
+
+      <BLOCKQUOTE>
+      <B>Direction(string dir)</B><BR>
+      Specifies the initial direction<BR>
+      <I>Optional(up)</I><BR>
+      dir: "up" to fade from color, "down" to fade to color.<BR>
+      </BLOCKQUOTE>
+
+      <BLOCKQUOTE>
+      <B>Color(integer r, integer g, integer b)</B><BR>
+      <I>Optional(black)</I><BR>
+      Screen color.<BR>
+      </BLOCKQUOTE>
+
+      <BLOCKQUOTE>
+      <B>Priority(integer i)</B><BR>
+      <I>Optional(0)</I><BR>
+      Specify the drawing priority, lower means drawn earlier.<BR>
+      </BLOCKQUOTE>
+
+    </BLOCKQUOTE>
+
+    <A NAME="text">
+    <BLOCKQUOTE>
+    <B>Text()</B><BR>
+    Display text on the screen.<BR>
+
+      <BLOCKQUOTE>
+      <B>Time(float in, float hold, float out)</B><BR>
+      in: Fade smoothly over 'in' seconds.<BR>
+      hold: Hold for 'hold' - 'in' seconds.<BR>
+      out: Fade smoothly out over 'out' - 'hold' seconds.<BR>
+      </BLOCKQUOTE>
+
+      <BLOCKQUOTE>
+      <B>Direction(string dir)</B><BR>
+      <I>Optional(up)</I><BR>
+      Specifies the initial direction<BR>
+      dir: "up" to fade from in, "down" to fade away.<BR>
+      </BLOCKQUOTE>
+
+      <BLOCKQUOTE>
+      <B>Color(integer r, integer g, integer b)</B><BR>
+      <I>Optional(white)</I><BR>
+      Text color.<BR>
+      </BLOCKQUOTE>
+
+      <BLOCKQUOTE>
+      <B>Font(string name)</B><BR>
+      <I>Optional("System")</I><BR>
+      </BLOCKQUOTE>
+
+      <BLOCKQUOTE>
+      <B>Pos(float x, float y)</B><BR>
+      <I>Optional, x(0.5), y(0.5)</I><BR>
+      Normalized screen coordinates that the text will be centred around.<BR>
+      (0,0) is the top left<BR>
+      (1,1) is the bottom right<BR>
+      (0.5,0.5) is the centre of the screen<BR>
+      (0.5, 0.95) is the centre of the bottom letterbox border<BR>
+      (0.5, 0.05) is the centre of the top letterbox border<BR>
+      </BLOCKQUOTE>
+
+      <BLOCKQUOTE>
+      <B>Priority(integer i)</B><BR>
+      <I>Optional(0)</I><BR>
+      Specify the drawing priority, lower means drawn earlier.<BR>
+      </BLOCKQUOTE>
+
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Subtitle()</B><BR>
+    Configure sub titles generated by game messages.<BR>
+
+      <BLOCKQUOTE>
+      <B>ItemConfig()</B><BR>
+      <I>Required</I><BR>
+      Text configuration for sub titles.<BR>
+      See <A HREF="#text">Text</A><BR>
+      </BLOCKQUOTE>
+
+      <BLOCKQUOTE>
+      <B>Priority(integer i)</B><BR>
+      <I>Optional(100)</I><BR>
+      Specify the drawing priority, lower means drawn earlier.<BR>
+      </BLOCKQUOTE>
+
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Image()</B><BR>
+    Render single image.<BR>
+
+      <BLOCKQUOTE>
+      <B>Time(float in, float hold, float out)</B><BR>
+      in: Fade smoothly over 'in' seconds.<BR>
+      hold: Hold for 'hold' - 'in' seconds.<BR>
+      out: Fade smoothly out over 'out' - 'hold' seconds.<BR>
+      </BLOCKQUOTE>
+
+      <BLOCKQUOTE>
+      <B>Direction(string dir)</B><BR>
+      Specifies the initial direction<BR>
+      <I>Optional(up)</I><BR>
+      dir: "up" to fade from color, "down" to fade to color.<BR>
+      </BLOCKQUOTE>
+
+      <BLOCKQUOTE>
+      <B>Image(TextureSpecification texture)</B><BR>
+      texture: See <A HREF="../interface/interfacetables.html#RefTextureSpec">TextureSpecification</A>.<BR>
+      </BLOCKQUOTE>
+
+      <BLOCKQUOTE>
+      <B>Absolute(bool flag)</B><BR>
+      <I>Optional(false)</I><BR>
+      flag: if true, uses AbsPos and AbsSize otehrwise uses Pos and Size
+      </BLOCKQUOTE>
+
+      <BLOCKQUOTE>
+      <B>Pos(float x, float y)</B><BR>
+      <I>Optional, x(0.0), y(0.0)</I><BR>
+      Normalized screen coordinates of the top left of the image.<BR>
+      (0,0) is the top left<BR>
+      (1,1) is the bottom right<BR>
+      (0.5,0.5) is the centre of the screen<BR>
+      </BLOCKQUOTE>
+
+      <BLOCKQUOTE>
+      <B>Size(float x, float y)</B><BR>
+      <I>Optional, x(1.0), y(1.0)</I><BR>
+      Normalized screen coordinates of the size of the image.<BR>
+      (1,1) is the same size as the screen<BR>
+      (0.5,1.0) is half the width but full height of the screen<BR>
+      </BLOCKQUOTE>
+
+      <BLOCKQUOTE>
+      <B>AbsPos(integer x, integer y)</B><BR>
+      <I>Optional, x(0), y(0)</I><BR>
+      Absolute screen coordinates of the top left of the image.<BR>
+      If x is less than 0, then image right aligned, and moved left -x pixels.<BR>
+      If y is less then 0, then image is bottom aligned, and moved up -y pixels.<BR>
+      </BLOCKQUOTE>
+
+      <BLOCKQUOTE>
+      <B>AbsSize(integer x, integer y)</B><BR>
+      <I>Optional, x(0), y(0)</I><BR>
+      Absolute screen coordinates of the size of the image.<BR>
+      </BLOCKQUOTE>
+
+      <BLOCKQUOTE>
+      <B>Priority(integer i)</B><BR>
+      <I>Optional(0)</I><BR>
+      Specify the drawing priority, lower means drawn earlier.<BR>
+      </BLOCKQUOTE>
+
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Wallpaper()</B><BR>
+    Render sheeted images.<BR>
+
+      <BLOCKQUOTE>
+      <B>Time(float in, float hold, float out)</B><BR>
+      in: Fade smoothly over 'in' seconds.<BR>
+      hold: Hold for 'hold' - 'in' seconds.<BR>
+      out: Fade smoothly out over 'out' - 'hold' seconds.<BR>
+      </BLOCKQUOTE>
+
+      <BLOCKQUOTE>
+      <B>Direction(string dir)</B><BR>
+      Specifies the initial direction<BR>
+      <I>Optional(up)</I><BR>
+      dir: "up" to fade from color, "down" to fade to color.<BR>
+      </BLOCKQUOTE>
+
+      <BLOCKQUOTE>
+      <B>Sheet(integer x, integer y)</B><BR>
+      <I>Required</I><BR>
+      Images to sheet.<BR>
+      x: number of images on x axis.<BR>
+      y: number of images on y axis.<BR>
+      This must be followed by exactly (x * y) "Image" commands.<BR>
+
+        <BLOCKQUOTE>
+        <B>Image(TextureSpecification texture)</B><BR>
+        texture: See <A HREF="../interface/interfacetables.html#RefTextureSpec">TextureSpecification</A>.<BR>
+        </BLOCKQUOTE>
+
+      </BLOCKQUOTE>
+
+      <BLOCKQUOTE>
+      <B>Pos(float x, float y)</B><BR>
+      <I>Optional, x(0.0), y(0.0)</I><BR>
+      Normalized screen coordinates of the top left of the image.<BR>
+      (0,0) is the top left<BR>
+      (1,1) is the bottom right<BR>
+      (0.5,0.5) is the centre of the screen<BR>
+      </BLOCKQUOTE>
+
+      <BLOCKQUOTE>
+      <B>Size(float x, float y)</B><BR>
+      <I>Optional, x(1.0), y(1.0)</I><BR>
+      Normalized screen coordinates of the size of the image.<BR>
+      (1,1) is the same size as the screen<BR>
+      (0.5,1.0) is half the width but full height of the screen<BR>
+      </BLOCKQUOTE>
+
+      <BLOCKQUOTE>
+      <B>Priority(integer i)</B><BR>
+      <I>Optional(0)</I><BR>
+      Specify the drawing priority, lower means drawn earlier.<BR>
+      </BLOCKQUOTE>
+
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Debrief()</B><BR>
+    Enter debriefing mode.  When this command is encountered during a running cineractive (and not during DefineDebriefing) the game will enter debriefing mode.  There is no way to return to game mode once entering debriefing mode.<BR>
+
+      <BLOCKQUOTE>
+      <B>Exec(string file)</B><BR>
+      <I>Multiple</I><BR>
+      Execute a configuration file, this could contain the interface for the debriefing screen.<BR>
+      file: filename of configuration file.<BR>
+      </BLOCKQUOTE>
+
+      <BLOCKQUOTE>
+      <B>OnEvent(string name)</B><BR>
+      <I>Multiple</I><BR>
+      When a Interface control of type "MissionLinkButton" with name "name" is pressed, the following instructions are executed.<BR>
+      name: name of control.<BR>
+      </BLOCKQUOTE>
+
+      <BLOCKQUOTE>
+      <B>AddBookmark()</B><BR>
+      <I>Optional</I><BR>
+      When the debriefing is run, one of the bookmarks specified here is randomly picked and moved along during the debriefing.<BR>
+
+        <BLOCKQUOTE>
+        <B>Name(string name)</B><BR>
+        <I>Required</I><BR>
+        name: name of bookmark.<BR>
+        </BLOCKQUOTE>
+
+      </BLOCKQUOTE>
+
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Action()</B><BR>
+    Execute an <A HREF="../types/objectiveobj.html#action">Action</A> through the objective system.<BR>
+    </BLOCKQUOTE>
+
+  </BLOCKQUOTE>
+
+</BLOCKQUOTE>
+
+<A NAME="examples">
+<H1>Examples</H1>
+<BLOCKQUOTE>
+
+<B>Debriefings</B><BR>
+<BR>
+An objective should trigger at the start of the mission that sets up a default debriefing.<BR>
+
+<PRE>
+CreateObjectType("Obj", "Objective")
+{
+  GameObj();
+  ObjectiveObj()
+  {
+    Condition("TRUE");
+    Action()
+    {
+      Cineractive()
+      {
+        // Define a debriefing
+        DefineDebriefing("my_debriefing")
+        {
+          At(0)
+          {
+            // Enter debriefing mode immediately upon executing the cineractive
+            Debrief()
+            {
+              // Event processing when "next" button is pressed
+              OnEvent("Next")
+              {
+                // Any other commands that normally appear in an IControl
+                // "OnEvent" scope can go here
+
+                // This will link to the next mission
+                LoadMission("next_mission");
+              }
+
+              // Execute this interface file
+              Exec("interface_game_debrief.cfg");
+
+              // Bookmarks to cycle through
+              AddBookmark()
+              {
+                Name("bookmark1");
+                Name("bookmark2");
+                Name("bookmark3");
+                Name("bookmark4");
+              }
+            }
+          }
+        }
+
+        // Execute the intro cineractive
+        At(0)
+        {
+          // Actual cineractive sequence goes here
+        }
+      }
+    }
+  }
+}
+</PRE>
+
+<B>Fading and letterboxes</B><BR>
+<BR>
+This sequence will start with a black screen (that a title can be placed over), and as the blackness fades away, the viewport will shrink into letterbox mode.<BR>
+
+<PRE>
+At(0)
+{
+  // Start with black screen, hold black screen for 3 seconds,
+  // then fade the black away over 1 second
+  Fade()
+  {
+    Time(0, 3, 4);
+    Direction("up");
+  }
+}
+
+At(3)
+{
+  // As the black is fading away, close up into letterbox mode, and keep it
+  // there until the cineractive is over.
+  // In this example, the cineractive is 15 seconds long, and the final fade
+  // will have us in blackness at time 13.5, so stay in letterbox mode until
+  // then (13.5 (end time) - 3 (start time) = 10.5)
+  Letterbox()
+  {
+    Time(1, 10.5, 10.5);
+    Direction("down");
+  }
+}
+
+At(12.5)
+{
+  // Start another fade sequence that will get us to blackness at 13.5,
+  // and ending at 15 when the cineractive will terminate.
+  Fade()
+  {
+    Time(1, 1.5, 2.5);
+    Mode("up");
+  }
+}
+
+At(15)
+{
+  // Done
+  EndCineractive();
+}
+</PRE>
+
+<B>Camera switching</B><BR>
+<BR>
+Say we have a curve "A" which is 20 seconds long, and a curve "B" which is 15 seconds long.  We want the camera to travel along "A" for 10 seconds, then run along B for 10 seconds, then back to "A" where it left off before being interrupted by "B".<BR>
+
+<PRE>
+
+At(0)
+{
+  // Start moving along "A"
+  SetBookmark()
+  {
+    Name("A");
+  }
+}
+
+At(10)
+{
+  // Now cut to "B"
+  SetBookmark()
+  {
+    Name("B");
+  }
+}
+
+At(20)
+{
+  // And back to "A", at offset 10, where it was interrupted
+  SetBookmark()
+  {
+    Name("A");
+    Start(10);
+  }
+}
+</PRE>
+
+</BLOCKQUOTE>
+
+</HTML>

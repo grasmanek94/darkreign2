@@ -1,0 +1,400 @@
+Microsoft Developer Studio Workspace File, Format Version 6.00
+# WARNING: DO NOT EDIT OR DELETE THIS WORKSPACE FILE!
+
+###############################################################################
+
+Project: "appdr2"=.\appdr2\appdr2.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Code/appdr2", DAAAAAAA
+    .\appdr2
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name coregame
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name coregame_ai
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name coregame_interface
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name coregame_objects
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name coregame_orders
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name coregame_particles
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name coregame_tasks
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name game
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name graphics
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name interface
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name main
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name multiplayer
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name sound
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name system
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name util
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name styxnet
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name wonlib
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "appmesh"=.\appmesh\appmesh.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Code/appmesh", RGBAAAAA
+    .\appmesh
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name graphics
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name interface
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name system
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name util
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name main
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name sound
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "coregame"=.\coregame\coregame.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Code/coregame", UOAAAAAA
+    .\coregame
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "coregame_ai"=.\coregame_ai\coregame_ai.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Code/coregame_ai", UKCAAAAA
+    .\coregame_ai
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "coregame_interface"=.\coregame_interface\coregame_interface.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Code/coregame_interface", VKCAAAAA
+    .\coregame_interface
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "coregame_objects"=.\coregame_objects\coregame_objects.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Code/coregame_objects", WKCAAAAA
+    .\coregame_objects
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name styxnet
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name system
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "coregame_orders"=.\coregame_orders\coregame_orders.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Code/coregame_orders", XKCAAAAA
+    .\coregame_orders
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "coregame_particles"=.\coregame_particles\coregame_particles.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Code/coregame_particles", YKCAAAAA
+    .\coregame_particles
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "coregame_tasks"=.\coregame_tasks\coregame_tasks.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Code/coregame_tasks", ZKCAAAAA
+    .\coregame_tasks
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "game"=.\game\game.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Code/game", DNAAAAAA
+    .\game
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "graphics"=.\graphics\graphics.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Code/graphics", YIAAAAAA
+    .\graphics
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "interface"=.\interface\interface.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Code/interface", MGAAAAAA
+    .\interface
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "main"=.\main\main.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Code/main", AGAAAAAA
+    .\main
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "multiplayer"=.\multiplayer\multiplayer.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Code/multiplayer", CFAAAAAA
+    .\multiplayer
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "sound"=.\sound\sound.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Code/sound", REAAAAAA
+    .\sound
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "styxnet"=.\styxnet\styxnet.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Code/styxnet", BNFAAAAA
+    .\styxnet
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "system"=.\system\system.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Code/system", GAAAAAAA
+    .\system
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "util"=.\util\util.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Code/util", IDAAAAAA
+    .\util
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "wonlib"=.\wonlib\wonlib.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Code/wonlib", VLHAAAAA
+    .\wonlib
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Global:
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Code", BAAAAAAA
+    .\ 
+    end source code control
+}}}
+
+Package=<3>
+{{{
+}}}
+
+###############################################################################
+

@@ -1,0 +1,55 @@
+<TITLE>Interface Commands</TITLE>
+<HTML>
+<H1>Interface Commands</H1>
+
+<BLOCKQUOTE>
+<B>Activate(string control)</B><BR>
+<I>Multiple, control Optional (Current control)</I><BR>
+control: <A HREF="interfacetables.html#RefControlNameSpec">name</A> of a control.<BR>
+Activates a control.<BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>Deactivate(string control)</B><BR>
+<I>Multiple, control Optional (Current control)</I><BR>
+control: <A HREF="interfacetables.html#RefControlNameSpec">name</A> of a control.<BR>
+Deactivates a control.<BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>ToggleActive(string control)</B><BR>
+<I>Multiple, control Optional (Current control)</I><BR>
+control: <A HREF="interfacetables.html#RefControlNameSpec">name</A> of a control.<BR>
+Activates a deactivated control, deactivates an activated control.<BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>Notify(string control, string event)</B><BR>
+<I>Multiple, control Required, event Required</I><BR>
+control: <A HREF="interfacetables.html#RefControlNameSpec">name</A> of a control.<BR>
+event: name of an event.<BR>
+Sends an event to the control.<BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>NotifyParent(string event)</B><BR>
+<I>Multiple, event Required</I><BR>
+event: name of an event.<BR>
+Sends an event to the parent control.<BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>Cmd(string cmd)</B><BR>
+<I>Multiple, cmd Required</I><BR>
+cmd: A console command<BR>
+Executes a console command.<A>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>IFaceCmd(string cmd, ...)</B><BR>
+<I>Multiple, cmd Required</I><BR>
+cmd: A var, local var, or console command<BR>
+Constructs a Cmd by substituting dynamic <A HREF="interfacetables.html#RefVarNameSpec">var names</A> for their fully qualified paths.<A>
+</BLOCKQUOTE>
+
+</HTML>

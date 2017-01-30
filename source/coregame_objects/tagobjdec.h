@@ -1,0 +1,25 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+// Copyright 1997-1999 Pandemic Studios, Dark Reign II
+//
+// Game-Play Engine
+//
+// 20-AUG-1998
+//
+
+
+#ifndef __TAGOBJDEC_H
+#define __TAGOBJDEC_H
+
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Includes
+//
+#include "reaperlist.h"
+#include "objdec.h"
+
+OBJDEC(TagObj)
+
+
+#endif  

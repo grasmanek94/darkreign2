@@ -1,0 +1,183 @@
+Microsoft Developer Studio Workspace File, Format Version 6.00
+# WARNING: DO NOT EDIT OR DELETE THIS WORKSPACE FILE!
+
+###############################################################################
+
+Project: "TitanAPI"=..\3rdparty\won\TitanAPI.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Code/3rdparty/won", JVIAAAAA
+    ..\3rdparty\won
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "applypatch"=.\applypatch\applypatch.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Code/apps/applypatch", IELAAAAA
+    .\applypatch
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "lang"=.\lang\lang.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Code/apps/lang", WUFAAAAA
+    .\lang
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name system
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name util
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "system"=..\system\system.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Code/system", GAAAAAAA
+    ..\system
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "util"=..\util\util.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Code/util", IDAAAAAA
+    ..\util
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "version"=.\version\version.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Code/apps/version", CVFAAAAA
+    .\version
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name system
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "wonbot"=..\wonbot\wonbot.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Code/apps/wonbot", TNHAAAAA
+    ..\wonbot
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name system
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name util
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "wonlib"=..\wonlib\wonlib.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Code/wonlib", VLHAAAAA
+    ..\wonlib
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "zwagapack"=.\zwagapack\zwagapack.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Code/apps/zwagapack", XBLAAAAA
+    .\zwagapack
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name system
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Global:
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Code/apps", SUFAAAAA
+    .
+    end source code control
+}}}
+
+Package=<3>
+{{{
+}}}
+
+###############################################################################
+

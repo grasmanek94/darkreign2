@@ -1,0 +1,151 @@
+<TITLE>IControl</TITLE>
+<HTML>
+<H1>IControl</H1>
+
+Base class for all interface controls, not used directly.<BR>
+<BR>
+
+<B><U>Functions</U></B><BR>
+
+<BLOCKQUOTE>
+
+  <B><A HREF="createcontrol.html">CreateControl</A>(string name, string codeclass)</B><BR>
+  <I>Multiple</I><BR>
+  Create a child control.<BR>
+  <BR>
+
+  <B>Style(string names...)</B><BR>
+  <I>Optional(none)</I><BR>
+  names : Styles to be added<BR>
+  <BR>
+
+  <B>Geometry(string names...)</B><BR>
+  <I>Optional(none)</I><BR>
+  names : Geometry attributes to be added<BR>
+  <BR>
+
+  <B>Size(integer width, integer height)</B><BR>
+  <I>Optional(0, 0)</I><BR>
+  width/height : The width and height modifiers<BR>
+  Combined with geometry settings such as 'ParentWidth' etc<BR>
+  Can be negative values<BR>
+  <BR>
+
+  <B>Pos(integer x, integer y)</B><BR>
+  <I>Optional(0, 0)</I><BR>
+  x/y : The position modifiers<BR>
+  Combined with geometry settings such as 'Right', 'Bottom' etc<BR>
+  Can be negative values<BR>
+  <BR>
+
+  <B>Align(<A HREF="interfacetables.html#RefControlNameSpec">ControlNameSpecification</A> name)</B><BR>
+  <I>Optional(none)</I><BR>
+  name : The name of a control to align to<BR>
+  Combined with geometry settings such as 'HInternal', 'Bottom' etc<BR>
+  <BR>
+
+  <B>TabStop(integer flag)</B><BR>
+  <I>Optional(code specific), flag Optional(TRUE)</I><BR>
+  flag : 0 tabstop turns off, 1 tabstop turns on<BR>
+  <BR>
+
+  <B>ColorGroup(string name)</B><BR>
+  <I>Optional("Sys::Default")</I><BR>
+  name : The name of the color group to use for this control<BR>
+  <BR>
+
+  <B>Image(TextureSpecification texture)</B><BR>
+  <I>Optional(none)</I><BR>
+  texture : See <A HREF="interfacetables.html#RefTextureSpec">TextureSpecification</A>.<BR>
+  <BR>
+
+  <B>Cursor(string name)</B><BR>
+  <I>Optional(none)</I><BR>
+  name : The name of a cursor to use when over this control<BR>
+  <BR>
+
+  <B>Text(string key)</B><BR>
+  <I>Optional(none)</I><BR>
+  key : The multilanguage key, or temporary text, to use with this control<BR>
+  <BR>
+
+  <B>FormatSpec(string format)</B><BR>
+  <I>Optional(none)</I><BR>
+  format : The printf style format spec for displaying var values<BR>
+  <BR>
+
+  <B>Font(string name)</B><BR>
+  <I>Optional(none)</I><BR>
+  font : The name of a font to use with this control<BR>
+  <BR>
+
+  <B>JustifyText(string pos)</B><BR>
+  <I>Optional(control specific)</I><BR>
+  pos : One of 'left', 'right' or 'centre' (or 'center' for deluded yankee designers ;)<BR>
+  <BR>
+
+  <B>TipText(string key)</B><BR>
+  <I>Optional(none)</I><BR>
+  key : The multilanguage key, or temporary text, to display as a tool tip<BR>
+  <BR>
+
+  <B>OnEvent(string name)</B><BR>
+  <I>Multiple</I><BR>
+  name : The name of the event to bind to<BR>
+  Executes the attached scope body when event occurs. See <A HREF="commands.html">commands</A><BR>
+  <BR>
+
+  <B>TranslateEvent(string original, string translated, <A HREF="interfacetables.html#RefControlNameSpec">ControlNameSpecification</A> control)</B><BR>
+  <B>NotifyParent(string event1, string event2)</B> (obsolete)<BR>
+  <I>Multiple</I><BR>
+  original : The name of a notification that the code can generate<BR>
+  translated : The name of the event to send to parent control<BR>
+  control : Name of the control to send translated event to<BR>
+  <BR>
+
+  <B>PollInterval(integer time)</B><BR>
+  <I>Optional(none)</I><BR>
+  time : Number of millseconds between polling events<BR>
+  <BR>
+
+
+  <B>CreateVarInteger(string name)</B><BR>
+  <B>CreateVarFloat(string name)</B><BR>
+  <B>CreateVarString(string name)</B><BR>
+  <I>Multiple</I><BR>
+  name : The name of the local variable to create<BR>
+  <BR>
+
+</BLOCKQUOTE>
+
+<B><U>Style Attributes</U></B><BR>
+Transparent - The background will not be drawn<BR>
+DropShadow - Draws a drop shadow beneath the control<BR>
+Modal - Captures mouse and keyboard focus<BR>
+ModalClose - Combines modal functionality with auto closing on external mouse click or escape key.<BR>
+VGradient - Draw background with vertical gradient<BR>
+HGradient - Draw background with horizontal gradient<BR>
+<BR>
+
+<B><U>Geometry Attributes</U></B><BR>
+Top - Align to the top of target control (TRUE by default)<BR>
+Left - Align to the left of target control (TRUE by default)<BR>
+Right - Align to the right of target control<BR>
+Bottom - Align to the bottom of target control<BR>
+HCentre - Centre the control horizontally<BR>
+VCentre - Centre the control vertically<BR>
+Persist - Ignores all automatic geometry adjustment<BR>
+ParentWidth - Takes on the width of parent control<BR>
+ParentHeight - Takes on the height of parent control<BR>
+Square - Takes the smaller of width/height and uses that for both values<BR>
+AutoSize - Context sensitive automatic size adjustment<BR>
+HInternal - Align control horizonally within target (used with Align())<BR>
+VInternal - Align control vertically within target (used with Align())<BR>
+KeepVisible - Prevents control from moving offscreen<BR>
+<BR>
+
+<B><U>Events</U></B><BR>
+None<BR>
+<BR>
+
+</HTML>

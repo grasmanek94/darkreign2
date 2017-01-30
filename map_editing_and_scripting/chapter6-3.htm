@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Dark Reign 2 Construction Kit - 6.3 UnitObj</title>
+</head>
+
+<body bgcolor="#000000" link="#33ff00" alink="#00ff00" vlink="#11cc00">
+<table border=0 cellpadding=0 cellspacing=0 width="100%">
+<TR>
+	<td bgcolor="#004400" width="100%">
+		<table border=0 cellpadding=4 border=0 cellspacing=2 width="100%">
+		<tr>
+			<td width="100%" bgcolor="#000000"><font color="#00cc00" face="Arial" size="2">
+<!-- Start Text -->
+<font size="4"><b>6.3 UnitObj</b></font><p>
+
+The next section of the config is called the UnitObj, and as the name implies, it defines the more complex nature of a unit or building on the map.
+<hr>
+<blockquote><font color="#00CCCC" face="courier">
+UnitObj()<br>
+{<br>
+&nbsp;CommandCost(2);<br>
+&nbsp;TurnSpeed(720);<br>
+&nbsp;SeeingRange(89);<br>
+&nbsp;NightModifier(63%);<br>
+&nbsp;TopSpeed(35);<br>
+&nbsp;ResourceCost(150);<br>
+&nbsp;ConstructionTime(15);<br>
+&nbsp;Constructor("jda.building.precinct1");<br>
+&nbsp;Prereqs()<br>
+&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;Add("jda.building.precinct1");<br>
+&nbsp;}<br>
+&nbsp;Weapon("jda.weapon.guardian");<br>
+}
+</font></blockquote>
+<hr>
+
+<blockquote>
+<font color="#00CCCC" face="courier"><b>CommandCost</b></font> - This is the value of the unit as it affects the unit limit.  The default limit is 150.  Generally all buildings have a cost of 1, infantry cost 2, vehicles cost 3, and superweapons cost 4.<p>
+
+<font color="#00CCCC" face="courier"><b>TurnSpeed</b></font> - This is the speed in degrees per second at which a unit rotates.  It is best not to exceed 720.<p>
+
+<font color="#00CCCC" face="courier"><b>SeeingRange</b></font> - This is the distance in meters at which a unit can see in the daytime.  The number is rounded down to the nearest 8 meter cell, thus a range of 89 meters would become 11 cells.<p>
+
+<font color="#00CCCC" face="courier"><b>NightModifier</b></font> - This is the degree to which the unit's line-of-sight is diminished or increased at night.  Keep in mind that the resultant SeeingRange after it is modified will also be rounded down to the nearest 8 meter cell.  In this case, the 63% modifier drops the unit's LOS from 11 cells to 7 cells.<p>
+
+<font color="#00CCCC" face="courier"><b>TopSpeed</b></font> - This is the top speed in kilometers per hour at which a unit moves across a flat surface.  For reference, a speed of 28.8 will make a unit move at exactly 1 cell per second.<p>
+
+<font color="#00CCCC" face="courier"><b>ResourceCost</b></font> - This specifies what the unit costs to build.<p>
+
+<font color="#00CCCC" face="courier"><b>ConstructionTime</b></font> - How long it takes for the unit to be constructed.<p>
+
+<font color="#00CCCC" face="courier"><b>Constructor</b></font> - Specifies which unit it is being constructed by.<p>
+
+<font color="#00CCCC" face="courier"><b>Prereqs</b></font> - This lists which units must already be constructed by the player in order to build this unit.  It is not necessary to list every unit in the build tree, just the highest level.  For example, if a unit requires an hq3 and a precinct2, you would only list those two buildings and not the hq1, hq2, and precinct1 that are needed to get there.<p>
+
+<font color="#00CCCC" face="courier"><b>Weapon</b></font> - This defines the weapon that is attached to this unit.  The weapon is its own object.  We will go through the weapon part of the config a little later.<p>
+
+<font color="#00CCCC" face="courier"><b>FireIndirect</b></font> - This entry doesn't appear in the Guardian's config.  It is used for units that do not need to have direct line-of-sight on something in order to fire at it - namely artillery.  Put in "<font color="#00CCCC" face="courier">FireIndirect(1);</font>" to give a unit the ability to fire at objects using the LOS of other units.<p>
+</blockquote>
+<hr>
+<blockquote><font color="#00CCCC" face="courier">
+</font></blockquote>
+<hr>
+
+
+<!-- End Text -->
+
+		</font></td>
+		</tr>
+		</table>
+	</td>
+</tr>
+</table>
+
+
+</body>
+</html><br>

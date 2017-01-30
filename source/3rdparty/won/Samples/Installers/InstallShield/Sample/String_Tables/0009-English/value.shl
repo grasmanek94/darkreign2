@@ -1,0 +1,20 @@
+[Data]
+TITLE_MAIN=Your Application Name
+COMPANY_NAME=Your Company Name
+COMPANY_NAME16=Company
+PRODUCT_VERSION=1.00.000
+ERROR_MOVEDATA=An error occurred during the move data process : %d
+UNINST_KEY=Your Application Name
+TITLE_CAPTIONBAR=Your Application Name Setup
+PRODUCT_NAME16=Product
+ERROR_VGARESOLUTION=This program requires VGA or better resolution.
+UNINST_DISPLAY_NAME=Your Application Name
+PRODUCT_KEY=yourapp.Exe
+PRODUCT_NAME=Your Application Name
+ERROR_UNINSTSETUP=unInstaller setup failed to initialize.  You may not be able to uninstall this product.
+
+[General]
+Language=0009
+Type=STRINGTABLESPECIFIC
+Version=1.00.000
+

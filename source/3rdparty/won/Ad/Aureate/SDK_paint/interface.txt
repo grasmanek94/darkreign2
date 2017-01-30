@@ -1,0 +1,208 @@
+------------------------------------------------------------------------------------------------------------------
+
+HANDLE Initialize(unsigned long software_id, DWORD version, unsigned long ad_size_id, unsigned long flags);
+
+Starts the DLL and begins ad retrieval.  Also loads the default ad if one exists.
+
+Parameters:
+	software_id is your assigned software ID number.
+	version is your program version.  It can anything you want, so long as each new version has a higher number.
+	ad_size_id should be one of the following numbers:
+		1	ads are 468x60
+		20	ads are 120x60
+
+	flags can be any combination of the following flags (bitwise-OR) or 0 for none of the flags:
+		1	only pull ads from the offline cache
+
+Return values:
+	Returns a handle that must be used in future calls to the DLL that require it.
+
+------------------------------------------------------------------------------------------------------------------
+
+void Shutdown(HANDLE hData);
+
+Stops the DLL and all ad retrieval.  The buffer is undefined after you call Shutdown.
+
+Parameters:
+	hData must be a valid HANDLE returned by Initialize.
+
+Return values:
+	None.
+
+------------------------------------------------------------------------------------------------------------------
+
+void SetPaintCallback(HANDLE hData, CallbackFunc func, void *data)
+
+Sets a callback function that is called whenever the buffer changes.  Your application should repaint the buffer.
+Set func to 0 to clear the callback function.
+
+Parameters:
+	hData must be a valid HANDLE returned by Initialize.
+	func is a callback function of the following form:
+        void __stdcall CallbackFunc(void *data);
+	data is the data you which to pass back to your callback function.
+
+Return values:
+	None.
+
+------------------------------------------------------------------------------------------------------------------
+
+void SetBrowserCallback(HANDLE hData, CallbackFunc func)
+
+Sets a callback function that is called instead of launching the default web browser whenever an ad is activated.
+Set func to 0 to clear the callback function.
+
+Parameters:
+	hData must be a valid HANDLE returned by Initialize.
+	func is a callback function of the following form:
+		void __stdcall CallbackFunc(const char *file);
+		...where "file" is either NULL or a null-terminated ASCII string that specifies the file that the browser
+		should open.
+
+Return values:
+	None.
+
+------------------------------------------------------------------------------------------------------------------
+
+void AdActivated(HANDLE hData)
+
+Your application should call this function whenever the ad is activated (e.g. clicked).
+
+Parameters:
+	hData must be a valid HANDLE returned by Initialize.
+
+Return values:
+	None.
+
+------------------------------------------------------------------------------------------------------------------
+
+void LockBuffer(HANDLE hData);
+
+Locks the buffer data.  If the buffer is locked by another thread, then the call blocks until the buffer
+becomes available and is locked by the calling thread.  Do not call LockBuffer() again from the same thread until
+you first call UnlockBuffer() (see below).  The buffer data cannot change while your program has it locked.  The
+DLL will only lock the buffer to copy new data into it.
+
+Parameters:
+	hData must be a valid HANDLE returned by Initialize.
+
+Return values:
+	None.
+
+------------------------------------------------------------------------------------------------------------------
+
+void UnlockBuffer(HANDLE hData);
+
+Unlocks the buffer data.
+
+Parameters:
+	hData must be a valid HANDLE returned by Initialize.
+
+Return values:
+	None.
+
+------------------------------------------------------------------------------------------------------------------
+
+HBITMAP GetBufferBitmap(HANDLE hData);
+
+Accesses the current animation frame's bitmap.
+
+Parameters:
+	hData must be a valid HANDLE returned by Initialize.
+
+Return values:
+	Returns the HBITMAP corresponding to the current animation frame of the ad.
+	The buffer must be locked for the entire time the returned data is in use.
+	May return NULL if no animation frame is available.
+
+------------------------------------------------------------------------------------------------------------------
+
+HPALETTE GetBufferPalette(HANDLE hData);
+
+Accesses the current animation frame's palette.
+
+Parameters:
+	hData must be a valid HANDLE returned by Initialize.
+
+Return values:
+	Returns the HPALETTE corresponding to the current animation frame of the ad.
+	The buffer must be locked for the entire time the returned data is in use.
+	May return NULL if no animation frame is available.
+
+------------------------------------------------------------------------------------------------------------------
+
+BOOL StartMessaging(unsigned long software_id);
+
+Attempts to start the messaging system which may display announcements, demographic questionnaires, etc.
+The messaging system may attempt to display a window on top of all other windows.
+This function may be called without calling Initialize.
+
+
+Parameters:
+	software_id is your assigned software ID number.
+
+Return values:
+	Returns TRUE on success, FALSE on failure.
+
+------------------------------------------------------------------------------------------------------------------
+
+BOOL SetThrottle(unsigned long throttle);
+
+Sets the global bandwidth throttle for the ad delivery system.  This setting is persistent across sessions.
+
+The corresponding registry value for this setting is:
+	HKEY_LOCAL_MACHINE\SOFTWARE\Aureate\V3\GbSet
+	Value Name:	tlg
+	Value Type:	REG_DWORD
+
+This function may be called without calling Initialize.
+
+Parameters:
+	throttle is the bandwidth in bytes per second that the ad system may consume.
+
+Return values:
+	Returns TRUE on success, FALSE on failure.
+
+------------------------------------------------------------------------------------------------------------------
+
+BOOL SetProxy(const char *address, unsigned long port, const char *username, const char *password);
+
+Sets the global proxy settings for the ad delivery system.  These settings are persistent across sessions.
+This function may be called without calling Initialize.
+
+The corresponding registry values for these settings are:
+	HKEY_LOCAL_MACHINE\SOFTWARE\Aureate\V3\Proxy
+	Value Name:	Address
+	Value Type:	REG_SZ
+	Value Name:	Port
+	Value Type:	REG_DWORD
+	Value Name:	un
+	Value Type:	REG_SZ
+	Value Data:	encoded username
+	Value Name:	pw
+	Value Type:	REG_SZ
+	Value Data:	encoded password
+
+Parameters:
+	address is the machine name or IP address of the proxy.  Set to NULL to clear all proxy settings and stop using a proxy.
+	port is the TCP port number upon which the proxy listens.
+	username and password may be provided for proxies that require authentication.  Both may be NULL.
+
+Return values:
+	Returns TRUE on success, FALSE on failure.
+
+------------------------------------------------------------------------------------------------------------------
+
+BOOL SetOffline(int offline);
+
+Sets the online/offline state for the ad delivery system.
+
+This function may be called without calling Initialize.
+
+Parameters:
+	offline is 1 for offline-only operation, or 0 to allow both online and offline operation.
+
+Return values:
+	Returns TRUE on success, FALSE on failure.
+
+------------------------------------------------------------------------------------------------------------------

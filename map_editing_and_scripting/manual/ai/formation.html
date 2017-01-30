@@ -1,0 +1,40 @@
+<TITLE>Formation</TITLE>
+<HTML>
+<H1>Formation</H1>
+
+<BLOCKQUOTE>
+<B>CreateFormation(string name)</B><BR>
+<I>Multiple</I><BR>
+name: Name of the formation.  Formations should have unique names.<BR>
+A formation consists of a series of slots which are filled in order to make up a formation.  If there are more units then there are slots those units will not vbe included in the formation.<BR>
+
+  <BLOCKQUOTE>
+  <B>Slot()</B><BR>
+  <I>Multiple</I><BR>
+  An individual slot in a formation.<BR>
+
+    <BLOCKQUOTE>
+    <B>Orientation(float angle)</B><BR>
+    <I>Required</I><BR>
+    angle: Angle this unit faces with respect to the front of the formation.  This is a relative compass angle.<BR>
+    </BLOCKQUOTE>
+    
+    <BLOCKQUOTE>
+    <B>Polar(float angle, float distance)</B><BR>
+    <I>Required if Cartesian not specified</I><BR>
+    angle: Angle from the front of the formation to this slot.  This is a relative compass angle.<BR>
+    distance: Distance from the origin of the formation to this slot.<BR>
+    </BLOCKQUOTE>
+    
+    <BLOCKQUOTE>
+    <B>Cartesian(float x, float z)</B><BR>
+    <I>Required if Polar not specified</I><BR>
+    x, z: Offset to this slot.<BR>
+    </BLOCKQUOTE>
+
+  </BLOCKQUOTE>
+
+</BLOCKQUOTE>
+
+</HTML>
+

@@ -1,0 +1,156 @@
+<TITLE>ConfigureInterface</TITLE>
+<HTML>
+<H1>ConfigureInterface</H1>
+
+<BLOCKQUOTE>
+<B>CreateColorGroup(string name, string base)</B><BR>
+<I>Multiple, name Required, base Optional</I><BR>
+name: Name of a new or existing color group, or one of the built in <A HREF="#RefSystemColorGroups">system groups</A>.<BR>
+base: Name of an existing color group to copy settings from.<BR>
+Creates a new color group or edits an existing color group<BR>
+
+  <BLOCKQUOTE>
+  <B><I><A HREF="interfacetables.html#RefColorGroupItems">ColorGroupItem</A></I>(ColorSpecification color)</B><BR>
+  <I>Multiple, color Required</I><BR>
+  color: See <A HREF="interfacetables.html#RefColorSpec">Color Specification</A>.<BR>
+  </BLOCKQUOTE>
+
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>CreateCursor(string name, string class)</B><BR>
+<I>Multiple, name Required, class Required</I><BR>
+Creates a new cursor.<BR>
+
+  <BLOCKQUOTE>
+  Configuration for class <B>Null</B>.<BR>
+
+    <BLOCKQUOTE>
+    None<BR>
+    </BLOCKQUOTE>
+
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  Configuration for class <B>Bitmap</B>.<BR>
+
+    <BLOCKQUOTE>
+    <B>AddFrame()</B><BR>
+    <I>Multiple</I><BR>
+    Add a frame of animation.<BR>
+
+      <BLOCKQUOTE>
+      <B>Image(TextureSpecification image)</B><BR>
+      <I>Single, Required, image Required</I><BR>
+      image: See <A HREF="interfacetables.html#RefTextureSpec">Texture Specification</A>.<BR>
+      Specify the image for this frame of cursor animation.<BR>
+      </BLOCKQUOTE>
+
+      <BLOCKQUOTE>
+      <B>HotSpot(integer x, integer y)</B><BR>
+      <I>Single, Optional, x Required (0), y Required (0)</I><BR>
+      x: X offset of hotspot.<BR>
+      y: Y offset of hotspot.<BR>
+      Specify Hotspot of cursor.<BR>
+      </BLOCKQUOTE>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>FrameRate(integer fps)</B><BR>
+    <I>Optional, fps Requred(10)</I><BR>
+    fps: Animation speed of cursor.<BR>
+    Sets the framerate of the cursor.<BR>
+    </BLOCKQUOTE>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  Configuration for class <B>Mesh</B>.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  Configuration for class <B>Geometry</B>.<BR>
+  </BLOCKQUOTE>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>CreateFont(string fontname)</B><BR>
+<I>Multiple, fontname Required</I><BR>
+fontname: Name of new font.<BR>
+Creates a new font.<BR>
+
+  <BLOCKQUOTE>
+  <B>File(string filename)</B><BR>
+  <I>Multiple</I><BR>
+  filename: Filename to load.<BR>
+  </BLOCKQUOTE>
+
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>DefineControlType(string name, string base)</B><BR>
+<I>Multiple, name Required, base Required</I><BR>
+name: Name of new template.<BR>
+type: Code class that template will be based on.<BR>
+Creates a new control template that can be used in <A HREF="createcontrol.html">CreateControl</A>.  The settings in the template will be applied before the settings in CreateControl.<BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>Colors()</B><BR>
+<I>Multiple, Optional</I><BR>
+Configures <A HREF="interfacetables.html#RefColorNames">system colors</A>.
+<BR>
+
+  <BLOCKQUOTE>
+  <B><I><A HREF="interfacetables.html#RefColorNames">ColorName</A></I>(integer red, integer green, integer blue, integer alpha)</B><BR>
+  <I>Multiple, red Required, green Required, blue Required, alpha Optional (255)</I><BR>
+  red, green, blue, alpha: Component, between 0 and 255.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B><I><A HREF="interfacetables.html#RefColorNames">ColorName</A></I>(string colorname)</B><BR>
+  <I>Multiple, colorname Required</I><BR>
+  colorname: One of <A HREF="interfacetables.html#RefColorNames">color names</A>.<BR>
+  </BLOCKQUOTE>
+
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>Metrics()</B><BR>
+<I>Multiple</I><BR>
+Configure <A HREF="interfacetables.html#RefMetricNames">system metrics</A>.  A metric takes either an integer or string argument.  See <A HREF="interfacetables.html#RefMetricNames">table</A> for details.<BR>
+
+  <BLOCKQUOTE>
+  <B><I><A HREF="interfacetables.html#RefMetricNames">MetricName</A></I>(integer size)</B><BR>
+  <I>Multiple, size Required</I><BR>
+  size: See <A HREF="interfacetables.html#RefMetricNames">metric names</A>.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B><I><A HREF="interfacetables.html#RefMetricNames">MetricName</A></I>(string name)</B><BR>
+  <I>Multiple, name Required</I><BR>
+  name: See <A HREF="interfacetables.html#RefMetricNames">metric names</A>.<BR>
+  </BLOCKQUOTE>
+
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>Sound()</B><BR>
+<I>Multiple</I><BR>
+Configures <A HREF="interfacetables.html#RefSoundNames">system sounds</A>.<BR>
+
+  <BLOCKQUOTE>
+  <B><I><A HREF="interfacetables.html#RefSoundNames">SoundName</A></I>(string filename, float volume)</B><BR>
+  <I>Multiple, filename Required, volume Optional (100%)</I><BR>
+  filename: Name of a .wav file<BR>
+  volume: Volume.<BR>
+  </BLOCKQUOTE>
+
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>Wallpaper(string filename)</B><BR>
+<I>Required</I><BR>
+filename: Image to load as wallpaper.<BR>
+</BLOCKQUOTE>
+
+</HTML>

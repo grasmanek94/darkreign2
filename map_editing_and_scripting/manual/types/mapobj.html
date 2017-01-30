@@ -1,0 +1,333 @@
+<TITLE>MapObj</TITLE>
+<HTML>
+<H1>MapObj</H1>
+
+<BLOCKQUOTE>
+<B>Mesh()</B><BR>
+<I>Required</I><BR>
+
+  <BLOCKQUOTE>
+  <B>GodFile(string file)</B><BR>
+  <I>Optional(none)</I><BR>
+  file: Name of the Graphical Object Definition for this map object.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>Scale(float factor)</B><BR>
+  <I>Optional(1), Range(0.0001, 1000.0)</I><BR>
+  factor: Amount to scale the mesh by.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>ShadowRadius(float value)</B><BR>
+  <I>Optional(use object's bounding sphere radius)</I><BR>
+  value: Radius of the shadow cast by this object.  0 for no shadow.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>MrmFactor(float factor)</B><BR>
+  <I>Optional(1), Range(0.001, 1.0)</I><BR>
+  factor: Scaling factor which determines how quickly objects mrm as they get further away. Smaller numbers mrm more quickly<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>Chunkify(bool flag)</B><BR>
+  <I>Optional(FALSE)</I><BR>
+  flag: Should exploding chunks be generated for this object.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>QuickLight(bool flag)</B><BR>
+  <I>Optional(FALSE)</I><BR>
+  flag: Should this object use a single light value for the whole thing (as opposed to per vertex lighting).<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>MaxVertFactor(float factor)</B><BR>
+  <I>Optional(1.0), Range(0.001, 1.0)</I><BR>
+  factor: The maximum number of verts this object is displayed with at 'MrmDistance'.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>EnvMapColor(int r, int g, int b, int a)</B><BR>
+  <I>Optional(no environment mapping), Range(0, 255 for each component)</I><BR>
+  r, g, b, a: Color to mix with specular color for the units environment map.  r, g, b will usually be 255, and a should always be less than 255 probably about 122 or so.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>MoveAnim(bool flag)  OBSOLETE!!!</B><BR>
+  <I>Optional(FALSE)</I><BR>
+  flag : Is this a moving object (should the z position keys be stripped)<BR>
+  </BLOCKQUOTE>
+
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>Animations()</B><BR>
+<I>Optional</I><BR>
+
+  <BLOCKQUOTE>
+  <B>Add(string name, string variation)</B><BR>
+  <I>Multiple</I><BR>
+  name: Name of the animation.<BR>
+  variation: Available variations are : 1Way, 2Way and Loop.<BR>
+  </BLOCKQUOTE>
+
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>Attachments()</B><BR>
+<I>Optional</I><BR>
+Defines the attachments for this object.<BR>
+
+  <BLOCKQUOTE>
+  <B>Add(string type, string point)</B><BR>
+  <I>Multiple</I><BR>
+  type: Type of the attachment to add.<BR>
+  point: Hard point to attach the object to.<BR>
+  </BLOCKQUOTE>
+
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>Lights()</B><BR>
+<I>Optional</I><BR>
+
+  <BLOCKQUOTE>
+  <B>Add(string type)</B><BR>
+  <I>Multiple</I><BR>
+  type: Type of light, available types are:<BR>
+  <UL>
+    <LI>Point<BR>
+    <LI>Parallel<BR>
+    <LI>Direction<BR>
+    <LI>Spot<BR>
+    <LI>Dword<BR>
+  </UL>
+
+    <BLOCKQUOTE>
+    <B>Attach(string point)</B><BR>
+    <I>Required</I><BR>
+    point: Hard point to attach this light to.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Attenuation(float linear, float quadratic)</B><BR>
+    <I>Required</I><BR>
+    linear: linear falloff.<BR>
+    quadratic: quadratic falloff.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Cone(float inner, float outer)</B><BR>
+    <I>Required for Spot lights</I><BR>
+    inner: Full brightness to this angle.<BR>
+    outer: Brightness falls off between the inner and outer angles.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Beam(float brightness)</B><BR>
+    <I>Optional(1)</I><BR>
+    brightness: Visible beam brightness factor.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Switchable(bool flag)</B><BR>
+    <I>Optional(TRUE)</I><BR>
+    flag: If set the light is only on at night time.<BR>
+    </BLOCKQUOTE>
+
+  </BLOCKQUOTE>
+
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>RayTestFlags(string names...)</B><BR>
+<I>Optional(none)</I><BR>
+names : Ray tests to be used on objects of this type (in addition to "Box", which is always used).  Available tests are "Sphere" and "Poly". <BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>ArmourClass(string class)</B><BR>
+<I>Optional("armor_invulnerable")</I><BR>
+class: Armour class for this map object.  Refered to in weapons when they define their effectiveness against armour classes.<BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>HitPoints(int hp)</B><BR>
+<I>Optional(0), Range(0, 100000)</I><BR>
+hp: Number of hitpoints this object has.<BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>Armour(int armour)</B><BR>
+<I>Optional(0), Range(0, 100000)</I><BR>
+armour: Number of armour points this object has.<BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>ArmourRegenInterval(int intevral)</B><BR>
+<I>Optional(0), Range(0, 65535)</I><BR>
+interval: Number of 10ths of a seconds it takes to regenerate 1 armour point.  This caps the maximum rate at which armour can regenerate to 10 armour points a seconds.  If set to zero (0) the armour will never regenerate.<BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>InitialArmour(bool flag)</B><BR>
+<I>Optional(1)</I><BR>
+flag: Does this object have armour initially.<BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>ExpiryTime(float time)</B><BR>
+<I>Optional(0)</I><BR>
+time: If greater than 0, the object will self destruct after being alive this long.<BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>DeathExplosion(string explosion)</B><BR>
+<I>Optional(none)</I><BR>
+explosion: Name of the explosion type to use when this object dies.<BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>SelfDestructExplosion(string explosion)</B><BR>
+<I>Optional(none)</I><BR>
+explosion: Name of the explosion type to use when this object self-destructs.<BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>PhysicsModel(string model)</B><BR>
+<I>Optional("Default")</I><BR>
+model: Physics model which is applied to thie map object.<BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>Mass(float mass)</B><BR>
+<I>Optional(1000000)</I><BR>
+mass: Mass of the object in grams.<BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>Grip(float grip)</B><BR>
+<I>Optional(3)</I><BR>
+grip: Base value for grip for this object.  Modified depending upon the terrain.<BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>DragCoefficient(float coefficient)</B><BR>
+<I>Optional(10%)</I><BR>
+coefficient: The drag coefficient defines a resistive force proportional to an objects velocity.  The higher the coefficient, the higher the force.<BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>AnimationSpeed(float speed)</B><BR>
+<I>Optional(1)</I><BR>
+speed: Allows changing the speed of animation playback for this map object.<BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>TractionType(string type)</B><BR>
+<I>Optional("Default")</I><BR>
+type: Specifies which traction type this object uses.<BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>Collidable(bool flag)</B><BR>
+<I>Optional(type specific), Not Recommended</I><BR>
+flag: Allows objects to be tested for collision tested or to be ignored when collision tests are performed.<BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>CollisionSpeedMin(float speed)</B><BR>
+<I>Optional(5), Range(0, 100)</I><BR>
+speed: When a collision occurs and change in speed above this amount will causedamage to occur.<BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>CollisionSpeedMax(float speed)</B><BR>
+<I>Optional(15), Range(CollisionSpeedMin, 100)</I><BR>
+speed: When a collision occurs and change in speed above this amount will 100% danage to occur.  This can be used in conjunction with CollisionSpeedMin to control how much damage occurs to this object when it collides with others or the ground.<BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>AvoidHitting(bool flag)</B><BR>
+<I>Optional(type specific), Not Recommended</I><BR>
+flag: If set then when this object is caught in a line of fire it will be avoided (if the tactical property "AvoidHittingMarked" is set).<BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>ApplyTerrainHealth(bool flag)</B><BR>
+<I>Optional(FALSE)</I><BR>
+flag: If flag is set then terrain health modifiers will be applied to objects of this type<BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>Detachable(bool flag)</B><BR>
+<I>Optional(type specific) (defaults to TRUE for any UnitObj)</I><BR>
+flag: If this object is attached to another object and that object is destroyed, this flag can be set to have this object be detached from its parent at that time.<BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>HasShadow(bool flag) OBSOLETE (see Mesh::shadowRadius)</B><BR>
+<I>Optional(type specific), Not Recommended</I><BR>
+flag: This object casts a shadow on the ground.  Units by are the only object types which have shadows by default.<BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>ShowSeen(bool flag)</B><BR>
+<I>Optional(type specific), Not Recommended</I><BR>
+flag: Is object shown once terrain is seen (ie. under fog).  Generally set in the code (e.g. all Props)<BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>ShowAlways(bool flag)</B><BR>
+<I>Optional(FALSE)</I><BR>
+flag: Is object always shown (ie. under both shroud and fog)<BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>NearFadeFactor(float percentage)</B><BR>
+<I>Optional(100%)</I><BR>
+percentage: percentage of bounding sphere radius at which to apply near plane translucency<BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>HealthHighMark(float percentage)</B><BR>
+<I>Optioanl(66.66%), Range(0%, 100%)</I><BR>
+percentage: Percentage of health which is considered a high amount of health.<BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>HealthLowMark(float percentage)</B><BR>
+<I>Optional(33.33%), Range(0%, HighHealthMark)</I><BR>
+percentage: Percentage of health which is considered a low amount of health.<BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>AnimationFX()</B><BR>
+<I>Optional</I><BR>
+
+  <BLOCKQUOTE>
+  <B>Add(string animation, float frame, string fx)</B><BR>
+  <I>Multiple</I>
+  animation: Name of the animation to apply it to.<BR>
+  frame: Animation frame to generate FX on.<BR>
+  fx: Name of the FX to generate.<BR>
+  </BLOCKQUOTE>
+
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>GenericFX()</B><BR>
+<I>Optional</I><BR>
+
+  <BLOCKQUOTE>
+  <B>Add(string key, string fx)</B><BR>
+  <I>Multiple</I>
+  key: Key which determines when to generate the FX.  See <A HREF="genericfx.html">GenericFX</A> for the possible keys.<BR>
+  fx: Name of the FX to generate.<BR>
+  </BLOCKQUOTE>
+
+</BLOCKQUOTE>
+
+</HTML>

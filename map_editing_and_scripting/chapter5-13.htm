@@ -1,0 +1,164 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Dark Reign 2 Construction Kit - 5.13 Cineractives</title>
+</head>
+
+<body bgcolor="#000000" link="#33ff00" alink="#00ff00" vlink="#11cc00">
+<table border=0 cellpadding=0 cellspacing=0 width="100%">
+<TR>
+	<td bgcolor="#004400" width="100%">
+		<table border=0 cellpadding=4 border=0 cellspacing=2 width="100%">
+		<tr>
+			<td width="100%" bgcolor="#000000"><font color="#00cc00" face="Arial" size="2">
+<!-- Start Text -->
+<font size="4"><b>5.13 Cineractives</b></font><p>
+This section will teach you the basics of setting up a cineractive for your mission.  As an example, we'll look at the mid-mission cineractive from J03 that happens immediately after the first objective is completed.  You will find the scripting end of it in the action condition of the "<font color="#00CCCC" face="courier">objective_destroy_shuttle</font>" script.  And you'll find the camera paths and all other resources by opening J03 in the mission editor.<p>
+
+<font size="3"><b>Setting up Camera Paths</b></font><p>
+
+<i><b>Shot 1</b></i><p>
+
+Looking at the J03 mission in the editor, hit 7 on the keyboard to get to the camera paths and find the path called "caravan".  Double-click on the "<font color="#00CCCC" face="courier">caravan</font>" path to call it up, then scroll to the upper-middle region of the map.  You should be looking at a very simple camera path near a cluster of Sprawler units.  This is the first shot in the sequence.<p>
+
+<div align="center"><a href="Images/412-cin1.jpg"><img src="Images/412-cin1_sm.jpg" width=200 height=150 alt="" border="0"></a></div><p>
+
+Click on the camera in the bottom left corner of the camera tool, then click the play button next to it.  You should see a 7 second movie that starts low to the ground, then pans up over the Sprawler units.  You'll notice that none of the units are moving like they are in the mission.  We'll get to that.<p>
+
+<div align="center"><a href="Images/412-cin2.jpg"><img src="Images/412-cin2_sm.jpg" width=200 height=150 alt="" border="0"></a></div><p>
+
+Click the camera buttons again to get off the camera path and look at it from a side view.  You'll see 3 distinct 3D arrow-like objects with a white line connecting 2 of them.  These are the nodes of the path.  There are actually 5 nodes on this path, 4 of them are sharing 2 pairs of coordinates.  3 of the nodes are for the camera movement and 2 are for the focal point of the camera.  Click on the node that is low to the ground with the white line extending up from it.  Select and move it in any direction.  You will see that there is another node directly underneath it.  Hit ctrl-z to undo the move and get the nodes back on top of each other.<p>
+
+<b>Naming the Path</b><br>
+Let's try recreating this camera path, making a new one right next to it called "<font color="#00CCCC" face="courier">caravan2</font>".  First, click on the data entry box just beneath the list of camera paths.  Type in the new name "<font color="#00CCCC" face="courier">caravan2</font>" and hit enter.  You will see it appear in the camera path registry.  Now double-click on the new path to call it up and begin working on it.<p>
+
+<b>Laying Down Camera Nodes</b><br>
+With the new path selected, click the button that looks like an arrow bent into a continuous circle.  When you mouse over it, you should get a tool-tip that says "loop".  We are not making a looping path, so de-select it.  Next, click on the map terrain and quickly lay down three nodes.  This is going to be your camera path.  These aren't their final positions, so it doesn't matter where you put the.  Just get them on the map.<p>
+
+<div align="center"><a href="Images/412-cin3.jpg"><img src="Images/412-cin3_sm.jpg" width=200 height=150 alt="" border="0"></a></div><p>
+
+Grab the first node you laid down and drag it to roughly where you want the path to start.  If you want to go back to the original path to compare, you'll have to save this one, so click the check mark button with the tool tip of "Apply changes to curve".  That saves what you've got so far.  Now you can double-click on the "caravan" path to see where its nodes were positioned.<p>
+
+Once you've got the x and y of the first node positioned, hold down the shift key and drag it again to move it up.  Nodes are always created directly on the terrain surface, so you want to drag them up at least a little from their starting points to keep them from cutting through the ground.  When you're done with that, skip ahead to the 3rd and last node in the path.  Ignore the 2nd node for now, we'll deal with that in the "<b>objects.cfg</b>".  Move the 3rd node to a position near the 1st but slightly forward, then hold down shift and drag it straight up so that it will overlook the Sprawler forces.<p>
+
+<b>Laying Down Focus Nodes</b><br>
+Before you can view what you've got, you must lay down a focal point.  In this path, the focal point does not move.  All you'll need is one set of coordinates, but you'll need two nodes to denote the start and finish of the path.  Click on the button with the F and the triangle on it.  The tool tip is called "Edit focus curve".  Make sure this is selected, and also select the "Loop" button, as this path will be continuous.  Lay down two points in the center of the cluster of Sprawler units.  They won't share the same coordinates yet.  We'll get to that later.  For now, just make sure the first node is where you want it.<p>
+
+<b>Setting Strength and Time</b><br>
+One last step before viewing.  You need to set the strength and time of each node.  We're not actually curving any of the splines, so set the strength on all 5 nodes to 0.  You can do this quickly by marquee selecting all 5 nodes at once, then typing "0" into the "Strength" box and hitting enter.  The times, however, are not all the same.  You want the time between the 1st and 2nd camera nodes to be 3 seconds, and the time between the 2nd and 3rd nodes to be 4 seconds.  So select the 1st camera node and type 3 into the time box, then select the 2nd node and and type in 4.  The 3rd node does not need to be set.  Times only set the interval between 2 nodes, so the last node is always irrelevant.  The 2 nodes that make the focal point are looping and they share the same coordinates, so it doesn't matter what their times are set to.  Set them to 7 if you want, so that one cycle of the focal points lasts as long as the camera path.<p>
+
+<b>Viewing the Path in Progress</b><br>
+Now we're going to look at what we've got.  Click the check button to save the path data.  This includes node strengths and times.  You must always do this before you look at a camera curve in order for your new changes to go into effect.  Once this is done, click on the camera button and hit play.<p>
+
+The 2nd nodes on both the camera and focus paths are not in the right places.  We want them to share the exact coordinates of the nodes that precede them.  It is almost impossible to do this using the editor.  Instead we must resort to text files.  Save your work under a new file name.  Call it J03_tutorial if you want.  Then alt-tab out to the desktop if you can.  If you can't alt-tab, you'll have to quit out and load the game back up when you're done.  If you're forced to do this…I pray for you.<p>
+
+THIS NEXT PART IS VERY IMPORTANT!!!<p>
+
+Most of this stuff you can figure out with a little persistence.  But copying node coordinates cannot be done in the editor or the script, and is very tricky to learn on your own.  So read this next part carefully to learn a very useful trick.<p>
+
+<b>Copying Node Coordinates</b><br>
+Go into the directory where the mission is "<b>\missions\jda\j03_tutorial</b>".  There should be a file inside called "<b>objects.cfg</b>".  Open it up in any text editor.  This is the file that all of your object data for a mission is saved to.  It holds units, regions, trails, camera paths - everything.<p>
+
+With the "<b>objects.cfg</b>" open, do a search for the string "<font color="#00CCCC" face="courier">caravan2</font>".  This should take you straight to the data for the camera path you just made.  You will see a string of matrix grids with numbers in them.  These are the coordinates for each node, listed in the order that they occur on the path.  The numbers listed next to "Pos" are the x, y and z position coordinates.  The other 3 listings are for vector orienation.  The whole thing should look roughly like this (most of the nodes were removed to save space):
+
+<hr>
+<blockquote><font color="#00CCCC" face="courier">
+CreateObject("Bookmark", 1890)<br>
+{<br>
+&nbsp;BookmarkObj("caravan2")<br>
+&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;Curve()<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Movement()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Loop(0);<p>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Segment()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Matrix()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pos(511.518250, 10.590333, 898.192688);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Right(1.000000, 0.000000, 0.000000);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Up(0.000000, 1.000000, 0.000000);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Front(0.000000, 0.000000, 1.000000);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<p>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Strength(0.000000);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Time(3.000000);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<p>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Focus()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Loop(0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Segment()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Matrix()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pos(567.453125, 9.008410, 897.636292);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Right(1.000000, 0.000000, 0.000000);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Up(0.000000, 1.000000, 0.000000);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Front(0.000000, 0.000000, 1.000000);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<p>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Strength(0.000000);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Time(10.000000);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;}<br>
+}
+</font></blockquote>
+<hr>
+
+<br>Using this file, getting nodes to share coordinates is very simple.  All you have to do is copy the coordinates from one node and paste them over the coordinates for the other.  That's all there is to it.  You can also edit node strengths and times here, as well as manually tweaking x, y and z coordinates.<p>
+
+Grab the coordinates of the first node listed under "Movement" and copy it into the second node.  Then do the same for the nodes listed under "Focus".  Save this file and go back into the editor and reload the mission.  <b>DO NOT SAVE BEFORE RELOADING THE MISSION</b>.  If you do, you'll lose the changes you just made to the text document.<p>
+
+Once it's reloaded, view the <font color="#00CCCC" face="courier">caravan2</font> path again.  you should get something very similar to the original "<font color="#00CCCC" face="courier">caravan</font>" path.  Make any adjustments you feel necessary to the node points until you are happy with it.  If you want to copy the node positions exactly from the original "<font color="#00CCCC" face="courier">caravan</font>" path, you now know how to do that using "<b>objects.cfg</b>".<p>
+
+That's it.  We're done with the first shot.  Now we'll go through the 2nd, 3rd and 4th shots quickly.  They all use the same basic techniques, but will add a couple new tricks here and there.<p><BR>
+
+<b><i>Shot 2</i></b><p>
+
+The next shot uses the path called "<font color="#00CCCC" face="courier">DF_intro</font>".  Double-click on the name to call it up, then scroll a little to the west on the mini-map to find it.<p>
+
+<div align="center"><a href="Images/412-cin4.jpg"><img src="Images/412-cin4_sm.jpg" width=200 height=150 alt="" border="0"></a></div><p>
+
+This shot has 8 nodes; 4 for the camera and 4 for the focus.  You'll notice that one of the lines is colored blue.  This is the focus line, and helps distinguish between the two.<p>
+
+You'll also notice that this path uses a lot of curves.  These are very important for making your cineractives look good.<p>
+
+<b>Curve Strength and Normals</b><br>
+The degree to which a line curves between nodes is determined by the strength of both nodes and their rotation.  We've covered strength a bit already.  Play around with increasing the numbers to see how it affects things.  To rotate a node, select it, hold down the alt key, then slide the mouse.  You can also change the pitch and general orientation of a node by holding down ctrl and doing the same thing.<p>
+
+Strength not only affects the degree to which a curve bends, it also distorts the speed at which the camera or focal point moves.  The lower the number, the more the camera/focus will slow down when it is near the node and speed up when it is between nodes.  If you raise the strength very high, the camera/focus will speed through the node very quickly.  Look at the settings on the existing camera paths to get a feel for how this is done.<p>
+
+To get a feel for the speed at which the camera/focus is going to move, click the button with the tool tip that says "Draw normals".  You'll find it in the same row as the "Loop" and "Edit focus curve" buttons.  This will divide the interval between each node into tenths and show you how the camera/focus will speed up and decelerate as it moves.<p>
+
+Watch this camera path a couple times to get a feel for how curve strength works.  Also notice how the focal point moves smoothly in relation to the camera.<p>
+
+<b><i>Shot 3</i></b><p>
+
+Simple is Good<p>
+
+Go to the camera path labeled "<font color="#00CCCC" face="courier">DF_intro2</font>".  It is very close to "<font color="#00CCCC" face="courier">DF_intro</font>", on the other side of the ravine.  This is a very simple but effective shot.  It has only 3 nodes each for both the camera and focus, and it has all its strengths set to 0.  When viewed in the mission, it synchs with the VO to communicate the idea that powering up the Death Field will block passage through the ravine.  Very often, these simple shots are best for communicating what needs to be done in a mission.<p>
+
+<b><i>Shot 4</i></b><p>
+
+Blending Cineractives into Gameplay<br>
+Jump over to the path called "<font color="#00CCCC" face="courier">rigs2</font>".  It is located in the southeast corner of the map.  Again, this is a fairly simple curve that introduces the 3 rigs that the player is being given.  The only new feature is the blend from camera path to playable in-game view.  You will notice in the game that at the end of the path, the letterboxing will disappear and the interface will pop-up, giving the player control of the view.  This is done at the start of most missions.  It looks great and it draws the player into what's going on.  Most of this is done in the scripting section that we will cover next, but it is important to end the curve at a point that will blend smoothly with the default F3 view.<p>
+
+<!-- End Text -->
+
+		</font></td>
+		</tr>
+		</table>
+	</td>
+</tr>
+</table>
+
+
+</body>
+</html><br>

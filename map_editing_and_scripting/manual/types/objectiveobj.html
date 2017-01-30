@@ -1,0 +1,1247 @@
+<TITLE>ObjectiveObj</TITLE>
+<HTML>
+<H1>ObjectiveObj</H1>
+
+<BLOCKQUOTE>
+<B>Condition(string type)</B><BR>
+<I>Required</I><BR>
+type: Type of condition.  The types are presented below.<BR>
+Since the configuration is type specific, the configuration will be presented on a type by type basis.<BR>
+The following scopes are available in all conditions.<BR>
+
+  <BLOCKQUOTE>
+  <B>Team(string team)</B><BR>
+  <I>Optional(none)</I><BR>
+  team: Overrides the team it uses to test the condition to the named team.<BR>
+  </BLOCKQUOTE>
+
+<UL>
+  <LI><B>TRUE</B><BR>
+  The condition is always true, and is primarily for testing purposes.<BR>
+  <BR>
+  <LI><B>FALSE</B><BR>
+  This condition is always false, and is primarily for testing purposes.<BR>
+  <BR>
+  <LI><B>NOT</B><BR>
+  This condition inverts the condition inside it.<BR>
+
+    <BLOCKQUOTE>
+    <B>Condition(string type)</B><BR>
+    <I>Required</I><BR>
+    Refer to Condtion() for more information.<BR>
+    </BLOCKQUOTE>
+
+  <LI><B>AND</B><BR>
+  This condition contains a list of subconditions which must ALL be TRUE before this condition becomes TRUE.<BR>
+    <BLOCKQUOTE>
+    <B>Condition(string type)</B><BR>
+    <I>Multiple, at least One</I><BR>
+    Refer to Condition() for more information<BR>
+    </BLOCKQUOTE>
+
+  <LI><B>OR</B><BR>
+  This condition contains a list of subconditions of which one must be TRUE before this condition becomes TRUE.<BR>
+    <BLOCKQUOTE>
+    <B>Condition(string type)</B><BR>
+    <I>Multiple, at least One</I><BR>
+    Refer to Condition() for more information<BR>
+    </BLOCKQUOTE>
+
+  <LI><B>Timer</B><BR>
+  Condition based on a timer.<BR>
+
+    <BLOCKQUOTE>
+    <B>Time(float mintime, float maxtime)</B><BR>
+    <I>Required, Optional maxtime(mintime)</I><BR>
+    mintime: The minimum amount of time which must pass before the condition becomes TRUE.<BR>
+    maxtime: The maximum amount of time which can pass before the condition becomes TRUE.<BR>
+    The actual time is random between mintime and maxtime.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Var(string name)</B><BR>
+    <I>Optional(none)</I><BR>
+    name: The name of a float var in which to store the seconds remaining<BR>
+    </BLOCKQUOTE>
+
+  <LI><B>TimeOfDay</B><BR>
+  Condition based on a the time of day.<BR>
+
+    <BLOCKQUOTE>
+    <B>Time(float time)</B><BR>
+    <I>Required</I><BR>
+    time: When the time of day cycle (which is 0 to 1) passes through this time the condition becomes TRUE.<BR>
+    </BLOCKQUOTE>
+
+  <LI><B>InRegion</B><BR>
+  Condition which is TRUE when the amount of units in the region compared with the amount configured using the relational operator is TRUE.  There are two main subtypes to this condition.  If a tag is specfied then the condition checks the tag to see if it's in the region.  If a tag is not specified then a type must be specified and the test is done on the types in the region.<BR>
+
+    <BLOCKQUOTE>
+    <B>Region(string region)</B><BR>
+    <I>Required</I><BR>
+    region: Name of the region to check.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Tag(string tag)</B><BR>
+    <I>Required if Type or Property not specified</I><BR>
+    tag: Name of the tag which must be in the region.<BR>
+
+      <BLOCKQUOTE>
+      <B>Percentage(float percentage)</B><BR>
+      <I>Optional(100%)</I><BR>
+      percentage: Percentage of the objects in the tag to test against.<BR>
+      </BLOCKQUOTE>
+
+      <BLOCKQUOTE>
+      <B>Amount(int amount)</B><BR>
+      <I>Optional(relies on percentage)</I><BR>
+      amount: Number of objects in the tag to test against.<BR>
+      </BLOCKQUOTE>
+
+      <BLOCKQUOTE>
+      <B>Operator(string operator)</B><BR>
+      <I>Required</I><BR>
+      operator: Relational operator.  See <A HREF="../misc/operators.html#relational">RelationalOperators</A> for more information.<BR>
+      </BLOCKQUOTE>
+
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Relation(string relation)</B><BR>
+    <I>Optional(none)</I><BR>
+    relation: Ally, Neutral or Enemy.  If specified then the the condition tests the units from those related teams.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Combine(bool flag)</B><BR>
+    <I>Optional(false)</I><BR>
+    flag: Whether to combine relations units when testing.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Type(string type)</B><BR>
+    <I>Required if Tag or Proerty not specified.</I><BR>
+    type: May be * to denote all types.<BR>
+
+      <BLOCKQUOTE>
+      <B>Amount(int amount)</B><BR>
+      <I>Optional(if tag specified)</I><BR>
+      amount: Number of units to test against.<BR>
+      </BLOCKQUOTE>
+
+      <BLOCKQUOTE>
+      <B>Operator(string operator)</B><BR>
+      <I>Optional(if tag specified)</I><BR>
+      operator: Relational operator.  See <A HREF="../misc/operators.html#relational">RelationalOperators</A> for more information.<BR>
+      </BLOCKQUOTE>
+
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Property(string property)</B><BR>
+    <I>Required if Tag or Type not specified.</I><BR>
+    property: Property to test with.<BR>
+
+      <BLOCKQUOTE>
+      <B>Amount(int amount)</B><BR>
+      <I>Optional(if tag specified)</I><BR>
+      amount: Number of units to test against.<BR>
+      </BLOCKQUOTE>
+
+      <BLOCKQUOTE>
+      <B>Operator(string operator)</B><BR>
+      <I>Optional(if tag specified)</I><BR>
+      operator: Relational operator.  See <A HREF="../misc/operators.html#relational">RelationalOperators</A> for more information.<BR>
+      </BLOCKQUOTE>
+
+    </BLOCKQUOTE>
+
+  <LI><B>ThreatInRegion</B><BR>
+  Condition which is TRUE when the amount of threat in the region compared with the amount configured using the relational operator is TRUE.<BR>
+
+    <BLOCKQUOTE>
+    <B>Region(string region)</B><BR>
+    <I>Required</I><BR>
+    region: Name of the region to check.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Relation(string relation)</B><BR>
+    <I>Optional(none)</I><BR>
+    relation: Ally, Neutral or Enemy.  If specified then the the condition uses the threats from the related teams.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Combine(bool flag)</B><BR>
+    <I>Optional(false)</I><BR>
+    flag: Whether to combine relations units when testing.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>ArmourClass(string class)</B><BR>
+    <I>Optional(none)</I><BR>
+    class: Armour class to test against.  If not speficied then the threat against any and all armour classes is tested.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Amount(int amount)</B><BR>
+    <I>Optional(1)</I><BR>
+    amount: Amount of threat to test against.  Threat is approximately the amount of damage per second.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Operator(string operator)</B><BR>
+    <I>Optional</I><BR>
+    operator: Relational operator.  See <A HREF="../misc/operators.html#relational">RelationalOperators</A> for more information.<BR>
+    </BLOCKQUOTE>
+
+  <LI><B>TagCount</B><BR>
+  Condition which is TRUE when the number of objects in the tag compared with the number configured using the relational operator is TRUE.<BR>
+
+    <BLOCKQUOTE>
+    <B>Tag(string tag)</B><BR>
+    <I>Optional(none)</I><BR>
+    tag: Name of the tag to test.<BR>
+
+      <BLOCKQUOTE>
+      <B>Percentage(float percentage)</B><BR>
+      <I>Optional(100%)</I><BR>
+      percentage: Percentage of the objects in the tag to test against.<BR>
+      </BLOCKQUOTE>
+
+      <BLOCKQUOTE>
+      <B>Amount(int amount)</B><BR>
+      <I>Optional(relies on percentage)</I><BR>
+      amount: Number of objects in the tag to test against.<BR>
+      </BLOCKQUOTE>
+
+      <BLOCKQUOTE>
+      <B>Operator(string operator)</B><BR>
+      <I>Required</I><BR>
+      operator: Relational operator.  See <A HREF="../misc/operators.html#relational">RelationalOperators</A> for more information.<BR>
+      </BLOCKQUOTE>
+
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Var(string name)</B><BR>
+    <I>Optional(none)</I><BR>
+    name: The name of an integer var in which to store the number of objects in the tag<BR>
+    </BLOCKQUOTE>
+
+  <LI><B>HaveTag</B><BR>
+  Condition which is TRUE when the number of objects in the tag compared with the number configured using the relational operator are on the team or are being carried by objects which are on the team is TRUE.<BR>
+
+    <BLOCKQUOTE>
+    <B>Tag(string tag)</B><BR>
+    <I>Optional(none)</I><BR>
+    tag: Name of the tag to test.<BR>
+
+      <BLOCKQUOTE>
+      <B>Percentage(float percentage)</B><BR>
+      <I>Optional(100%)</I><BR>
+      percentage: Percentage of the objects in the tag to test against.<BR>
+      </BLOCKQUOTE>
+
+      <BLOCKQUOTE>
+      <B>Amount(int amount)</B><BR>
+      <I>Optional(relies on percentage)</I><BR>
+      amount: Number of objects in the tag to test against.<BR>
+      </BLOCKQUOTE>
+
+      <BLOCKQUOTE>
+      <B>Operator(string operator)</B><BR>
+      <I>Required</I><BR>
+      operator: Relational operator.  See <A HREF="../misc/operators.html#relational">RelationalOperators</A> for more information.<BR>
+      </BLOCKQUOTE>
+
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Relation(string relation)</B><BR>
+    <I>Optional(none)</I><BR>
+    relation: Ally, Neutral or Enemy.  If specified then the the condition tests the amount of the tag in "possession" of related teams.  This is not accumulative, each individually related team is tested.<BR>
+    </BLOCKQUOTE>
+
+  <LI><B>TagProximity</B><BR>
+  Condition which is TRUE when the proximity of the tag to the specified "thing" is less that the range.<BR>
+
+    <BLOCKQUOTE>
+    <B>SourceTag(string tag)</B><BR>
+    <I>Required</I><BR>
+    tag: Name of the tag to test the proximity to.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Tag(string tag)</B><BR>
+    <I>Required if Type or Property not specified.</I><BR>
+    tag: Name of the tag to test.<BR>
+
+      <BLOCKQUOTE>
+      <B>Percentage(float percentage)</B><BR>
+      <I>Optional(100%)</I><BR>
+      percentage: Percentage of the objects in the tag to test against.<BR>
+      </BLOCKQUOTE>
+
+      <BLOCKQUOTE>
+      <B>Amount(int amount)</B><BR>
+      <I>Optional(relies on percentage)</I><BR>
+      amount: Number of objects in the tag to test against.<BR>
+      </BLOCKQUOTE>
+
+      <BLOCKQUOTE>
+      <B>Operator(string operator)</B><BR>
+      <I>Required</I><BR>
+      operator: Relational operator.  See <A HREF="../misc/operators.html#relational">RelationalOperators</A> for more information.<BR>
+      </BLOCKQUOTE>
+
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Type(string type)</B><BR>
+    <I>Required if Tag or Proerty not specified.</I><BR>
+    type: May be * to denote all types.<BR>
+
+      <BLOCKQUOTE>
+      <B>Amount(int amount)</B><BR>
+      <I>Optional(if tag specified)</I><BR>
+      amount: Number of units to test against.<BR>
+      </BLOCKQUOTE>
+
+      <BLOCKQUOTE>
+      <B>Operator(string operator)</B><BR>
+      <I>Optional(if tag specified)</I><BR>
+      operator: Relational operator.  See <A HREF="../misc/operators.html#relational">RelationalOperators</A> for more information.<BR>
+      </BLOCKQUOTE>
+
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Property(string property)</B><BR>
+    <I>Required if Tag or Type not specified.</I><BR>
+    property: Property to test with.<BR>
+
+      <BLOCKQUOTE>
+      <B>Amount(int amount)</B><BR>
+      <I>Optional(if tag specified)</I><BR>
+      amount: Number of units to test against.<BR>
+      </BLOCKQUOTE>
+
+      <BLOCKQUOTE>
+      <B>Operator(string operator)</B><BR>
+      <I>Optional(if tag specified)</I><BR>
+      operator: Relational operator.  See <A HREF="../misc/operators.html#relational">RelationalOperators</A> for more information.<BR>
+      </BLOCKQUOTE>
+
+    </BLOCKQUOTE>
+
+  <LI><B>TagInTransport</B><BR>
+  Condition which is TRUE when the objects in the tag are inside transports.  If there are no items in the tag then the condition is FALSE.<BR>
+
+    <BLOCKQUOTE>
+    <B>Tag(string tag)</B><BR>
+    <I>Optional(none)</I><BR>
+    tag: Name of the tag to test.<BR>
+
+      <BLOCKQUOTE>
+      <B>Operator(string operator)</B><BR>
+      <I>Required</I><BR>
+      operator: Relational operator.  See <A HREF="../misc/operators.html#relational">RelationalOperators</A> for more information.<BR>
+      This is not used, but is still required for the mean time.  Use any operator is it is ignored.<BR>
+      </BLOCKQUOTE>
+
+    </BLOCKQUOTE>
+
+  <LI><B>GuardingTag</B><BR>
+  Condition which is TRUE when any object in one tag is guarding any object in another tag.<BR>
+
+    <BLOCKQUOTE>
+    <B>Guarder(string tag)</B><BR>
+    <I>Required</I><BR>
+    tag: The tag doing the guarding.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Guardee(string tag)</B><BR>
+    <I>Required</I><BR>
+    tag: The tag being guarded.<BR>
+    </BLOCKQUOTE>
+
+  <LI><B>HaveType</B><BR>
+  Condition which is TRUE when the number of units of the type given compared with the amount configured using the relational operator is TRUE.<BR>
+
+    <BLOCKQUOTE>
+    <B>Relation(string relation)</B><BR>
+    <I>Optional(none)</I><BR>
+    relation: Ally, Neutral or Enemy.  If specified then the the condition becomes true when a relation has posession of the type.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Combine(bool flag)</B><BR>
+    <I>Optional(false)</I><BR>
+    flag: Whether to combine relations units when testing.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Type(string type)</B><BR>
+    <I>Required</I><BR>
+    type: Type to be checked.  Can be * which denotes all types.<BR>
+
+      <BLOCKQUOTE>
+      <B>Amount(int amount)</B><BR>
+      <I>Required</I><BR>
+      amount: Number of the type given to be test.<BR>
+      </BLOCKQUOTE>
+
+      <BLOCKQUOTE>
+      <B>Operator(string operator)</B><BR>
+      <I>Required</I><BR>
+      operator: Relational operator.  See <A HREF="../misc/operators.html#relational">RelationalOperators</A> for more information.<BR>
+      </BLOCKQUOTE>
+
+    </BLOCKQUOTE>
+
+  <LI><B>ConstructingType</B><BR>
+  Condition which is TRUE when an object of specified type is <U>under construction</U> on this team.<BR>
+
+    <BLOCKQUOTE>
+    <B>Type(string type)</B><BR>
+    <I>Required</I><BR>
+    type: Type to be checked.<BR>
+
+    </BLOCKQUOTE>
+
+  <LI><B>HaveMember</B><BR>
+  Condition which is TRUE when the number of team members compared with the amount configured using the relational operator is TRUE.<BR>
+
+    <BLOCKQUOTE>
+    <B>Relation(string relation)</B><BR>
+    <I>Optional(none)</I><BR>
+    relation: Ally, Neutral or Enemy.  If specified then the the condition tests related teams.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Combine(bool flag)</B><BR>
+    <I>Optional(false)</I><BR>
+    flag: Whether to combine relations units before testing.<BR>
+    </BLOCKQUOTE>
+
+		<BLOCKQUOTE>
+		<B>Amount(int amount)</B><BR>
+		<I>Required</I><BR>
+		amount: Number of members to be tested.<BR>
+		</BLOCKQUOTE>
+
+		<BLOCKQUOTE>
+		<B>Operator(string operator)</B><BR>
+		<I>Required</I><BR>
+		operator: Relational operator.  See <A HREF="../misc/operators.html#relational">RelationalOperators</A> for more information.<BR>
+    </BLOCKQUOTE>
+
+  <LI><B>Resource</B><BR>
+  Condition which is TRUE when the operation between the amount of resource on this team (or related teams if specified)<BR>
+
+    <BLOCKQUOTE>
+    <B>Relation(string relation)</B><BR>
+    <I>Optional(none)</I><BR>
+    relation: Ally, Enemy or Neutral.  Relation to test against.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Combine(bool flag)</B><BR>
+    <I>Optional(0)</I><BR>
+    flag: If set then combine the resource of the related teams, or if not set then test each team individually.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Amount(integer amount)</B><BR>
+    <I>Required</I><BR>
+    amount: Amount of resource to test against.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Operator(string operator)</B><BR>
+    <I>Required</I><BR>
+    operator: Relational operator.  See <A HREF="../misc/operators.html#relational">RelationalOperators</A> for more information.<BR>
+    </BLOCKQUOTE>
+
+  <LI><B>RelativeRelation</B><BR>
+  Condition which is TRUE when the statistic test between this team and each related team becomes TRUE.  Examples:<BR>
+
+    <UL>
+      <LI>To have a condition that is TRUE when an enemy has more than half the number of units this team has.  Statistic: <B>Number</B>, Relation: <B>Enemy</B>, Amount: <B>50%</B>, Operator: <B>></B>, Combine: <B>0</B><BR>
+      <LI>To have a condition that is TRUE when all allies has less than double the threat this team has.  Statistic: <B>Threat</B>, Relation: <B>Ally</B>, Amount: <B>200%</B>, Operator: <B><</B>, Combine: <B>1</B><BR>
+    </UL>
+
+    <BLOCKQUOTE>
+    <B>Statistic(string statistic)</B><BR>
+    <I>Required</I><BR>
+    statistic: statistic to test, which can be:<BR>
+
+      <UL>
+        <LI><B>Number</B><BR>
+        Number of units on the team.<BR>
+        <LI><B>Threat</B><BR>
+        Total threat to all armour classes.<BR>
+        <LI><B>Defense</B><BR>
+        Total number of hitpoints.<BR>
+      </UL>
+
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Relation(string relation)</B><BR>
+    <I>Required</I><BR>
+    relation: Ally, Enemy or Neutral.  Relation to test against.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Amount(float amount)</B><BR>
+    <I>Optional(100%)</I><BR>
+    amount: Amount to modify this teams value before performing the test.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Operator(string operator)</B><BR>
+    <I>Required</I><BR>
+    operator: Relational operator.  See <A HREF="../misc/operators.html#relational">RelationalOperators</A> for more information.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Combine(bool flag)</B><BR>
+    <I>Optional(0)</I><BR>
+    flag: If set then combine the scores of the related teams, or if not set then test each team individually.<BR>
+    </BLOCKQUOTE>
+
+  <BR>
+
+  <A NAME="TALLY"><LI><B>Tally</B><BR></A>
+  Condition which is TRUE when the statistic test compared with the amount given becomes TRUE<BR>
+
+    <BLOCKQUOTE>
+    <B>Statistic(string statistic)</B><BR>
+    <I>Required</I><BR>
+    statistic: statistic to test, which can be:<BR>
+
+      <UL>
+        <LI><B>Constructed</B><BR>
+          Number of units constructed.<BR>
+        <LI><B>KillsSelf</B><BR>
+          Number of own units killed.<BR>
+        <LI><B>KillsMisc</B><BR>
+          Number of misc objects killed. (objects not on teams)<BR>
+        <LI><B>KillsAlly</B><BR>
+          Number of allied units killed.<BR>
+        <LI><B>KillsNeutral</B><BR>
+          Number of neutral units killed.<BR>
+        <LI><B>KillsEnemy</B><BR>
+          Number of enemy units killed.<BR>
+        <LI><B>Losses</B><BR>
+          Number of units lost.<BR>
+        <LI><B>Resource</B><BR>
+          Amount of resource collected.<BR>
+      </UL>
+
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Amount(integer amount)</B><BR>
+    <I>Optional(0)</I><BR>
+    amount: Amount to compare against.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Type(string type)</B><BR>
+    <I>Optional(none)</I><BR>
+    type: Only check the statistics of the given type.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Operator(string operator)</B><BR>
+    <I>Required</I><BR>
+    operator: Relational operator.  See <A HREF="../misc/operators.html#relational">RelationalOperators</A> for more information.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Relation(string relation)</B><BR>
+    <I>Optional(none)</I><BR>
+    relation: Ally, Enemy or Neutral.  Relation to test against.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Combine(bool flag)</B><BR>
+    <I>Optional(0)</I><BR>
+    flag: If set then combine the tally's of the related teams, or if not set then test each team individually.<BR>
+    </BLOCKQUOTE>
+
+  <BR>
+
+  <LI><B>VarConstFloat(string var, string operator, float value)</B><BR>
+  Condition which becomes true when the relation with the give Var becomes true. The tests for this are always in the form <B>var operator value</B>.<BR>
+  var: Name of the var.  This name MUST be resolvable when tests upon it are to be conducted.  No tests will be conducted upon it until in the actual game.<BR>
+  operator: Relational operator.  See <A HREF="../misc/operators.html#relational">RelationalOperators</A> for more information.<BR>
+  value: Value to test var against.<BR>
+
+  <BR>
+
+  <LI><B>VarVarFloat(string var1, string operator, string var2)</B><BR>
+  Condition which becomes true when the relation with the give Var becomes true. The tests for this are always in the form <B>var1 operator var2</B>.<BR>
+  var1: Name of the var1.  This name MUST be resolvable when tests upon it are to be conducted.  No tests will be conducted upon it until in the actual game.<BR>
+
+  operator: Relational operator.  See <A HREF="../misc/operators.html#relational">RelationalOperators</A> for more information.<BR>
+  var2: Name of the var2.  This name MUST be resolvable when tests upon it are to be conducted.  No tests will be conducted upon it until in the actual game.<BR>
+
+  <BR>
+
+  <LI><B>VarConstInteger(string var, string operator, integer value)</B><BR>
+  Condition which becomes true when the relation with the give Var becomes true. The tests for this are always in the form <B>var operator value</B>.<BR>
+  var: Name of the var.  This name MUST be resolvable when tests upon it are to be conducted.  No tests will be conducted upon it until in the actual game.<BR>
+  operator: Relational operator.  See <A HREF="../misc/operators.html#relational">RelationalOperators</A> for more information.<BR>
+  value: Value to test var against.<BR>
+
+  <BR>
+
+  <LI><B>VarVarInteger(string var1, string operator, string var2)</B><BR>
+  Condition which becomes true when the relation with the give Var becomes true. The tests for this are always in the form <B>var1 operator var2</B>.<BR>
+  var1: Name of the var1.  This name MUST be resolvable when tests upon it are to be conducted.  No tests will be conducted upon it until in the actual game.<BR>
+  operator: Relational operator.  See <A HREF="../misc/operators.html#relational">RelationalOperators</A> for more information.<BR>
+  var2: Name of the var2.  This name MUST be resolvable when tests upon it are to be conducted.  No tests will be conducted upon it until in the actual game.<BR>
+
+  <BR>
+
+</UL>
+
+</BLOCKQUOTE>
+
+<A NAME="action">
+<BLOCKQUOTE>
+<B>Action()</B><BR>
+<I>Required</I><BR>
+<BR>
+
+  <BLOCKQUOTE>
+  <B>Cmd(string command)</B><BR>
+  <I>Multiple</I><BR>
+  command: Console command to be exucuted.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>TeamCmd(string command)</B><BR>
+  <I>Multiple</I><BR>
+  command: Console comand to be executed using the current team as a context.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>CreateVarInteger(string var, integer initial, integer min, integer max)</B><BR>
+  <I>Multiple, Optional min(integer min), max(integer max)</I><BR>
+  var: Name of the var to be created.  Must be a team var, i.e. start with '@'.<BR>
+  initial: The inital value to give the var.<BR>
+  min: The minimum value this var can ever have.<BR>
+  max: The maximum value this var can ever have.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>CreateVarFloat(string var, float initial, float min, float max)</B><BR>
+  <I>Multiple, Optional min(float min), max(float max)</I><BR>
+  var: Name of the var to be created.  Must be a team var, i.e. start with '@'.<BR>
+  initial: The initial value to give the var.<BR>
+  min: The minimum value this var can ever have.<BR>
+  max: The maximum value this var can ever have.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>CreateVarString(string var, string initial)</B><BR>
+  <I>Multiple</I><BR>
+  var: Name of the var to be created.  Must be a team var, i.e. start with '@'.<BR>
+  initial: The initial value to give the var.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>DeleteVar(string var)</B><BR>
+  <I>Multiple</I><BR>
+  var: Name of the var to be deleted.  Must be a team var, i.e. start with '@'.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>Op()</B><BR>
+  See <A HREF="../misc/operators.html#arithmetic">Op</A> form more information.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>NewObjective(string objective)</B><BR>
+  <I>Multiple</I><BR>
+  objective: Name of objective type to give to the team.
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>NewRandomObjective()</B><BR>
+  <I>Multiple</I><BR>
+  Give a new objective to the team picking randomly from the given list.<BR>
+
+    <BLOCKQUOTE>
+    <B>Add(string objective, float weighting)</B><BR>
+    <I>Multiple</I><BR>
+    objective: Name of objective type to give to the team.<BR>
+    weighting: Weighting to give this objective relative to the others in the list.<BR>
+    </BLOCKQUOTE>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>CurrentObjectiveAbandoned(string objective)</B><BR>
+  <I>Multiple</I><BR>
+  objective: Name of objective type to be abandonned (must be a current objective).<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>ObjectiveAbandoned(string objective)</B><BR>
+  <I>Multiple</I><BR>
+  objective: Name of objective type to be abandonned (does not need to be a current objective).<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>Win()</B><BR>
+  <I>Multiple</I><BR>
+  The team wins<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>Lose()</B><BR>
+  <I>Multiple</I><BR>
+  The team loses<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>Move()</B><BR>
+  <I>Multiple</I><BR>
+  Move tagged objects to a region (the centre of the region).<BR>
+
+    <BLOCKQUOTE>
+    <B>Tag(string tag)</B><BR>
+    <I>Required</I><BR>
+    tag: Name of the tag to be moved.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Region(string region)</B><BR>
+    <I>Required</I><BR>
+    region: Name of the region to be moved to.<BR>
+    </BLOCKQUOTE>
+
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>Warp()</B><BR>
+  <I>Multiple</I><BR>
+  Warps tagged objects to a region (the centre of the region).<BR>
+
+    <BLOCKQUOTE>
+    <B>Tag(string tag)</B><BR>
+    <I>Required</I><BR>
+    tag: Name of the tag to be warped.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Region(string region)</B><BR>
+    <I>Required</I><BR>
+    region: Name of the region to be warped to.<BR>
+    </BLOCKQUOTE>
+
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>SpawnObjects()</B><BR>
+  <I>Multiple</I><BR>
+  Spawns in objects at a region using a formation.<BR>
+
+    <BLOCKQUOTE>
+    <B>Formation(string formation)</B><BR>
+    <I>Required</I><BR>
+    formation: Name of the formation to use when spawning in the objects.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Direction(float direction)</B><BR>
+    <I>Required</I><BR>
+    direction: Direction to face the formation.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Region(string region)</B><BR>
+    <I>Required</I><BR>
+    region: Region where the object(s) will be created.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Tag(string tag)</B><BR>
+    <I>Optional</I><BR>
+    tag: Tag the new objects will be added to.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Random(bool random)</B><BR>
+    <I>Optional(0)</I><BR>
+    random: Add the objects randomly into the formation.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Construct(bool flag)</B><BR>
+    <I>Optional(FALSE)</I><BR>
+    flag: Should the spawned units be assigned a construct task.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>AddType(string type, integer amount)</B><BR>
+    <I>Multiple, Optional amount(1)</I><BR>
+    type: Name of the type to spawn in.<BR>
+    amount: Number of the type to spawn in.<BR>
+    </BLOCKQUOTE>
+
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>UseOffMapObject()</B><BR>
+  <I>Multiple</I><BR>
+  Use an offmap object (airstikes and mojos).<BR>
+
+    <BLOCKQUOTE>
+    <B>Region(string region)</B><BR>
+    <I>Required</I><BR>
+    region: Region where off map object will be used.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Type(string type)</B><BR>
+    <I>Requred</I><BR>
+    type: Type of the off map object which will be used.<BR>
+    </BLOCKQUOTE>
+
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>SetTeam()</B><BR>
+  <I>Multiple</I><BR>
+  Changes the team of objects in a particular tag.<BR>
+
+    <BLOCKQUOTE>
+    <B>Team(string team)</B><BR>
+    <I>Optional(team which triggered the Action)</I><BR>
+    team: Name of team to change to.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Tag(string tag)</B><BR>
+    <I>Required</I><BR>
+    tag: Tag to set the team of.<BR>
+    </BLOCKQUOTE>
+
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>SelfDestruct()</B><BR>
+  <I>Multiple</I><BR>
+  Self destruct all units in a tag, otherwise all units on the team.<BR>
+
+    <BLOCKQUOTE>
+    <B>Tag(string tag)</B><BR>
+    <I>Optional(None)</I><BR>
+    tag: Tag to self destruct.<BR>
+    </BLOCKQUOTE>
+
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>TriggerFX()</B><BR>
+  <I>Multiple</I><BR>
+  Trigger an effect on all units in a tag.<BR>
+
+    <BLOCKQUOTE>
+    <B>Tag(string tag)</B><BR>
+    <I>Required(None)</I><BR>
+    tag: Name of tag to use.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Effect(string effect)</B><BR>
+    <I>Required(None)</I><BR>
+    effect: Effect to use.<BR>
+    </BLOCKQUOTE>
+
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>SetUnitLimit(integer limit)</B><BR>
+  <I>Optional(NONE)</I><BR>
+  limit - the new unit limit for this team<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>WallOperation()</B><BR>
+  <I>Multiple</I><BR>
+  Used to perform various wall operations.<BR>
+
+    <BLOCKQUOTE>
+    <B>Tag(string tag)</B><BR>
+    <I>Required()</I><BR>
+    tag: Tag containing the walls to be operated on.  Non-walls will be ignored.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Operation(string op)</B><BR>
+    <I>Required()</I><BR>
+    op: One of the following operations:<BR>
+
+      <BLOCKQUOTE>
+      Deactivate - Make all walls deactivate but remember their links for later activation.<BR>
+      Activate - Make all walls activate using their deactivated links.<BR>
+      AutoConnect - Automatically connect to all other walls in area using the WallIdle idle task.<BR>
+      </BLOCKQUOTE>
+
+    </BLOCKQUOTE>
+
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>Recycle()</B><BR>
+  <I>Multiple</I><BR>
+  All units on the team which can recycle are recycled.<BR>
+
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>SetTactical()</B><BR>
+  <I>Multiple</I><BR>
+  Changes the tactical modifiers of objects in a particular tag.<BR>
+
+    <BLOCKQUOTE>
+    <B>Tag(string tag)</B><BR>
+    <I>Required</I><BR>
+    tag: Tag to set the team of.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>ModifierSettings()</B><BR>
+    <I>Required</I><BR>
+
+      <BLOCKQUOTE>
+      <B>Set(string modifer, string value)</B><BR>
+      <I>Multiple</I><BR>
+      modifer: tactical modifier to set the value of.<BR>
+      settings: tactical setting of the modifer.<BR>
+      </BLOCKQUOTE>
+
+    </BLOCKQUOTE>
+
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>GameMessage()</B><BR>
+  <I>Multiple</I><BR>
+  Triggers a game message.<BR>
+
+    <BLOCKQUOTE>
+    <B>Message(string message)</B><BR>
+    <I>Required</I><BR>
+    message: The GameMessage to be triggered.<BR>
+    </BLOCKQUOTE>
+
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>RegionMessage()</B><BR>
+  <I>Multiple</I><BR>
+  Triggers a location message.<BR>
+
+    <BLOCKQUOTE>
+    <B>Message(string message)</B><BR>
+    <I>Required</I><BR>
+    message: The LocationMessage to be triggered.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Region(string region)</B><BR>
+    <I>Required</I><BR>
+    region: The message will be triggered at the mid point of this region.<BR>
+    </BLOCKQUOTE>
+
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>TagMessage()</B><BR>
+  <I>Multiple</I><BR>
+  Triggers a location message.<BR>
+
+    <BLOCKQUOTE>
+    <B>Message(string message)</B><BR>
+    <I>Required</I><BR>
+    message: The LocationMessage to be triggered.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Tag(string tag)</B><BR>
+    <I>Required</I><BR>
+    tag: The message will be triggered at the mid point of this tag.  If the tag has no objects in it which are on the map, then the message is not triggered.<BR>
+    </BLOCKQUOTE>
+
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>CancelGameMessage()</B><BR>
+  <I>Multiple</I><BR>
+  Cancels a game message.  This is useful to stop a sound effect or stream.<BR>
+
+    <BLOCKQUOTE>
+    <B>Message(string message)</B><BR>
+    <I>Required</I><BR>
+    message: The GameMessage to be canceled.<BR>
+    </BLOCKQUOTE>
+
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>CancelLocationMessage()</B><BR>
+  <I>Multiple</I><BR>
+  Cancels a location message.  This is useful to stop a sound effect or stream and should be used to cancel messages trigged via RegionMessage and TagMessage.<BR>
+
+    <BLOCKQUOTE>
+    <B>Message(string message)</B><BR>
+    <I>Required</I><BR>
+    message: The location message to be canceled.<BR>
+    </BLOCKQUOTE>
+
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>TriggerTeamRadio(string event)</B><BR>
+  <I>Multiple</I><BR>
+  If no Type, Region, Tag are supplied then are generalized TeamRadio event is generated.<BR>
+  event: Name of the team radio event to generate.
+
+    <BLOCKQUOTE>
+    <B>Type(string type)</B><BR>
+    <I>Optional(none)</I><BR>
+    Makes the Radio Event use the newest unit of the given type on the team.<BR>
+    type: Name of the type to use.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Region(string region)</B><BR>
+    <I>Optional(none)</I><BR>
+    Makes the Radio Event the location of the region.<BR>
+    region: Name of the region to use.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Tag(string tag)</B><BR>
+    <I>Optional(none)</I><BR>
+    Makes the Radio Event use the location of the tag.<BR>
+    tag: Name of the tag to use.<BR>
+    </BLOCKQUOTE>
+
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>DisplayObjective(string action, string objective)</B><BR>
+  <I>Multiple</I><BR>
+  action: action to perform<BR>
+  objective: name of the display objective to perform the action on.<BR>
+  The actions available are:<BR>
+
+  <UL>
+    <LI><B>Add</B><BR>
+      Add the objective to the display objectives for this team.<BR>
+      When adding a display objective the following can be specified inside the scope.<BR>
+
+      <BLOCKQUOTE>
+      <B>Text(string text)</B><BR>
+      <I>Required</I><BR>
+      text: The text to use for the display objective.<BR>
+      </BLOCKQUOTE>
+
+      <BLOCKQUOTE>
+      <B>Param(string param)</B><BR>
+      <I>Multiple</I><BR>
+      param: Text to insert as a parameter or a reference to a var.<BR>
+      </BLOCKQUOTE>
+
+    <LI><B>Remove</B><BR>
+      Remove the objective from the display objectives for this team.<BR>
+    <LI><B>Complete</B><BR>
+      Complete the display objective for this team.<BR>
+    <LI><B>Abandon</B><BR>
+      Abandon the display objective for this team.<BR>
+    <LI><B>Dump</B><BR>
+      Dump the display objective as a console message.<BR>
+
+  </UL>
+
+  </BLOCKQUOTE>
+
+  <B>AI Specific Actions</B><BR>
+
+  <BLOCKQUOTE>
+  <B>ExecuteScript(string name, string script, integer weighting)</B><BR>
+  <I>Multiple, Optional weighting(100)</I><BR>
+  name: Give the instance of the script a name.  All var references use this name and this name is used to kill the script should the need arise.<BR>
+  script: Name of the script to executes.  If the script name is "Unique" then the this script will be assigned a unique name.  This allows the same objective action to be used repeatedly, but does not allow referal to that script later on should you need to Kill that script or change its weighting.  Alternatively you can use the '*' character as the last character of the script name and it will replace the '*' with a unique identifier allowing more useful names than Unique.<BR>
+  weighting: Initial weighting to give this script.<BR>
+  The subscope of ExecuteScript is appended to the script allowing parameter passing to occur via the Op() command.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>KillScript(string script)</B><BR>
+  <I>Multiple</I><BR>
+  script: Name of script to kill.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>SetScriptWeighting(string script, integer weighting)</B><BR>
+  <I>Multiple</I><BR>
+  script: Name of the script to set the weighting of.<BR>
+  weighting: Weighting to assign the script.<BR>
+  </BLOCKQUOTE>
+
+  <A NAME="ObjectiveObj::AddBase">
+  <BLOCKQUOTE>
+  <B>AddBase(string name, string base, integer weighting)</B><BR>
+  <I>Multiple, Optional weighting(100)</I><BR>
+  name: The instance name of the base.  Use this name when referring to the base in other actions.<BR>
+  base: Name of the configured base to add.<BR>
+  weighting: Initial weighting to give this base.<BR>
+
+    <BLOCKQUOTE>
+    <B>Region(string region)</B><BR>
+    <I>Optional(team's start region)</I><BR>
+    region: Region to center this base around.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Orientation(string orientation)</B><BR>
+    <I>Optional(towards the centre of the map)</I><BR>
+    orientation: Compass angle to orient the base.<BR>
+    </BLOCKQUOTE>
+
+  </BLOCKQUOTE>
+
+  <A NAME="ObjectiveObj::RemoveBase">
+  <BLOCKQUOTE>
+  <B>RemoveBase(string name)</B><BR>
+  <I>Multiple</I><BR>
+  name: Name of the base to remove.<BR>
+  </BLOCKQUOTE>
+
+  <A NAME="ObjectiveObj::SetBaseState">
+  <BLOCKQUOTE>
+  <B>SetBaseState(string name, string state)</B><BR>
+  <I>Multiple</I><BR>
+  name: Name of the base to set the state of.<BR>
+  state: Name of the state to change to.<BR>
+  </BLOCKQUOTE>
+
+  <A NAME="ObjectiveObj::SetBaseWeighting">
+  <BLOCKQUOTE>
+  <B>SetBaseWeighting(string name, integer weighting)</B><BR>
+  <I>Multiple</I><BR>
+  name: Name of the base to set the weighting of.<BR>
+  weighting: Weighting to assign the base.<BR>
+  </BLOCKQUOTE>
+
+  <A NAME="ObjectiveObj::SetBaseOrdererWeighting">
+  <BLOCKQUOTE>
+  <B>SetBaseOrdererWeighting(string name, string orderer, integer weighting)</B><BR>
+  <I>Multiple</I><BR>
+  name: Name of the base which contains the orderer.<BR>
+  orderer: Name of the orderer to assign the weighting of.<BR>
+  weighting: Weighting to assign the base.<BR>
+  </BLOCKQUOTE>
+
+  <A NAME="ObjectiveObj::AssignBaseConstructors">
+  <BLOCKQUOTE>
+  <B>AssignBaseConstructors(string base)</B><BR>
+  <I>Multiple</I><BR>
+  base: Name of the base to assign constructors to.<BR>
+
+    <BLOCKQUOTE>
+    <B>Tag(string tag)</B><BR>
+    <I>Optional(none)</I><BR>
+    tag: Only assign constructors which are in this tag.<BR>
+    </BLOCKQUOTE>
+
+  </BLOCKQUOTE>
+
+  <A NAME="ObjectiveObj::AssignBaseUnits">
+  <BLOCKQUOTE>
+  <B>AssignBaseUnits(string base)</B><BR>
+  <I>Multiple</I><BR>
+  base: Name of the base to assign units to.<BR>
+
+    <BLOCKQUOTE>
+    <B>Tag(string tag)</B><BR>
+    <I>Optional(none)</I><BR>
+    tag: Only assign units which are in this tag.<BR>
+    </BLOCKQUOTE>
+
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>HighlightConstruction(string type)</B><BR>
+  <I>Optional</I>
+  Disables all object types on all construction menus except "type", and highlights it.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>UnhighlightConstruction(string type)</B><BR>
+  <I>Optional</I>
+  Reverses the effects of HighlightConstruction.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>Animate</B><BR>
+  <I>Multiple</I>
+  Starts an animation on the specified tag.<BR>
+
+    <BLOCKQUOTE>
+    <B>Tag(string tag)</B><BR>
+    <I>Required</I><BR>
+    tag: Play animation on all objects in this tag.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Cycle(string cycle)</B><BR>
+    <I>Required</I><BR>
+    cycle: Play this animation cycle.<BR>
+    </BLOCKQUOTE>
+
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>Cineractive()</B><BR>
+  <I>Multiple</I><BR>
+  Enters cineractive mode.  See <A HREF="../misc/cineractive.html#cineractive">Cineractive</A>.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>Debriefing(string name)</B><BR>
+  <I>Multiple</I><BR>
+  Runs a debriefing.  See <A HREF="../misc/cineractive.html#definedebriefing">DefineDebriefing</A>.<BR>
+  name: Name of the debriefing to execute.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>StartVoiceOver(string name, string file)</B><BR>
+  <I>Multiple, name required, file required</I><BR>
+  name: Name of voice over.<BR>
+  file: Filename of voice over.<BR>
+  Creates and plays a named voice over stream.  The file plays as a 2D sound.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>StopVoiceOver(string name)</B><BR>
+  <I>Multiple, name required</I><BR>
+  name: Name of voice over.<BR>
+  Stops a previously started voice over.<BR>
+  </BLOCKQUOTE>
+
+</BLOCKQUOTE>
+
+</HTML>

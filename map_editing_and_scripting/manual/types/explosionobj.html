@@ -1,0 +1,57 @@
+<TITLE>ExplosionObj</TITLE>
+<HTML>
+<H1>ExplosionObj</H1>
+
+<BLOCKQUOTE>
+<B>Damage()</B><BR>
+<I>Required</I><BR>
+Damage defines how much damage this weapon does to various armour classes.<BR>
+
+  <BLOCKQUOTE>
+  <B>Amount(integer amount)</B><BR>
+  <I>Required</I><BR>
+  amount: Amount of damage this weapon does.<BR>
+  </BLOCKQUOTE>
+  
+  <BLOCKQUOTE>
+  <B>Effective(string armourclass, float percentage)</B><BR>
+  <I>Multiple, Range percentage(0%, 100%)</I><BR>
+  Armour classes which are not defined default to 0% effectiveness.<BR>
+  armourclass: Armour class which the effectiveness is being defined.<BR>
+  percentage: The percentage of the amount of damage which is applied to this armour class.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>Modifiers()</B><BR>
+  <I>Optional</I><BR>
+  See <A HREF="instance_modifiers.html">here</A> for more details.<BR>
+  </BLOCKQUOTE>
+
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>BlindTargetTime(float seconds)</B><BR>
+<I>Optional(0)</I><BR>
+seconds: The number of seconds to make victims of this explosion blindly target other units (used for the 'Bezerker' mojo).<BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>AreaInner(float distance)</B><BR>
+<I>Optional(0)</I><BR>
+distance: When the projectile detonates, objects within the given distance receive 100% of the blast.  The 100% applies to force exerted and damage inflicted on objects.<BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>AreaOuter(float distance)</B><BR>
+<I>Optional(AreaInner), Min(AreaInner)</I><BR>
+distance: When a projectile detonates, objects which are between the inner area (defined by AreaInner) and the outer area receive a portion of the blast.  The blast is 100% at the inner distance and 0% at the outer distance and falls off in a squared fashion between the two.<BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>Persist(float time)</B><BR>
+<I>Optional(0)</I><BR>
+time: How long the explosion persists for.  Persistent explosions are very powerful.<BR>
+<BLOCKQUOTE>
+
+</HTML>
+

@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Dark Reign 2 Construction Kit - 6.1 Configuration Files</title>
+</head>
+
+<body bgcolor="#000000" link="#33ff00" alink="#00ff00" vlink="#11cc00">
+<table border=0 cellpadding=0 cellspacing=0 width="100%">
+<TR>
+	<td bgcolor="#004400" width="100%">
+		<table border=0 cellpadding=4 border=0 cellspacing=2 width="100%">
+		<tr>
+			<td width="100%" bgcolor="#000000"><font color="#00cc00" face="Arial" size="2">
+<!-- Start Text -->
+<font size="4"><b>6.1 Configuration Files</b></font><p>
+
+All of the units and buildings in Dark Reign 2 are configured using a fairly simple scripting language.  The unit files are referred to as "configs".  This chapter will teach you how to create new config scripts.  We will first take a look at a very basic config, the JDA grunt unit, or Guardian, and break it down.<p>
+
+<b>Creating Objects</b><br>
+The first step to creating a unit is giving it an object name that will be recognized by the game.  In this case:
+<hr>
+<blockquote><font color="#00CCCC" face="courier">
+CreateObjectType("jda.unit.guardian", "Unit")
+</font></blockquote>
+<hr>
+
+<br>The first two parts of the name "<font color="#00CCCC" face="courier">jda.unit.guardian</font>" tells the game which side the config goes on (sprawler or jda) and whether it is a building or a standard unit.  If we were making a sprawler structure, you would change the name to "<font color="#00CCCC" face="courier">sprawler.building.guardian</font>".  After the name, you need to specify any particular traits this unit is going to have.  The guardian is the standard type, unit.  Other possibilities include "<font color="#00CCCC" face="courier">Restore</font>", "<font color="#00CCCC" face="courier">Trap</font>", or "<font color="#00CCCC" face="courier">Wall</font>".  We'll get into what that means later.<p>
+
+Before moving on, you should make sure that this new unit is included in the "<font color="#00CCCC" face="courier">types_objects</font>" file for this side.  Open up "<b>types_objects_jda.cfg</b>" in data\packs\base\configs\objects\jda.  You will see an entry for this unit at the top of the infantry section.  If you were creating a new config, you would add it to the bottom of whichever type it is (Buildings, Infantry, Vehicles, Misc).<p>
+
+<b>GameObj</b><br>
+Once the object is created, you need to make a new scope (using a "{") and add the GameObj.
+<hr>
+<blockquote><font color="#00CCCC" face="courier">
+GameObj()<br>
+{<br>
+&nbsp;ThinkInterval(1);<br>
+&nbsp;IdleTask("Tasks::UnitIdle");<br>
+&nbsp;Properties()<br>
+&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;Add("Filter::Biological");<br>
+&nbsp;&nbsp;&nbsp;Add("Filter::Transportable");<br>
+&nbsp;&nbsp;&nbsp;Add("Filter::Unit");<br>
+&nbsp;&nbsp;&nbsp;Add("Filter::JDA");<br>
+&nbsp;}<br>
+}
+</font></blockquote>
+<hr>
+<br>This is the top level object from which all the other objects are built.  You will see a GameObj in everything from mission scripts to rocks and trees on the map.  Inside the GameObj, you can specify the following things:<p>
+
+<font color="#00CCCC" face="courier" size="3"><b>ThinkInterval</b></font> - This dictates the processing intervals for the object, or how often it thinks.  Don't mess with it.<p>
+
+<font color="#00CCCC" face="courier" size="3"><b>IdleTask</b></font> - Pretty self-explanatory.  This gives the idle task that the unit will perform when not carrying out an order.  "<font color="#00CCCC" face="courier">UnitIdle</font>" should be used for any standard combat unit.  Other IdleTasks include "<font color="#00CCCC" face="courier">UnitConstructor</font>" for buildings that produce units, "<font color="#00CCCC" face="courier">RestoreStatic</font>" for buildings that heal, "<font color="#00CCCC" face="courier">TransportPad</font>" for buildings that teleport, "<font color="#00CCCC" face="courier">UnitCollect</font>" for Collectors, and so on.  The best thing to do is to find a unit that performs a similar role and copy its IdleTask over.<p>
+
+<font color="#00CCCC" face="courier" size="3"><b>Properties</b></font> - This is where you specify filters, abilities, and other aspects of the unit.  A few examples are provided for each.<p>
+
+<font color="#00CCCC" face="courier" size="3"><b>Filters</b></font> - Filters are used for several things.  The multiplayer set-up screen uses them to screen out units of certain types.  Healing units use it to determine whether or not they can restore (ex: Scavers can't heal "<font color="#00CCCC" face="courier">Filter::Biological</font>", the Rumbler has "<font color="#00CCCC" face="courier">Filter::Biological</font>", thus it can't be healed).  Transports and Telepads use it to determine whether a unit can be loaded ("<font color="#00CCCC" face="courier">Filter::Transportable</font>").<p>
+
+<font color="#00CCCC" face="courier" size="3"><b>Ability</b></font> - Abilities give units buttons on the context menu, such as "<font color="#00CCCC" face="courier">Recycle</font>" and "<font color="#00CCCC" face="courier">Self Destruct</font>".  To give a unit the ability to self-destruct, just add "<font color="#00CCCC" face="courier">Ability::SelfDestruct</font>".  "<font color="#00CCCC" face="courier">Ability::StoreResource</font>" is used by refineries, allowing them to collect resource and add money to the player's store.  "<font color="#00CCCC" face="courier">Ability::Construction</font>" is used by Rigs and Scavers, allowing them to construct other objects.<p>
+
+<font color="#00CCCC" face="courier" size="3"><b>Provide</b></font> - This is used primarily by the HQ, to specify that the building provides certain functions.  "<font color="#00CCCC" face="courier">Provide::Radar</font>" means that as long as one of these buildings exists and power is supplied, the played will have radar.  "<font color="#00CCCC" face="courier">Provide::Cloaking</font>" means that it allows cloaking units like traps and the fiend to work.  "<font color="#00CCCC" face="courier">Provide::EnemyLOS</font>" means that if an enemy spy enters the building, it will give the opponent LOS (Line Of Sight) on all of the player's units.<p>
+
+<font color="#00CCCC" face="courier" size="3"><b>Client</b></font> - This is used only in the context of "<font color="#00CCCC" face="courier">Client::FacilityBar</font>".  Put it on a building if you want it to appear on the facility bar on the bottom left corner of the screen when it is constructed.<p>
+
+All the other Obj's that you will add to this config are built off the GameObj.  It is all object-oriented in this respect.  The hierarchy looks like this:<p>
+
+GameObj<br>
+&nbsp;&nbsp;&nbsp;MapObj<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PropObj<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ResourceObj<br>
+ProjectileObj<br>
+ExplosionObj<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UnitObj<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RestoreObj<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TransportObj<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SpyObj<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WallObj<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TrapObj<br>
+			
+
+
+<hr>
+<blockquote><font color="#00CCCC" face="courier">
+</font></blockquote>
+<hr>
+
+
+<!-- End Text -->
+
+		</font></td>
+		</tr>
+		</table>
+	</td>
+</tr>
+</table>
+
+
+</body>
+</html><br>

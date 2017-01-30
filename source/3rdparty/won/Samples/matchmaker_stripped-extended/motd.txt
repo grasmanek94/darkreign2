@@ -1,0 +1,4 @@
+    A new version of the Win32 Titan API was released on March 24th.
+
+    If you have problems with this sample, questions about the 
+    code, find a bug, etc., please contact sdk@won.net.

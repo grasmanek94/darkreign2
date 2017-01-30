@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Dark Reign 2 Construction Kit - 2.2 Objects Menu</title>
+</head>
+
+<body bgcolor="#000000" link="#33ff00" alink="#00ff00" vlink="#11cc00">
+<table border=0 cellpadding=0 cellspacing=0 width="100%">
+<TR>
+	<td bgcolor="#004400" width="100%">
+		<table border=0 cellpadding=4 border=0 cellspacing=2 width="100%">
+		<tr>
+			<td width="100%" bgcolor="#000000"><font color="#00cc00" face="Arial">
+
+<!-- Start Text -->
+
+<font size="4"><b>2.2 &nbsp;&nbsp;&nbsp;Objects Menu (2 key)</b></font><p>
+<table cellspacing="5" cellpadding="5" border="0" width="100%">
+<tr>
+    <td align="left" valign="top"><img src="Images/22-objectsmenu.jpg" width=155 height=360 alt="" border="0"></td>
+	<td align="left" valign="top"><font size="2" face="Arial" color="#00cc00">This menu is used for placing all objects into the world.  The Objects are divided into categories for convenience.  These are listed in the top box of the menu.  Click the various folders to see all the objects you can place.  Select "all assets" for a complete list of all placeable objects.
+	Select (highlight) the object you wish to place from the list.  Left-click the terrain to place the object.  You can manipulate the object in 3 basic ways.<p>
+With the object selected:  <br>
+		<table cellspacing="2" cellpadding="2" border="0" valign="top">
+		<tr>
+		    <td valign="top"><font size="2" color="#00cc00" face="Arial"><b>ALT+LEFT CLICK</b> +<BR> <i>move mouse left/right</i></font></td>
+		    <td valign="top"><font size="2" color="#00cc00" face="Arial">Rotate object on Z axis</font></td>
+		</tr>
+		<tr>
+		    <td valign="top"><font size="2" color="#00cc00" face="Arial"><b>SHIFT+LEFT CLICK</b> +<BR> <i>move mouse up/down</i></font></td>
+		    <td valign="top"><font size="2" color="#00cc00" face="Arial">Adjust height of object</font></td>
+		</tr>
+		<tr>
+		    <td valign="top"><font size="2" color="#00cc00" face="Arial"><b>CTRL+LEFT CLICK</b> +<BR> <i>move mouse</i></font></td>
+		    <td valign="top"><font size="2" color="#00cc00" face="Arial">Rotate object on XY axis</font></td>
+		</tr>
+		<tr>
+		    <td valign="top"><font size="2" color="#00cc00" face="Arial"><b>UP ARROW/DOWN ARROW</b></font></td>
+		    <td valign="top"><font size="2" color="#00cc00" face="Arial">Move object to be flush with height of terrain.</font></td>
+		</tr>
+		</table>
+	</font></td>
+</tr>
+</table>
+
+<font size="2">
+<a name="zip"><b>Zipping Objects</b></a><BR>
+Most ambient objects you place will need to be ZIPPED.  Zipping locks the object onto the cluster of cells it covers, so that units will know to avoid them when pathing.  To "zip" an object to the terrain, select it and hit <b>CTRL+DOWN ARROW</b>.
+You should see the object snap into place.  If you save your map with un-zipped objects, you'll get a warning window upon save.  This message will contain a unique number for all un-zipped objects.  
+To easily find the un-zipped object, bring down the console and type "<i>common.debug.lookat X</i>", where "X" is the object number.  Your view will snap to that object.<p>
+<b>NOTE:</b> Leaving un-zipped objects is not fatal.  It is common to leave objects un-zipped when they are not intended to block movement or line-of-sight.<p>
+
+Also, there are three buttons at the bottom of this menu:<p>
+
+<b>Upgrade Buildings</b>  -  Click while an upgradable building is selected.   The building will be upgraded.<BR>
+<b>Edit Footprint</b> -  Edits footprints of objects (JACKNOTE: MATT SHOULD ADD THIS SECTION)<BR>
+<b>Type Names</b> -  a naming convenience.  Toggles all object names to their actual config names.<p>
+
+<b>NOTE:</b>  When placing attack units (or anything that should be enemies/friends with anything else), be sure you are placing them on the correct team.  When you are placing units, have the correct team highlighted in the "Team" menu (see section 3. for info on making teams).  When placing ambient objects (trees, crates etc), it doesn't matter which team is selected.
+		</font></font></td>
+		</tr>
+		</table>
+	</td>
+</tr>
+</table>
+
+
+</body>
+</html>
