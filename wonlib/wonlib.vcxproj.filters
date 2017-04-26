@@ -20,6 +20,16 @@
     <ClCompile Include="..\won\networking\messages\ChatMessage.cxx">
       <Filter>networking\messages</Filter>
     </ClCompile>
+    <ClCompile Include="..\won\callbacks.c" />
+    <ClCompile Include="..\won\compress.c" />
+    <ClCompile Include="..\won\enetpp.cxx" />
+    <ClCompile Include="..\won\host.c" />
+    <ClCompile Include="..\won\list.c" />
+    <ClCompile Include="..\won\packet.c" />
+    <ClCompile Include="..\won\peer.c" />
+    <ClCompile Include="..\won\protocol.c" />
+    <ClCompile Include="..\won\unix.c" />
+    <ClCompile Include="..\won\win32.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\won\woniface.h" />
