@@ -1,0 +1,45 @@
+//
+// Usage:
+//
+// In Tools/Customize/Tools
+//
+// Command:
+//   C:\lint\lint-nt.exe
+//
+// Arguments:
+//   iC:\lint\lint -u std_a.lnt env-vc6.lnt c:\dev\dr2\code\dr2.lnt $(FileName)
+//
+// Initial directory:
+//   $(FileDir)
+//
+
+// Forced inclusions
+-header(..\system\std.h)
+-header(..\coregame\stdinc_coregame.h)
+-header(..\interface\stdinc_interface.h)
+
+// Ignore 3rd party headers
++libh(win32.h)
++libh(bink.h)
++libh(dxinc.h)
++libh(mss.h)
++libh(zlib.h)
+
+// Full path names
++ffn
+
+// Warning levels
+-wlib(0)
+-w1
+
+// Project directories
+-i..\3rdparty
+-i..\coregame
+-i..\game
+-i..\graphics
+-i..\interface
+-i..\main
+-i..\multiplayer
+-i..\sound
+-i..\system
+-i..\util
