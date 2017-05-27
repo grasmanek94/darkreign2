@@ -20,7 +20,7 @@
 
 // HACKS
 #undef FILENAME_MAX
-
+#define CHECKMAPPINGS
 
 //
 // Definitions

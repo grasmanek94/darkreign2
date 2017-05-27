@@ -244,6 +244,7 @@ namespace FileSys
     // For reading packed file names
     PackStr name;
     U8 packedLen;
+	U32 unused;
 
     // Read each item
     for (U32 i = 0; i < packInfo.fileCount; i++)
@@ -252,7 +253,7 @@ namespace FileSys
       FileInfo *info = new FileInfo;
 
       // Read and ignore dir index
-      ReadData(&packedLen, sizeof(U32));
+      ReadData(&unused, sizeof(U32));
 
       // Read file name and store crc
       ReadData(&packedLen, sizeof(U8));
