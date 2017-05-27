@@ -48,12 +48,14 @@
     <IntDir>.\../Release/appdr2\</IntDir>
     <LinkIncremental>false</LinkIncremental>
     <LibraryPath>./Release/;../Release/;$(LibraryPath)</LibraryPath>
+    <TargetName>dr2</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>.\../Debug/appdr2\</OutDir>
     <IntDir>.\../Debug/appdr2\</IntDir>
     <LinkIncremental>false</LinkIncremental>
     <LibraryPath>./Debug/;../Debug/;$(LibraryPath)</LibraryPath>
+    <TargetName>dr2</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
