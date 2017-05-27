@@ -50,8 +50,8 @@
     <LibraryPath>./Release/;../Release/;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
-    <IntDir>$(Configuration)\</IntDir>
+    <OutDir>.\../Debug/appdr2\</OutDir>
+    <IntDir>.\../Debug/appdr2\</IntDir>
     <LinkIncremental>false</LinkIncremental>
     <LibraryPath>./Debug/;../Debug/;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
