@@ -197,7 +197,9 @@ namespace GameGod
   //
   static Bool FindOriginalCD()
   {
-    #ifdef DEVELOPMENT
+    return 1;
+
+    /*#ifdef DEVELOPMENT
 
       seenOriginal = TRUE;
 
@@ -212,7 +214,7 @@ namespace GameGod
 
     #endif
 
-    return (seenOriginal);
+    return (seenOriginal);*/
   }
 
 
