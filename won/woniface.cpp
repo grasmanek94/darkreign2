@@ -3494,102 +3494,372 @@ namespace WonIface
 #include "queue.h"
 #include "utils.h"
 
+#include <thread>
+#include <Networking/Networking.hxx>
+#include <atomic>
 
 namespace WonIface
 {
-	SafeQueue<Event, 256> queue;
+	static void PostEvent(U32 message, void *data = 0);
+	SafeQueue<Event, 2048> eventQueue;
+
+	class ClientThread : public MessageReceiver
+	{
+	private:
+		std::atomic<bool> connected;
+		std::atomic<bool> inited;
+
+		WonNetworkClient connection;
+		std::thread networking_thread;
+
+		void Handle(ENetPeer* peer, const std::shared_ptr<EventConnect>& data) override
+		{
+/*
+					// Are there any authentication servers
+					if (authServers.num)
+					{
+						// We are now connected
+						connected = TRUE;
+						PostEvent(Message::RetrievedServerList);
+					}
+					else
+					{
+						// No auth servers could be found
+						PostEvent(Error::ConnectionFailure);
+					}
+					break;
+				}
+
+				case WONAPI::Error_Timeout:
+				case WONMsg::StatusDir_DirNotFound:
+					PostEvent(Error::ConnectionFailure);
+					break;
+
+				default:
+					LOG_ERR(("GetDirectoryEx CB: %d %s", result.error, WONErrorToString(result.error)))
+					PostEvent(Error::ConnectionFailure);
+					break;
+*/
+		}
+		void Handle(ENetPeer* peer, const std::shared_ptr<EventDisconnect>& data) override
+		{
+
+		}
+		void Handle(ENetPeer* peer, const std::shared_ptr<ChatMessage>& message) override
+		{
+
+		}
+
+		void RunNetwork()
+		{
+			//you can run RunNetworking in another thread safely
+			while (connected)
+			{
+				connection.RunNetworking();
+			}
+		}
+
+	public:
+		ClientThread() :
+			connected(false),
+			connection()
+		{
+			int init_code = connection.GetInitCode();
+
+			if (init_code)
+			{
+				// TODO custom exception class
+				throw std::exception(("Cannot initialize ENET, error code: " + std::to_string(init_code)).c_str());
+			}
+
+			if (!connection.Create() || !connection.Good())
+			{
+				// TODO custom exception class
+				throw std::exception("ENET host member creation failed");
+			}
+		}
+
+		void Connect()
+		{
+			connection.Connect("127.0.0.1", 5544);
+			connected = true;
+			networking_thread = std::thread(&ClientThread::RunNetwork, this);
+		}
+
+		~ClientThread()
+		{
+			if (connected)
+			{
+				connected = false;
+				networking_thread.join();
+			}
+		}
+
+		void Process()
+		{
+			connection.ProcessEvents(this);
+		}
+
+	};
+
+	ClientThread* client_thread;
+
+	void PostEvent(U32 message, void *data)
+	{
+		ASSERT(initialized)
+
+			//printf("Posting Event [%08x] %s\n", message, DecodeMessage(message));
+
+			Event *e = eventQueue.AddPre();
+		ASSERT(e)
+			e->message = message;
+		e->data = data;
+		eventQueue.AddPost();
+	}
 
 	// Initialize Won
 	void Init()
 	{
-
+		if (!client_thread)
+		{
+			client_thread = new ClientThread();
+		}
 	}
 
 	// Shutdown Won
 	void Done()
 	{
-
+		if (client_thread)
+		{
+			delete client_thread;
+			client_thread = nullptr;
+		}
 	}
 
 	// Set the directory servers to use
 	void SetDirectoryServers(const List<char> &servers)
 	{
-
+		// for now, done - hardcoded ip
 	}
 
 	// Process Won
 	Bool Process(U32 &message, void *&data)
 	{
-		return 0;
-	}
+		client_thread->Process();
+		// Are there any events in the event queue ?
+		if (Event *e = eventQueue.RemovePre(0))
+		{
+			// We got one
+			message = e->message;
+			data = e->data;
+			eventQueue.RemovePost();
 
-	// Event queue
-	SafeQueue<Event, 256> & GetEventQueue()
-	{
-		return queue;
+			return (TRUE);
+		}
+		else
+		{
+			// There were no messages
+			return (FALSE);
+		}
 	}
 
 	// Connect to Won
 	void Connect()
 	{
-
+		client_thread->Connect();
+		PostEvent(Message::RetrievedServerList);
 	}
 
 	// Disconnect from Won
 	void Disconnect()
 	{
-
+		delete client_thread;
+		client_thread = new ClientThread();
 	}
 
 	// Abort what ever we're doing
 	void Abort()
 	{
-
+		// done
 	}
 
 
 	// Create a Won account
 	void CreateAccount(const char *username, const char *password)
 	{
-
+		PostEvent(Message::CreatedAccount);
 	}
 
 	// Login to a Won account
 	void LoginAccount(const char *username, const char *password)
 	{
+		PostEvent(Message::LoggedIn);
 
+		// Start a room update
+		//UpdateRooms(context);
 	}
 
 	// Change the password of an existing Won account
 	void ChangePassword(const char *username, const char *oldPassword, const char *newPassword)
 	{
-
+		PostEvent(Message::ChangedPassword);
 	}
 
 
 	// Detect if we're behind a firewall
 	void DetectFirewall()
 	{
-
+		PostEvent(Message::FirewallStatus);
 	}
 
 	// What's our firewall status
 	U32 GetFirewallStatus()
 	{
-		return 0;
+		return Firewall::None;
 	}
 
 
 	// Keep our Won connection alive
 	void KeepAlive()
 	{
-
+		// done
 	}
 
 	// Update the list of rooms from the server
 	void UpdateRooms()
 	{
+		/*
+			LOG_WON(("UpdateRoomsCallback in"))
+		LOG_WON(("DirectoryEx CB: %d %s", result.error, WONErrorToString(result.error)))
 
+		if (context && context->abort.Test())
+		{
+			LOG_WON(("Was Aborted"))
+		}
+		else
+		{
+			switch(result.error)
+			{
+				case WONAPI::Error_Success:
+				{
+					U16 numFactory = 0;
+
+					WONMsg::DirEntityList::const_iterator i;
+
+					// Iterate the server list and count the number of various server types
+					for 
+					(
+						i = result.entityList->begin(); 
+						i != result.entityList->end(); 
+						++i
+					)
+					{
+						if (i->mName == serverFactory)
+						{
+							numFactory++;
+						}
+					}
+
+					// Enter a data safe zone
+					LOG_WON(("critData.Wait"))
+					critData.Wait();
+
+					// Resize our server arrays to accomodate these new sizes
+					chatServers.DisposeAll();
+					factoryServers.Resize(numFactory);
+
+					// Reset nums so that they can be used as indexes
+					numFactory = 0;
+
+					// Fill in the new servers
+					for 
+					(
+						i = result.entityList->begin(); 
+						i != result.entityList->end(); 
+						++i
+					)
+					{
+						U32 count = 0;
+						Bool password = FALSE;
+						Bool permanent = FALSE;
+
+						if (i->mName == serverRouting)
+						{
+							WONCommon::DataObjectTypeSet::const_iterator d;
+
+							for 
+							(
+								d = i->mDataObjects.begin();
+								d != i->mDataObjects.end(); 
+								++d
+							)
+							{
+								if (d->GetDataType() == dataClientCount)
+								{
+									count = *(U32 *) d->GetData().c_str();
+								}
+								else
+
+								if (d->GetDataType() == dataFlags)
+								{
+									password = ((*d->GetData().c_str()) & 0x1 != 0);
+								}
+
+								else
+
+								if (d->GetDataType() == dataPermanent)
+								{
+									permanent = TRUE;
+								}
+							}
+
+							ChatServer *server = new ChatServer(i->mDisplayName.c_str(), WONAPI::IPSocket::Address(*(unsigned long*)(i->mNetAddress.data() + 2), ntohs(*(unsigned short*)i->mNetAddress.data())), count, password, permanent);
+
+							char buf[128];
+							Utils::Unicode2Ansi(buf, 128, server->name.str);
+
+							// LOG_WON(("Routing Server: %s [%s] [%d] [%s]", buf, server->address.GetAddressString(TRUE).c_str(), count, password ? "locked" : "unlocked"))
+							chatServers.Add(server->name.crc, server);
+						}
+						else if (i->mName == serverFactory)
+						{
+							factoryServers.servers[numFactory] = WONAPI::IPSocket::Address(*(unsigned long*)(i->mNetAddress.data() + 2), ntohs(*(unsigned short*)i->mNetAddress.data()));
+							// LOG_WON(("Factory Server: %s", factoryServers.servers[numFactory].GetAddressString(TRUE).c_str()))
+							numFactory++;
+						}
+					}
+
+					// Leaving a data safe zone
+					LOG_WON(("critData.Signal"))
+					critData.Signal();
+
+					if (context)
+					{
+						PostEvent(Message::InitialRoomUpdate);
+						JoinLobby(context);
+						context = NULL;
+					}
+					else
+					{
+						PostEvent(Message::RoomsUpdated);
+					}
+
+					break;
+				}
+
+				default:
+					LOG_ERR(("DirectoryEx CB: %d %s", result.error, WONErrorToString(result.error)))
+					break;
+			}
+		}
+
+		if (context)
+		{
+			delete context;
+		}
+
+		LOG_WON(("UpdateRoomsCallback out"))	
+		*/
 	}
 
 	// Get the current list of rooms
@@ -3781,3 +4051,119 @@ namespace WonIface
 	};
 }
 #endif
+
+/*
+
+    while (WonIface::Process(message, data))
+    {
+      switch (message)
+      {
+        case WonIface::Message::HTTPProgressUpdate:
+        case WonIface::Message::HTTPCompleted:
+        case WonIface::Error::HTTPFailed:
+          MultiPlayer::Download::Message(message, data);
+          break;
+
+        case WonIface::Message::FirewallStatus:
+          // Update our firewall status
+
+          break;
+
+        case WonIface::Message::Chat:
+        {
+          if (data)
+          {
+            // Message passed from WON dll
+            CAST(WonIface::Message::Data::Chat *, chat, data)
+
+            switch (chat->id)
+            {
+              case WonIface::Message::Data::Chat::Private:
+              {
+                if (chat->user && chat->text)
+                {
+                  CONSOLE(0x975BA2F3, ((CH*)L"[%s] %s", chat->user, chat->text)) // "WonChatPrivate"
+                }
+                break;
+              }
+
+              case WonIface::Message::Data::Chat::Emote:
+              {
+                if (chat->user && chat->text)
+                {
+                  CONSOLE(0xFBEB0583, ((CH*)L"%s %s", chat->user, chat->text)) // "WonChatQuote"
+                }
+                break;
+              }
+
+              case WonIface::Message::Data::Chat::Broadcast:
+              {
+                if (chat->user && chat->text)
+                {
+                  CONSOLE(0x1141C706, ((CH*)L"[%s] %s", chat->user, chat->text)) // "WonChatMessage"
+                }
+                break;
+              }
+
+              case WonIface::Message::Data::Chat::PlayerEntered:
+              {
+                if (chat->user)
+                {
+                  CONSOLE(0x0BA030DB, ((CH*)L"'%s' entered the room", chat->user)) // "WonMessage"
+                }
+                break;
+              }
+
+              case WonIface::Message::Data::Chat::PlayerLeft:
+              {
+                if (chat->user)
+                {
+                  CONSOLE(0x0BA030DB, ((CH*)L"'%s' left the room", chat->user)) // "WonMessage"
+                }
+                break;
+              }
+
+              case WonIface::Message::Data::Chat::GameCreated:
+              {
+                if (chat->user && chat->text)
+                {
+                  CONSOLE(0x0BA030DB, (TRANSLATE(("#won.chat.gamecreated", 2, chat->text, chat->user)) )) // "WonMessage"
+                }
+                break;
+              }
+
+              case WonIface::Message::Data::Chat::GameDestroyed:
+              {
+                if (chat->text)
+                {
+                  CONSOLE(0x0BA030DB, (TRANSLATE(("#won.chat.gameended", 1, chat->text)) )) // "WonMessage"
+                }
+                break;
+              }
+            }
+
+            delete chat;
+          }
+          break;
+        }
+
+        case WonIface::Message::EnteredRoom:
+          if (data)
+          {
+            CAST(WonIface::Message::Data::EnteredRoom *, enteredRoom, data)
+
+            // Update the name of the room
+            if (wonChatCtrl.Alive())
+            {
+              wonChatCtrl->SetTextString(TRANSLATE(("#won.chat.title", 1, enteredRoom->text)), TRUE);
+            }
+
+            // Update the name of the games
+            if (wonGamesCtrl.Alive())
+            {
+              wonGamesCtrl->SetTextString(TRANSLATE(("#won.chat.game.title", 1, enteredRoom->text)), TRUE);
+            }
+          }
+          break;
+      }
+*/

@@ -23,7 +23,6 @@
 //
 namespace WonIface
 {
-
   //
   // Type definitions
   //
@@ -465,9 +464,6 @@ namespace WonIface
 
   // Process Won
   Bool Process(U32 &message, void *&data);
-
-  // Event queue
-  SafeQueue<Event, 256> & GetEventQueue();
 
   // Connect to Won
   void Connect();
