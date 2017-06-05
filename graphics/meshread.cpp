@@ -10,6 +10,7 @@
 #include "vid_private.h"
 #include "lex.h"
 #include "console.h"
+#include <fenv.h>
 
 //#define DOAPPMESH
 //#define DONOANIMS
@@ -608,6 +609,8 @@ static void ReadVertices( istrstream * iss, VectFeature & feature)
 	{
 		U32 j = i + feature.objCount;
 		
+		fesetround(FE_TONEAREST);
+
 		*iss >> vects[j].x >> c >> vects[j].y >> c >> vects[j].z >> c >> c;
 		
 		if (sFlipZ)

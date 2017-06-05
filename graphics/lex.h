@@ -80,7 +80,7 @@ template <class T> T LexFile<T>::GetToken(istrstream *fs)
 		{
 			// soak up whitespace
 			fs->get(ch);
-			if (fs->eof())
+			if (fs->eof() || ch == '\0')		
 			{
 				// end of file
 				return _END_OF_FILE;
