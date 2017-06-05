@@ -13,6 +13,7 @@
 // Includes
 //
 #include "configfile.h"
+#include <fenv.h>
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -173,6 +174,7 @@ Bool ConfigFile::ReadFloat(const char *section, const char *name, F32 &val, cons
     return (FALSE);  
   }
 
+  fesetround(FE_TONEAREST);
   val = (F32) atof(buffer + 1);
   return (TRUE);
 }
