@@ -13,6 +13,7 @@
 // Includes
 //
 #include <float.h>
+#include <fenv.h>	
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -649,6 +650,7 @@ namespace Utils
   F32 AtoF(const char *str)
   {
     ASSERT(str)
+	fesetround(FE_TONEAREST);
     return ((F32) atof(str));
   }
 
