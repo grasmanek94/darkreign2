@@ -1317,6 +1317,23 @@ struct StaticInit
     // Only absolutely essential (and safe) stuff to be initalized in here
     // Will be called before the C and C++ runtime libraries are inited, and
     // before virtual function tables are setup.
+
+	// check if dr2data process environamet string is set and not empty
+	// if not change current working directory to than path.
+
+	const char * envstr = getenv("dr2data");
+
+	if (envstr)
+	{
+		if (strlen(envstr))
+		{
+			if (!Dir::SetCurrent(envstr))
+			{
+				LOG_WARN(("unable to set current director acording to dr2data environment string"));
+			}
+		}
+	}
+
     Debug::PreIgnition();
     Clock::Time::Init();
     Log::Init();
