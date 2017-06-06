@@ -417,11 +417,11 @@ namespace Vid
       width  = cr.Width();
       height = cr.Height();
 
-      S32 l = (CurMode().rect.Width()  - width)  >> 1;
-      S32 t = (CurMode().rect.Height() - height) >> 1;
-			SetWindowPos( hWnd, HWND_TOP, l, t, width, height, NULL);
-
-		  SetRects();
+      S32 l = (GetSystemMetrics(SM_CXSCREEN) - width)  >> 1;
+      S32 t = (GetSystemMetrics(SM_CYSCREEN) - height) >> 1;
+	  
+	  SetWindowPos( hWnd, HWND_TOP, l, t, width, height, NULL);
+	  SetRects();
 
       // finish dx init
 		  if (!InitD3D())
