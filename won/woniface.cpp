@@ -3503,6 +3503,10 @@ namespace WonIface
 	static void PostEvent(U32 message, void *data = 0);
 	SafeQueue<Event, 2048> eventQueue;
 
+	NList<Room> rooms;
+	NList<Player> players_in_current_room;
+	NList<Game> games_in_current_room;
+
 	class ClientThread : public MessageReceiver
 	{
 	private:
@@ -3556,6 +3560,7 @@ namespace WonIface
 			while (connected)
 			{
 				connection.RunNetworking();
+				std::this_thread::sleep_for(std::chrono::milliseconds(5));
 			}
 		}
 
@@ -3581,9 +3586,12 @@ namespace WonIface
 
 		void Connect()
 		{
-			connection.Connect("127.0.0.1", 5544);
-			connected = true;
-			networking_thread = std::thread(&ClientThread::RunNetwork, this);
+			if (!connected)
+			{
+				connection.Connect("127.0.0.1", 5544);
+				connected = true;
+				networking_thread = std::thread(&ClientThread::RunNetwork, this);
+			}
 		}
 
 		~ClientThread()
@@ -3694,7 +3702,13 @@ namespace WonIface
 	void LoginAccount(const char *username, const char *password)
 	{
 		PostEvent(Message::LoggedIn);
-
+		PostEvent(Message::InitialRoomUpdate);
+		PostEvent(Message::RoomsUpdated);
+		PostEvent(Message::ConnectedRoom);
+		PostEvent(Message::EnteredRoom, new Message::Data::EnteredRoom(Utils::Ansi2Unicode("Offline")));
+		PostEvent(Message::PlayersChanged);
+		PostEvent(Message::GamesChanged);
+		PostEvent(Message::Chat, new Message::Data::Chat(Message::Data::Chat::GameCreated, Utils::Ansi2Unicode("Game"), Utils::Ansi2Unicode("Name")));
 		// Start a room update
 		//UpdateRooms(context);
 	}
@@ -3865,7 +3879,7 @@ namespace WonIface
 	// Get the current list of rooms
 	void GetRoomList(NList<Room> &rooms)
 	{
-
+		
 	}
 
 	// Create a room
@@ -4008,28 +4022,99 @@ namespace WonIface
 		namespace Data
 		{
 
+			//
+			// Duplicate a string using uncached memory
+			//
+			static CH *SafeDup(const CH *str, U32 maxLen = 128)
+			{
+				U32 len = Min<U32>(Utils::Strlen(str), maxLen);
+				U32 size = (len + 1) * 2;
+
+				CH *text = reinterpret_cast<CH *>(Debug::Memory::UnCached::Alloc(size));
+				Utils::Strmcpy(text, str, len + 1);
+				text[len] = 0;
+
+				return (text);
+			}
+
+
+			//
+			// Duplicate an ANSI string using uncached memory and convert to Unicode
+			//
+			static CH *SafeDup(const char *str, U32 maxLen = 128)
+			{
+				U32 len = Min<U32>(Utils::Strlen(str), maxLen);
+				U32 size = (len + 1) * 2;
+
+				CH *text = reinterpret_cast<CH *>(Debug::Memory::UnCached::Alloc(size));
+				Utils::Ansi2Unicode(text, size, str, len);
+				text[len] = 0;
+
+				return (text);
+			}
+
+
 			/////////////////////////////////////////////////////////////////////////
 			//
 			// Struct Chat
 			//
 
+			const U32 MAX_CHAT_STR = 200;
+
+			//
 			// Constructor
-			Chat::Chat(U32 id, const CH *text, const CH *user)
+			//
+			Chat::Chat(U32 id, const CH *textIn, const CH *userIn)
+				: id(id),
+				text(NULL),
+				user(NULL)
 			{
+				if (textIn)
+				{
+					text = SafeDup(textIn, MAX_CHAT_STR);
+				}
 
+				if (userIn)
+				{
+					user = SafeDup(userIn);
+				}
 			}
 
-			Chat::Chat(U32 id, const char *textIn, const CH *user)
-			{
 
+			//
+			// Constructor
+			//
+			Chat::Chat(U32 id, const char *textIn, const CH *userIn)
+				: id(id),
+				text(NULL),
+				user(NULL)
+			{
+				if (textIn)
+				{
+					text = SafeDup(textIn, MAX_CHAT_STR);
+				}
+
+				if (userIn)
+				{
+					user = SafeDup(userIn);
+				}
 			}
 
+
+			//
 			// Destructor
+			//
 			Chat::~Chat()
 			{
-
+				if (text)
+				{
+					Debug::Memory::UnCached::Free(text);
+				}
+				if (user)
+				{
+					Debug::Memory::UnCached::Free(user);
+				}
 			}
-
 
 
 			/////////////////////////////////////////////////////////////////////////
@@ -4037,14 +4122,22 @@ namespace WonIface
 			// Struct EnteredRoom
 			//
 
+
+			//
 			// Constructor
+			//
 			EnteredRoom::EnteredRoom(const CH *text)
+				: text(SafeDup(text))
 			{
 			}
 
+
+			//
 			// Destructor
+			//
 			EnteredRoom::~EnteredRoom()
 			{
+				Debug::Memory::UnCached::Free(text);
 			}
 
 		};
