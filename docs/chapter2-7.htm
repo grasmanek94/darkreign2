@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Dark Reign 2 Construction Kit - 2.7 Curves Menu</title>
+</head>
+
+<body bgcolor="#000000" link="#33ff00" alink="#00ff00" vlink="#11cc00">
+<table border=0 cellpadding=0 cellspacing=0 width="100%">
+<TR>
+	<td bgcolor="#004400" width="100%">
+		<table border=0 cellpadding=4 border=0 cellspacing=2 width="100%">
+		<tr>
+			<td width="100%" bgcolor="#000000"><font color="#00cc00" face="Arial" size="2">
+<!-- Start Text -->
+
+<font size="4"><b>2.7 &nbsp;&nbsp;&nbsp;Curves Menu (7 key)</b></font><p>
+<table cellspacing="5" cellpadding="5" border="0" width="100%">
+<tr>
+    <td align="left" valign="top"><img src="Images/27-curves.jpg" width=155 height=360 alt="" border="0"></td>
+	<td align="left" valign="top"><font size="2" face="Arial" color="#00cc00">
+Used to create cineractive curves.  A Curve defines the path the camera will travel along during a cineractive, and also what the camera is focusing on.  <p>
+The first three buttons are:<p>
+
+<b>Create a Curve</b><BR>
+<b>Delete a Curve</b><BR>
+<b>Apply</b><p>
+
+To create a curve, type a name in the box and click the Create button.  The name of the curve should appear in the box.  To begin editing the curve, you must Double-click on it's name.   Now click on the terrain and it will begin setting down path points for your curve. NOTE: Every time you make a change to the curve be sure to hit the "Apply" button.
+
+
+	</font></td>
+</tr>
+</table>
+Next there are four values in the menu: Time scale, strength, order, and start time.  These are values that apply to the individual points in a curve, therefore whenever changing these values you must have the points that you want changed SELECTED.<p>
+
+<b>Time Scale:</b>  The time it will take the camera to travel from the selected point to the next point in the curve.<br>
+<b>Strength:</b>  The "strength" of the curve.   The lower the value, the straighter the curve.<br>
+<b>Order:</b> The order of the points in the curve (order is automatically set in the order you place them)<br>
+<b>Start Time:</b>  The time from the initial start of the curve until the selected point is reached (this is set automatically as determined by the Time Scale values of each point)<p>
+
+Next there are four more buttons:<p>
+
+<b>Edit Focus Curve:</b> When depressed, the curve points you lay down will now be the Focus Curve.  This is the curve the camera is looking at while traveling along the main curve.<br>
+<b>Loop:</b> Will turn the curve into a loop by connecting the first and last points of the curve.<br>
+<b>Draw Lines:</b> Draws curve lines <br>
+<b>Draw Normals:</b> Draws curve normals.  Useful for debugging curves.  Shows how "spread out" or "compressed" a curve is.<p>
+
+Now we'll go through the process of creating a simple curve and using the in-studio preview tools to see what it will look like in the game.<p>
+
+First make sure all the options in the curves menu are in their default positions. Reload the studio if you need to.<p>
+
+Create a curve (type in a name and click "create" button").<br>
+Double-click the name of the curve to begin editing it.<br>
+To keep things simple, lay down just 2 curve points.  You should end up with something that looks like a wavy string between two points.<br>
+Lets make it a straight curve.   Select both curve points, then type the value "1" in the "Strength" window. Click APPLY.  (even though the changes appear to have been made, it won't be saved unless you click apply).<br>
+Now it should look like a perfectly straight line between two points.<br>
+The curve is currently laying flush on the terrain.  That won't look so good, so lets raise the curve's height a bit.  Select both points on the curve, and use Lshift + Move mouse up/down, just like you would to an object.  Raise both points of the curve about 10 meters off the ground.<p>
+
+So now you should have a straight line between two points that is raised off the ground.<p>
+
+Now we must make the focus curve.  This is the curve the camera will be looking at from it's track along the main curve.  Focus curves work just like the main curve, except instead of the camera traveling along it, it will be the camera's focal point traveling along it.  Think of it as if there were a ball traveling along the focus curve, that is exactly where the camera will be looking as it travels along the main curve.  <br>
+Click the "edit focus curve" button.  Now all points you lay and manipulate will be the focus curve. You can no longer edit the main curve.  Lay two points down near the main curve.  Your focus curve should look like a straight line between two points.  Then click APPLY.<p>
+
+You should now have two curves total: the main curve suspended in the air, with a focus curve on the ground somewhere near it. <p>
+
+The controls along the bottom of the menu are for previewing your curves.  Double click the name of the curve you just created.  Now click on the Camera icon at the bottom of the menu.  Use the VCR type controls to preview the curve.  The shot you should get from the curve described above would be the camera traveling over the terrain looking downward towards the terrain. Use the "Current" slider to move to any point along the curve.  Click the Camera icon again to exit preview mode.<p>
+
+See Section 4: <a href="chapter4-14.htm">Creating a Single Player Mission - Cineractives</a>  for more detailed information on creating curves and cineractives.
+
+<!-- End Text -->
+
+		</font></td>
+		</tr>
+		</table>
+	</td>
+</tr>
+</table>
+
+
+</body>
+</html>

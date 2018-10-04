@@ -1,0 +1,220 @@
+<TITLE>Game Message Configuration</TITLE>
+<HTML>
+<H1>Game Message Configuration</H1>
+
+<BR>
+Messages are either generated directly from the code, can be generated in response to a Team Radio event, or can be generated from inside an Action scope of an objective.  The types_message.cfg file contains the most up to date list of available messages.<BR>
+
+<BR>
+
+<BLOCKQUOTE>
+<A NAME="ConfigureGameMessage"></A>
+<B>ConfigureGameMessage(string message)</B><BR>
+<I>Multiple</I><BR>
+message: Name of the game message being configured.<BR>
+
+  <BLOCKQUOTE>
+  <B>Interval()</B><BR>
+  <I>Required</I><BR>
+
+    <BLOCKQUOTE>
+    <B>Type(string type)</B><BR>
+    <I>Optional("Interval::None")</I><BR>
+    type: The type of interval between messages<BR>
+    <UL>
+      <LI>"Interval::None" no interval.<BR>
+      <LI>"Interval::Message" time between messages being displayed.<BR>
+      <LI>"Interval::Trigger" time since the last attempt to trigger.<BR>
+    </UL>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Time(float time)</B><BR>
+    <I>Optional(0)</I><BR>
+    time: Amount of time<BR>
+    </BLOCKQUOTE>
+
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>Sound()</B><BR>
+  <I>Required</I><BR>
+
+    <BLOCKQUOTE>
+    <B>Type(string type)</B><BR>
+    <I>Optional("Sound::None")</I><BR>
+    type: The type of sound to be played<BR>
+    <UL>
+      <LI>"Sound::None" no sound.<BR>
+      <LI>"Sound::Effect" play the sound using a sound effect.<BR>
+      <LI>"Sound::Voice" play the sound using a reserved voice.<BR>
+      <LI>"Sound::Stream" play a sound stream.<BR>
+    </UL>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>UseOwner(bool flag)</B><BR>
+    <I>Optional(FALSE)</I><BR>
+    flag: If set then this message won't say two things at the same time.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Add(string filename)</B><BR>
+    <I>Multiple</I><BR>
+    filename: Name of sound file to be played<BR>
+    </BLOCKQUOTE>
+
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>Message()</B><BR>
+  <I>Required</I><BR>
+
+    <BLOCKQUOTE>
+    <B>Type(string type)</B><BR>
+    <I>Optional("Message::None")</I><BR>
+    type: The type of message to be displayed<BR>
+    <UL>
+      <LI>"Message::None" no message.<BR>
+      <LI>"Message::Console" display the message to the console.<BR>
+    </UL>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Add(string message)</B><BR>
+    <I>Multiple</I><BR>
+    message: Message to be displayed<BR>
+    </BLOCKQUOTE>
+
+  </BLOCKQUOTE>
+
+</BLOCKQUOTE>
+
+
+<BLOCKQUOTE>
+<A NAME="ConfigureLocationMessage"></A>
+<B>ConfigureLocationMessage(string message)</B><BR>
+<I>Multiple</I><BR>
+message: Name of the location message being configured.<BR>
+
+  <BLOCKQUOTE>
+  <B>Interval()</B><BR>
+  <I>Required</I><BR>
+
+    <BLOCKQUOTE>
+    <B>Type(string type)</B><BR>
+    <I>Optional("Interval::None")</I><BR>
+    type: The type of interval between messages<BR>
+    <UL>
+      <LI>"Interval::None" no interval.<BR>
+      <LI>"Interval::Message" time between messages being displayed.<BR>
+      <LI>"Interval::Trigger" time since the last attempt to trigger.<BR>
+    </UL>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Time(float time)</B><BR>
+    <I>Optional(0)</I><BR>
+    time: Amount of time<BR>
+    </BLOCKQUOTE>
+
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>Sound()</B><BR>
+  <I>Required</I><BR>
+
+    <BLOCKQUOTE>
+    <B>Type(string type)</B><BR>
+    <I>Optional("Sound::None")</I><BR>
+    type: The type of sound to be played<BR>
+    <UL>
+      <LI>"Sound::None" no sound.<BR>
+      <LI>"Sound::Effect" play the sound using a sound effect.<BR>
+      <LI>"Sound::Voice" play the sound using a reserved voice.<BR>
+      <LI>"Sound::Stream" play a sound stream.<BR>
+      <LI>"Sound::3D" play the sound using a 3D.<BR>
+    </UL>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>UseOwner(bool flag)</B><BR>
+    <I>Optional(FALSE)</I><BR>
+    flag: If set then this message won't say two things at the same time.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>MaxDistance(int distance)</B><BR>
+    <I>Optional(200), Range(1, 1000)</I><BR>
+    distance: The maximum distance at which this sound can be heard.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>MinDistance(int distance)</B><BR>
+    <I>Optional(1), Range(1, MaxDistance)</I><BR>
+    distance: The distance at which this sound is at its loudest.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Add(string filename)</B><BR>
+    <I>Multiple</I><BR>
+    filename: Name of sound file to be played<BR>
+    </BLOCKQUOTE>
+
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>Message()</B><BR>
+  <I>Required</I><BR>
+
+    <BLOCKQUOTE>
+    <B>Type(string type)</B><BR>
+    <I>Optional("Message::None")</I><BR>
+    type: The type of message to be displayed<BR>
+    <UL>
+      <LI>"Message::None" no message.<BR>
+      <LI>"Message::Console" display the message to the console.<BR>
+    </UL>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Add(string message)</B><BR>
+    <I>Multiple</I><BR>
+    message: Message to be displayed<BR>
+    </BLOCKQUOTE>
+
+  </BLOCKQUOTE>
+
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<A NAME="ConfigureObjMessage"></A>
+<B>ConfigureObjMessage(string message)</B><BR>
+<I>Multiple</I><BR>
+message: Name of the obj message being configured.  ObjMessage is actually a series of LocationMessage configurations.  When an ObjMessage is triggered it checks to see if the object is in a tag that has a specific message.  Then it tests to see if there's a type specific location message.  If one is not found then it checks to see if there's a property specific location message.  If one is not found then it attempts to use the default.  If this too fails then there is no message.
+
+  <BLOCKQUOTE>
+  <B>Tag(string tag)</B><BR>
+  <I>Multiple</I><BR>
+  tag: Use this configuration for the objects which are in this tag.  The contents of this scope are identical to ConfigureLocationMessage.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>Type(string type)</B><BR>
+  <I>Multiple</I><BR>
+  type: Use this configuration for the objects which match this type.  The contents of this scope are identical to ConfigureLocationMessage.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>Property(string property1, string property2, ... , string propertyn)</B><BR>
+  <I>Multiple</I><BR>
+  property(n): Use this configuration for the objects which have all of these properties.  The contents of this scope are identical to ConfigureLocationMessage.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>Default()</B><BR>
+  <I>Optional</I><BR>
+  The default location message.  The contents of this scope are identical to ConfigureLocationMessage.<BR> 
+  </BLOCKQUOTE>
+
+</HTML>

@@ -1,0 +1,1079 @@
+<TITLE>Strategic AI</TITLE>
+<HTML>
+<H1>Strategic AI</H1>
+
+<HR>
+
+<BLOCKQUOTE>
+<H2>Index</H2>
+<UL>
+  <LI><A HREF="#CreateScript">CreateScript</A><BR>
+  <UL>
+    <LI><A HREF="#CreateScript::InitialState">InitialState</A><BR>
+    <LI><A HREF="#CreateScript::CreateVarInteger">CrateVarInteger</A><BR>
+    <LI><A HREF="#CreateScript::CreateVarFloat">CreateVarFloat</A><BR>
+    <LI><A HREF="#CreateScript::CreateVarString">CreateVarString</A><BR>
+    <LI><A HREF="#CreateScript::Op">Op</A><BR>
+    <LI><A HREF="#CreateScript::State">State</A><BR>
+    <UL>
+      <LI><A HREF="#CreateScript::State::Settings">Settings</A><BR>
+      <UL>
+        <LI><A HREF="#CreateScript::State::Settings::Setting">Setting</A><BR>
+        <UL>
+          <LI><A HREF="#CreateScript::State::Settings::Setting::Op">Op</A><BR>
+          <LI><A HREF="#CreateScript::State::Settings::Setting::Flag">Flag</A><BR>
+          <LI><A HREF="#CreateScript::State::Settings::Setting::Tactical">Tactical</A><BR>
+          <LI><A HREF="#CreateScript::State::Settings::Setting::Tag">Tag</A><BR>
+          <LI><A HREF="#CreateScript::State::Settings::Setting::Recruiter">Recruiter</A><BR>
+          <LI><A HREF="#CreateScript::State::Settings::Setting::ClearRecruiter">ClearRecruiter</A><BR>
+          <LI><A HREF="#CreateScript::State::Settings::Setting::Reserve">Reserve</A><BR>
+          <LI><A HREF="#CreateScript::State::Settings::Setting::Unreserve">Unreserve</A><BR>
+          <LI><A HREF="#CreateScript::State::Settings::Setting::InstallCondition">InstallConditon</A><BR>
+          <LI><A HREF="#CreateScript::State::Settings::Setting::UnInstallCondition">UnInstallCondition</A><BR>
+          <LI><A HREF="#CreateScript::State::Settings::Setting::PurgeConditions">PurgeConditions</A><BR>
+          <LI><A HREF="#CreateScript::State::Settings::Setting::InstallRadioReceiver">InstallRadioReceiver</A><BR>
+          <LI><A HREF="#CreateScript::State::Settings::Setting::UnInstallRadioReceiver">UnInstallRadioReceiver</A><BR>
+          <LI><A HREF="#CreateScript::State::Settings::Setting::PurgeRadioReceivers">PurgeRadioReceiver</A><BR>
+        </UL>
+      </UL>
+      <LI><A HREF="#CreateScript::State::Action">Action</A><BR>
+      <UL>
+        <LI><A HREF="#CreateScript::State::Action::Recruit">Recruit</A><BR>
+        <LI><A HREF="#CreateScript::State::Action::Spawn">Spawn</A><BR>
+        <LI><A HREF="#CreateScript::State::Action::Move">Move</A><BR>
+        <LI><A HREF="#CreateScript::State::Action::Explore">Explore</A><BR>
+        <LI><A HREF="#CreateScript::State::Action::Stop">Stop</A><BR>
+        <LI><A HREF="#CreateScript::State::Action::Trail">Trail</A><BR>
+        <LI><A HREF="#CreateScript::State::Action::Formation">Formation</A><BR>
+        <LI><A HREF="#CreateScript::State::Action::FollowTag">FollowTag</A><BR>
+        <LI><A HREF="#CreateScript::State::Action::Discharge">Discharge</A><BR>
+        <LI><A HREF="#CreateScript::State::Action::Delete">Delete</A><BR>
+        <LI><A HREF="#CreateScript::State::Action::AttackTag">AttackTag</A><BR>
+        <LI><A HREF="#CreateScript::State::Action::Defect">Defect</A><BR>
+      </UL>
+      <LI><A HREF="#CreateScript::State::Conditions">Conditions</A><BR>
+      <UL>
+        <LI><A HREF="#CreateScript::State::Conditions::Status">Status</A><BR>
+        <LI><A HREF="#CreateScript::State::Conditions::Condition">Condition</A><BR>
+        <UL>
+          <LI><A HREF="#CreateScript::State::Conditions::Condition::Proximity">Proximity</A>
+          <LI><A HREF="#CreateScript::State::Conditions::Condition::Threat">Threat</A><BR>
+          <LI><A HREF="#CreateScript::State::Conditions::Condition::ObjectiveCondition">ObjectiveCondition</A><BR>
+
+          <LI><A HREF="#CreateScript::State::Conditions::Condition::HitPoints">HitPoints</A><BR>
+          <LI><A HREF="#CreateScript::State::Conditions::Condition::Count">Count</A><BR>
+          
+        </UL>
+      </UL>
+  </UL>
+  <LI><A HREF="#CreateBase">CreateBase</A><BR>
+  <LI><A HREF="#CreateBase::Orderer">CreateBase::Orderer</A><BR>
+  <LI><A HREF="#CreateBase::Plan">CreateBase::Plan</A><BR>
+  <LI><A HREF="#CreateRecruitForce">CreateRecruitForce</A><BR>
+  <LI><A HREF="#CreateRecruitType">CreateRecruitType</A><BR>
+</UL>
+</BLOCKQUOTE>
+
+<HR>
+
+
+<A NAME="CreateScript">
+<BLOCKQUOTE>
+<B>CreateScript(string name)</B><BR>
+name: Name of the script.<BR>
+
+  <A NAME="CreateScript::InitialState">
+  <BLOCKQUOTE>
+  <B>InitialState(string state)</B><BR>
+  <I>Required</I><BR>
+  state: Name of the state to start in.<BR>
+  </BLOCKQUOTE>
+  
+  <A NAME="CreateScript::CreateVarInteger">
+  <BLOCKQUOTE>
+  <B>CreateVarInteger(string var, integer initial, integer min, integer max)</B><BR>
+  <I>Multiple, Optional min(integer min), max(integer max)</I><BR>
+  var: Name of the var to be created.  Must be a script var, i.e. start with '%'.<BR>
+  initial: The inital value to give the var.<BR>
+  min: The minimum value this var can ever have.<BR>
+  max: The maximum value this var can ever have.<BR>
+  </BLOCKQUOTE>
+  
+  <A NAME="CreateScript::CreateVarFloat">
+  <BLOCKQUOTE>
+  <B>CreateVarFloat(string var, float initial, float min, float max)</B><BR>
+  <I>Multiple, Optional min(float min), max(float max)</I><BR>
+  var: Name of the var to be created.  Must be a script var, i.e. start with '%'.<BR>
+  initial: The initial value to give the var.<BR>
+  min: The minimum value this var can ever have.<BR>
+  max: The maximum value this var can ever have.<BR>
+  </BLOCKQUOTE>
+  
+  <A NAME="CreateScript::CreateVarString">
+  <BLOCKQUOTE>
+  <B>CreateVarString(string var, string initial)</B><BR>
+  <I>Multiple</I><BR>
+  var: Name of the var to be created.  Must be a script var, i.e. start with '%'.<BR>
+  initial: The initial value to give the var.<BR>
+  </BLOCKQUOTE>
+  
+  <A NAME="CreateScript::Op">
+  <BLOCKQUOTE>
+  <B>Op()</B><BR>
+  See <A HREF="../misc/operators.html#arithmetic">Op</A> form more information.<BR>
+  </BLOCKQUOTE>
+
+  <A NAME="CreateScript::State">
+  <BLOCKQUOTE>
+  <B>State(string name)</B><BR>
+  <I>Multiple</I><BR>
+  name: Name of the state.<BR>
+  
+    <A NAME="CreateScript::State::Settings">
+    <BLOCKQUOTE>
+    <B>Settings()</B><BR>
+    <I>Required</I><BR>
+    Settings are <B>applied</B> when the state is entered.<BR>
+
+      <A NAME="CreateScript::State::Settings::Setting">
+      <BLOCKQUOTE>
+      <B>Setting(string type)</B><BR>
+      <I>Multiple</I><BR>
+      name: Setting type.  The contents of the setting scope are dependent on the setting type.<BR>
+      The following setting types are defined:<BR>
+      <UL>
+        <LI><B>ObjectiveAction</B><BR>
+          All commands which are available in an Action scope inside an Objective can be used.  Refer to <A HREF="../types/objectiveobj.html">ObjectiveObj</A> for more information.<BR>
+          <BR>
+ 
+        <A NAME="CreateScript::State::Settings::Setting::Op">
+        <LI><B>OP</B><BR>
+          See <A HREF="../misc/operators.html#arithmetic">Op</A> form more information.<BR>
+          <BR>
+
+        <A NAME="CreateScript::State::Settings::Setting::Flag">
+        <LI><B>Flag</B><BR>
+          Set (or clear) a flag in the script.<BR>
+
+          <BLOCKQUOTE>
+          <B>Flag(string flag)</B><BR>
+          <I>Required</I><BR>
+          flag: Name of the flag to set.  The following flags are available:<BR>
+
+          <UL>
+            <LI><B>Keep</B><BR>
+            <I>Default(1)</I><BR>
+              Scripts attempt to keep the units assigned to them when an asset reshuffle occurs.<BR>
+          </UL>
+
+          </BLOCKQUOTE>
+
+          <BLOCKQUOTE>
+          <B>Value(bool flag)</B><BR>
+          <I>Required</I><BR>
+          flag: Set or clear the named flag.<BR>
+          </BLOCKQUOTE>
+
+        <A NAME="CreateScript::State::Settings::Setting::Tactical">
+        <LI><B>Tactical</B><BR>
+          Change the tactical settings of the units in the squad.<BR>
+
+          <BLOCKQUOTE>
+          <B>ModifierSettings</B><BR>
+          <I>Required</I><BR>
+
+            <BLOCKQUOTE>
+            <B>Set(string modifier, string value)</B><BR>
+            <I>Multiple</I><BR>
+            modifier: tactical modifier to set the value of.<BR>
+            setting: tactical setting of the modifier.<BR>
+            </BLOCKQUOTE>
+
+          </BLOCKQUOTE>
+
+        <A NAME="CreateScript::State::Settings::Setting::Tag">
+        <LI><B>Tag</B><BR>
+          Place all of the object in the squad into a tag.<BR>
+
+          <BLOCKQUOTE>
+          <B>Tag(string tag)</B><BR>
+          <I>Required</I><BR>
+          tag: Name of the tag to place the objects in.<BR>
+          </BLOCKQUOTE>
+
+          <BLOCKQUOTE>
+          <B>Clear(bool flag)</B><BR>
+          <I>Optional(FALSE)</I><BR>
+          flag: If set, then each unit in the squad is removes from all other tags before bein placed in this tag.<BR>
+          </BLOCKQUOTE>
+
+          <BLOCKQUOTE>
+          <B>Append(bool flag)</B><BR>
+          <I>Optional(FALSE)</I><BR>
+          flag: If set, the units in the squad are appended to the given tag.  If not set then the given tag is emptied before the units in the squad are added.<BR>
+          </BLOCKQUOTE>
+
+        <A NAME="CreateScript::State::Settings::Setting::Recruiter">
+        <LI><B>Recruiter</B><BR>
+          See <A HREF="#CreateScript::State::Action::Recruit">Recruit</A> for more information<BR>
+          <BR>
+        
+        <A NAME="CreateScript::State::Settings::Setting::Reserve">
+        <LI><B>ClearRecruiter</B><BR>
+          Clear the recruiter.  The squad will attempt to keep the units it has when other squads are recruiting.  If this is not desired then you can either reduce the priority of the script so that other squads can take its units or discharge the squad so that it has no units at all.<BR>
+          <BR>
+          
+        <A NAME="CreateScript::State::Settings::Setting::Reserve">
+        <LI><B>Reserve</B><BR>
+          Reserve the units currently in the squad so that the strategic AI will NOT assign them to any other squads.<BR>
+          <BR>
+
+        <A NAME="CreateScript::State::Settings::Setting::Unreserve">
+        <LI><B>Unreserve</B><BR>
+          If any of the units currently in the squad are reserved from the strategic AI, unreserved them so that they can be assigned to other squads.<BR>
+          <BR>
+          
+        <A NAME="CreateScript::State::Settings::Setting::InstallCondition">
+        <LI><B>InstallCondition</B><BR>
+          Install a condition.<BR>
+
+          <BLOCKQUOTE>
+          <B>Ident(string ident)</B><BR>
+          <I>Required</I><BR>
+          ident: Identifier which can be used to uninstall.<BR>
+          </BLOCKQUOTE>
+          
+          <BLOCKQUOTE>
+          <B>Condition(string type)</B><BR>
+          <I>Required</I><BR>
+          The condition.  Refer to <A HREF="#CreateScript::State::Conditions::Condition">Condition</A> for more information<BR>
+          </BLOCKQUOTE>
+
+        <A NAME="CreateScript::State::Settings::Setting::UnInstallCondition">
+        <LI><B>UnInstallCondition</B><BR>
+          UnInstall a condition.<BR>
+
+          <BLOCKQUOTE>
+          <B>Ident(string ident)</B><BR>
+          <I>Required</I><BR>
+          ident: Identifier of radio receiver to uninstall.<BR>
+          </BLOCKQUOTE>
+
+        <A NAME="CreateScript::State::Settings::Setting::PurgeConditions">
+        <LI><B>PurgeConditions</B><BR>
+          Purge installed conditions.<BR>
+
+        <A NAME="CreateScript::State::Settings::Setting::InstallRadioReceiver">
+        <LI><B>InstallRadioReceiver</B><BR>
+          Install a radio receiver.<BR>
+
+          <BLOCKQUOTE>
+          <B>Ident(string ident)</B><BR>
+          <I>Required</I><BR>
+          ident: Identifier which can be used to uninstall.<BR>
+          </BLOCKQUOTE>
+          
+          <BLOCKQUOTE>
+          <B>Event(string event)</B><BR>
+          <I>Required</I><BR>
+          event: Name of the radio event to handle.<BR>
+          </BLOCKQUOTE>
+
+          <BLOCKQUOTE>
+          <B>Transition()</B><BR>
+          <I>Required</I><BR>
+          The transition to perform when the event is handled.  See below.<BR>
+          </BLOCKQUOTE>
+
+        <A NAME="CreateScript::State::Settings::Setting::UnInstallRadioReceiver">
+        <LI><B>UnInstallRadioReceiver</B><BR>
+          UnInstall a radio receiver.<BR>
+
+          <BLOCKQUOTE>
+          <B>Ident(string ident)</B><BR>
+          <I>Required</I><BR>
+          ident: Identifier of radio receiver to uninstall.<BR>
+          </BLOCKQUOTE>
+
+        <A NAME="CreateScript::State::Settings::Setting::PurgeRadioReceivers">
+        <LI><B>PurgeRadioReceivers</B><BR>
+          Purge radio receivers which were installed by this script.<BR>
+          <BR>
+      </UL>
+      </BLOCKQUOTE>
+    </BLOCKQUOTE>
+
+    <A NAME="CreateScript::State::Action">
+    <BLOCKQUOTE>
+    <B>Action(string type)</B><BR>
+    <I>Optional</I><BR>
+    type: Action type.  The contents of the action scope are dependent on the action type.<BR>
+    If no Action is present, this is known as a NULL Action.  A NULL action will use the has the status "Completed" immediately.  The following action types are defined:<BR>
+    <UL>
+      <A NAME="CreateScript::State::Action::Recruit">
+      <LI><B>Recruit(string type)</B><BR>
+        Recruit units from a tag into the squad.<BR>
+
+        type: Type of recruitment.<BR>
+        <UL>
+          <LI><B>Tag</B><BR>
+            Recrtuit from a Tag.<BR>
+          
+            <BLOCKQUOTE>
+            <B>Tag(string tag)</B><BR>
+            <I>Required</I><BR>
+            tag: Name of the tag to recruit into the squad.<BR>
+            </BLOCKQUOTE>
+            
+          <LI><B>Squad</B><BR>
+            Recruit units from another squad into the squad.<BR>
+            
+            <BLOCKQUOTE>
+            <B>Script(string script)</B><BR>
+            <I>Required</I><BR>
+            script: Name of the script to recruit from.<BR>
+            </BLOCKQUOTE>
+            
+          <LI><B>Force</B><BR>
+            Recruit units into the squad via a force matching.<BR>
+            
+            <BLOCKQUOTE>
+            <B>Config(string config)</B><BR>
+            <I>Required</I><BR>
+            config: Name of the force matching configuration to use.  Use <A HREF="#CreateRequestForce">CreateRecruitForce</A> to create these configurations.<BR>
+            </BLOCKQUOTE>
+
+            <BLOCKQUOTE>
+            <B>Location()</B><BR>
+            <I>Required</I><BR>
+            Location to centre the force matching about.<BR>
+            Refer to <A HREF="#location">Locations</A> for more information.<BR>
+            </BLOCKQUOTE>
+
+            <BLOCKQUOTE>
+            <B>Range(float range)</B><BR>
+            <I>Required</I><BR>
+            range: Range around the centre point of the region to consider for forcematching.<BR>
+            </BLOCKQUOTE>
+
+            <BLOCKQUOTE>
+            <B>AcceptInsufficient(bool flag)</B><BR>
+            <I>Optional(0)</I><BR>
+            flag: If the force matching results in an insufficient number of units, take what we can even though the force is less than requested.<BR>
+            </BLOCKQUOTE>
+            
+          <LI><B>ForceMap</B><BR>
+            Recruit units into the squad via a map wide force matching.<BR>
+
+            <BLOCKQUOTE>
+            <B>Config(string config)</B><BR>
+            <I>Required</I><BR>
+            config: Name of the force matching configiration to use.  Use CreateConfigRequestForce to create these configurations.<BR>
+            </BLOCKQUOTE>
+
+            <BLOCKQUOTE>
+            <B>Location()</B><BR>
+            <I>Required</I><BR>
+            Location to centre the force matching about.<BR>
+            Refer to <A HREF="#location">Locations</A> for more information.<BR>
+            </BLOCKQUOTE>
+
+            <BLOCKQUOTE>
+            <B>AcceptInsufficient(bool flag)</B><BR>
+            <I>Optional(0)</I><BR>
+            flag: If the force matching results in an insufficient number of units, take what we can even though the force is less than requested.<BR>
+            </BLOCKQUOTE>
+            
+          <LI><B>Type</B><BR>
+            Recruit units into the squad by getting the specific types in the type configuration.<BR>
+
+            <BLOCKQUOTE>
+            <B>Config(string config)</B><BR>
+            <I>Required</I><BR>
+            config: Name of the type configuration to use.  Use <A HREF="#CreateRecruitType">CreateRecruitType</A> to create these configurations.<BR>
+            </BLOCKQUOTE>
+
+            <BLOCKQUOTE>
+            <B>Location()</B><BR>
+            <I>Required</I><BR>
+            Location to centre the force matching about.<BR>
+            Refer to <A HREF="#location">Locations</A> for more information.<BR>
+            </BLOCKQUOTE>
+
+            <BLOCKQUOTE>
+            <B>AcceptInsufficient(bool flag)</B><BR>
+            <I>Optional(0)</I><BR>
+            flag: If we can't get all the units listed in the configuration, go with what we got.<BR>
+            </BLOCKQUOTE>
+            
+        </UL>
+
+      <A NAME="CreateScript::State::Action::Spawn">
+      <LI><B>Spawn</B><BR>
+        Spawns new units into the squad.<BR>
+
+        <BLOCKQUOTE>
+        <B>Location()</B><BR>
+        <I>Required</I><BR>
+        Location to spawn at.<BR>
+        Refer to <A HREF="#location">Locations</A> for more information.<BR>
+        </BLOCKQUOTE>
+
+        <BLOCKQUOTE>
+        <B>Formation(string formation)</B><BR>
+        <I>Required</I><BR>
+        formation: Name of the formation to used.<BR>
+        </BLOCKQUOTE>
+
+        <BLOCKQUOTE>
+        <B>Direction(float angle)</B><BR>
+        <I>Required</I><BR>
+        angle: Angle to orient the formation.  This is a compass angle.<BR>
+        </BLOCKQUOTE>
+
+        <BLOCKQUOTE>
+        <B>Config(string config)</B><BR>
+        <I>Required</I><BR>
+        config: Name of the type configuration to use.  Use <A HREF="#CreateRecruitType">CreateRecruitType</A> to create these configurations.<BR>
+        </BLOCKQUOTE>
+
+      <A NAME="CreateScript::State::Action::Delete">
+      <LI><B>Delete</B><BR>
+        Delete the units in the squad.<BR>
+        <BR>
+
+      <A NAME="CreateScript::State::Action::Discharge">
+      <LI><B>Discharge</B><BR>
+        Discharge the unis in the squad back to the strategic AI.<BR>
+        <BR>
+
+      <A NAME="CreateScript::State::Action::Move">
+      <LI><B>Move</B><BR>
+        Move the squad to the given location.<BR>
+
+        <BLOCKQUOTE>
+        <B>Location()</B><BR>
+        <I>Required</I><BR>
+        Location to move to.<BR>
+        Refer to <A HREF="#location">Locations</A> for more information.<BR>
+        </BLOCKQUOTE>
+
+      <A NAME="CreateScript::State::Action::Explore">
+      <LI><B>Explore</B><BR>
+        Tell the squad to explore.  This never completes.<BR>
+
+      <A NAME="CreateScript::State::Action::Stop">
+      <LI><B>Stop</B><BR>
+        Stops what ever the squad is currently doing.<BR>
+
+      <A NAME="CreateScript::State::Action::Trail">
+      <LI><B>Trail</B><BR>
+        Move the squad onto the given trail.<BR>
+
+        <BLOCKQUOTE>
+        <B>Trail(string trail)</B><BR>
+        <I>Required</I><BR>
+        trail: name of the trail to use. Trail MUST be on the same team!<BR>
+        </BLOCKQUOTE>
+        
+        <BLOCKQUOTE>
+        <B>Index(integer index)</B><BR>
+        <I>Optional(0)</I><BR>
+        index: Index of the trail to start on.<BR>
+        </BLOCKQUOTE>
+
+      <A NAME="CreateScript::State::Action::Formation">
+      <LI><B>Formation</B><BR>
+        Move the units in the squad into formation.<BR>
+
+        <BLOCKQUOTE>
+        <B>Formation(string formation)</B><BR>
+        <I>Required</I><BR>
+        formation: Name of the formation to used.<BR>
+        </BLOCKQUOTE>
+
+        <BLOCKQUOTE>
+        <B>Direction(float angle)</B><BR>
+        <I>Required</I><BR>
+        angle: Angle to orient the formation.  This is a compass angle.<BR>
+        </BLOCKQUOTE>
+
+      <A NAME="CreateScript::State::Action::AttackTag">
+      <LI><B>AttackTag</B><BR>
+        Get the squad to attack a tag.  The squad destroys the map objects in the tag selecting the closest one destroying it and then selecting the next closest object and so on.<BR>
+
+          <BLOCKQUOTE>
+          <B>Tag(string tag)</B><BR>
+          <I>Required</I><BR>
+          tag: Tag to attack.<BR>
+          </BLOCKQUOTE>
+
+      <A NAME="CreateScript::State::Action::FollowTag">
+      <LI><B>FollowTag</B><BR>
+        Follow the tag.  This action never completes so the "Completed" status will <B>NEVER</B> occur.<BR>
+
+          <BLOCKQUOTE>
+          <B>Tag(string tag)</B><BR>
+          <I>Required</I><BR>
+          tag: Tag to follow.<BR>
+          </BLOCKQUOTE>
+
+      <A NAME="CreateScript::State::Action::Defect">
+      <LI><B>Defect()</B><BR>
+        Units in the squad defect to another team.<BR>
+
+          <BLOCKQUOTE>
+          <B>Team(string team)</B><BR>
+          <I>Required</I><BR>
+          team: Name of the team to defect to.<BR>
+          </BLOCKQUOTE>
+
+    </UL>
+    </BLOCKQUOTE>
+
+    <A NAME="CreateScript::State::Conditions">
+    <BLOCKQUOTE>
+    <B>Conditions()</B><BR>
+    <I>Optional</I><BR>
+
+      <A NAME="CreateScript::State::Conditions::Status">
+      <BLOCKQUOTE>
+      <B>Status(string status)</B><BR>
+      <I>Multiple</I><BR>
+      Status scopes define transitions to be performed based on the status of the Action being executed in this state.  The contents of Completed are identical to Transition().  See below.<BR>
+      status: Name of the status to pefrorm the transition on.  Different actions produce different statuses but there are some common ones.<BR>
+      <UL>
+        <LI><B>Completed</B><BR>
+          When the action is completed the status is completed.<BR>
+      </UL>
+      
+      </BLOCKQUOTE>
+
+      <A NAME="CreateScript::State::Conditions::Condition">
+      <BLOCKQUOTE>
+      <B>Condition(string type)</B><BR>
+      <I>Multiple</I><BR>
+      type: Condition type.  The contents of the condition scope are dependent upon the type with the exception of the Transition scope which is required in all conditions.  The following types are defined.<BR>
+
+        <UL>
+          <A NAME="CreateScript::State::Conditions::Condition::ObjectiveCondition">
+          <LI><B>ObjectiveCondition</B><BR>
+            
+            <BLOCKQUOTE>
+            <B>Conditon(string type)</B><BR>
+            <I>Required</I><BR>
+            A condition as used in the Objective system.  Refer to <A HREF="../types/objectiveobj.html">ObjectiveObj</A> for more information.<BR>
+            </BLOCKQUOTE>
+
+          <A NAME="CreateScript::State::Conditions::Condition::Count">
+          <LI><B>Count</B><BR>
+            Condition is true when the number of units in the squad relative to the amount given using the operator given becomes true.<BR>
+
+            <BLOCKQUOTE>
+            <B>Operator(string operator)</B><BR>
+            <I>Required</I><BR>
+            operator: Relational operator.  See <A HREF="../misc/operators.html#relational">RelationalOperators</A> for more information.<BR>
+            </BLOCKQUOTE>
+
+            <BLOCKQUOTE>
+            <B>Amount(integer amount)</B><BR>
+            <I>Requred (if Percentage not present)</I><BR>
+            amount: Amount to compare against.<BR>
+            </BLOCKQUOTE>
+            
+            <BLOCKQUOTE>
+            <B>Percentage(float percentage)</B><BR>
+            <I>Required (if Percentage not present)</I><BR>
+            percentage: Percentage of the squad to compare against.<BR>
+            </BLOCKQUOTE>
+            
+          <A NAME="CreateScript::State::Conditions::Condition::HitPoints">
+          <LI><B>HitPoints</B><BR>
+            Condition is true when the number of combined hitpoints in the squad relative to the amount given using the operator given becomes true.<BR>
+
+            <BLOCKQUOTE>
+            <B>Operator(string operator)</B><BR>
+            <I>Required</I><BR>
+            operator: Relational operator.  See <A HREF="../misc/operators.html#relational">RelationalOperators</A> for more information.<BR>
+            </BLOCKQUOTE>
+
+            <BLOCKQUOTE>
+            <B>Amount(integer amount)</B><BR>
+            <I>Requred (if Percentage not present)</I><BR>
+            amount: Amount to compare against.<BR>
+            </BLOCKQUOTE>
+            
+            <BLOCKQUOTE>
+            <B>Percentage(float percentage)</B><BR>
+            <I>Required (if Percentage not present)</I><BR>
+            percentage: Percentage of the squad hitpoints to compare against.<BR>
+            </BLOCKQUOTE>
+
+          <A NAME="CreateScript::State::Conditions::Condition::Proximity">
+          <LI><B>Proximity</B><BR>
+            Condition is true when the squads proximity to the location using the operator becomes true.<BR>
+
+            <BLOCKQUOTE>
+            <B>Location()</B><BR>
+            <I>Required</I><BR>
+            Location to test proximity against.<BR>
+            Refer to <A HREF="#location">Locations</A> for more information.<BR>
+            </BLOCKQUOTE>
+            
+            <BLOCKQUOTE>
+            <B>Operator(string operator)</B><BR>
+            <I>Required</I><BR>
+            operator: Relational operator.  See <A HREF="../misc/operators.html#relational">RelationalOperators</A> for more information.<BR>
+            </BLOCKQUOTE>
+
+            <BLOCKQUOTE>
+            <B>Range(float range)</B><BR>
+            <I>Required</I><BR>
+            range: Range to test proximity against.<BR>
+            </BLOCKQUOTE>
+
+          <A NAME="CreateScript::State::Conditions::Condition::Threat">
+          <LI><B>Threat</B><BR>
+            Condition is true when the enemy threat at the squads location  using the operator becomes true.<BR>
+
+            <BLOCKQUOTE>
+            <B>Operator(string operator)</B><BR>
+            <I>Required</I><BR>
+            operator: Relational operator.  See <A HREF="../misc/operators.html#relational">RelationalOperators</A> for more information.<BR>
+            </BLOCKQUOTE>
+
+            <BLOCKQUOTE>
+            <B>Amount(integer amount)</B><BR>
+            <I>Required</I><BR>
+            amount: Amount of threat to test against.<BR>
+            </BLOCKQUOTE>
+            
+        </UL>
+
+        <BLOCKQUOTE>
+        <B>Transition()</B><BR>
+        <I>Required</I><BR>
+        A transition must include one of the following scopes.<BR>
+
+          <BLOCKQUOTE>
+          <B>End()</B><BR>
+          End the script.  Note that the units in the squad are NOT discharged and that the AI won't use the units in the squad ever again.<BR>
+          </BLOCKQUOTE>
+
+          <BLOCKQUOTE>
+          <B>GotoState(string state)</B><BR>
+          state: State to go to.<BR>
+          </BLOCKQUOTE>
+
+          <BLOCKQUOTE>
+          <B>GotoRandomState()</B><BR>
+          Go to a state at random from the given states.  At least one state must be defined.<BR>
+
+            <BLOCKQUOTE>
+            <B>Add(string state, float weight)</B><BR>
+            state: Name of the state to go to.<BR>
+            weight: Weighting to give to this branch.<BR>
+            </BLOCKQUOTE>
+
+          </BLOCKQUOTE>
+
+          <BLOCKQUOTE>
+          <B>CallState(string state)</B><BR>
+          state: State to call.  The called state can use the return state transition to return to the calling state (this one).<BR>
+          </BLOCKQUOTE>
+
+          <BLOCKQUOTE>
+          <B>CallRandomState()</B><BR>
+          Call a state at random from the given states.  At least one state must be defined.<BR>
+
+            <BLOCKQUOTE>
+            <B>Add(string state, float weight)</B><BR>
+            state: Name of the state to call.<BR>
+            weight: Weighting to give to this branch.<BR>
+            </BLOCKQUOTE>
+
+          </BLOCKQUOTE>
+          
+          <BLOCKQUOTE>
+          <B>ReturnState()</B><BR>
+          Return from this state.  There must be at least one state on the "stack" otherwise this will fail.<BR>
+          </BLOCKQUOTE>
+
+        </BLOCKQUOTE>
+
+      </BLOCKQUOTE>
+      
+   </BLOCKQUOTE>
+
+ </BLOCKQUOTE>
+
+</BLOCKQUOTE>
+
+<A NAME="CreateBase">
+<BLOCKQUOTE>
+<B>CreateBase(string name)</B><BR>
+<I>Multiple</I><BR>
+name: Name of the base.<BR>
+
+  <BLOCKQUOTE>
+  <B>Location</B><BR>
+  <I>Required</I><BR>
+  Location of the base.<BR>
+  Refer to <A HREF="#location">Locations</A> for more information.<BR>
+  </BLOCKQUOTE>
+  
+  <BLOCKQUOTE>
+  <B>InitialState(string state)</B><BR>
+  <I>Required</I><BR>
+  state: Name of the state to start in.<BR>
+  </BLOCKQUOTE>
+  
+  <BLOCKQUOTE>
+  <B>State</B><BR>
+  <I>Multiple</I><BR>
+  
+    <BLOCKQUOTE>
+    <B>State</B><BR>
+    <I>Multiple</I><BR>
+    
+      <BLOCKQUOTE>
+      <B>Orderers()</B><BR>
+      <I>Required</I>
+      The orderers to use in this base state.<BR>
+      
+        <BLOCKQUOTE>
+        <B>Add(string orderer, integer resource, integer priority)</B><BR>
+        <I>Multiple</I><BR>
+        orderer: name of the orderer to use.<BR>
+        resource: resource weighting of the orderer.<BR>
+        priority: priority of the orderer.<BR>
+        </BLOCKQUOTE>
+            
+      </BLOCKQUOTE>
+      
+    </BLOCKQUOTE>
+
+  </BLOCKQUOTE>
+  
+</BLOCKQUOTE>
+
+<A NAME="CreateBase::Orderer">
+<BLOCKQUOTE>
+<B>CreateBase::Orderer(string name)</B><BR>
+<I>Multiple</I><BR>
+name: Name of the base orderer.<BR>
+
+  <BLOCKQUOTE>
+  <B>Reserve(integer amount)</B><BR>
+  <I>Optional(0)</I><BR>
+  amount: This orderer won't spend resource if the total resource is less than this amount.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>Manifest(string type)</B><BR>
+  <I>Required</I>
+  type: Type of the manifest.  The following types are defined.<BR>
+  
+  <UL>
+  
+    <LI><B>Direct</B><BR>
+      Build the the types presented.<BR>
+    
+    <LI><B>Level</B><BR>
+      Ensure that number of units is maintained at the given level.<BR>
+    
+    <LI><B>BaseLevel</B><BR>
+      Ensure that number of units is maintained at the given level within the base which owns this orderer.<BR>
+    
+    <LI><B>Ratio</B><BR>
+      Continue building the types in the ratio defined by the types.<BR>
+    
+    <LI><B>Power</B><BR>
+      Build more units depending on the current power level.<BR>
+      
+      <BLOCKQUOTE>
+      <B>Preparation(float time)</B><BR>
+      <I>Optional(10%)</I><BR>
+      time: Amount of time to look ahead for power changed based on time of day.<BR>
+      </BLOCKQUOTE>
+      
+      <BLOCKQUOTE>
+      <B>Over(integer amount)</B><BR>
+      <I>Optional(100)</I><BR>
+      amount: Amount of power to overbuild by.<BR>
+      </BLOCKQUOTE>
+    
+  </UL>
+  
+  <BLOCKQUOTE>
+  <B>Types()</B><BR>
+  <I>Required</I>
+  
+    <BLOCKQUOTE>
+    <B>Add(string type, integer amount)</B><BR>
+    <I>Multiple, Optional amount(1)</I><BR>
+    type: Type name to use.<BR>
+    amount: Amount of type.<BR>
+    </BLOCKQUOTE>
+  
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>Random(boolean flag)</B><BR>
+  <I>Optional(0)</I><BR>
+  flag: Whether the types are applied randomly or in the order listed.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>Plan(string plan)</B><BR>
+  <I>Required</I><BR>
+  plan: Name of the base plan to use when placing objects built by this manifest.<BR>
+  </BLOCKQUOTE>
+  
+</BLOCKQUOTE>
+
+<A NAME="CreateBase::Plan">
+<BLOCKQUOTE>
+<B>CreateBase::Plan</B><BR>
+<I>Multiple</I><BR>
+name: Name of the base building plan.<BR>
+
+  <BLOCKQUOTE>
+  <B>Extents(float distance)</B><BR>
+  <I>Required</I><BR>
+  distance: Distance to the perimiter of the base.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>Front(float angle)</B><BR>
+  <I>Required</I><BR>
+  angle: Compass angle to the front of the base.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>DefaultEvaluation()</B><BR>
+  <I>Required</I><BR>
+
+    <BLOCKQUOTE>
+    <B>Weighting()</B><BR>
+    <I>Multiple</I><BR>
+    Weighting allows for multiple configurations which are chosen from via a random weighint (using the weighting values no less).<BR>
+
+      <BLOCKQUOTE>
+      <B>Orientation(float angle)</B><BR>
+      <I>Optional</I><BR>
+      angle: Angle relative to the front of the base.<BR>
+
+        <BLOCKQUOTE>
+        <B>Weighting(float weighting)</B><BR>
+        <I>Required</I><BR>
+        weighting: The weighting this parameter has.<BR>
+        </BLOCKQUOTE>
+
+        <BLOCKQUOTE>
+        <B>Cutoff(float cutoff)</B><BR>
+        <I>Required, Range(0.0, 1.0)</I><BR>
+        cutoff: Cells below this cutoff will not be considered.<BR>
+        </BLOCKQUOTE>
+
+      </BLOCKQUOTE>
+
+      <BLOCKQUOTE>
+      <B>Centre()</B><BR>
+      <I>Optional</I>
+      Prefer cells which are close to the centre of the base.  The contents are Weighting and Cutoff as per Orientation.<BR>
+      </BLOCKQUOTE>
+      
+      <BLOCKQUOTE>
+      <B>Perimeter()</B><BR>
+      <I>Optional</I>
+      Prefer cells which are close to the perimeter of the base.  The contents are Weighting and Cutoff as per Orientation.<BR>
+      </BLOCKQUOTE>
+
+      <BLOCKQUOTE>
+      <B>WaterEdge()</B><BR>
+      <I>Optional</I>
+      Prefer cells which are close to the edge of water.  The contents are Weighting and Cutoff as per Orientation.<BR>
+      </BLOCKQUOTE>
+
+    </BLOCKQUOTE>
+
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>PropertyEvaluations()</B><BR>
+  Configurations based on properties in the types.<BR>
+
+    <BLOCKQUOTE>
+    <B>Add(string property)</B><BR>
+    <I>Multiple</I><BR>
+    property: Property this configuration is for.<BR>
+    The contents are identical to the contents of DefaultEvaluation.<BR>
+    </BLOCKQUOTE>
+
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>TypeEvaluations()</B><BR>
+  Configuratiosn based on types.<BR>
+
+    <BLOCKQUOTE>
+    <B>Add(string type)</B><BR>
+    <I>Multiple</I><BR>
+    type: Type this configuration is for.<BR>
+    The contents are identical to the contents of DefaultEvaluation.<BR>
+    </BLOCKQUOTE>
+
+  </BLOCKQUOTE>
+
+</BLOCKQUOTE>
+
+<A NAME="CreateRecruitForce">
+<BLOCKQUOTE>
+<B>CreateRecruitForce(string name)</B><BR>
+name: Name of the force matching configuration.<BR> 
+
+  <BLOCKQUOTE>
+  <B>Evaluation()</B><BR>
+  <I>Required</I><BR>
+  Parameters used during the evaluation of the available units.  Each unit is given a score from 0 to 1 for each of the five types and those five scores are combined using the importances of each score.<BR>
+
+    <BLOCKQUOTE>
+    <B>Constitution(float importance)</B><BR>
+    <I>Required</I><BR>
+    importance: Importance to give to constitution.<BR>
+    Constitution is determined by how long the given unit can survive in the area speficied by comparing the armour class and hit points of the units against the threats to that armour class in the area of interest.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Effectiveness(float importance)</B><BR>
+    <I>Required</I><BR>
+    importance: Importance to give to effectiveness.<BR>
+    Effectiveness is determined by how effective the weapons the unit has are against the armour classes in the area of interest.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Time(float importance)</B><BR>
+    importance: Importance to give to time.<BR>
+    The amount of time required for the given unit to get to area of interest.  The longer a unit will take to get to the area, the lower its time value.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Cost(float importance)</B><BR>
+    importance: Importance to give to cost.<BR>
+    The higher the cost of replacing the given unit the lower its cost value.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Tweak(float importance)</B><BR>
+    importance: Importance to give to tweak.<BR>
+
+      <BLOCKQUOTE>
+      <B>Type(string type, float tweak)</B><BR>
+      <I>Multiple, tweak Range(0, 1)</I><BR>
+      type: Unit type to assign tweak to.<BR>
+      tweak: Tweak value to use with units of this type.<BR> 
+      </BLOCKQUOTE>
+
+      <BLOCKQUOTE>
+      <B>Default(float tweak)</B><BR>
+      <I>Required, Range(0, 1)</I><BR>
+      tweak: Default tweak value given to non specified types.<BR>
+      </BLOCKQUOTE>
+
+    </BLOCKQUOTE>
+
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>Allocation()</B><BR>
+  <I>Required</I><BR>
+
+    <BLOCKQUOTE>
+    <B>Defense(float value)</B><BR>
+    <I>Required</I><BR>
+    value: Amount of defense to allocate to threat.  This translates to the number of seconds the units could survive is all of the threat in the area is brought to bear on all units simultaneously.  Experiment with values between 1 and 10.<BR>
+    </BLOCKQUOTE>
+    
+    <BLOCKQUOTE>
+    <B>Threat(float value)</B><BR>
+    <I>Required</I><BR>
+    value: Amount of threat to allocate to defense.  This translates to the the amount of threat required to destroy all of the defeneses in the area in one second.  Experiment with values below zero.<BR>
+    </BLOCKQUOTE>
+
+  </BLOCKQUOTE>
+
+</BLOCKQUOTE>
+
+<A NAME="CreateRecruitType">
+<BLOCKQUOTE>
+<B>CreateRecruitType(string name)</B><BR>
+name: Name of the type configuration.<BR> 
+    
+  <BLOCKQUOTE>
+  <B>Type(string type, integer amount)</B><BR>
+  <I>Multiple</I><BR>
+  type: Unit type recruit.<BR>
+  amount: Number of units to recruit.<BR>
+  </BLOCKQUOTE>
+
+</BLOCKQUOTE>
+
+<A NAME="location"></A>
+<BLOCKQUOTE>
+<B>Locations</B><BR>
+Locations are used whenever the AI needs to know about a location on the map.  Different circumstances will use locations differently and may require/use different parts of locations.<BR>
+
+  <BLOCKQUOTE>
+  <B>Base(string type)</B><BR>
+  <I>Optional(none)</I><BR>
+  type: The type of the base part of a location which can be<BR>
+
+  <UL>
+  
+    <LI><B>Region(string region)</B><BR>
+      region: Name of the region to use for a location.<BR>
+      <BR>
+      
+    <LI><B>Tag(string tag)</B><BR>
+      tag: Name of the tag to use for a location.<BR>
+      <BR>
+      
+    <LI><B>Squad(string squad)</B><BR>
+      squad: Name of the squad script to use for a location.<BR>
+      <BR>
+      
+    <LI><B>LastRadioEvent</B><BR>
+      Uses the location of the last handled radio event.<BR>
+      <BR>
+
+  </UL>
+
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>Offset(string type)</B><BR>
+  <I>Optional(none)</I><BR>
+
+  <UL>
+  
+    <LI><B>Polar(float distance, float direction)</B><BR>
+      distance: distance (in metres) to offset by.<BR>
+      direction: compass angle direction to offset by.<BR>
+      
+    <LI><B>Orthogonal(float Xoffset, float Zoffset)</B><BR>
+      Xoffset: distance to offset along x axis (in metres).<BR>
+      Zoffset: distance to offset along z axis (in metres).<BR>
+      
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>Rule(string type)</B><BR>
+  <I>Optional(none)</I><BR>
+
+  </BLOCKQUOTE>
+
+<BLOCKQUOTE>
+
+</HTML>
+

@@ -1,0 +1,181 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Dark Reign 2 Construction Kit - 5.3 Scripting Basics/DR2 Script structure</title>
+</head>
+
+<body bgcolor="#000000" link="#33ff00" alink="#00ff00" vlink="#11cc00">
+<table border=0 cellpadding=0 cellspacing=0 width="100%">
+<TR>
+	<td bgcolor="#004400" width="100%">
+		<table border=0 cellpadding=4 cellspacing=2 width="100%">
+		<tr>
+			<td width="100%" bgcolor="#000000"><font color="#00cc00" face="Arial" size="2"><!-- Start Text -->
+<font size="4"><b>5.3 Scripting Basics/DR2 Script structure</b></font><p>
+<font size="3"><b>Scripting</b></font><br>
+
+If you have any previous programming or scripting experience, the following should come naturally to you. If you don't, it may be very difficult at first but don't give up, it not so hard with some practice.  If you find yourself totally lost, try to find a friend or a forum that can help you out.  After you read the following sections, the greatest piece of advice we can give you is to unzip the single player missions that came with DR2, and dive into the .cfgs and see how things are done firsthand!<p>
+
+Each basic script or instruction (herein called "Objective"), consists of two basic parts-the "Condition" statement, and  the "Action" statement.   When all conditions in the Condition statement are met, or are true, then the  instructions in the Action statement are carried out.  The script is saying "If this is true (condition), then do this (action)".  If  the conditions in the Condition statement are not true, it will wait indefinitly until they are true (or the objective is cancelled).   After the Condition has become true, and the Action has been carried out, the objective will unload itself from memory and will never be carried out again (unless it is re-loaded in another objective).<p>
+
+Below is the basic structure of an Objective:
+<hr>
+<blockquote><Font color="#00CCCC" face="courier">
+            CreateObjectType("[objective name]", "Objective")<BR>
+			{<BR>
+			&nbsp;GameObj();<BR>
+			&nbsp;ObjectiveObj()<BR>
+			&nbsp;{<BR>
+			&nbsp;&nbsp;&nbsp;Condition([type])<BR>
+			&nbsp;&nbsp;&nbsp;{<BR>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[condition];<BR>
+			&nbsp;&nbsp;&nbsp;}<br>
+            &nbsp;&nbsp;&nbsp;Action()<BR>
+			&nbsp;&nbsp;&nbsp;{<BR>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[action];<BR>
+			&nbsp;&nbsp;&nbsp;}<BR>
+			&nbsp;}<BR>
+			}
+</font></blockquote>
+
+<hr>
+
+            <P>"objective name" will be different for each objective you make. 
+            Each must have a unique name.</P>
+               <p>
+
+The word next to it "Objective" will never change.<p>
+
+<Font color="#00CCCC" face="courier">GameObj();</font> and <Font color="#00CCCC" face="courier">ObjectiveObj()</font> will never change.<p>
+
+The condition goes between the brackets under <Font color="#00CCCC" face="courier">Condition()</font><p>
+
+The action goes between the brackets under <Font color="#00CCCC" face="courier">Action()</font><p>
+
+Note the bracket structure.  Brackets divide the statement down into smaller and smaller units.  Notice that the entire statement is enclosed in the two outermost brackets (top and bottom ones).<p>
+
+Within those, there is two more statements - "<Font color="#00CCCC" face="courier">GameObj();</font>" and "<Font color="#00CCCC" face="courier">ObjectiveObj()</font>".<p>
+
+In  "<Font color="#00CCCC" face="courier">ObjectiveObj()</font>", there are two more statements called "<Font color="#00CCCC" face="courier">Condition()</font>" and "<Font color="#00CCCC" face="courier">Action()</font>".<p>
+
+Also note that every statement ends with a semi-colon.  Mistakes as simple as a wrong bracket or missing semi-colon will crash a mission!<p>
+
+Now, we are going to add two Objectives to the file <b>objective_start.cfg</b>.<p>
+
+Open <b>objective_start.cfg</b>.  Cut and paste the following into the file:
+
+<hr>
+<blockquote><Font color="#00CCCC" face="courier">
+CreateObjectType("objective_start_player", "Objective")<br>
+{<br>
+&nbsp;GameObj();<br>
+&nbsp;ObjectiveObj()<br>
+&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;Condition("TRUE");<br>
+&nbsp;&nbsp;&nbsp;Action()<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NewObjective("objective_player_at_goal");<br>
+&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;}<br>
+}
+</font></blockquote>
+<hr>
+
+<br>This will be the initial script for the player team.  TRUE is a type of condition.  It means the condition will automatically be true whenever it is loaded, and immediately carry out the Action statement.  Since the statement doesn't need any more information, there are no brackets needed in the condition statement.  (The semi-colon after <Font color="#00CCCC" face="courier">("TRUE")</font> shows that the Condition statement is over.)  '<Font color="#00CCCC" face="courier">NewObjective</font>' is our script command that loads a new objective.  You can call a NewObjective in any Action scope anywhere in your scripts.   "<Font color="#00CCCC" face="courier">objective_player_at_goal</font>" is an objective we will create later, but keep the line there for now.<p>
+
+Now, we need to tell the Editor that this Objective is going to be the initial Objective for the player's team.  Load your map in the Editor (if you try to load it in the game at this point you'll crash!) Double-click on the player's team in the team menu of the Editor.  On the right side you'll see a large window called "Objectives".  This window lists all of the Objectives it can currently read from all your .cfg files.  The Objectve we just created, "<Font color="#00CCCC" face="courier">objective_start_player</font>", should now be on this list. Highlight "<Font color="#00CCCC" face="courier">objective_start_player</font>" on the list, and click "OK" and save the map.  Now the game knows to look at this objective first!<p>
+
+If you don't see "<Font color="#00CCCC" face="courier">objective_start_player</font>" on the list make sure you:<br>
+<li>Saved your .cfg files
+<li>Reloaded the map after you edited the .cfg files
+<li>All your .cfg files are in the mission folder<p>
+
+If it still doesn't work, go back through the steps and be sure you did everything correctly.<p>
+
+Now add the AI team's initial objective to <b>objective_start.cfg</b>.  Open <b>objective_start.cfg</b> and add the following:
+
+<hr>
+<blockquote><Font color="#00CCCC" face="courier">
+CreateObjectType("objective_start_AI", "Objective")<br>
+{<br>
+&nbsp;GameObj();<br>
+&nbsp;ObjectiveObj()<br>
+&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;Condition("TRUE");<br>
+
+&nbsp;&nbsp;&nbsp;Action()<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NewObjective("objective_attack_player");<br>
+&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;}<br>
+}
+
+</font></blockquote>
+<hr>
+
+<br>"<Font color="#00CCCC" face="courier">objective_attack_player</font>" is an objective we will create later.  As you did with the player's team, go into the editor, enter the AI team's setup, and highlight "<Font color="#00CCCC" face="courier">objective_start_ai</font>", click OK and save the map.  The game will now look at this objective first for the AI's team.<p>
+
+Now lets create the missing objectives we are referring to in our script (<Font color="#00CCCC" face="courier">objective_player_at_goal</font> and <Font color="#00CCCC" face="courier">objective_attack_player</font>)<p>
+
+Open "<b>objectives_player.cfg</b>".  Add the following and save:
+
+<hr>
+<blockquote><Font color="#00CCCC" face="courier">
+CreateObjectType("objective_player_at_goal", "Objective")<br>
+{<br>
+&nbsp;GameObj();<br>
+&nbsp;ObjectiveObj()<br>
+&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;Condition("TRUE");<br>
+&nbsp;&nbsp;&nbsp;Action();<br>
+&nbsp;}<br>
+}
+
+</font></blockquote>
+<hr>
+
+<br>Open "<b>objectives_ai.cfg</b>".  Add the following and save:
+
+<hr>
+<blockquote><Font color="#00CCCC" face="courier">
+CreateObjectType("objective_attack_player", "Objective")<br>
+{<br>
+&nbsp;GameObj();<br>
+&nbsp;ObjectiveObj()<br>
+&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;Condition("TRUE");<br>
+&nbsp;&nbsp;&nbsp;Action();<br>
+&nbsp;}<br>
+}
+</font></blockquote>
+<hr>
+
+<br>As you probably noticed there are no conditions or actions, we will add these later.    Your map should now load correctly in the game.   Nothing will happen, but if it loads without crashing you've done everything correctly.<p>
+
+To sum up what we've covered, this is what happened in the game's logic: First the map was loaded.  The game noticed <b>types_mission.cfg</b> and <b>strategic.cfg</b> in the mission folder and read the files.  The game included all the .cfg files specified in these files:<p>
+
+<b>strategic_scripts.cfg</b><br>
+<b>types_objects_special.cfg</b><br>
+<b>objective_start.cfg</b><br>
+<b>objective_ai.cfg</b><br>
+<b>objective_player.cfg</b><p>
+
+Then the game looked at the Team config settings for it's initial objectives.  The player's team specified "objective_start_player".  The game then searched all the .cfg files included in <b>types_mission.cfg</b> for "<Font color="#00CCCC" face="courier">objective_start_player</font>" and found it in the file <b>objective_start.cfg</b>.   "<Font color="#00CCCC" face="courier">Objective_start_player</font>" had a TRUE condition, so it immediately carried out the action of loading the new objective "<Font color="#00CCCC" face="courier">objective_player_at_goal</font>".  Again, the game searched all the .cfg's for "<Font color="#00CCCC" face="courier">objective_player_at_goal</font>" and found it.  The condition was TRUE, but nothing happened since there was no Action specified.   Since we set up the AI side like the player's, the same process happened there.<p>
+
+If you get a "unknown objective" error, that means the script cannot find the objective that it's asking for.  Either your #include settings are off in <b>types_missions.cfg</b>, or you've made a typo with the objective names.<p>
+If you get errors like "expected } but found ;" (symbols may vary), you've made a typo in your script or there is a syntax mistake in your script.<p>
+
+So, as you can see if an Objective is anywhere in the included .cfg's in types_mission.cfg, the game will find it.  So, you could have everything we have in <b>objective_start.cfg</b>, <b>objective_ai.cfg</b>, and <b>objective_player.cfg</b> in one file if you wanted, but that could get really confusing.  You can structure it however you wish.  The structure presented in this doc is what we found to be the easiest to work with and organize.<p>
+<!-- End Text -->
+
+		</font></P></td>
+		</tr>
+		</table>
+	</td>
+</TR>
+</table>
+
+
+</body>
+</html>

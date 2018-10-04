@@ -1,0 +1,23 @@
+<TITLE>ResourceObj</TITLE>
+<HTML>
+<H1>ResourceObj</H1>
+
+<BLOCKQUOTE>
+<B>ResourceMax(integer resource)</B><BR>
+<I>Optional(0)</I><BR>
+resource: Maximum amount of resource this type can have.<BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>ResourceChange(integer resource)</B><BR>
+<I>Optional(ResourceMax / 10)</I><BR>
+resource: Amount of resource tested when considering to change to another resource.<BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>ResourceRate(integer rate)</B><BR>
+<I>Optional(0)</I><BR>
+rate: Rate at which this resource replenishes.  Requires that the resource has the IdleTask Tasks::ResourceRegen for this parameter to have any effect.<BR>
+</BLOCKQUOTE>
+
+</HTML>

@@ -1,0 +1,86 @@
+<TITLE>Instance Modifiers</TITLE>
+<HTML>
+<H1>Instance Modifiers Reference</H1>
+
+<BLOCKQUOTE>
+<B><A HREF="#InstanceModifiers::Properties">Property</A></B><BR>
+<I>Optional, Multiple</I><BR>
+
+  <BLOCKQUOTE>
+  <B>Permanent()</B><BR>
+  <I>Optional</I><BR>
+  Indicates a permanent modifier.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>Duration(float time)</B><BR>
+  <I>Required, if not Permanent</I><BR>
+  time: Number of seconds that the full effect will last.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>FallOff(float time)</B><BR>
+  <I>Required, if not Permanent</I><BR>
+  time: Number of seconds it takes for the effect to wear off.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>Absolute(float value)</B><BR>
+  <I>One of Absolute/Percent Required</I><BR>
+  value: Absolute amount of effect to apply.<BR>
+  For example, -5 combined with TopSpeed will reduce the top speed by 5km/h<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>Percent(float value)</B><BR>
+  <I>One of Absolute/Percent Required</I><BR>
+  value: Percentage of object type's full amount to apply.<BR>
+  For example, 20% combined with SeeingRange will increase seeing range by 20%<BR>
+  </BLOCKQUOTE>
+
+</BLOCKQUOTE>
+
+<A NAME="InstanceModifiers::Properties">
+<U>Modifiable properties</U><BR>
+
+<BLOCKQUOTE>
+<B><A HREF="unitobj.html">UnitObj</A></B><BR>
+SeeingRange<BR>
+TopSpeed<BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B><A HREF="weaponobj.html">WeaponObj</A></B><BR>
+Damage<BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B><A HREF="projectileweaponobj.html">ProjectileWeaponObj</A></B><BR>
+FireDelay<BR>
+</BLOCKQUOTE>
+
+<U>Example</U><BR>
+<PRE>
+    HitModifiers()
+    {
+      Damage()
+      {
+        Permanent();
+        Percent(50%);
+      }
+      TopSpeed()
+      {
+        Duration(5);
+        Falloff(3);
+        Absolute(5);
+      }
+      FireDelay()
+      {
+        Duration(3.5);
+        Falloff(0);
+        Percent(-10%);
+      }
+    }
+</PRE>
+
+</HTML>

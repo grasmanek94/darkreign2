@@ -1,0 +1,49 @@
+<TITLE>Terrain Group Configuration</TITLE>
+<HTML>
+<H1>Terrain Group Configuration</H1>
+
+Terrain groups are created in the file 'terrain.cfg'<BR>
+<BR>
+
+<B><U>Configuration</U></B><BR>
+<BR>
+
+<BLOCKQUOTE>
+
+  <B>CreateTerrainGroup(string name)</B><BR>
+  <I>Multiple (at least one required)</I><BR>
+  name: Name of the terrain group to create.<BR>
+
+  <BLOCKQUOTE>
+
+    <B>BaseType(string name, string surface, string asset = name)</B><BR>
+    <I>Required</I><BR>
+    <BR>
+
+    <B>AddType(string name, string surface, string asset = name)</B><BR>
+    <I>Multiple</I><BR>
+    <BR>
+
+    <B>Arguments</B><BR>
+    name : The name of the terrain type<BR>
+    surface : The name of the surface type placed by this type<BR>
+    asset: The optional asset name. (create a new type using existing
+    assets but place a different surface type)<BR>
+    <BR>
+
+    <BLOCKQUOTE>
+
+      <B>Weight(integer blend, integer variation, float weight)</B><BR>
+      <I>Multiple (optional)</I><BR>
+      blend: The blend to configure.<BR>
+      variation: The variation to configure.<BR>
+      weight: The weighting assigned to this variation (used when selecting random variations).  Defaults to 1.0<BR>
+      <BR>
+
+    </BLOCKQUOTE>
+
+  </BLOCKQUOTE>
+
+</BLOCKQUOTE>
+
+</HTML>

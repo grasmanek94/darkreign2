@@ -1,0 +1,158 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Dark Reign 2 Construction Kit - 6.4 Sub-Unit Obj's</title>
+</head>
+
+<body bgcolor="#000000" link="#33ff00" alink="#00ff00" vlink="#11cc00">
+<table border=0 cellpadding=0 cellspacing=0 width="100%">
+<TR>
+	<td bgcolor="#004400" width="100%">
+		<table border=0 cellpadding=4 border=0 cellspacing=2 width="100%">
+		<tr>
+			<td width="100%" bgcolor="#000000"><font color="#00cc00" face="Arial" size="2">
+<!-- Start Text -->
+<font size="4"><b>6.4 Sub-Unit Obj's</b></font><p>
+When a unit has a specific ability beyond just a simple weapon, it needs a separate Obj that is built off the UnitObj.  We'll go through each one.<p>
+
+<font size="3"><b>RestoreObj</b></font><p>
+
+This Obj must be included in order for a unit to heal.  The following bit comes from the Psitech's config.
+<hr>
+<blockquote><font color="#00CCCC" face="courier">
+RestoreObj()<BR>
+{<BR>
+&nbsp;AddHitPoints(12);<BR>
+&nbsp;Delay(2);<BR>
+&nbsp;Distance(24);<BR>
+&nbsp;TargetProperties()<BR>
+&nbsp;{<BR>
+&nbsp;&nbsp;&nbsp;Add("Filter::Biological");<BR>
+&nbsp;&nbsp;&nbsp;Add("Filter::BiologicalFlyer");<BR>
+&nbsp;&nbsp;&nbsp;Add("Filter::Mechanical");<BR>
+&nbsp;&nbsp;&nbsp;Add("Filter::MechanicalFlyer");<BR>
+&nbsp;}<BR>
+}
+</font></blockquote>
+<hr>
+<blockquote>
+	<font color="#00CCCC" face="courier">AddHitPoints</font> - Number of hit points added per heal cycle<p>
+
+	<font color="#00CCCC" face="courier">Delay</font> - Frequency of heal cycles<p>
+	
+	<font color="#00CCCC" face="courier">Distance</font> - Maximum range at which it can heal a unit.<p>
+	
+	<font color="#00CCCC" face="courier">TargetProperties</font> - This is where you define what can be healed by the unit you are creating.  Each filter type you add will give it the ability to heal all units that have that filter at the beginning of their config.  In the case of the Psitech, it can heal all biologicals and mechanicals both on the ground and in the air.  This covers every unit currently in the game.  The Scaver, however, can only heal mechanicals and mechanical flyers, while the Voodun can only heal biologicals and biological flyers.<p><BR>
+	</blockquote>
+
+<font size="3"><b>WallObj</b></font><p>
+
+A WallObj is needed if a unit is to emit a laser fence that attaches to other wall posts.  Let's look at the wall config from the Sentinel Gun.
+<hr>
+<blockquote><font color="#00CCCC" face="courier">
+WallObj()<BR>
+{<BR>
+&nbsp;Range(6);<BR>
+&nbsp;BeamOffset(3.0);<BR>
+&nbsp;DeviationMin(1.0);<BR>
+&nbsp;DeviationMax(10.0);<BR>
+&nbsp;Properties();<BR>
+}
+</font></blockquote>
+<hr>
+<blockquote>
+	<font color="#00CCCC" face="courier">Range</font> - Number of cells that the laser fence can extend.<p>
+	<font color="#00CCCC" face="courier">BeamOffset</font> - Distance in meters between the top and bottom beams.<p>
+	<font color="#00CCCC" face="courier">DeviationMin</font> - Defaults at 1.  Don't mess with it.<p>
+	<font color="#00CCCC" face="courier">DeviationMax</font> - The maximum height differential in meters between two posts.  So in this case, if a post is placed on a hill that is more than 10 meters above this unit, it will not be able to connect.<p>
+	<font color="#00CCCC" face="courier">Properties</font> - This is where you would place a filter if you wanted the unit to only be able to connect with other walls of a certain type.  For example, if you wanted to make a special wall post that was twice as tall as the others and had a much wider beam, you would put a "Filter::Wall::Bigpost" into the properties at the top of the config, and add the same filter to the properties in here.  That would prevent the unit from being able to connect with standard wall posts.<p>
+</blockquote>
+
+<br><font size="3"><b>TrapObj</b></font><p>
+
+This Obj exists specifically for traps.  Let's look at the config for the Mine Trap that is layed by the Scaver.
+<hr>
+<blockquote><font color="#00CCCC" face="courier">
+TrapObj()<BR>
+{<BR>
+&nbsp;Distance(20);<BR>
+&nbsp;SelfDestruct(1);<BR>
+&nbsp;Properties()<BR>
+&nbsp;{<BR>
+&nbsp;&nbsp;&nbsp;Add("Filter::Biological");<BR>
+&nbsp;&nbsp;&nbsp;Add("Filter::Mechanical");<BR>
+&nbsp;}<BR>
+}
+</font></blockquote>
+<hr>
+
+<blockquote>
+<br><font color="#00CCCC" face="courier">Distance</font> - Maximum proximity at which the trap will detonate when a unit enters.<p>
+<font color="#00CCCC" face="courier">SelfDestruct</font> - A flag that specifies whether or not the trap destroys itself when it triggers.<p>
+<font color="#00CCCC" face="courier">Properties</font> - Specifies which types of units can trigger the trap (see RestoreObj).<p>
+<font color="#00CCCC" face="courier">ChargeTime</font> - Minimum delay between triggerings, assuming the trap does not self-destruct.<p>
+</blockquote>
+
+<br><font size="3"><b>TransportObj</b></font><p>
+This Obj handles units that can carry other units, such as the Air Barge and Telepad.  The following is taken from the Air Barge config.
+<hr>
+<blockquote><font color="#00CCCC" face="courier">
+TransportObj()<br>
+{<br>
+&nbsp;Spaces(6);<br>
+&nbsp;Properties()<br>
+&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;Add("Filter::Transportable");<br>
+&nbsp;}<br>
+&nbsp;ChargeTime(90);<br>
+&nbsp;PortalType("jda.building.telepadportal");<br>
+&nbsp;PortalTime(20);<br>
+}
+</font></blockquote>
+<hr>
+<blockquote>
+<br><font color="#00CCCC" face="courier">Spaces</font> - How many units can fit inside.<p>
+<font color="#00CCCC" face="courier">Properties</font> - Specifies which units can enter (see RestoreObj).<p>
+<font color="#00CCCC" face="courier">Distance</font> - Maximum distance a unit needs to get to before it can enter (used in Air Barge).<p>
+<b>NOTE:</b> The following three entries only apply to transports that teleport units:<p>
+<font color="#00CCCC" face="courier">ChargeTime</font> - Minimum delay between teleports.<p>
+<font color="#00CCCC" face="courier">PortalType</font> - Refers to the unit that is created on the other end of the teleport, so that units on the other end can pass back through.<p>
+<font color="#00CCCC" face="courier">PortalTime</font> - Duration that the portal on the other end will exist before disappearing.<p>
+</blockquote>
+
+<br><font size="3"><b>SpyObj</b></font><p>
+A spy has the ability to morph into other units and break into enemy buildings.  The following is taken from the JDA Shadowhand.
+<hr>
+<blockquote><font color="#00CCCC" face="courier">
+SpyObj()<BR>
+{<BR>
+&nbsp;ResourceRate(20);<BR>
+&nbsp;PowerLevel(20%);<BR>
+&nbsp;PowerRate(75);<BR>
+&nbsp;Properties()<BR>
+&nbsp;{<BR>
+&nbsp;&nbsp;&nbsp;Add("Filter::Biological");<BR>
+&nbsp;}<BR>
+}	
+</font></blockquote>
+<hr>
+<blockquote>
+<br><font color="#00CCCC" face="courier">ResourceRate</font> - Rate at which money is stolen when an enemy Refinery is infiltrated.  Amount is in units per second.<p>
+<font color="#00CCCC" face="courier">PowerLevel</font> - Percentage that an advanced power plant's output is reduced to when infiltrated by a spy.<p>
+<font color="#00CCCC" face="courier">PowerRate</font> - Number of power units that are reduced per second until it reaches the percentage specified by the PowerLevel.<p>
+<font color="#00CCCC" face="courier">Properties</font> - Specifies which units can be morphed into (Note: For some serious mod wackiness, try adding "<font color="#00CCCC" face="courier">Filter::Mechanical</font>").<p>
+</blockquote>
+
+<!-- End Text -->
+
+		</font></td>
+		</tr>
+		</table>
+	</td>
+</tr>
+</table>
+
+
+</body>
+</html><br>

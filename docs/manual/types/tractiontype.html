@@ -1,0 +1,37 @@
+<HTML>
+<H1>Traction Type Configuration</H1>
+<BR>
+Traction types are on one axis of the movement balance table - the other
+axis holds surface types.  The balance data for this table is used by
+various systems such as physics and path searching.<BR>
+<BR>
+
+<BLOCKQUOTE>
+<B>CreateTractionType(string ident)</B><BR>
+<I>Multiple</I><BR>
+ident: Identifier of the traction type being configured.<BR>
+
+  <BLOCKQUOTE>
+  <B>DefaultSlope(integer slope)</B><BR>
+  <I>Optional(30), Multiple</I><BR>
+  slope: The slope to use for subsequent 'OverSurface' functions.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>OverSurface(string ident, float grip, float drag, float health = 0.0)</B><BR>
+  <I>Optional(All non-configured surfaces, 1.0, 1.0, 0.0)</I><BR>
+  ident: The identifier of the surface type being configured<BR>
+  grip: The grip on this surface, 0.0 to 1.0, where larger is greater grip<BR>
+  drag: Same as grip, except for drag :)<BR>
+  health: An optional +/- hitpoints modifier for when objects are on this surface.
+  (-1.0 to 1.0) Once per cycle (ten times per second) the current hitpoints will be modified by
+  health x maxhitpoints.  Whether this is applied to a particular type is determined
+  by the ApplyTerrainHealth function in the MapObj scope.
+  </BLOCKQUOTE>
+
+<BR>
+Note: Traction types do not have to be created before they are referenced in
+other areas of the configuration.  Whenever you reference a surface or traction
+type for the first time, an entry in the table is created.
+
+</HTML>

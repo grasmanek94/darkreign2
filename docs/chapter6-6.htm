@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Dark Reign 2 Construction Kit - 6.6 Projectiles/Explosions</title>
+</head>
+
+<body bgcolor="#000000" link="#33ff00" alink="#00ff00" vlink="#11cc00">
+<table border=0 cellpadding=0 cellspacing=0 width="100%">
+<TR>
+	<td bgcolor="#004400" width="100%">
+		<table border=0 cellpadding=4 border=0 cellspacing=2 width="100%">
+		<tr>
+			<td width="100%" bgcolor="#000000"><font color="#00cc00" face="Arial" size="2">
+<!-- Start Text -->
+<font size="4"><b>6.6 Projectiles/Explosions</b></font><p>
+
+<font size="3"><b>Attaching a Projectile</b></font><p>
+If you are creating a projectile weapon, you will need to attach a projectile object.  This is not just an Obj, but an entire object with the ProjectileObj in it.  Here is what the Gogo's projectile looks like.
+<hr>
+<blockquote><font color="#00CCCC" face="courier">
+CreateObjectType("sprawler.proj.gogo", "Projectile")<BR>
+{<BR>
+&nbsp;MapObj()<BR>
+&nbsp;{<BR>
+&nbsp;&nbsp;&nbsp;GodFile("rocket_sml.god");<BR>
+&nbsp;&nbsp;&nbsp;GenericFX()<BR>
+&nbsp;&nbsp;&nbsp;{<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Add("ProjectileObj::Trail",   "sprawler.fx.gogo.proj");<BR>
+&nbsp;&nbsp;&nbsp;}<BR>
+&nbsp;}<p>
+
+&nbsp;ProjectileObj()<BR>
+&nbsp;{<BR>
+&nbsp;&nbsp;&nbsp;ProjectileModel("GuidedTrajectory");<BR>
+&nbsp;&nbsp;&nbsp;TopSpeed(250);<BR>
+&nbsp;&nbsp;&nbsp;HomingRate(120);<BR>
+&nbsp;&nbsp;&nbsp;WaverTurn(90);<BR>
+&nbsp;&nbsp;&nbsp;WaverRate(240);<BR>
+&nbsp;&nbsp;&nbsp;AccelerationTime(5);<BR>
+&nbsp;&nbsp;&nbsp;Explosion("sprawler.exp.gogo");<BR>
+&nbsp;}<BR>
+}
+</font></blockquote>
+<hr>
+
+<br>Add the projectile's visual effect, which you will define later, to the GenericFX list, then create the ProjectileObj.<p>
+<blockquote>
+	<font color="#00CCCC" face="courier">ProjectileModel</font> - This defines how the projectile moves.  There are three types.<p>
+	<blockquote>
+		<font color="#00CCCC" face="courier">StraightTrajectory</font> - The simplest option.  The projectile moves straight until it hits a target or expires.<p>
+		<font color="#00CCCC" face="courier">ArcTrajectory</font> - The projectile is fired at an upward angle and curves toward its target.  This is used on the Bulldog and Banshee.  Setting the speed for this type of projectile is difficult, as it is based entirely on range.  The longer the range, the faster the projectile will move.<p>
+		<font color="#00CCCC" face="courier">GuidedTrajectory</font> - A homing weapon that curves toward its target.  Used on most projectile units.<p>
+	</blockquote>
+	<font color="#00CCCC" face="courier">TopSpeed</font> - Final speed of the projectile, once it has transitioned from the speed set in the weapon definition.  This field only works for straight and guided trajectories.<p>
+	<font color="#00CCCC" face="courier">AccelerationTime</font> - Rate at which projectile transitions from its starting speed to it top speed.<p>
+	<font color="#00CCCC" face="courier">HomingRate</font> - Number of degrees per second that the projectile will turn in order to hit its target.<p>
+	<font color="#00CCCC" face="courier">WaverTurn</font> - Degree to which the projectile turns while moving.  This is purely a visual effect and does not enhance the weapon's effectiveness.<p>
+	<font color="#00CCCC" face="courier">WaverRate</font> - Rate at which the projectile turns while moving.  Also purely a visual effect.<p>
+	<font color="#00CCCC" face="courier">Explosion</font> - The name of the explosion that is created when the projectile hits its target.  Should point to an existing explosion object.<p>
+	<font color="#00CCCC" face="courier">Impact</font> - This flag is set by default.  It causes the projectile to detonate on impact. If a fuse is set then the projectile cannot detonate on impact and this flag is ignored.<p>
+	<font color="#00CCCC" face="courier">Fuse</font> - Time before the projectiles detonates in seconds.<p>
+	<font color="#00CCCC" face="courier">Proximity</font> - If the projectiles gets within this meter distance to its target, it detonates. This can be used in conjunction with the Impact and Fuse flags.<p><BR>
+</blockquote>
+<font size="3"><b>Attaching an Explosion</b></font><p>
+
+If an explosion is not specified in a projectile, it will revert to the weapon and do the damage specified in its damage field.  If an explosion is specified, it will ignore all other damage amounts and create the explosion.  Note that an explosion can also be attached to a units death or selfdestruct.  See the Juggernaut config for an example of how this is done.
+<hr>
+<blockquote><font color="#00CCCC" face="courier">
+CreateObjectType("sprawler.exp.gogo", "Explosion")<BR>
+{<BR>
+&nbsp;MapObj()<BR>
+&nbsp;{<BR>
+&nbsp;&nbsp;&nbsp;Mesh();<BR>
+&nbsp;&nbsp;&nbsp;GenericFX()<BR>
+&nbsp;&nbsp;&nbsp;{<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Add("ExplosionObj::Explode", "sprawler.fx.gogo.exp");<BR>
+&nbsp;&nbsp;&nbsp;}<BR>
+&nbsp;}<BR>
+&nbsp;ExplosionObj()<BR>
+&nbsp;{<BR>
+&nbsp;&nbsp;&nbsp;Damage()<BR>
+&nbsp;&nbsp;&nbsp;{<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Amount(10);<p>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Effective("armor_infantry", 30%);<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Effective("armor_vehicle", 40%);<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Effective("armor_structure", 40%);<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Effective("armor_flyer", 100%);<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Effective("armor_naval", 30%);<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Effective("armor_mine", 40%);<BR>
+&nbsp;&nbsp;&nbsp;}<BR>
+&nbsp;&nbsp;&nbsp;AreaInner(4);<BR>
+&nbsp;&nbsp;&nbsp;AreaOuter(4);<BR>
+&nbsp;&nbsp;&nbsp;Persist(0);<BR>
+&nbsp;}<BR>
+}
+</font></blockquote>
+<hr>
+
+<br>Add the explosion's visual effect, which you will define later, to the GenericFX list, then create the ExplosionObj.
+<blockquote>
+	<font color="#00CCCC" face="courier">Damage</font> - This works the same as it does inside the weapon.<p>
+	<font color="#00CCCC" face="courier">AreaInner</font> - This is the radius in meters of the inner area of the explosion.  Everything within this radius will take the full amount of damage specified in the damage field.<p>
+	<font color="#00CCCC" face="courier">AreaOuter</font> - This is the outer rim of the explosion radius.  The amount of damage given will fall from 100% at the edge of the inner radius to 0% at the edge of the outer radius.<p>
+	<font color="#00CCCC" face="courier">BlindTargetTime</font> - The number of seconds to make victims of this explosion blindly target other units (used for the 'Bezerker' mojo).<p>
+	<font color="#00CCCC" face="courier">Persist</font> - How long the explosion persists for.  It does the full amount of a damage for every 1/10 of a second that you specify.  A value of 4 would be 4/10 of a second, thus it would inflict the full damage 4 times before disappearing.<p>
+</blockquote>
+<font size="3"><b>Adding Effects</b></font><p>
+
+The final aspect of a config is adding the effects.  This can be very simple or very complicated.  In either case, I'm going to let the existing configs do the talking.  There are dozens of particles and explosions defined.  Take one of the existing ones and tweak it to your needs.  What you've learned from the other config types should answer any questions that come up.  Good Luck!
+
+<!-- End Text -->
+
+		</font></td>
+		</tr>
+		</table>
+	</td>
+</tr>
+</table>
+
+
+</body>
+</html><br>

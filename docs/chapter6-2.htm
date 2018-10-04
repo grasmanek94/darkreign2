@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Dark Reign 2 Construction Kit - 6.2 MapObj</title>
+</head>
+
+<body bgcolor="#000000" link="#33ff00" alink="#00ff00" vlink="#11cc00">
+<table border=0 cellpadding=0 cellspacing=0 width="100%">
+<TR>
+	<td bgcolor="#004400" width="100%">
+		<table border=0 cellpadding=4 border=0 cellspacing=2 width="100%">
+		<tr>
+			<td width="100%" bgcolor="#000000"><font color="#00cc00" face="Arial" size="2">
+<!-- Start Text -->
+<font size="4"><b>6.2 MapObj</b></font><p>
+Next comes the MapObj.  This is where the attributes are defined for the unit's placement on the map.
+
+<hr>
+<blockquote><font color="#00CCCC" face="courier">
+MapObj()<br>
+{<br>
+&nbsp;GodFile("JDA_GUARDIAN.god");<br>
+&nbsp;PhysicsModel("Walker");<br>
+&nbsp;ArmourClass("armor_infantry");<br>
+&nbsp;TypeDisplay()<br>
+&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;Image("jda_units_1.tga", 0, 0, 64, 64);<br>
+&nbsp;}<br>
+&nbsp;TractionType("traction_walker");<br>
+&nbsp;ApplyTerrainDamage(1);<br>
+&nbsp;HitPoints(63);<br>
+&nbsp;Armour(62);<br>
+&nbsp;ArmourRegenInterval(20);<br>
+&nbsp;GenericFX()<br>
+&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;Add("MapObj::Death", "common.class.infantrydeath");<br>
+&nbsp;&nbsp;&nbsp;Add("MapObj::Armour::Damaged", "jda.armor.hit-small");<br>
+&nbsp;&nbsp;&nbsp;Add("MapObj::Armour::Lost", "jda.armor.lose-small");<br>
+&nbsp;&nbsp;&nbsp;Add("Restore::Target::Process", "common.class.RestoreTargetProcesssmall");<br>
+&nbsp;&nbsp;&nbsp;Add("Weapon::Fire", "jda.fx.guardian.fire");<br>
+&nbsp;&nbsp;&nbsp;Add("UnitObj::Blind", "common.class.BerzerkProcesssmall");<br>
+&nbsp;}<br>
+}</font></blockquote>
+<hr>
+
+
+Let's go through each section one at a time.<p>
+
+<font color="#00CCCC" face="courier"><b>GodFile</b></font> - The all-important .god file is defined here.  The .god contains the geometry for the object as well as all textures and animation.  Creating .god files is a very complicated business that I'll only touch on here.  The art asset can be made in either SoftImage or 3DSMax and exported as a .xsi.  The .xsi then gets brought into the proprietary MeshViewer tool and converted into the .god format.<p>
+<font color="#00CCCC" face="courier"><b>PhysicsModel</b></font> - The physics model affects how the unit will move on the map.  It defines whether or not it tilts when it moves on slopes, how fast its speed is affected by slopes, whether it moves on the surface of water, under the water, or if it flies over the water.  The Guardian is a "Walker", so it moves on the ground plain, does not tilt when going up a hill, and has its speed diminished 25% by slopes.  To find a list of all physics types, look in \packs\base\configs\game\types_phycis.cfg.<p>
+<font color="#00CCCC" face="courier"><b>ArmourClass</b></font> - The Armour Class field is yet another blaring hint that this game was programmed by foreigners.  This is where a unit's susceptibility to weapon damage is defined.  You will notice later on that each weapon has an explicit entry for its damage effect to each of the six "armor" classes: infantry, vehicle, structure, flyer, naval, and mines.  If one of these classes isn't specified in the MapObj, the unit cannot take damage.<p>
+<font color="#00CCCC" face="courier"><b>TypeDisplay</b></font> - This is where you specify the art asset that will be used to represent the unit on the build menu.  This is called the unit icon.  It is only needed if the unit you are making can be created by the player.  The four numbers after the file name explain where on the image the icon can be found.  This is needed because several icons can be fit onto a single image.  The first two numbers give the X and Y coordinates for the upper left corner of the icon.  The next two numbers give the length and height of the icon in pixels.<p>
+<font color="#00CCCC" face="courier"><b>TractionType</b></font> - This entry goes hand-in-hand with the PhysicsModel in defining on-map behavior.  It explains how fast a unit moves over each type of terrain.  As explained elsewhere, each terrain texture has an affect on how units pass over it.  The basics are fast, slow, base, and impassable.  Placing water on the map automatically overrides whatever texture is on the ground beneath it, and the cell becomes one of the six types of water terrain, depending on its depth and distance from the shore.  To view all the traction types, look in \packs\base\configs\game\types_traction.cfg.  Here is a brief explanation of each type of terrain:<p>
+<blockquote>
+<font color="#00CCCC" face="courier"><b>Base</b></font> - Default setting used by the base texture in each world.<p>
+<font color="#00CCCC" face="courier"><b>BaseNoAir</b></font> - Same as base, but blocking air units (used only by footprinted objects).<p>
+<font color="#00CCCC" face="courier"><b>Fast</b></font> - Same as base, but with a slight speed boost to infantry and hover vehicles.<p>
+<font color="#00CCCC" face="courier"><b>Slow</b></font> - Same as base, but slower for infantry, tracked, and hover.<p>
+<font color="#00CCCC" face="courier"><b>Impassable</b></font> - Ground units cannot pass over it, but air can.<p>
+<font color="#00CCCC" face="courier"><b>ImpassableAir</b></font> - Neither ground nor air can pass.<p>
+<font color="#00CCCC" face="courier"><b>ShallowShoreline</b></font> - Cell is partially above ground, partially underwater, and submerged portion is no more than 1 meter in depth.<p>
+<font color="#00CCCC" face="courier"><b>MediumShoreline</b></font> - Cell is partially above ground, partially underwater, and submerged portion is no more than 2.5 meters in depth.<p>
+<font color="#00CCCC" face="courier"><b>DeepShoreline</b></font> - Cell is partially above ground, partially underwater, and submerged portion is greater than 2.5 meters at its deepest point.<p>
+<font color="#00CCCC" face="courier"><b>ShallowWater</b></font> - Cell is completely submerged and no more than 1 meter in depth.<p>
+<font color="#00CCCC" face="courier"><b>MediumWater</b></font> - Cell is completely submerged and no more than 2.5 meters in depth.<p>
+<font color="#00CCCC" face="courier"><b>DeepWater</b></font> - Cell is completely submerged and more than 2.5 meters at its deepest point.<p>
+</blockquote>
+<font color="#00CCCC" face="courier"><b>ApplyTerrainDamage</b></font> - This flag sets whether the unit can be hurt by terrain effects.  It isn't currently used for anything.<p>
+<font color="#00CCCC" face="courier"><b>HitPoints</b></font> - Fairly self-explanatory and very important.  This sets the strength of each unit.  It is displayed as the green HP.<p>
+<font color="#00CCCC" face="courier"><b>Armour</b></font> - This is the amount of regen armor that a unit has.  It shows up as blue HP in the game.<p>
+<font color="#00CCCC" face="courier"><b>ArmourRegenInterval</b></font> - This sets how fast the armor regenerates.  The number tells how many tenths of a second it takes to recuperate 1 hit point.  A setting of 20 means it takes 2 seconds to get 1 point.<p>
+<font color="#00CCCC" face="courier"><b>GenericFX</b></font> - The effects that can be run on a unit must all be listed here.  Things such as armor damage, death, recycling, power down, restore, and others all need to be entered.  The best thing to do is to just copy these effects over from a similar unit.<p>
+
+<font size="3"><b>ResourceObj</b></font><p>
+
+The resource crystals have their own Obj that is built off the MapObj.  It is very simple, with only two entries.
+<hr>
+<blockquote><font color="#00CCCC" face="courier">
+ResourceObj()<br>
+{<br>
+&nbsp;ResourceMax(3000);<br>
+&nbsp;ResourceRate(3);<br>
+}
+</font></blockquote>
+<hr>
+	<font color="#00CCCC" face="courier">ResourceMax</font> - This specifies how much resource the crystal starts with.<p>
+	<font color="#00CCCC" face="courier">ResourceRate</font> - How many units of resource are regenerated per second.<p>
+
+<font size="3"><b>PropObj</b></font><p>
+The PropObj is not needed in the actual config.  It is created automatically for ambient objects like rocks and trees and does not have any sub-references.  In fact, you don't even need to know it exists.  Let's move on.
+
+<!-- End Text -->
+
+		</font></td>
+		</tr>
+		</table>
+	</td>
+</tr>
+</table>
+
+
+</body>
+</html><br>

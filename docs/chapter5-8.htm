@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Dark Reign 2 Construction Kit - 5.8 AI Configuration - Setting Up</title>
+</head>
+
+<body bgcolor="#000000" link="#33ff00" alink="#00ff00" vlink="#11cc00">
+<table border=0 cellpadding=0 cellspacing=0 width="100%">
+<TR>
+	<td bgcolor="#004400" width="100%">
+		<table border=0 cellpadding=4 border=0 cellspacing=2 width="100%">
+		<tr>
+			<td width="100%" bgcolor="#000000"><font color="#00cc00" face="Arial" size="2">
+<!-- Start Text -->
+<font size="4"><b>5.8 AI Configuration - Setting Up</b></font><p>
+The following section assumes you have a map ready to go, with a pre-built enemy base.<p>
+Open the file <b>strategic.cfg</b> in your missions folder (make one if none exists).  If the AI is JDA, add the following inclusions:
+<hr>
+<blockquote><font color="#00CCCC" face="courier">
+#include "base_JDA.cfg"<br>
+#include "base_JDA_orderers.cfg"<br>
+#include "base_JDA_plans.cfg"
+</font></blockquote>
+<hr>
+
+<br>If the AI will be Sprawl:
+<hr>
+<blockquote><font color="#00CCCC" face="courier">
+#include "base_sprawl.cfg"<br>
+#include "base_sprawl_orderers.cfg"<br>
+#include "base_sprawl_plans.cfg"
+</font></blockquote>
+<hr>
+
+<br>Also be sure your <b>strategic.cfg</b> has the line:
+<hr>
+<blockquote><font color="#00CCCC" face="courier">
+#include "strategic_scripts.cfg"
+</font></blockquote>
+<hr>
+
+For each side, these files control the AI base building.   These files can be found in data\packs\base\configs\ai\bases<p>
+
+You can edit these three files to fit a specific mission.  Whichever files you decide to edit, copy them to your mission folder and then edit them (do not remove or edit the files in the ai\bases folder!).  Any files in your mission folder automatically override any other files of the same name in the build.  The file most commonly edited is the <b>orderers.cfg</b> for each side.  This file specifies what types of units to build, and how many of those types to build.  Often this file needs to be modified to fit a specific mission.  In the <b>orderers.cfg</b> file, down near the bottom you'll see three sections - <font color="#00CCCC" face="courier">[side].unit.ships</font>, <font color="#00CCCC" face="courier">[side].unit.vehicles</font>, <font color="#00CCCC" face="courier">[side].unit.infantry</font>.  Edit these three sections to suit your mission if necessary.  If you want to remove a unit from the build order, just erase the line that refers to it.<p>
+
+Next we need to tell the script that we have an AI base.  This is typically done in the initial start objective for the AI team.  The following would go in an Action scope
+<hr>
+<blockquote><font color="#00CCCC" face="courier">
+AddBase("[base name]", "JDA")<br>
+{<br>
+&nbsp;Orientation(180);<br>
+}<p>
+
+AssignBaseConstructors("[base name]")<br>
+{<br>
+&nbsp;Tag("[tag name]");<br>
+}<p>
+
+AssignBaseUnits("[base name]")<br>
+{<br>
+&nbsp;Tag("[tag name]");<br>
+}<p>
+
+SetBombardierPreferences("Default");
+</font></blockquote>
+<hr>
+
+<br>(note, after adding the above, you will need to give the AI team a start location if you haven't done so already.  The AI team normally doesn't need one, but when you add a base it uses the start loc as a point of reference)<p>
+
+The base name can be anything you wish.   Where it says "JDA" would be "SPRAWL" if the AI team is sprawler.  The tag designations are for categorizing your pre-placed units on the map, it tells the game which units should be considered part of the base and which shouldn't.  <p>
+If you just have one AI base, put all buildings and units that should be a part of that base into one tag, and use that tag name for both the above [tag name].  If you have multiple AI bases, you would have another set of specifications just like the one above, in the same action scope, but designate the correct tags and name for the other base.  Enemy units placed far away from the main base typically aren't included in the base tag, but can be.<p>
+<font color="#00CCCC" face="courier">SetBombardierPreferences</font> sets how the AI will use it's airstrikes/mojo's.  The possible values are:<p>
+
+<font color="#00CCCC" face="courier">Default<br>
+LowEnd<br>
+LowEndOnly<br>
+HighEnd<br>
+Nasty<br>
+Mines<br>
+Bombs<br>
+EMP<br>
+Rage<br>
+Eyebiters<br>
+Berzerk<br>
+Barons<p></font>
+
+Finally, you'll need to add one more .cfg file to your mission folder.  Make a new text file and call it "<b>recruit_types.cfg</b>".  Then, open your <b>strategic.cfg</b> file, and include it by adding the line:
+<hr>
+<blockquote><font color="#00CCCC" face="courier">
+#include "recruit_types.cfg"
+</font></blockquote>
+<hr>
+
+<br><b>Recruit_types.cfg</b> is the file where you configure all your recruit types.  A recruit type is a set group of units that can be referred to as often as needed from your main script.  When your main script is recruiting units from the AI base to send them out to attack, it will be doing so by recruit types.  Here's the standard format for configuring a recruit type.  This goes in <b>recruit_types.cfg</b>, just as appears.
+<hr>
+<blockquote><font color="#00CCCC" face="courier">
+CreateRecruitType("[name]")<br>
+{<br>
+&nbsp;Type("JDA.unit.rover", 1);<br>
+}
+</font></blockquote>
+<hr>
+
+<br>The above recruit type just contains one rover.  So if an attack script called for this recruit type, it would just be sending out one rover.  The number can be changed to anything, but it's a good idea to not have the number exceed the amount of the unit being built in the orderers config.  The units are specified by type name (you can view the type name of all objects in the studio by clicking the "type names" button in the Objects menu).  You can list as many unit types as you want in one recruit type, just add more lines.  For example:
+<hr>
+<blockquote><font color="#00CCCC" face="courier">
+CreateRecruitType("[name]")<br>
+{<br>
+&nbsp;Type("JDA.unit.siegeboat", 1);<br>
+&nbsp;Type("JDA.unit.supportboat", 2);<br>
+&nbsp;Type("JDA.unit.assaultboat", 4);<br>
+}<br>
+</font></blockquote>
+<hr>
+
+
+
+
+
+<!-- End Text -->
+
+		</font></td>
+		</tr>
+		</table>
+	</td>
+</tr>
+</table>
+
+
+</body>
+</html><br>

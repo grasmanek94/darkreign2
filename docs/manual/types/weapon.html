@@ -1,0 +1,223 @@
+<TITLE>Weapon</TITLE>
+<HTML>
+<H1>Weapon</H1>
+
+<BLOCKQUOTE>
+<B>CreateWeaponType(string name)</B><BR>
+<I>Multiple</I><BR>
+name: Name of the weapon type.<BR>
+
+  <BLOCKQUOTE>
+  <B>Style(string style)</B><BR>
+  <I>Required</I><BR>
+  style: Weapons come in three styles.<BR>
+  <UL>
+    <LI><B>Instant</B><BR>
+    <LI><B>Constant</B><BR>
+    <LI><B>Projectile</B><BR>
+  </UL>
+  </BLOCKQUOTE>
+  
+  <BLOCKQUOTE>
+  <B>Damage()</B><BR>
+  <I>Required</I><BR>
+  Damage defines how much damage this weapon does to various armour classes.<BR>
+  
+    <BLOCKQUOTE>
+    <B>Amount(integer amount)</B><BR>
+    <I>Required</I><BR>
+    amount: Amount of damage this weapon does.<BR>
+    </BLOCKQUOTE>
+    
+    <BLOCKQUOTE>
+    <B>Effective(string armourclass, float percentage)</B><BR>
+    <I>Multiple, Range percentage(0%, 100%)</I><BR>
+    Armour classes which are not defined default to 0% effectiveness.<BR>
+    armourclass: Armour class which the effectiveness is being defined.<BR>
+    percentage: The percentage of the amount of damage which is applied to this armour class.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Modifiers()</B><BR>
+    <I>Optional</I><BR>
+    See <A HREF="instance_modifiers.html">here</A> for more details.<BR>
+    </BLOCKQUOTE>
+ 
+  </BLOCKQUOTE>
+  
+  <BLOCKQUOTE>
+  <B>NodeStyle(string style)</B><BR>
+  <I>Optional(NULL)</I><BR>
+  style: The node style allows for the weapon to manipulate the geometry of the unit in differing ways.<BR>
+  
+  <UL>
+    <LI><B>NULL</B><BR>
+      The NULL node stlyle indicates that no manipulation is required.  This is the default.  There should be no nodes specified for this node style.<BR>
+    <LI><B>XYZ</B><BR>
+      The XYZ node style freely rotates about a single node.  There should be one node specified for this node style.<BR>
+    <LI><B>X</B><BR>
+      The X node style rotates only about the X (right) axis.  There should be one node specified for this node style.<BR>
+    <LI><B>Y</B><BR>
+      The Y node style rotates only about the Y (up) axis.  There should be one node specified for this node style.<BR>
+    <LI><B>Y_X</B><BR>
+      The Y_X node style rotates about the Y (up) axis and then about the X (right) axis.  There should be two nodes specified for this node style.<BR>
+  </UL>
+  </BLOCKQUOTE>
+  
+  <BLOCKQUOTE>
+  <B>Nodes(string node1, string node2)</B><BR>
+  <I>Optional (depending upon the node style)</I><BR>
+  If one node is required then then a single node should be specified.<BR>
+  If two nodes are required then two nodes should be specified.<BR>
+  node1: Name of the first node.  Nodes should be prefixed by "CP-".<BR>
+  node2: Name of the second node.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>MaxRange(float range)</B><BR>
+  <I>Optional(50), Range(0, 500)</I><BR>
+  range: The maximum range of this weapon.<BR>
+  </BLOCKQUOTE>  
+  
+  <BLOCKQUOTE>
+  <B>MinRange(float range)</B><BR>
+  <I>Optional(0), Range(0, MaxRange)</I><BR>
+  range: The minimum range of this weapn.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>AvoidRange(flaot range)</B><BR>
+  <I>Optional(20), Range(0, 100)</I><BR>
+  range: Range to consider objects which are not the target and avoid hitting them.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>VertAngle(float angle)</B><BR>
+  <I>Optional(90), Range(0, 180)</I><BR>
+  angle: The centre of the allowed firing frustrum measured in degrees from directly up.<BR>
+  </BLOCKQUOTE>
+  
+  <BLOCKQUOTE>
+  <B>HorizAngle(float angle)</B><BR>
+  <I>Optional(90), Range(-180, 180)</I><BR>
+  angle: The centre of the allowed firing frustrum measured in degrees from right increasing anti-clockwise.<BR>
+  </BLOCKQUOTE>
+  
+  <BLOCKQUOTE>
+  <B>VertSerparation(float angle)</B><BR>
+  <I>Optional(10), Range(0, 180)</I><BR>
+  angle: The seperation from the VertAngle of the allowed firing frustrum in degress.<BR>
+  </BLOCKQUOTE>
+  
+  <BLOCKQUOTE>
+  <B>HorizSeperation(float angle)</B><BR>
+  <I>Optional(10), Range(0, 180)</I><BR>
+  angle: The seperation from the HorizAngle of the allowed firing frustrum in degress.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>VertDefault(float angle)</B><BR>
+  <I>Optional(VertAngle), Range(0, 180)</I><BR>
+  angle: The default verticle angle to orient the weapon.<BR>
+  </BLOCKQUOTE>
+  
+  <BLOCKQUOTE>
+  <B>HorizDefault(float angle)</B><BR>
+  <I>Optional(HorizAngle), Range(-180, 180)</I><BR>
+  angle: The default horizontal angle to orient the weapon.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>TurnRate(float rate)</B><BR>
+  <I>Optional(3600)</I><BR>
+  rate: Number of degrees per second to allow the weapon to rotate.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>TurnError(float error)</B><BR>
+  <I>Optional(0.005), Range(0, 1)</I><BR>
+  error: Amount of allowed error when turning the weapon before being satisfied and firing anyhow.  This value is compared to 1 - the dot product of the direction of the weapon and the direction it need to be facing.<BR>
+  </BLOCKQUOTE>
+  
+  <BLOCKQUOTE>
+  <B>Ammunition(integer amount)</B><BR>
+  <I>Optional(0)</I><BR>
+  amount: Amount of ammunition this weapon holds.  If set to 0 then this weapon has infinite ammunition.<BR>
+  </BLOCKQUOTE>
+  
+  <BLOCKQUOTE>
+  <B>HeightOffset(float distance)</B><BR>
+  <I>Optional(0), Range(0, 500)</I><BR>
+  distance: Amount of distance to target above the target.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>Delay(float time)</B><BR>
+  <I>Required(except for constant style weapons where this value is irrelevant)</I><BR>
+  time: Minimum time between firings of the weapon.<BR>
+  distance: Amount of distance to target above the target.<BR>
+  </BLOCKQUOTE>
+  
+  <BLOCKQUOTE>
+  <B>Fixed(bool flag)</B><BR>
+  <I>Optional(0)</I><BR>
+  flag: Set this to have the weapon fire projectiles using the orientation of the firing point instead of using the direction to the solution.  Only really useful for guided trajectory projectiles.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>KillUser(bool flag)</B><BR>
+  <I>Optional(0)</I><BR>
+  flag: When the weapon is fired it kills the unit which is holding the weapon.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>HighTrajectory(bool flag)</B><BR>
+  <I>Optional(0)</I><BR>
+  flag: Selects the high trajectory solution when calculating arc projectile trajectories.<BR>
+  </BLOCKQUOTE>
+  
+  <BLOCKQUOTE>
+  <B>OneShot(bool flag)</B><BR>
+  <I>Optional(0)</I><BR>
+  flag: Fires once and then stops firing.<BR>
+  </BLOCKQUOTE>
+  
+  <BLOCKQUOTE>
+  <B>LeadAngle(bool flag)</B><BR>
+  <I>Optional(0)</I><BR>
+  flag: Weapon will fire at the predicted position of the target.  Can make hitting of moving targets better.<BR>
+  </BLOCKQUOTE>
+  
+  <BLOCKQUOTE>
+  <B>PotShot(bool flag)</B><BR>
+  <I>Optional(1 if horizontal serpation is >= 90)</I><BR>
+  flag: Weapon will take pot shots at targets when the units is on the move.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>InitialSpeed(float speed)</B><BR>
+  <I>Optional, Applicable to Projectile style weapon with Straight or Guided trajectory projectiles.</I><BR>
+  speed: The initial speed to give projectiles in kilometres per hour.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>Projectile(string projectile)</B><BR>
+  <I>Required for Projectile style weapons.</I><BR>
+  projectile: The projectile which this weapon fires.<BR>
+  </BLOCKQUOTE>
+  
+  <BLOCKQUOTE>
+  <B>FirePoints()</B><BR>
+  <I>Optional</I><BR>
+  Fire points allows specification of where the weapon fires from.<BR>
+  
+    <BLOCKQUOTE>
+    <B>Add(string node, float frame)</B><BR>
+    <I>Multiple, Optional frame(0)</I><BR>
+    node: Name of the node of the units mesh where this firing point is located.<BR>
+    frame: Frame of the firing animation (if any) to fire from this firing point.<BR>
+    </BLOCKQUOTE>
+  
+  </BLOCKQUOTE>
+
+</HTML>

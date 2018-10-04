@@ -1,0 +1,277 @@
+<TITLE>FX</TITLE>
+<HTML>
+<H1>FX</H1>
+
+<BLOCKQUOTE>
+<B>CreateEffectType( string nameNew, string nameBase)</B><BR>
+nameNew:  name of the new effect type<BR>
+nameBase: name of effect the new one is derived from<BR><BR>
+
+<BLOCKQUOTE>
+<B>Sound()</B><BR>
+<I>Required</I><BR>
+Sound which is generated when the FX are triggered.<BR>
+
+  <BLOCKQUOTE>
+  <B>File(string filename)</B><BR>
+  <I>Optional(none)</I><BR>
+  filename: Name of sound file to be played.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>Priority(float priority)</B><BR>
+  <I>Optional(1.0)</I><BR>
+  priority: Priority of the sound.  Higher priority sounds displace lower priority sounds.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>MaxDistance(int distance)</B><BR>
+  <I>Optional(200), Range(1, 1000)</I><BR>
+  distance: The maximum distance at which this sound can be heard.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>MinDistance(int distance)</B><BR>
+  <I>Optional(1), Range(1, MaxDistance)</I><BR>
+  distance: The distance at which this sound is at its loudest.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>UseOwner(bool owner)</B><BR>
+  <I>Optional(FALSE)</I><BR>
+  owner: When set, the owner (map object) of the sound cannot be playing other sounds which also have the UseOwner flag specified.  This can to prevent talking out of both sides of ones mouth.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>AlwaysHear(bool hear)</B><BR>
+  <I>Optional(FALSE)</I><BR>
+  hear: When set, this sound can be heard even if its under the fog/shroud or very far away.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>Loop(bool loop)</B><BR>
+  <I>Optional(FALSE)</I><BR>
+  loop: When set, this sound will be looped over and over during the duration of the effect.<BR>
+  </BLOCKQUOTE>
+
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>Particles()</B><BR>
+<I>Required</I><BR>
+Particles which are generated when the FX are triggered.<BR>
+
+  <BLOCKQUOTE>
+  <B>Add(int count)</B><BR>
+  <I>Multiple</I><BR>
+  count: Number of this type of particle to add.<BR>
+  <BR>
+
+    <BLOCKQUOTE>
+    <B>Particle(string particle)</B><BR>
+    <I>Required</I><BR>
+    particle: Name of particle to be generated.  (see particle definition).<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Destroy(bool flag)</B><BR>
+    <I>Optional(0)</I><BR>
+    flag: Can be used to destroy the particle when the FX are destroyed.  This is only useful for particles which do not decay (and hence cleanup) themselves.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Delay(float interval)</B><BR>
+    <I>Optional(0)</I><BR>
+    interval: Time interval between particles being released.  Only applies when particles are being continually released.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>DelayVariation(float interval)</B><BR>
+    <I>Optional(0)</I><BR>
+    interval: A random amount up to this value will be added to Delay to make continual particle generation more random.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>CodeDelay(bool flag)</B><BR>
+    <I>Optional(0)</I><BR>
+    flag: Is the delay a factor that gets controled by code (used for boat wakes).<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>SingleParticle(bool flag)</B><BR>
+    <I>Optional(0)</I><BR>
+    flag: If set only a single particle is generated regardless of the delay and delay variation values.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Point(string point)</B><BR>
+    <I>Optional(none)</I><BR>
+    point: Hard Point to generated particles from.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>VelocityPosition(float x, float y, float z)</B><BR>
+    <I>Optional(0, 0, 0)</I><BR>
+    x,y,z: Positional velocity of the particles.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>VelocityAngular(float x, float y, float z)</B><BR>
+    <I>Optional(0, 0, 0)</I><BR>
+    x,y,z: Rotational velocity of the particles<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>Random(string type)</B><BR>
+    <I>Optional("XYZ")</I><BR>
+	type: "XYZ", "XY", "XZ"; values in VelocityPosition and VelocityAngular are maximums for random generation.<BR>
+	"XYZ" : all components from -max to max.<BR>
+	"XY"  : x from -max to max, y from 0 to max, z explict.<BR>
+	"XZ"  : x and z from -max to max, y from 0 to max.<BR>
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <B>RandomVertex(bool flag)</B><BR>
+    <I>Optional(0)</I><BR>
+    flag: Should the particle be produced from a randomly choosen vertex on the model<BR>
+    </BLOCKQUOTE>
+
+  </BLOCKQUOTE>
+
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>SurfaceSample(string hardpoint)</B><BR>
+<I>Optional</I><BR>
+hardpoint: Name of the hard point to take the surface sample from.<BR>
+
+  <BLOCKQUOTE>
+  <B>Surface(string surface)</B><BR>
+  <I>Multiple</I><BR>
+  surface: Name of the surface to test for.  If the sample hardpoint is over this surface then the FX contained within this scope will be generated.  If no sample is matched then the default FX are generated.<BR>
+  </BLOCKQUOTE>
+
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>MeshEffect()</B><BR>
+<I>Optional(null)</I><BR>
+Effect on the mesh which is generated when the FX are triggered.<BR>
+
+  <BLOCKQUOTE>
+  <B>LifeTime( float life)</B><BR>
+  <I>Required</I><BR>
+  life: duration of the effect<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B><I>Base Effects</I></B><BR>
+  <B><I>Color:</I></B> change the base color of the object<BR>
+  <B><I>TextureCrossFade:</I></B> color animate with another texture color animation overlayed<BR>
+  <B><I>Glow:</I></B> overlay a color animation<BR>
+  <B><I>Scale:</I></B> animate the model's size<BR>
+  <B><I>Resource:</I></B> glow with scale<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>ScaleKey( float key, float scale)</B><BR>
+  <I>Multiple, Optional(null)</I><BR>
+  key: active time for this key<BR>
+  scale: scale of the mesh at this key<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>NoX( bool flag)</B><BR>
+  <I>Optional(0)</I><BR>
+  flag: don't scale in X<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>NoY( bool flag)</B><BR>
+  <I>Optional(0)</I><BR>
+  flag: don't scale in Y<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>NoZ( bool flag)</B><BR>
+  <I>Optional(0)</I><BR>
+  flag: don't scale in Z<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>NoRestore( bool flag)</B><BR>
+  <I>Optional(0)</I><BR>
+  flag: don't restore the mesh to its pre-effect state when the effect is done<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>ColorKey( float key, int r, int g, int b, int a)</B><BR>
+  <I>Multiple, Optional(null)</I><BR>
+  key: active time for this key<BR>
+  r: red component of color<BR>
+  g: green component of color<BR>
+  b: blue component of color<BR>
+  a: alpha component of color<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>ColorKey2( float key, int r, int g, int b, int a)</B><BR>
+  <I>Multiple, Optional(null)</I><BR>
+  key: active time for this key<BR>
+  r: red component of color<BR>
+  g: green component of color<BR>
+  b: blue component of color<BR>
+  a: alpha component of color<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>TextureKey( float key, string name)</B><BR>
+  <I>Multiple, Optional(null)</I><BR>
+  key: active time for this key<BR>
+  name: name of the texture file<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>TextureKey2( float key, string name)</B><BR>
+  <I>Multiple, Optional(null)</I><BR>
+  key: active time for this key<BR>
+  name: name of the texture file<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>TextureListAnim( string name)</B><BR>
+  <I>Optional(null)</I><BR>
+  name: base name of a list of animating textures like "name0.bmp", "name1.bmp", etc<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>TextureAnim( string name)</B><BR>
+  <I>Multiple, Optional(null)</I><BR>
+  name: name of a single texture file in an animating list<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>TextureReduce( int reduce)</B><BR>
+  <I>Optional(2)</I><BR>
+  reduce: 0 for no reduction, 1 for some reduction, 2 for full reduction<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>TextureBlend( string blend)</B><BR>
+  <I>Optional( srcalpha invsrcalpha modulatealpha)</I><BR>
+  blend: a string specifing sourceblend destblend and textureblend<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>AnimRate( float rate)</B><BR>
+  <I>Optional(1)</I><BR>
+  rate: how quickly does the texture and color animate<BR>
+  </BLOCKQUOTE>
+
+</BLOCKQUOTE>
+
+</BLOCKQUOTE>
+
+</HTML>
+
+

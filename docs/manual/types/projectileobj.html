@@ -1,0 +1,43 @@
+<TITLE>ProjectileObj</TITLE>
+<HTML>
+<H1>ProjectileObj</H1>
+
+<BLOCKQUOTE>
+<B>Explosion(string explosion)</B><BR>
+<I>Optional(none)</I><BR>
+explosion: Name of the explosion type which is used when this projectile detonates.<BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>Impact(bool flag)</B><BR>
+<I>Optional(TRUE)</I><BR>
+flag: Projectile detonates on impact.  If a fuse is set then the projectile cannot detonate on impact and this flag is ignored.<BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>Fuse(float time)</B><BR>
+<I>Optional(infinite)</I><BR>
+time: Time before the projectiles detonates in seconds.<BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>Proximity(float distance)</B><BR>
+<I>Optional(0)</I><BR>
+distance: If the projectiles gets within this distance to its target, it detonates.  This can be used in conjunction with the Impact and Fuse flags.<BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>Thrust(float thrust)</B><BR>
+<I>Optional(0)</I><BR>
+thrust: Force that this projectile excerts in the direction the projectile is facing.  Only useful for projectiles which have missile physics.  The force is measured in Neutons.<BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>TurnRate(float rate)</B><BR>
+<I>Optional(infinite)</I><BR>
+rate: Amount of degrees the projectile can rotate per second.  Only useful for projectils which have missile physics.<BR>
+</BLOCKQUOTE>
+
+</HTML>
+
+

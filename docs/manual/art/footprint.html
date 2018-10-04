@@ -1,0 +1,141 @@
+<html>
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>Footprinted Objects</title>
+<meta name="Microsoft Theme" content="laverne 010">
+</head>
+
+<body background="file:///C:/Program%20Files/Microsoft%20FrontPage/themes/laverne/"
+bgcolor="#CCCCCC" text="#333333" link="#339999" vlink="#666666" alink="#FFFFFF">
+<!--mstheme--><font face="trebuchet ms, arial, helvetica"><!--mstheme--></font>
+
+<h1><!--mstheme--><font face="trebuchet ms, arial, helvetica" color="#999966">Footprinted Objects<!--mstheme--></font></h1>
+<!--mstheme--><font face="trebuchet ms, arial, helvetica"><font SIZE="2"><!--mstheme--></font>
+
+<h3><!--mstheme--><font face="trebuchet ms, arial, helvetica" color="#666666">Footprinting is a system
+that provides the engine with cell-based information for static objects, such as buildings
+and bridges.&nbsp; To create a footprinted object, the geometry should include a grid
+called &quot;SP-0&quot; (shadow plane zero) at the same size as the terrain cells (8m).
+This is the primary grid and provides most of the data used in footprinting.&nbsp;
+Additionally, each footprint can contain another grid called &quot;SP-1&quot;. This grid
+is optional, and provides a &quot;terrain overlay&quot; heightfield on which units can
+travel (e.g.. for a bridge), and on which shadows are cast. &nbsp; <!--mstheme--></font></h3>
+<!--mstheme--><font face="trebuchet ms, arial, helvetica"></font><!--mstheme--></font><!--msthemelist-->
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<!--msthemelist-->  <tr>
+<!--msthemelist-->    <td valign="baseline" width="42"><img src="alvbull1.gif" width="20" height="20"
+    hspace="11"></td>
+    <td valign="top" width="100%"><!--mstheme--><font face="trebuchet ms, arial, helvetica"><font SIZE="2"><!--mstheme--></font><h4><!--mstheme--><font
+    face="trebuchet ms, arial, helvetica" color="#999966">Building a footprinted model<!--mstheme--></font></h4>
+<!--mstheme-->    <font face="trebuchet ms, arial, helvetica"></font><!--mstheme--></font><!--msthemelist--><table border="0"
+    cellpadding="0" cellspacing="0" width="100%">
+<!--msthemelist-->      <tr>
+<!--msthemelist-->        <td valign="baseline" width="42"><img src="alvbull2.gif" width="12" height="12"
+        hspace="15"></td>
+        <td valign="top" width="100%"><!--mstheme--><font face="trebuchet ms, arial, helvetica"><font size="2"><!--mstheme--></font><h5><!--mstheme--><font
+        face="trebuchet ms, arial, helvetica" color="#666633">Build a grid called &quot;SP-0&quot;
+        the size of model's footprint. The spacing between each vert should match the cell size
+        (8m).</font><br>
+        <br>
+<!--mstheme-->        </font></h5>
+<!--mstheme-->        <font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><!--msthemelist--></td>
+      </tr>
+<!--msthemelist-->      <tr>
+<!--msthemelist-->        <td valign="baseline" width="42"><img src="alvbull2.gif" width="12" height="12"
+        hspace="15"></td>
+        <td valign="top" width="100%"><!--mstheme--><font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><h5><!--mstheme--><font
+        face="trebuchet ms, arial, helvetica" color="#666633">The grid's verts should never be
+        moved in the x/z - snap the object geometry to the grid, not the other way around.<br>
+        <br>
+<!--mstheme-->        </font></h5>
+<!--mstheme-->        <font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><!--msthemelist--></td>
+      </tr>
+<!--msthemelist-->      <tr>
+<!--msthemelist-->        <td valign="baseline" width="42"><img src="alvbull2.gif" width="12" height="12"
+        hspace="15"></td>
+        <td valign="top" width="100%"><!--mstheme--><font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><h5><!--mstheme--><font
+        face="trebuchet ms, arial, helvetica" color="#666633">Build an optional grid
+        &quot;SP-1&quot;.&nbsp; The model's geometry must match it exactly whereever units will
+        move or shadows will be cast.<br>
+        <br>
+<!--mstheme-->        </font></h5>
+<!--mstheme-->        <font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><!--msthemelist--></td>
+      </tr>
+<!--msthemelist-->      <tr>
+<!--msthemelist-->        <td valign="baseline" width="42"><img src="alvbull2.gif" width="12" height="12"
+        hspace="15"></td>
+        <td valign="top" width="100%"><!--mstheme--><font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><h5><!--mstheme--><font
+        face="trebuchet ms, arial, helvetica" color="#666633">Both grids must be complete (no
+        verts can be missing from the grid)&nbsp; and the same size (identical in the x/z).<br>
+        <br>
+<!--mstheme-->        </font></h5>
+<!--mstheme-->        <font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><!--msthemelist--></td>
+      </tr>
+<!--msthemelist-->      <tr>
+<!--msthemelist-->        <td valign="baseline" width="42"><img src="alvbull2.gif" width="12" height="12"
+        hspace="15"></td>
+        <td valign="top" width="100%"><!--mstheme--><font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><h5><!--mstheme--><font
+        face="trebuchet ms, arial, helvetica" color="#666633">Both grids should be children of the
+        model's root object.<br>
+        <br>
+<!--mstheme-->        </font></h5>
+<!--mstheme-->        <font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><!--msthemelist--></td>
+      </tr>
+<!--msthemelist-->      <tr>
+<!--msthemelist-->        <td valign="baseline" width="42"><img src="alvbull2.gif" width="12" height="12"
+        hspace="15"></td>
+        <td valign="top" width="100%"><!--mstheme--><font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><h5><!--mstheme--><font
+        face="trebuchet ms, arial, helvetica" color="#666633">After the art is complete,
+        additional information can be edited in the studio using the footprint editor. By default,
+        each cell is set to be hidden and zipping.&nbsp; On a per cell (or per vertex) basis, each
+        of the following attributes can be changed:<!--mstheme--></font></h5>
+<!--mstheme-->        <font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><!--msthemelist--><table border="0" cellpadding="0"
+        cellspacing="0" width="100%">
+<!--msthemelist-->          <tr>
+<!--msthemelist-->            <td valign="baseline" width="42"><img src="alvbull3.gif" width="12" height="12"
+            hspace="15"></td>
+            <td valign="top" width="100%"><!--mstheme--><font face="trebuchet ms, arial, helvetica">Hide a terrain
+            cell (turn off its display so it can be replaced by geometry).<!--mstheme--></font><!--msthemelist--></td>
+          </tr>
+<!--msthemelist-->          <tr>
+<!--msthemelist-->            <td valign="baseline" width="42"><img src="alvbull3.gif" width="12" height="12"
+            hspace="15"></td>
+            <td valign="top" width="100%"><!--mstheme--><font face="trebuchet ms, arial, helvetica">Set a cell to
+            base terrain type.<!--mstheme--></font><!--msthemelist--></td>
+          </tr>
+<!--msthemelist-->          <tr>
+<!--msthemelist-->            <td valign="baseline" width="42"><img src="alvbull3.gif" width="12" height="12"
+            hspace="15"></td>
+            <td valign="top" width="100%"><!--mstheme--><font face="trebuchet ms, arial, helvetica">Use second layer
+            (should a cell use the SP-1 layer for floor finding).<!--mstheme--></font><!--msthemelist--></td>
+          </tr>
+<!--msthemelist-->          <tr>
+<!--msthemelist-->            <td valign="baseline" width="42"><img src="alvbull3.gif" width="12" height="12"
+            hspace="15"></td>
+            <td valign="top" width="100%"><!--mstheme--><font face="trebuchet ms, arial, helvetica">Zip a vertex to
+            the SP-0 layer (height of cell is set from the primary grid).<!--mstheme--></font><!--msthemelist--></td>
+          </tr>
+<!--msthemelist-->          <tr>
+<!--msthemelist-->            <td valign="baseline" width="42"><img src="alvbull3.gif" width="12" height="12"
+            hspace="15"></td>
+            <td valign="top" width="100%"><!--mstheme--><font face="trebuchet ms, arial, helvetica">Use grid color
+            (the color on the grid is applied to the terrain).<!--mstheme--></font><!--msthemelist--></td>
+          </tr>
+<!--msthemelist-->          <tr>
+<!--msthemelist-->            <td valign="baseline" width="42"><img src="alvbull3.gif" width="12" height="12"
+            hspace="15"></td>
+            <td valign="top" width="100%"><!--mstheme--><font face="trebuchet ms, arial, helvetica">Path searching
+            directions (specify that an object can walk up a ramp, but not off the side).<!--mstheme--></font><!--msthemelist--></td>
+          </tr>
+<!--msthemelist-->        </table>
+<!--mstheme-->        <font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><!--msthemelist--></td>
+      </tr>
+<!--msthemelist-->    </table>
+<!--mstheme-->    <font face="trebuchet ms, arial, helvetica"><!--mstheme--></font><!--msthemelist--></td>
+  </tr>
+<!--msthemelist--></table>
+<!--mstheme--><font face="trebuchet ms, arial, helvetica"><!--mstheme--></font>
+</body>
+</html>

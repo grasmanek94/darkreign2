@@ -1,0 +1,178 @@
+<TITLE>Interface Tables</TITLE>
+<HTML>
+<H1>Interface Tables</H1>
+
+<A NAME="RefControlNameSpec">
+<H2>Control Name Specification</H2>
+
+<BLOCKQUOTE>
+Naming convention for referring to a control from within another control.<BR>
+
+  <UL>
+    <LI><B><CODE>^</CODE></B>&nbsp;&nbsp; Begin searching from the previously created control</LI>
+    <LI><B><CODE>|</CODE></B>&nbsp;&nbsp; Begin searching from the root control</LI>
+    <LI><B><CODE>&lt;</CODE></B>&nbsp;&nbsp; Moves to the parent of the current control.  Mulitple "&lt;" can be specified to move up more levels.</LI>
+    <LI><B><CODE>.</CODE></B>&nbsp;&nbsp; Seperates control names.</LI>
+  </UL>
+
+  <BLOCKQUOTE>
+    <TABLE BORDER CELLPADDING="4">
+      <TR><TH><CODE>Notation</CODE></TH><TH>Refers to</TH></TR>
+      <TR><TD><CODE>&lt;sibling</CODE></TD><TD>sibling of current control named "sibling".</TD></TR>
+      <TR><TD><CODE>&lt;sibling.child</CODE></TD><TD>child of sibling of current control named "sibling".</TD></TR>
+      <TR><TD><CODE>|window</CODE></TD><TD>control at root level named "window".</TD></TR>
+    </TABLE>
+  </BLOCKQUOTE>
+
+</BLOCKQUOTE>
+
+<A NAME="RefVarNameSpec">
+<H2>Var Name Specification</H2>
+
+<BLOCKQUOTE>
+Naming convention for referring to a var from within a control.<BR>
+
+  <UL>
+    <LI><B><CODE>$</CODE></B>&nbsp;&nbsp; Substitute a dynamic var from a control.</LI>
+    <LI><B><CODE>&nbsp;</CODE></B>&nbsp;&nbsp; Use a var at the root scope.</LI>
+  </UL>
+
+  <BLOCKQUOTE>
+    <TABLE BORDER CELLPADDING="4">
+      <TR><TH><CODE>Notation</CODE></TH><TH>Refers to</TH></TR>
+      <TR><TD><CODE>$<sibling.var1</CODE></TD><TD>variable "var1" inside of sibling of current control named "sibling".</TD></TR>
+      <TR><TD><CODE>debug.var2</CODE></TD><TD>variable named "debug.var2".</TD></TR>
+    </TABLE>
+  </BLOCKQUOTE>
+
+</BLOCKQUOTE>
+
+<A NAME="RefTextureSpec">
+<H2>Texture Specification</H2>
+
+<BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B><I>Image</I>(string filename)</B><BR>
+  <I>filename Required, x Optional (0), y Optional (0), width Optional (width), height Optional (height)</I><BR>
+  filename: Name of texture image.<BR>
+  Uses the entire texture.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B><I>Image</I>(string filename, integer x, integer y, integer width, integer height)</B><BR>
+  <I>filename Required, x Required, y Requried, width Required, height Required</I><BR>
+  filename: Name of texture image.<BR>
+  x, y: Pixel offset of sub image.<BR>
+  width, height: Size of sub image.<BR>
+  Use a portion of the texture.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B><I>Mode</I>(string mode)</B><BR>
+  <I>Optional, mode("Stretch")</I><BR>
+  mode: Texture mode.<BR>
+  Can be one of "Tile", "Centre", or "Stretch"<BR>
+  </BLOCKQUOTE>
+
+</BLOCKQUOTE>
+
+<A NAME="RefColorSpec">
+<H2>Color Specification</H2>
+
+<BLOCKQUOTE>
+Can take one of 2 formats.<BR>
+
+  <BLOCKQUOTE>
+  <B><I>function</I>(integer red, integer green, integer blue, integer alpha)</B><BR>
+  <I>red Required, green Required, blue Required, alpha Optional (255)</I><BR>
+  red, green, blue, alpha: Component, between 0 and 255.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B><I>function</I>(string colorname)</B><BR>
+  <I>colorname Required</I><BR>
+  colorname: One of <A HREF="#RefColorNames">color names</A>.<BR>
+  </BLOCKQUOTE>
+
+</BLOCKQUOTE>
+
+
+<A NAME="RefColorNames">
+<H2>Color Names</H2>
+
+<BLOCKQUOTE>
+  <TABLE BORDER CELLPADDING="4">
+    <TR><TH>Color Name</TH><TH>Applies to</TH></TR>
+    <TR><TD>StdBg</TD><TD>Default background</TD></TR>
+    <TR><TD>StdFg</TD><TD>Default foreground</TD></TR>
+    <TR><TD>ClientBg</TD><TD>Edit/Listbox background</TD></TR>
+    <TR><TD>ClientFg</TD><TD>Edit/Listbox foreground</TD></TR>
+    <TR><TD>HilitedBg</TD><TD>Mouse over background</TD></TR>
+    <TR><TD>HilitedFg</TD><TD>Mouse over foreground</TD></TR>
+    <TR><TD>SelectedBg</TD><TD>Selected list item background</TD></TR>
+    <TR><TD>SelectedFg</TD><TD>Selected list item foreground</TD></TR>
+    <TR><TD>DisabledBg</TD><TD>Disabled background</TD></TR>
+    <TR><TD>DisabledFg</TD><TD>Disabled foreground</TD></TR>
+    <TR><TD>TitleBg1</TD><TD>Modal Title bar upper gradient</TD></TR>
+    <TR><TD>TitleBg2</TD><TD>Modal Title bar lower gradient</TD></TR>
+    <TR><TD>TitleFg</TD><TD>Modal Title bar foreground</TD></TR>
+    <TR><TD>TitleHiFg</TD><TD>Modal Title bar mouse over foreground</TD></TR>
+    <TR><TD>TitleLoBg1</TD><TD>Inactive Title bar upper gradient</TD></TR>
+    <TR><TD>TitleLoBg2</TD><TD>Inactive Title bar lower gradient</TD></TR>
+    <TR><TD>TitleLoFg</TD><TD>Inactive Title bar text</TD></TR>
+  </TABLE>
+</BLOCKQUOTE>
+
+<A NAME="RefSystemColorGroups">
+<H2>System Color Groups</H2>
+
+<BLOCKQUOTE>
+  <TABLE BORDER CELLPADDING="4">
+    <TR><TH>Group Name</TH><TH>Applies to</TH></TR>
+    <TR><TD>Sys::Default</TD><TD>All controls</TD></TR>
+    <TR><TD>Sys::Client</TD><TD>Client controls e.g. Edit/Listbox</TD></TR>
+    <TR><TD>Sys::TitleBar</TD><TD>Window title</TD></TR>
+    <TR><TD>Sys::ListItem</TD><TD>Listbox Item</TD></TR>
+  </TABLE>
+</BLOCKQUOTE>
+
+<A NAME="RefMetricNames">
+<H2>Metric Names</H2>
+
+<BLOCKQUOTE>
+  <TABLE BORDER CELLPADDING="4">
+    <TR><TH>Metric Name</TH><TH>Type</TH><TH>Description</TH><TH>Units</TH></TR>
+    <TR><TD>SliderWidth</TD><TD>integer</TD><TD>Slider width</TD><TD>pixels</TD></TR>
+    <TR><TD>ButtonWidth</TD><TD>integer</TD><TD>Button width</TD><TD>pixels</TD></TR>
+    <TR><TD>ButtonHeight</TD><TD>integer</TD><TD>Button height</TD><TD>pixels</TD></TR>
+    <TR><TD>TitleHeight</TD><TD>integer</TD><TD>Title bar height</TD><TD>pixels</TD></TR>
+    <TR><TD>ThinTitleHeight</TD><TD>integer</TD><TD>Thin Title bar height</TD><TD>pixels</TD></TR>
+    <TR><TD>DropShadowUp</TD><TD>integer</TD><TD>Drop shadow width when button is up</TD><TD>pixels</TD></TR>
+    <TR><TD>DropShadowDown</TD><TD>integer</TD><TD>Drop shadow width when button is down</TD><TD>pixels</TD></TR>
+    <TR><TD>ShadowAlpha</TD><TD>integer</TD><TD>Shadow alpha level</TD><TD>-</TD></TR>
+    <TR><TD>BorderThin</TD><TD>integer</TD><TD>Thin Border width</TD><TD>pixels</TD></TR>
+    <TR><TD>BorderThick</TD><TD>integer</TD><TD>Thick Border width</TD><TD>pixels</TD></TR>
+    <TR><TD>VGradient</TD><TD>integer</TD><TD>Vertical gradient speed</TD><TD>-</TD></TR>
+    <TR><TD>HGradient</TD><TD>integer</TD><TD>Horizontal gradient speed</TD><TD>-</TD></TR>
+    <TR><TD>TitleFont</TD><TD>string</TD><TD>Name of title bar font</TD><TD>-</TD></TR>
+    <TR><TD>ThinTitleFont</TD><TD>string</TD><TD>Name of thin title bar font</TD><TD>-</TD></TR>
+    <TR><TD>PollDelay</TD><TD>integer</TD><TD>Poll interval of system buttons</TD><TD>milliseconds</TD></TR>
+    <TR><TD>TipDelay</TD><TD>integer</TD><TD>Tool dip delay</TD><TD>milliseconds</TD></TR>
+
+  </TABLE>
+</BLOCKQUOTE>
+
+
+<A NAME="RefSoundNames">
+<H2>Sound Names</H2>
+
+<BLOCKQUOTE>
+  <TABLE BORDER CELLPADDING="4">
+    <TR><TH>Sound Name</TH><TH>Example of Usage</TH></TR>
+    <TR><TD>MenuCommand</TD><TD>When a button is pressed</TD></TR>
+    <TR><TD>MenuPopup</TD><TD>When a button is moused over</TD></TR>
+  </TABLE>
+</BLOCKQUOTE>
+
+</HTML>

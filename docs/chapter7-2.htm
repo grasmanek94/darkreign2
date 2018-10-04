@@ -1,0 +1,632 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Dark Reign 2 Construction Kit - 7.2 Control Freak Example File</title>
+</head>
+
+<body bgcolor="#000000" link="#33ff00" alink="#00ff00" vlink="#11cc00">
+<table border=0 cellpadding=0 cellspacing=0 width="100%">
+<TR>
+	<td bgcolor="#004400" width="100%">
+		<table border=0 cellpadding=4 cellspacing=2 width="100%" 
+     >
+		<tr>
+			<td width="100%" bgcolor="#000000"><font color="#00cc00" face="Arial" size="2"><!-- Start Text -->
+<font size="4"><b>7.2 Control Freak Example File</b></font><p>
+This is the <b>control_types.cfg</b> file that comes with Dark Reign 2:
+	<hr>
+	<blockquote>
+              <P><font color="#00cccc" face="courier"><i><b>//////////////////////////////////////////////////////////////////////////<BR>//<BR>// 
+              Copyright 1997-2000 Pandemic Studios<BR>//<BR>// Dark Reign II - 
+              Rule Type File - Control Freak<BR>//<BR>// Comments in this file 
+              are here to help ya figure stuff out :)</i></b>
+	
+	</font></P>
+              <P><FONT color=#00cccc face=courier></FONT>&nbsp;</P>
+              <P><FONT color=#00cccc face=courier><i><b>// displays the objective in 
+              the window.</b></i><BR>CreateObjectType("control.objective", "Objective") 
+              <BR>{<BR>&nbsp;Condition("TRUE");<BR>&nbsp;Action()<BR>&nbsp;{<BR>&nbsp;&nbsp;DisplayObjective("Add", 
+              "objectives")<BR>&nbsp;&nbsp; {<BR>&nbsp;&nbsp; 
+              &nbsp;Text("#mods.ruleset.control.objective");<BR>&nbsp;&nbsp; 
+              }<BR>&nbsp;}<BR>}</FONT></P>
+              <P><FONT color=#00cccc face=courier><i><b>// blips the minimap every 20 
+              seconds.</b></i><BR>CreateObjectType("control.blip.timer", 
+              "Objective")<BR>{<BR>&nbsp; Condition("Timer")<BR>&nbsp; 
+              {<BR>&nbsp; &nbsp;Time(20);<BR>&nbsp; 
+              }<BR>&nbsp;Action()<BR>&nbsp;{<BR>&nbsp;&nbsp;NewObjective("control.A.blip");<BR>&nbsp;&nbsp;NewObjective("control.B.blip");<BR>&nbsp;&nbsp;NewObjective("control.C.blip");<BR>&nbsp;&nbsp;NewObjective("control.D.blip");<BR>&nbsp;&nbsp;NewObjective("control.E.blip");<BR>&nbsp;&nbsp;NewObjective("control.blip.timer");<BR>&nbsp;}<BR>}</FONT></P>
+              <P><FONT color=#00cccc 
+              face=courier>CreateObjectType("control.A.blip", 
+              "Objective")<BR>{<BR>&nbsp;Condition("TRUE");<BR>&nbsp; 
+              Action()<BR>&nbsp; {<BR>&nbsp;&nbsp;&nbsp; 
+              TriggerTeamRadio("control.blip")<BR>&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Region("CP-A");<BR>&nbsp;&nbsp;&nbsp; }<BR>&nbsp; 
+}<BR>}</FONT></P>
+              <P><FONT color=#00cccc 
+              face=courier>CreateObjectType("control.B.blip", 
+              "Objective")<BR>{<BR>&nbsp;Condition("TRUE");<BR>&nbsp; 
+              Action()<BR>&nbsp; {<BR>&nbsp;&nbsp;&nbsp; 
+              TriggerTeamRadio("control.blip")<BR>&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Region("CP-B");<BR>&nbsp;&nbsp;&nbsp; }<BR>&nbsp; 
+}<BR>}</FONT></P>
+              <P><FONT color=#00cccc 
+              face=courier>CreateObjectType("control.C.blip", 
+              "Objective")<BR>{<BR>&nbsp;Condition("TRUE");<BR>&nbsp; 
+              Action()<BR>&nbsp; {<BR>&nbsp;&nbsp;&nbsp; 
+              TriggerTeamRadio("control.blip")<BR>&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Region("CP-C");<BR>&nbsp;&nbsp;&nbsp; }<BR>&nbsp; 
+}<BR>}</FONT></P>
+              <P><FONT color=#00cccc 
+              face=courier>CreateObjectType("control.D.blip", 
+              "Objective")<BR>{<BR>&nbsp;Condition("TRUE");<BR>&nbsp; 
+              Action()<BR>&nbsp; {<BR>&nbsp;&nbsp;&nbsp; 
+              TriggerTeamRadio("control.blip")<BR>&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Region("CP-D");<BR>&nbsp;&nbsp;&nbsp; }<BR>&nbsp; 
+}<BR>}</FONT></P>
+              <P><FONT color=#00cccc 
+              face=courier>CreateObjectType("control.E.blip", 
+              "Objective")<BR>{<BR>&nbsp;Condition("TRUE");<BR>&nbsp; 
+              Action()<BR>&nbsp; {<BR>&nbsp;&nbsp;&nbsp; 
+              TriggerTeamRadio("control.blip")<BR>&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Region("CP-E");<BR>&nbsp;&nbsp;&nbsp; }<BR>&nbsp; 
+}<BR>}</FONT></P>
+              <P><FONT color=#00cccc 
+              face=courier><BR>CreateObjectType("control.A.take", 
+              "Objective")<BR>{<BR>&nbsp; Condition("AND")<BR>&nbsp; {<BR>&nbsp; 
+              &nbsp;<i><b>// prevents taking point from ally or 
+              self</i></b><BR>&nbsp;&nbsp;&nbsp; Condition("InRegion") 
+              <BR>&nbsp;&nbsp;&nbsp; {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Region("CP-A");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Type("special.control.camera.A")<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Operator("==");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Amount(0);<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              }<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Relation("Ally");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Combine(1);<BR>&nbsp;&nbsp;&nbsp; }<BR>&nbsp;&nbsp;&nbsp; <i><b>// you 
+              must have at least one person in</b></i><BR>&nbsp;&nbsp;&nbsp; 
+              Condition("InRegion")&nbsp; <BR>&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Region("CP-A");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Type("*")<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Operator("&gt;");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Amount(0);<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              }<BR>&nbsp;&nbsp;&nbsp; }<BR>&nbsp;&nbsp;&nbsp; <b><i>// no enemies in 
+              area (camera = 1 enemy.)</i></b><BR>&nbsp;&nbsp;&nbsp; 
+              Condition("InRegion")<BR>&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Region("CP-A");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Type("*")<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Operator("&lt;");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Amount(2);<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              }<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Relation("Enemy");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Combine(1);<BR>&nbsp;&nbsp;&nbsp; }<BR>&nbsp; }<BR>&nbsp; 
+              Action()<BR>&nbsp; {<BR>&nbsp;&nbsp;&nbsp; Op("~.CP-temp", "=", 
+              "A");<BR>&nbsp;&nbsp;Delete()<BR>&nbsp;&nbsp;{<BR>&nbsp;&nbsp;&nbsp;Tag("camera-A");<BR>&nbsp;&nbsp;}<BR>&nbsp; 
+              &nbsp;SpawnObjects()<BR>&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Formation("Box");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Direction(0);<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Region("CP-A");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              AddType("special.control.camera.A");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Tag("camera-A");<BR>&nbsp;&nbsp;&nbsp; }<BR>&nbsp;&nbsp;&nbsp; 
+              TriggerFX()<BR>&nbsp;&nbsp;&nbsp; {<BR>&nbsp;&nbsp;&nbsp; 
+              &nbsp;Tag("CP-A");<BR>&nbsp;&nbsp;&nbsp; 
+              &nbsp;Effect("sprawler.fx.mojo.rage.unit");<BR>&nbsp;&nbsp;&nbsp; 
+              }<BR>&nbsp;&nbsp;&nbsp; 
+              TriggerTeamRadio("control.taken")<BR>&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Region("CP-A");<BR>&nbsp;&nbsp;&nbsp; }<BR>&nbsp;&nbsp;&nbsp; 
+              NewObjective("control.A.lose");<BR>&nbsp; }<BR>}</FONT></P>
+              <P><FONT color=#00cccc 
+              face=courier>CreateObjectType("control.B.take", 
+              "Objective")<BR>{<BR>&nbsp; Condition("AND")<BR>&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp; 
+              Condition("InRegion")<BR>&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Region("CP-B");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Type("special.control.camera.B")<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Operator("==");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Amount(0);<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              }<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Relation("Ally");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Combine(1);<BR>&nbsp;&nbsp;&nbsp; }<BR>&nbsp;&nbsp;&nbsp; 
+              Condition("InRegion")<BR>&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Region("CP-B");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Type("*")<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Operator("&gt;");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Amount(0);<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              }<BR>&nbsp;&nbsp;&nbsp; }<BR>&nbsp;&nbsp;&nbsp; 
+              Condition("InRegion")<BR>&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Region("CP-B");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Type("*")<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Operator("&lt;");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Amount(2);<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              }<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Relation("Enemy");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Combine(1);<BR>&nbsp;&nbsp;&nbsp; }<BR>&nbsp; }<BR>&nbsp; 
+              Action()<BR>&nbsp; {<BR>&nbsp;&nbsp;&nbsp; Op("~.CP-temp", "=", 
+              "B");<BR>&nbsp;&nbsp;Delete()<BR>&nbsp;&nbsp;{<BR>&nbsp;&nbsp;&nbsp;Tag("camera-B");<BR>&nbsp;&nbsp;}<BR>&nbsp; 
+              &nbsp;SpawnObjects()<BR>&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Formation("Box");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Direction(0);<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Region("CP-B");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              AddType("special.control.camera.B");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Tag("camera-B");<BR>&nbsp;&nbsp;&nbsp; }<BR>&nbsp;&nbsp;&nbsp; 
+              TriggerFX()<BR>&nbsp;&nbsp;&nbsp; {<BR>&nbsp;&nbsp;&nbsp; 
+              &nbsp;Tag("CP-B");<BR>&nbsp;&nbsp;&nbsp; 
+              &nbsp;Effect("sprawler.fx.mojo.rage.unit");<BR>&nbsp;&nbsp;&nbsp; 
+              }<BR>&nbsp;&nbsp;&nbsp; 
+              TriggerTeamRadio("control.taken")<BR>&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Region("CP-B");<BR>&nbsp;&nbsp;&nbsp; }<BR>&nbsp;&nbsp;&nbsp; 
+              NewObjective("control.B.lose");<BR>&nbsp; }<BR>}</FONT></P>
+              <P><FONT color=#00cccc 
+              face=courier><BR>CreateObjectType("control.C.take", 
+              "Objective")<BR>{<BR>&nbsp; Condition("AND")<BR>&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp; 
+              Condition("InRegion")<BR>&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Region("CP-C");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Type("special.control.camera.C")<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Operator("==");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Amount(0);<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              }<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Relation("Ally");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Combine(1);<BR>&nbsp;&nbsp;&nbsp; }<BR>&nbsp;&nbsp;&nbsp; 
+              Condition("InRegion")<BR>&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Region("CP-C");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Type("*")<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Operator("&gt;");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Amount(0);<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              }<BR>&nbsp;&nbsp;&nbsp; }<BR>&nbsp;&nbsp;&nbsp; 
+              Condition("InRegion")<BR>&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Region("CP-C");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Type("*")<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Operator("&lt;");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Amount(2);<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              }<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Relation("Enemy");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Combine(1);<BR>&nbsp;&nbsp;&nbsp; }<BR>&nbsp; }<BR>&nbsp; 
+              Action()<BR>&nbsp; {<BR>&nbsp;&nbsp;&nbsp; Op("~.CP-temp", "=", 
+              "C");<BR>&nbsp;&nbsp;Delete()<BR>&nbsp;&nbsp;{<BR>&nbsp;&nbsp;&nbsp;Tag("camera-C");<BR>&nbsp;&nbsp;}<BR>&nbsp; 
+              &nbsp;SpawnObjects()<BR>&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Formation("Box");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Direction(0);<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Region("CP-C");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              AddType("special.control.camera.C");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Tag("camera-C");<BR>&nbsp;&nbsp;&nbsp; }<BR>&nbsp;&nbsp;&nbsp; 
+              TriggerFX()<BR>&nbsp;&nbsp;&nbsp; {<BR>&nbsp;&nbsp;&nbsp; 
+              &nbsp;Tag("CP-C");<BR>&nbsp;&nbsp;&nbsp; 
+              &nbsp;Effect("sprawler.fx.mojo.rage.unit");<BR>&nbsp;&nbsp;&nbsp; 
+              }<BR>&nbsp;&nbsp;&nbsp; 
+              TriggerTeamRadio("control.taken")<BR>&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Region("CP-C");<BR>&nbsp;&nbsp;&nbsp; }<BR>&nbsp;&nbsp;&nbsp; 
+              NewObjective("control.C.lose");<BR>&nbsp; }<BR>}</FONT></P>
+              <P><FONT color=#00cccc 
+              face=courier><BR>CreateObjectType("control.D.take", 
+              "Objective")<BR>{<BR>&nbsp; Condition("AND")<BR>&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp; 
+              Condition("InRegion")<BR>&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Region("CP-D");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Type("special.control.camera.D")<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Operator("==");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Amount(0);<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              }<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Relation("Ally");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Combine(1);<BR>&nbsp;&nbsp;&nbsp; }<BR>&nbsp;&nbsp;&nbsp; 
+              Condition("InRegion")<BR>&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Region("CP-D");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Type("*")<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Operator("&gt;");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Amount(0);<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              }<BR>&nbsp;&nbsp;&nbsp; }<BR>&nbsp;&nbsp;&nbsp; 
+              Condition("InRegion")<BR>&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Region("CP-D");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Type("*")<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Operator("&lt;");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Amount(2);<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              }<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Relation("Enemy");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Combine(1);<BR>&nbsp;&nbsp;&nbsp; }<BR>&nbsp; }<BR>&nbsp; 
+              Action()<BR>&nbsp; {<BR>&nbsp;&nbsp;&nbsp; Op("~.CP-temp", "=", 
+              "D");<BR>&nbsp;&nbsp;Delete()<BR>&nbsp;&nbsp;{<BR>&nbsp;&nbsp;&nbsp;Tag("camera-D");<BR>&nbsp;&nbsp;}<BR>&nbsp; 
+              &nbsp;SpawnObjects()<BR>&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Formation("Box");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Direction(0);<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Region("CP-D");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              AddType("special.control.camera.D");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Tag("camera-D");<BR>&nbsp;&nbsp;&nbsp; }<BR>&nbsp;&nbsp;&nbsp; 
+              TriggerFX()<BR>&nbsp;&nbsp;&nbsp; {<BR>&nbsp;&nbsp;&nbsp; 
+              &nbsp;Tag("CP-D");<BR>&nbsp;&nbsp;&nbsp; 
+              &nbsp;Effect("sprawler.fx.mojo.rage.unit");<BR>&nbsp;&nbsp;&nbsp; 
+              }<BR>&nbsp;&nbsp;&nbsp; 
+              TriggerTeamRadio("control.taken")<BR>&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Region("CP-D");<BR>&nbsp;&nbsp;&nbsp; }<BR>&nbsp;&nbsp;&nbsp; 
+              NewObjective("control.D.lose");<BR>&nbsp; }<BR>}</FONT></P>
+              <P><FONT color=#00cccc 
+              face=courier><BR>CreateObjectType("control.E.take", 
+              "Objective")<BR>{<BR>&nbsp; Condition("AND")<BR>&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp; 
+              Condition("InRegion")<BR>&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Region("CP-E");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Type("special.control.camera.E")<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Operator("==");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Amount(0);<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              }<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Relation("Ally");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Combine(1);<BR>&nbsp;&nbsp;&nbsp; }<BR>&nbsp;&nbsp;&nbsp; 
+              Condition("InRegion")<BR>&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Region("CP-E");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Type("*")<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Operator("&gt;");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Amount(0);<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              }<BR>&nbsp;&nbsp;&nbsp; }<BR>&nbsp;&nbsp;&nbsp; 
+              Condition("InRegion")<BR>&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Region("CP-E");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Type("*")<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Operator("&lt;");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Amount(2);<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              }<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Relation("Enemy");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Combine(1);<BR>&nbsp;&nbsp;&nbsp; }<BR>&nbsp; }<BR>&nbsp; 
+              Action()<BR>&nbsp; {<BR>&nbsp;&nbsp;&nbsp; Op("~.CP-temp", "=", 
+              "E");<BR>&nbsp;&nbsp;Delete()<BR>&nbsp;&nbsp;{<BR>&nbsp;&nbsp;&nbsp;Tag("camera-E");<BR>&nbsp;&nbsp;}<BR>&nbsp; 
+              &nbsp;SpawnObjects()<BR>&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Formation("Box");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Direction(0);<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Region("CP-E");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              AddType("special.control.camera.E");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Tag("camera-E");<BR>&nbsp;&nbsp;&nbsp; }<BR>&nbsp;&nbsp;&nbsp; 
+              TriggerFX()<BR>&nbsp;&nbsp;&nbsp; {<BR>&nbsp;&nbsp;&nbsp; 
+              &nbsp;Tag("CP-E");<BR>&nbsp;&nbsp;&nbsp; 
+              &nbsp;Effect("sprawler.fx.mojo.rage.unit");<BR>&nbsp;&nbsp;&nbsp; 
+              }<BR>&nbsp;&nbsp;&nbsp; 
+              TriggerTeamRadio("control.taken")<BR>&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Region("CP-E");<BR>&nbsp;&nbsp;&nbsp; }<BR>&nbsp;&nbsp;&nbsp; 
+              NewObjective("control.E.lose");<BR>&nbsp; }<BR>}</FONT></P>
+              <P><FONT color=#00cccc face=courier><BR><i><b>// check to see if you 
+              (not your ally) still has 
+              point.</b></i><BR>CreateObjectType("control.A.lose", 
+              "Objective")<BR>{<BR>&nbsp; Condition("InRegion") <BR>&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp; Region("CP-A");<BR>&nbsp;&nbsp;&nbsp; 
+              Type("special.control.camera.A")<BR>&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Operator("==");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Amount(0);<BR>&nbsp;&nbsp;&nbsp; }<BR>&nbsp; 
+              }<BR>&nbsp;Action()<BR>&nbsp;{<BR>&nbsp;&nbsp;NewObjective("control.A.take");<BR>&nbsp;}<BR>}</FONT></P>
+              <P><FONT color=#00cccc 
+              face=courier>CreateObjectType("control.B.lose", 
+              "Objective")<BR>{<BR>&nbsp; Condition("InRegion")<BR>&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp; Region("CP-B");<BR>&nbsp;&nbsp;&nbsp; 
+              Type("special.control.camera.B")<BR>&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Operator("==");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Amount(0);<BR>&nbsp;&nbsp;&nbsp; }<BR>&nbsp; 
+              }<BR>&nbsp;Action()<BR>&nbsp;{<BR>&nbsp;&nbsp;NewObjective("control.B.take");<BR>&nbsp;}<BR>}</FONT></P>
+              <P><FONT color=#00cccc 
+              face=courier>CreateObjectType("control.C.lose", 
+              "Objective")<BR>{<BR>&nbsp; Condition("InRegion")<BR>&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp; Region("CP-C");<BR>&nbsp;&nbsp;&nbsp; 
+              Type("special.control.camera.C")<BR>&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Operator("==");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Amount(0);<BR>&nbsp;&nbsp;&nbsp; }<BR>&nbsp; 
+              }<BR>&nbsp;Action()<BR>&nbsp;{<BR>&nbsp;&nbsp;NewObjective("control.C.take");<BR>&nbsp;}<BR>}</FONT></P>
+              <P><FONT color=#00cccc 
+              face=courier>CreateObjectType("control.D.lose", 
+              "Objective")<BR>{<BR>&nbsp; Condition("InRegion")<BR>&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp; Region("CP-D");<BR>&nbsp;&nbsp;&nbsp; 
+              Type("special.control.camera.D")<BR>&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Operator("==");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Amount(0);<BR>&nbsp;&nbsp;&nbsp; }<BR>&nbsp; 
+              }<BR>&nbsp;Action()<BR>&nbsp;{<BR>&nbsp;&nbsp;NewObjective("control.D.take");<BR>&nbsp;}<BR>}</FONT></P>
+              <P><FONT color=#00cccc 
+              face=courier>CreateObjectType("control.E.lose", 
+              "Objective")<BR>{<BR>&nbsp; Condition("InRegion")<BR>&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp; Region("CP-E");<BR>&nbsp;&nbsp;&nbsp; 
+              Type("special.control.camera.E")<BR>&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Operator("==");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Amount(0);<BR>&nbsp;&nbsp;&nbsp; }<BR>&nbsp; 
+              }<BR>&nbsp;Action()<BR>&nbsp;{<BR>&nbsp;&nbsp;NewObjective("control.E.take");<BR>&nbsp;}<BR>}</FONT></P>
+              <P><FONT color=#00cccc face=courier></FONT>&nbsp;</P>
+              <P><FONT color=#00cccc face=courier><b><i>//check to see if you or your allies 
+              have all five points</i></b><BR>CreateObjectType("control.wincheck", 
+              "Objective") <BR>{<BR>&nbsp; Condition("AND")<BR>&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp; 
+              Condition("InRegion")<BR>&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Region("CP-A");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Type("special.control.camera.A")<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Operator("==");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Amount(1);<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              }<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Relation("Ally");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Combine(1);<BR>&nbsp;&nbsp;&nbsp; }<BR>&nbsp;&nbsp;&nbsp; 
+              Condition("InRegion")<BR>&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Region("CP-B");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Type("special.control.camera.B")<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Operator("==");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Amount(1);<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              }<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Relation("Ally");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Combine(1);<BR>&nbsp;&nbsp;&nbsp; }<BR>&nbsp;&nbsp;&nbsp; 
+              Condition("InRegion")<BR>&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Region("CP-C");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Type("special.control.camera.C")<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Operator("==");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Amount(1);<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              }<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Relation("Ally");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Combine(1);<BR>&nbsp;&nbsp;&nbsp; }<BR>&nbsp;&nbsp;&nbsp; 
+              Condition("InRegion")<BR>&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Region("CP-D");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Type("special.control.camera.D")<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Operator("==");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Amount(1);<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              }<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Relation("Ally");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Combine(1);<BR>&nbsp;&nbsp;&nbsp; }<BR>&nbsp;&nbsp;&nbsp; 
+              Condition("InRegion")<BR>&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Region("CP-E");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Type("special.control.camera.E")<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Operator("==");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Amount(1);<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              }<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Relation("Ally");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Combine(1);<BR>&nbsp;&nbsp;&nbsp; }<BR>&nbsp; }<BR>&nbsp; 
+              Action()<BR>&nbsp; {<BR>&nbsp; &nbsp;<b><i>// twinkles everything blue! 
+              woo-hoo!</i></b><BR>&nbsp;&nbsp;&nbsp; TriggerFX() <BR>&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp; &nbsp;Tag("CP-A");<BR>&nbsp;&nbsp;&nbsp; 
+              &nbsp;Effect("sprawler.fx.mojo.rage.unit");<BR>&nbsp;&nbsp;&nbsp; 
+              }<BR>&nbsp;&nbsp;&nbsp; TriggerFX()<BR>&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp; &nbsp;Tag("CP-B");<BR>&nbsp;&nbsp;&nbsp; 
+              &nbsp;Effect("sprawler.fx.mojo.rage.unit");<BR>&nbsp;&nbsp;&nbsp; 
+              }<BR>&nbsp;&nbsp;&nbsp; TriggerFX()<BR>&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp; &nbsp;Tag("CP-C");<BR>&nbsp;&nbsp;&nbsp; 
+              &nbsp;Effect("sprawler.fx.mojo.rage.unit");<BR>&nbsp;&nbsp;&nbsp; 
+              }<BR>&nbsp;&nbsp;&nbsp; TriggerFX()<BR>&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp; &nbsp;Tag("CP-D");<BR>&nbsp;&nbsp;&nbsp; 
+              &nbsp;Effect("sprawler.fx.mojo.rage.unit");<BR>&nbsp;&nbsp;&nbsp; 
+              }&nbsp;&nbsp;&nbsp; &nbsp;<BR>&nbsp;&nbsp;&nbsp; 
+              TriggerFX()<BR>&nbsp;&nbsp;&nbsp; {<BR>&nbsp;&nbsp;&nbsp; 
+              &nbsp;Tag("CP-E");<BR>&nbsp;&nbsp;&nbsp; 
+              &nbsp;Effect("sprawler.fx.mojo.rage.unit");<BR>&nbsp;&nbsp;&nbsp; 
+              }<BR>&nbsp;&nbsp;&nbsp; 
+              TriggerTeamRadio("control.win");<BR>&nbsp;&nbsp;&nbsp; 
+              NewObjective("common.timer.win");<BR>&nbsp; }<BR>}</FONT></P>
+              <P><FONT color=#00cccc 
+              face=courier><b><i>////////////////////////////////////////////////////////////////////////////////<BR>////////////////////// 
+              CONTROL FREAK MESSAGE CONFIGURATION 
+              /////////////////////<BR>////////////////////////////////////////////////////////////////////////////////</i></b></FONT></P>
+              <P><FONT color=#00cccc 
+              face=courier>ConfigureRadioEvent("control.blip")<BR>{<BR>&nbsp; 
+              Messages()<BR>&nbsp; {<BR>&nbsp;&nbsp;&nbsp; 
+              LocationMessage::Self("control.blip");<BR>&nbsp;}<BR>}</FONT></P>
+              <P><FONT color=#00cccc 
+              face=courier>ConfigureRadioEvent("control.taken")<BR>{<BR>&nbsp; 
+              Messages()<BR>&nbsp; {<BR>&nbsp;&nbsp;&nbsp; 
+              LocationMessage::Self("control.s_taken", 
+              "~.CP-temp");<BR>&nbsp;&nbsp;&nbsp; 
+              LocationMessage::Ally("control.a_taken", 
+              "~.CP-temp");<BR>&nbsp;&nbsp;&nbsp; 
+              LocationMessage::Enemy("control.e_taken", "~.CP-temp");<BR>&nbsp; 
+              }<BR>}</FONT></P>
+              <P><FONT color=#00cccc 
+              face=courier>ConfigureRadioEvent("control.win")<BR>{<BR>&nbsp; 
+              Messages()<BR>&nbsp; {<BR>&nbsp;&nbsp;&nbsp; 
+              GameMessage::Self("control.win");<BR>&nbsp;&nbsp;&nbsp; 
+              GameMessage::Enemy("control.e_win");<BR>&nbsp; }<BR>}</FONT></P>
+              <P><FONT color=#00cccc 
+              face=courier>ConfigureGameMessage("control.win")<BR>{<BR>&nbsp; 
+              Interval();<BR>&nbsp; Sound()<BR>&nbsp; {<BR>&nbsp;&nbsp;&nbsp; 
+              Type("Sound::Primary");<BR>&nbsp;&nbsp;&nbsp; 
+              Add("control_win.wav");<BR>&nbsp; }<BR>&nbsp; 
+              Message();<BR>}</FONT></P>
+              <P><FONT color=#00cccc 
+              face=courier>ConfigureGameMessage("control.e_win")<BR>{<BR>&nbsp; 
+              Interval();<BR>&nbsp; Sound()<BR>&nbsp; {<BR>&nbsp;&nbsp;&nbsp; 
+              Type("Sound::Primary");<BR>&nbsp;&nbsp;&nbsp; 
+              Add("control_lose.wav");<BR>&nbsp; }<BR>&nbsp; 
+              Message();<BR>}</FONT></P>
+              <P><FONT color=#00cccc 
+              face=courier>ConfigureLocationMessage("control.blip")<BR>{<BR>&nbsp; 
+              Interval();<BR>&nbsp; Sound();<BR>&nbsp; Message();<BR>&nbsp; 
+              BlipColor(255, 255, 255, 100);<BR>}</FONT></P>
+              <P><FONT color=#00cccc 
+              face=courier>ConfigureLocationMessage("control.blip_e")<BR>{<BR>&nbsp; 
+              Interval();<BR>&nbsp; Sound();<BR>&nbsp; Message();<BR>&nbsp; 
+              BlipColor(255, 100, 0, 100);<BR>}</FONT></P>
+              <P><FONT color=#00cccc 
+              face=courier>ConfigureLocationMessage("control.s_taken")<BR>{<BR>&nbsp; 
+              Interval();<BR>&nbsp; Sound()<BR>&nbsp; {<BR>&nbsp;&nbsp;&nbsp; 
+              Type("Sound::Primary");<BR>&nbsp;&nbsp;&nbsp; 
+              Add("control_taken.wav");<BR>&nbsp; }<BR>&nbsp; 
+              Message()<BR>&nbsp; {<BR>&nbsp;&nbsp;&nbsp; 
+              Type("Message::Console");<BR>&nbsp;&nbsp;&nbsp; 
+              Add("#mods.ruleset.control.s_taken"); <BR>&nbsp; }<BR>}</FONT></P>
+              <P><FONT color=#00cccc 
+              face=courier>ConfigureLocationMessage("control.a_taken")<BR>{<BR>&nbsp; 
+              Interval();<BR>&nbsp; Sound();<BR>&nbsp; Message()<BR>&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp; 
+              Type("Message::Console");<BR>&nbsp;&nbsp;&nbsp; 
+              Add("#mods.ruleset.control.a_taken");<BR>&nbsp; }<BR>}</FONT></P>
+              <P><FONT color=#00cccc 
+              face=courier>ConfigureLocationMessage("control.e_taken")<BR>{<BR>&nbsp; 
+              Interval();<BR>&nbsp; Sound();<BR>&nbsp; Message()<BR>&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp; 
+              Type("Message::Console");<BR>&nbsp;&nbsp;&nbsp; 
+              Add("#mods.ruleset.control.e_taken");<BR>&nbsp; }<BR>}</FONT></P>
+              <P><FONT color=#00cccc 
+              face=courier><b><i>////////////////////////////////////////////////////////////////////////////////<BR>////////////////////// 
+              CONTROL FREAK OBJECTS CONFIGURATION 
+              /////////////////////<BR>////////////////////////////////////////////////////////////////////////////////</i></b></FONT></P>
+              <P><FONT color=#00cccc 
+              face=courier><BR>CreateObjectType("special.control.post", 
+              "Unit")<BR>{<BR>&nbsp; GameObj()<BR>&nbsp; {<BR>&nbsp;&nbsp;&nbsp; 
+              ThinkInterval(1);<BR>&nbsp;&nbsp;&nbsp; 
+              Properties()<BR>&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Add("Filter::SpecialProp");<BR>&nbsp;&nbsp;&nbsp; }<BR>&nbsp; 
+              }</FONT></P>
+              <P><FONT color=#00cccc face=courier>&nbsp; MapObj()<BR>&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp; 
+              GodFile("jda_forcewall.god");<BR>&nbsp;&nbsp;&nbsp; 
+              PhysicsModel("building");<BR>&nbsp;&nbsp;&nbsp; 
+              TractionType("traction_building");<BR>&nbsp;&nbsp;&nbsp; 
+              GenericFX()<BR>&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Add("MapObj::Armour::Damaged", 
+              "jda.armor.hit");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Add("MapObj::Armour::Lost", 
+              "jda.armor.lose");<BR>&nbsp;&nbsp;&nbsp; }<BR>&nbsp; }</FONT></P>
+              <P><FONT color=#00cccc face=courier>&nbsp; UnitObj()<BR>&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp; SeeingRange(80);<BR>&nbsp;&nbsp;&nbsp; 
+              NightModifier(100%);<BR>&nbsp;&nbsp;&nbsp; 
+              Power()<BR>&nbsp;&nbsp;&nbsp; {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Required(0);<BR>&nbsp;&nbsp;&nbsp; }<BR>&nbsp;&nbsp;&nbsp; 
+              Efficiency()<BR>&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Green(100%);<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Yellow(100%);<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Red(100%);<BR>&nbsp;&nbsp;&nbsp; }<BR>&nbsp; }<BR>}</FONT></P>
+              <P><FONT color=#00cccc 
+              face=courier>CreateObjectType("special.control.camera.A", 
+              "Unit")<BR>{<BR>&nbsp; GameObj()<BR>&nbsp; {<BR>&nbsp;&nbsp;&nbsp; 
+              Properties()<BR>&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Add("Filter::SpecialProp");<BR>&nbsp;&nbsp;&nbsp; }<BR>&nbsp; 
+              }</FONT></P>
+              <P><FONT color=#00cccc face=courier>&nbsp; MapObj()<BR>&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp; Mesh();<BR>&nbsp;&nbsp;&nbsp; 
+              PhysicsModel("building");<BR>&nbsp;&nbsp;&nbsp; 
+              HitPoints(750);<BR>&nbsp;&nbsp;&nbsp; 
+              TractionType("traction_building");<BR>&nbsp;&nbsp;&nbsp; 
+              TypeDisplay();<BR>&nbsp; }</FONT></P>
+              <P><FONT color=#00cccc face=courier>&nbsp; UnitObj()<BR>&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp; SeeingRange(60);<BR>&nbsp;&nbsp;&nbsp; 
+              NightModifier(100%);<BR>&nbsp; }<BR>}</FONT></P>
+              <P><FONT color=#00cccc 
+              face=courier>CreateObjectType("special.control.camera.B", 
+              "Unit")<BR>{<BR>&nbsp; GameObj()<BR>&nbsp; {<BR>&nbsp;&nbsp;&nbsp; 
+              Properties()<BR>&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Add("Filter::SpecialProp");<BR>&nbsp;&nbsp;&nbsp; }<BR>&nbsp; 
+              }</FONT></P>
+              <P><FONT color=#00cccc face=courier>&nbsp; MapObj()<BR>&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp; Mesh();<BR>&nbsp;&nbsp;&nbsp; 
+              PhysicsModel("building");<BR>&nbsp;&nbsp;&nbsp; 
+              HitPoints(750);<BR>&nbsp;&nbsp;&nbsp; 
+              TractionType("traction_building");<BR>&nbsp;&nbsp;&nbsp; 
+              TypeDisplay();<BR>&nbsp; }</FONT></P>
+              <P><FONT color=#00cccc face=courier>&nbsp; UnitObj()<BR>&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp; SeeingRange(60);<BR>&nbsp;&nbsp;&nbsp; 
+              NightModifier(100%);<BR>&nbsp; }<BR>}</FONT></P>
+              <P><FONT color=#00cccc 
+              face=courier>CreateObjectType("special.control.camera.C", 
+              "Unit")<BR>{<BR>&nbsp; GameObj()<BR>&nbsp; {<BR>&nbsp;&nbsp;&nbsp; 
+              Properties()<BR>&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Add("Filter::SpecialProp");<BR>&nbsp;&nbsp;&nbsp; }<BR>&nbsp; 
+              }</FONT></P>
+              <P><FONT color=#00cccc face=courier>&nbsp; MapObj()<BR>&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp; Mesh();<BR>&nbsp;&nbsp;&nbsp; 
+              PhysicsModel("building");<BR>&nbsp;&nbsp;&nbsp; 
+              HitPoints(750);<BR>&nbsp;&nbsp;&nbsp; 
+              TractionType("traction_building");<BR>&nbsp;&nbsp;&nbsp; 
+              TypeDisplay();<BR>&nbsp; }</FONT></P>
+              <P><FONT color=#00cccc face=courier>&nbsp; UnitObj()<BR>&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp; SeeingRange(60);<BR>&nbsp;&nbsp;&nbsp; 
+              NightModifier(100%);<BR>&nbsp; }<BR>}</FONT></P>
+              <P><FONT color=#00cccc 
+              face=courier>CreateObjectType("special.control.camera.D", 
+              "Unit")<BR>{<BR>&nbsp; GameObj()<BR>&nbsp; {<BR>&nbsp;&nbsp;&nbsp; 
+              Properties()<BR>&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Add("Filter::SpecialProp");<BR>&nbsp;&nbsp;&nbsp; }<BR>&nbsp; 
+              }</FONT></P>
+              <P><FONT color=#00cccc face=courier>&nbsp; MapObj()<BR>&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp; Mesh();<BR>&nbsp;&nbsp;&nbsp; 
+              PhysicsModel("building");<BR>&nbsp;&nbsp;&nbsp; 
+              HitPoints(750);<BR>&nbsp;&nbsp;&nbsp; 
+              TractionType("traction_building");<BR>&nbsp;&nbsp;&nbsp; 
+              TypeDisplay();<BR>&nbsp; }</FONT></P>
+              <P><FONT color=#00cccc face=courier>&nbsp; UnitObj()<BR>&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp; SeeingRange(60);<BR>&nbsp;&nbsp;&nbsp; 
+              NightModifier(100%);<BR>&nbsp; }<BR>}</FONT></P>
+              <P><FONT color=#00cccc 
+              face=courier>CreateObjectType("special.control.camera.E", 
+              "Unit")<BR>{<BR>&nbsp; GameObj()<BR>&nbsp; {<BR>&nbsp;&nbsp;&nbsp; 
+              Properties()<BR>&nbsp;&nbsp;&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              Add("Filter::SpecialProp");<BR>&nbsp;&nbsp;&nbsp; }<BR>&nbsp; 
+              }</FONT></P>
+              <P><FONT color=#00cccc face=courier>&nbsp; MapObj()<BR>&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp; Mesh();<BR>&nbsp;&nbsp;&nbsp; 
+              PhysicsModel("building");<BR>&nbsp;&nbsp;&nbsp; 
+              HitPoints(750);<BR>&nbsp;&nbsp;&nbsp; 
+              TractionType("traction_building");<BR>&nbsp;&nbsp;&nbsp; 
+              TypeDisplay();<BR>&nbsp; }</FONT></P>
+              <P><FONT color=#00cccc face=courier>&nbsp; UnitObj()<BR>&nbsp; 
+              {<BR>&nbsp;&nbsp;&nbsp; SeeingRange(60);<BR>&nbsp;&nbsp;&nbsp; 
+              NightModifier(100%);<BR>&nbsp; }<BR>}<BR></P>
+			</font></BLOCKQUOTE>
+	<hr>
+<!-- End Text --></FONT>
+			</td>
+		</tr>
+		</table>
+	</td>
+</TR>
+</table>
+
+
+</body>
+</html>

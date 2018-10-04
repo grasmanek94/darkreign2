@@ -1,0 +1,75 @@
+<TITLE>Physics Type Configuration</TITLE>
+<HTML>
+<H1>Physics Type Configuration</H1>
+Configures a path following (driving) style.<BR>
+<BR>
+
+<BLOCKQUOTE>
+<B>CreateDrivingStyle(string ident)</B><BR>
+<I>Multiple</I><BR>
+ident: Identifier of the physics type.<BR>
+
+  <BLOCKQUOTE>
+  <B>MinimumDist(float dist)</B><BR>
+  <I>Optional(1), dist required</I><BR>
+  dist: Distance in metres.<BR>
+  Unit will complete path following when it comes to a rest within this distance of end point.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>CornerShaving(float dist)</B><BR>
+  <I>Optional(3), dist required</I><BR>
+  dist: Distance in metres.<BR>
+  Unit will turn towards next waypoint when within this distance of current waypoint.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>AccAngle(float angle)</B><BR>
+  <I>Optional(3), angle required</I><BR>
+  angle: Angle in degrees.<BR>
+  Unit will begin accelerating when heading is within this many degrees of the next waypoint.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>OopsMissedIt(float angle)</B><BR>
+  <I>Optional(45), angle required</I><BR>
+  angle: Angle in degrees.<BR>
+  Unit will slam on brakes and turn rapidly if heading is more than this many degrees from next waypoint.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>ThrottleScale(float factor)</B><BR>
+  <I>Optional(1), factor required</I><BR>
+  factor: Multiplier.<BR>
+  All throttle input from the engine is scaled up/down by this amount by the driver.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>GiveUpDist(float dist)</B><BR>
+  <I>Optional(16), dist required</I><BR>
+  dist: Distance in metres.<BR>
+  Unit will give up if it is within this distance of the endpoint and it is unable to progress forward.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>VelocFilter(float coefficient)</B><BR>
+  <I>Optional(0.1), coefficient required</I><BR>
+  coefficient: Filter coefficient.<BR>
+  Filter value applied to calculate smoothed velocity.  The smoothed values of velocity, etc. reflects the smoothed over the short term past.  These values are shown on the physics mono panel.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>ThrottleFilter(float coefficient)</B><BR>
+  <I>Optional(0.1), coefficient required</I><BR>
+  coefficient: Filter coefficient.<BR>
+  Filter value applied to calculate smoothed throttle.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>SteerFilter(float coefficient)</B><BR>
+  <I>Optional(0.1), coefficient required</I><BR>
+  coefficient: Filter coefficient.<BR>
+  Filter value applied to calculate smoothed steering.<BR>
+  </BLOCKQUOTE>
+
+</HTML>

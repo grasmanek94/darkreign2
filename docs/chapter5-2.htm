@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Dark Reign 2 Construction Kit - 5.2 Mission File Structure</title>
+</head>
+
+<body bgcolor="#000000" link="#33ff00" alink="#00ff00" vlink="#11cc00">
+<table border=0 cellpadding=0 cellspacing=0 width="100%">
+<TR>
+	<td bgcolor="#004400" width="100%">
+		<table border=0 cellpadding=4 border=0 cellspacing=2 width="100%">
+		<tr>
+			<td width="100%" bgcolor="#000000"><font color="#00cc00" face="Arial" size="2">
+<!-- Start Text -->
+<font size="4"><b>5.2 Mission File Structure</b></font><p>
+
+This section will explain all the files that are created when you save a map, as well as describe which text files you will need to create to begin scripting.<p>
+
+When you save out a map, it creates the following files:<p>
+
+<b>game.cfg</b> 	-- Contains any data that isn't object related (Teams, weather, light time, team relations…)<br>
+<b>objects.cfg</b>	-- Contains data about all objects in the environment (including regions, curves, paths, tags etc.)<br>
+<b>terrain.blk</b>	-- Terrain geometry and texture information<br>
+<b>terrain.bmp</b>	-- .BMP file that will be the minimap<br>
+
+(Note that you can edit game.cfg and objects.cfg manually in a text editor, as it's sometimes faster than loading up the editor to change a parameter.  If you're not comfortable with editing these files manually there is no need to do so other than convenience.)<p>
+
+Next come the text files you need to create to get ready to script.  There are two files that every mission looks for when it is loaded to see if there is a script to run.  These two files provide "pointer" information for the mission.  That is, they point to all the other configuration and script files the mission will be reading from.  They are:<p>
+
+<b>strategic.cfg</b>  	-- The pointer file for AI configs (standard attack scripts/recruit types, base building/orders…)<br>
+<b>types_mission.cfg</b>	-- The pointer file for all other scripts (enemy and player objectives, cineractives…)<p>
+
+Create two text files ("<b>strategic.cfg</b>" and "<b>types_mission.cfg</b>") and place them in your mission folder.  Now, exactly what these files point to will depend on the mission and what you are trying to do, but there's a couple basic things you'll almost always want to include.<p>
+
+Open strategic.cfg in your text editor.  Add the line:<p>
+<hr>
+<blockquote><Font color="#00CCCC" face="courier">
+#include "strategic_scripts.cfg"
+</font></blockquote>
+<hr>
+
+and save.   Now, this is telling the game to include a config file called "<b>strategic_scripts.cfg</b>".  This particular config file contains a long set of standard AI controls, or the "mini-scripts" that we used while creating  the game to perform often repeated tasks easily.  The file strategic_scripts.cfg is present elsewhere in the build and does not need to be in your mission folder.<BR>
+See the <a href="chapter4-8.htm">Section 4.8 AI</a> for more info on <b>strategic_scripts.cfg</b>.<p>
+
+Now open <b>types_mission.cfg</b>.  Add the line:
+<hr>
+<blockquote><Font color="#00CCCC" face="courier">
+# include "types_objects_special.cfg"<p>
+</font></blockquote>
+<hr>
+<br>
+and save.  <b>Types_objects_special.cfg</b> is a list of objects that are often used.  It also is present elsewhere in the build and doesn't need to be in the mission folder.<p>
+
+These two files are the start of the process. You will be adding more #include lines to them as you go through the process of scripting your mission.<p>
+ 
+Next, we'll create the text files that will hold your actual script.  From here on out, you can name your text files whatever you want, but here is the way we generally did it in DR2. The following is assuming there will be two teams, a player and an AI.  Create three text files in your mission folder, name them "<b>objective_start.cfg</b>"  "<b>objective_ai.cfg</b>"  "<b>objective_player.cfg</b>"<p>
+
+<b>objective_start.cfg</b>	--  Loads initial scripts for player and AI.  Will also be the "link" script that is specified in the Studio.<p>
+
+<b>objective_player.cfg</b>	--  Contains all script for the player's team<p>
+
+<b>objective_ai.cfg</b>	-- Contains all script for the AI team<p>
+
+Now, we've added these files to the folder, but the game won't know they are there unless we include it in the pointer file, <b>types_mission.cfg</b><p>
+
+Open <b>types_mission.cfg</b>.  Add the lines:
+<hr>
+<blockquote><Font color="#00CCCC" face="courier">
+# include "objective_start.cfg"<br>
+# include "objective_ai.cfg"<br>
+# include "objective_player.cfg"
+</font></blockquote>
+<hr>
+<br>and save.  The game will now know to look inside these files for scripts.
+
+
+<!-- End Text -->
+
+		</font></td>
+		</tr>
+		</table>
+	</td>
+</tr>
+</table>
+
+
+</body>
+</html>

@@ -1,0 +1,94 @@
+<TITLE>Tactical AI</TITLE>
+<HTML>
+<H1>Tactical AI</H1>
+
+<BLOCKQUOTE>
+<B>ConfigureSystem()</B><BR>
+<I>Required</I><BR>
+The tactical AI settings are designed to be completely freeform.  Their purpose is to simplify the user interface to the tactical properties.  The ConfigureSystem scope sets up the modifiers and available settings of the tactical AI.
+
+  <BLOCKQUOTE>
+  <B>CreateModifier(string name)</B><BR>
+  <I>Multiple</I><BR>
+  name: Name of the modifier<BR>
+  
+    <BLOCKQUOTE>
+    <B>AddSetting(string name)</B><BR>
+    <I>Multiple</I><BR>
+    name: Name of the setting for the modifier.<BR>
+    </BLOCKQUOTE>
+  
+    <BLOCKQUOTE>
+    <B>DefaultSetting(string name)</B><BR>
+    <I>Required</I><BR>
+    name: The setting to give to all new units.<BR>
+    </BLOCKQUOTE>
+    
+  </BLOCKQUOTE>
+
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>ConfigureDefault()</B><BR>
+<I>Required</I><BR>
+
+  <BLOCKQUOTE>
+  <B>ConfigureModifier(string modifier)</B><BR>
+  <I>Multiple</I><BR>
+  modifier: Name of the modifier to configure.<BR>
+  
+    <BLOCKQUOTE>
+    <B>Setting(string setting)</B><BR>
+    <I>Multiple</I><BR>
+    setting: Name of the setting of the modifier to configure.<BR>
+    
+      <BLOCKQUOTE>
+      <B>Allow(string property)</B><BR>
+      property: When the modifier has this setting then allow this property.  Properties are defined <A HREF="#Properties">here</A>.<BR>
+      </BLOCKQUOTE>
+      
+      <BLOCKQUOTE>
+      <B>Deny(string property)</B><BR>
+      property: When the modifier has this setting then deny this property.  Properties are defined <A HREF="#Properties">here</A>.<BR>
+      </BLOCKQUOTE>
+            
+    </BLOCKQUOTE>
+  </BLOCKQUOTE>
+
+</BLOCKQUOTE>
+
+<A NAME="Properties">
+
+<BLOCKQUOTE>
+<B>Properties</B><BR>
+For a property to be enabled, at least on modifier/setting must enable it.  If any modifier/setting denies the property then it is not enabled.<BR>
+
+  <UL>
+    <LI><B>SearchTarget</B><BR>
+      A unit should search for targets.<BR>
+    <LI><B>HoldPosition</B><BR>
+      A unit should not leave its current position unless directly ordered to do so.<BR>
+    <LI><B>FollowSubject</B><BR>
+      If another object this unit is interacting with moves away, this unit should follow it.<BR>
+    <LI><B>RepairSelf100</B><BR>
+      A unit should repair itself if its health falls below 100%.<BR>
+    <LI><B>RepairSelf50</B><BR>
+      A unit should repair itself if its health falls below 50%.<BR>
+    <LI><B>Evasive</B><BR>
+      This unit should take evasive action when attacked.<BR>
+    <LI><B>AvoidHittingSelf</B><BR>
+      Avoid hitting units on the same team as this unit.<BR>
+    <LI><B>AvoidHittingAlly</B><BR>
+      Avoid hitting units who are allied to this unit's team.<BR>
+    <LI><B>AvoidHittingNeutral</B><BR>
+      Avoid hitting units who are neutral to this unit's team.<BR>
+    <LI><B>AvoidHittingEnemy</B><BR>
+      Avoid hitting units who are enemy to this unit's team.<BR>
+    <LI><B>AvoidHittingMarked</B><BR>
+      Avoid hitting units which have been marked.<BR>
+      
+  </UL>
+
+</BLOCKQUOTE>
+</HTML>
+

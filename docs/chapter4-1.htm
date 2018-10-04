@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Dark Reign 2 Construction Kit - 4.1 Multiplayer Maps</title>
+</head>
+
+<body bgcolor="#000000" link="#33ff00" alink="#00ff00" vlink="#11cc00">
+<table border=0 cellpadding=0 cellspacing=0 width="100%">
+<TR>
+	<td bgcolor="#004400" width="100%">
+		<table border=0 cellpadding=4 border=0 cellspacing=2 width="100%">
+		<tr>
+			<td width="100%" bgcolor="#000000"><font color="#00cc00" face="Arial" size="2">
+<!-- Start Text -->
+
+<font size="4"><b>4.1 Making Multiplayer Maps</b></font><p>
+This section will take you through the steps of creating a playable, standard multiplayer map for Dark Reign 2.<br>
+(note: this order is not necessarily set in stone)<p>
+
+1.	Create a New map, choose a Size and World (<a href="chapter3-1.htm">Section 3.1 Tools</a>)<br>
+2.	Create the map's terrain (<a href="chapter2-3.htm">Section 2.3 Terrain Menu</a>)<br>
+3.	Add water if map requires water (<a href="chapter2-4.htm">Section 2.4 Water Menu</a>)<br>
+4.	Texture and color the map (<a href="chapter2-1.htm">Section 2.1 Terrain Menu</a>, <a href="chapter2-3.htm">2.3 Terrain Color Menu</a>, <a href="chapter2-10.htm">2.10 Overlay menu</a>)<br>
+5.	Place ambient objects (<a href="chapter2-2.htm">Section 2.2 Objects Menu</a>).<br>
+6.	Configure start locations, ruleset, other misc settings (described in detail below)<p>
+
+Start locations, ruleset, other misc settings:<br>
+Make 1 team for each player the map will support. To create a team, see <a href="chapter3-2.htm">Section 3.2</a>.  For example, for a 4 player map, you would create 4 teams and give them each a unique name (the names don't matter):<p>
+
+   <font color="#00CCCC" face="courier">TEAM1<br>
+   TEAM2<br>
+   TEAM3<br>
+   TEAM4</font><p>
+
+Now we are going to 'mark' the spots that are going to be the player's start locations.  Hit 5 to get the <a href="chapter2-5.htm">Region menu</a>.  Left-click and drag on the terrain to create a region.  It will look like a box.  Make a small region at each start location (define the box, type a name in the field just above the "create" button, then click "create".  Your new Region should now appear in the list on the right of the screen.)  The center of the Region will be where the camera is looking at the start of the game, it will also be the spot where your starting rigs are spawned in.  To keep things simple, name the regions the same as your team names.  So I made one region at each start loc called <font color="#00CCCC" face="courier">TEAM1</font>, <font color="#00CCCC" face="courier">TEAM2</font>, <font color="#00CCCC" face="courier">TEAM3</font>, and <font color="#00CCCC" face="courier">TEAM4</font>.<p>
+
+Now, you'll need to go into each team's config and make some settings.  Double click on the team name to get the team config menu.  For EACH team do the following:<p>
+
+   	Make sure the following buttons are depressed (highlighted):<br>
+   	Default Team (just the first team created)<br>
+   	Avail To Players<br>
+   	Show Stats<p>
+
+   	Make sure the following buttons are NOT depressed:<br>
+   	Permanent Radar<br>
+   	Requires AI<br>
+   	Fixed Side<br>
+   	Enable Type filtering <p>
+
+Set starting resource amount in the "Resource Store" window.<p>
+
+Set start angle in the Angle window (-45 is North)<p>
+
+Set starting locations with the "Start Camera" window. (click the "browse" button next to the Start Camera window.  Specify the start regions you made for each team.  i.e. in <font color="#00CCCC" face="courier">TEAM1</font>'s config, select the region <font color="#00CCCC" face="courier">TEAM1</font>, etc)<p>
+
+Finally, you need to set a default ruleset for the map.  All of the standard multiplayer maps in DR2 have "Protect HQ" as the default ruleset.  Click "<a href="chapter3-1.htm">Tools</a>" in the lower left.  Select "Mission".  Select "Protect HQ" from the pull down box. (Make sure "Fixed Rule" is NOT depressed)<p>
+
+Save map with CTRL+S.  Save in the "<b>Standard Multiplayer Missions</b>" folder, and your map should now show up on the menu when you run the game!  Before distributing your map you should use the PAK utilities to zip it up! (see editor_readme.txt on your CD).<p>
+
+
+<!-- End Text -->
+
+		</font></td>
+		</tr>
+		</table>
+	</td>
+</tr>
+</table>
+
+
+</body>
+</html>

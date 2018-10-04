@@ -1,0 +1,46 @@
+<TITLE>Team Radio Configuration</TITLE>
+<HTML>
+<H1>Team Radio Configuration</H1>
+<BR>
+Team Radio events are generated from inside the game.<BR>
+<BR>
+
+<BLOCKQUOTE>
+<A NAME="ConfigureRadioEvent"></A>
+<B>ConfigureRadioEvent(string event)</B><BR>
+<I>Multiple</I><BR>
+event: Name of the team radio event being configured.<BR>
+
+  <BLOCKQUOTE>
+  <B>Queue(integer queue)</B><BR>
+  <I>Optional(0)</I><BR>
+  queue: The maximum number of events which can be queued up.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>LifeTime(float time)</B><BR>
+  <I>Optional(0)</I><BR>
+  time: Amount of time this event will remain in the queue.<BR>
+
+  <BLOCKQUOTE>
+  <B>Messages()</B><BR>
+  <I>Required</I><BR>
+  Messages can have parameters passed to them to provide more information in the message.  Each team radio event defines what parameters are available.  All of the messages are in the format:<BR>
+  <BR>
+
+    <BLOCKQUOTE>
+    <B>MessageType::Relation(string message, string param1, string param2, ...)</B><BR>
+    <I>Multiple</I><BR>
+    <UL>
+      <LI>MessageType - The type of message (GameMessage, LocationMessage, ObjMessage)<BR>
+      <LI>Relation - The relationship with the display team (Self, Ally, Neutral, Enemy)<BR>
+      <LI>message - The name of the message which is configured in messages.cfg.<BR>
+      <LI>param1, param2 - Optional parameters which are fed to the message.<BR>
+    </UL>
+    </BLOCKQUOTE>
+
+  </BLOCKQUOTE>
+
+</BLOCKQUOTE>
+
+</HTML>

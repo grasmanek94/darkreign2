@@ -1,0 +1,70 @@
+<TITLE>Operators</TITLE>
+<HTML>
+<H1>Operators</H1>
+
+<A NAME="relational"></A>
+<BLOCKQUOTE>
+<H2>Relational Operators</H2><BR>
+Relational operators are used to compare two quantities.<BR>
+The tests conducted with relational operators are always <B>value1 operator value2</B> where <B>value1</B> is an internally generated number being tested and <B>value2</B> is the configured amount to test with.<BR>
+<BR>
+The defined relational operators are:<BR>
+<UL>
+  <LI>==<BR>
+    Equality: TRUE if value1 is equal to value2<BR>
+  <LI>!=<BR>
+    Inequality: TRUE if value1 is not equal to value2.<BR>
+  <LI>><BR>
+    Greater than: TRUE if value1 is greater than value2.<BR>
+  <LI>>=<BR>
+    Greater than or equal to: TRUE if value1 is greater than or equal to value2.<BR>
+  <LI><<BR>
+    Less than: TRUE if value1 is less than value2.<BR>
+  <LI><=<BR>
+    Less than or equal to: TRUE if value1 is less than or equal to value2.<BR>
+</UL>
+</BLOCKQUOTE>
+
+<A NAME="arithmetic"></A>
+<H2>Arithmetic Operators</H2>
+
+<A NAME="CreateScript::Op">
+<BLOCKQUOTE>
+<B>Op(string var, string op, string param)</B><BR>
+<B>Op(string var, string op, string value)</B><BR>
+<B>Op(string var, string op, integer value)</B><BR>
+<B>Op(string var, string op, float value)</B><BR>
+<B>Op(string var, string op, string value)</B><BR>
+var: Name of the var to perform the operation on.<BR>
+op: Arithmetic operation to perform.<BR>
+param: Name of the var to use in the operation.<BR>
+value: Value to use in to use in the operation.<BR>
+<BR>
+Depending up the type of the var, different arithmetic operations can be performed.  For integer vars the following operations are available;<BR>
+<UL>
+  <LI><B>=</B> Assignment<BR>
+  <LI><B>+</B> Addition<BR>
+  <LI><B>-</B> Subtraction<BR>
+  <LI><B>*</B> Multiplication<BR>
+  <LI><B>/</B> Division<BR>
+  <LI><B>%</B> Modulus<BR>
+  <LI><B>|</B> Bitwise OR<BR>
+  <LI><B>&</B> Bitwise AND<BR>
+  <LI><B>^</B> Bitwise Exclusive OR<BR>
+</UL>
+For floating point vars the following operations are available;<BR>
+<UL>
+  <LI><B>=</B> Assignment<BR>
+  <LI><B>+</B> Addition<BR>
+  <LI><B>-</B> Subtraction<BR>
+  <LI><B>*</B> Multiplication<BR>
+  <LI><B>/</B> Division<BR>
+</UL>
+For string vars the following operations are available;<BR>
+<UL>
+  <LI><B>=</B> Assignment<BR>
+</UL>
+  
+</BLOCKQUOTE>
+
+</HTML>

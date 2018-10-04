@@ -1,0 +1,294 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Dark Reign 2 Construction Kit - 7.1 Mods and Rulesets</title>
+</head>
+
+<body bgcolor="#000000" link="#33ff00" alink="#00ff00" vlink="#11cc00">
+<table border=0 cellpadding=0 cellspacing=0 width="100%">
+<TR>
+	<td bgcolor="#004400" width="100%">
+		<table border=0 cellpadding=4 border=0 cellspacing=2 width="100%">
+		<tr>
+			<td width="100%" bgcolor="#000000"><font color="#00cc00" face="Arial" size="2">
+<!-- Start Text -->
+<font size="4"><b>7.1 Mods and Rulesets</b></font><p>
+
+<font size="3"><b>Getting Started</b></font><BR>
+This section references assumes basic knowledge of the Dark Reign 2 scripting language learned in the Single Player section, and it is highly recommended you read through that section before proceeding.<p>
+
+Scripting and making rulesets for multiplayer has quite a few differences than single player, and involves thinking from every player's viewpoint rather than an individual team's. In SP, most of your scripts explicitly call a team by their name, which, while possible in MP, is not recommended and usually leads to making separate configs for each team. Instead, you should be calling teams using <font color="#00CCCC" face="courier">Relation()</font> and <font color="#00CCCC" face="courier">@.engine.name</font>, two things we'll discuss below. Another difference in SP vs. MP is compatibility with allies. This involves using the <font color="#00CCCC" face="courier">Relation()</font> tag quite a bit, as well as making sure the scripts, especially triggers, work correctly for ALL allies. These will all be covered in this document.<p>
+
+It is recommended you unpack (using Drpack) a ruleset, such as Control Freak, and look at the files as we go along.<p>
+
+<font size="3"><b>How Scripts Run</b></font><BR>
+As mentioned earlier, SP and MP scripting differs quite a bit. SP is much more focused on specific teams, while an MP script must be duplicated for every team that is playing, and thus the way you use variables, <font color="#00CCCC" face="courier">Team()</font>, <font color="#00CCCC" face="courier">Relation()</font>, and a few other things is a bit different. <font color="#00CCCC" face="courier">StartActionAvailable()</font> is used to define what variables and objectives are given to the available players. These objectives are located in whatever types file you have defined.<p>
+
+<font size="3"><b>Multilanguage tools & rulesets</b></font><BR>
+In all of DR2's rulesets and SP missions, you will find messages like <font color="#00CCCC" face="courier">#game.message.whatever</font>. These are references to a Multilanguage file, called "<b>[language].cfg</b>" where language is what language it is in (such as <b>English.cfg</b>). The purpose of this is to make all of DR2 have no references to one language. This file is the only file that should not be modified, and not have a special version in a ruleset's directory. You should just write in plain text, and have somebody help convert your mod to other languages if necessary.<p>
+
+
+<font size="3"><b>File Structure</b></font><BR>
+Before you begin making your ruleset, you should have a good idea of how the files are laid out, so that you know what is available to you. Rulesets are broken down into four different config file types:<p>
+<BLOCKQUOTE>
+	<b>Mod.cfg</b><BR>
+		The <b>mod.cfg</b> file contains the basic information about the ruleset, as well as what variables are needed by the players, the system, and what files to include in the ruleset.<p>
+	<b>Types file</b><BR>
+		Generally named after the ruleset, such as '<b>control_types.cfg</b>', the types file can contain all the objectives of the particular ruleset, as well as special object configs, particle configs, etc, that you don't want to store in another file. It's basically the Jack-of-all-trades file. You can include many types files if you feel the need to organize them that way (for instance, an objects file, a particle file, etc.)<p>
+	<b>Exec file</b><BR>
+		Exec files are used for manipulating variables, interface controls, keybindings, and other functions not in the types file.<p>
+	<b>AI file</b><BR>
+		If necessary, you may include AI files into the game. This is mostly used in Personalities, but can be used in rulesets as well.<p>
+</blockquote>
+
+
+
+<font size="3"><b>Mod.cfg Breakdown</b></font><BR>
+Here is a quick overview of the <b>mod.cfg</b> file:
+<BLOCKQUOTE>
+<font color="#00CCCC" face="courier">Description("#mods.ruleset.assault.title");</font><BR>
+Description is to give your ruleset a name when selecting it. Unfortunately, you cannot use the Multilanguage tool to put in your description, so you just have to type in the name here.<p>
+
+<font color="#00CCCC" face="courier">Author("Pandemic");</font><BR>
+Self Explanatory. Put your name in here.<p>
+
+<font color="#00CCCC" face="courier">Homepage("http://www.pandemicstudios.com");</font><BR>
+Another easy one - if you have a homepage, put it here.<p>
+
+<font color="#00CCCC" face="courier">Download("http://www.pandemicstudios.com/dr2/addons/assault.zwp");</font><BR>
+This is the exact URL where people will be able to download this file.<p>
+
+<font color="#00CCCC" face="courier">Private(1);</font><BR>
+If you are creating a ruleset that you want to work only on specific maps, this should be set to 1. If you are creating just a ruleset that can work on any map, set this to 0. <p>
+
+<font color="#00CCCC" face="courier">Files("Type")</font><BR>
+This includes all Type files into the ruleset.
+
+	<hr>
+	<blockquote>
+	<font color="#00CCCC" face="courier">Files("Type")<BR>
+	{<BR>
+	&nbsp;Add("assault_types.cfg");<BR>
+	&nbsp;Add("types_objects_special_togranprops.cfg");<BR>
+	}</font>
+	</blockquote>
+	<hr>
+
+<br><font color="#00CCCC" face="courier">Files("Exec")</font><BR>
+This includes any exec files into the ruleset.
+
+	<hr>
+	<blockquote><font color="#00CCCC" face="courier">
+	Files("Exec")<BR>
+	{<BR>
+	&nbsp;Add("assault_exec.cfg");<BR>
+	}</font><p>
+	</blockquote>
+	<hr>
+
+<br><font color="#00CCCC" face="courier">Files("AI")</font><BR>
+This includes any AI settings you want.
+
+	<hr>
+	<blockquote><font color="#00CCCC" face="courier">
+	Files("AI")<BR>
+	{<BR>
+	&nbsp;Add("assault_AI.cfg");<BR>
+	}</font>
+	</blockquote>
+	<hr>
+
+<br><font color="#00CCCC" face="courier">StartActionClient()</font><BR>
+Action given to the client team, used for global mission variables. This StartAction only gets created once. Notice Global variables have a ~. In front of them instead of @.
+
+	<hr>
+	<blockquote><font color="#00CCCC" face="courier">
+	StartActionClient()<br>
+	{<br>
+	&nbsp;CreateVarFloat("~.assault.time", 3600); <br>
+	&nbsp;CreateVarInteger("~.assault.minutes", 60);<br>
+	}</font>
+	</blockquote>
+	<hr>
+
+<BR><font color="#00CCCC" face="courier">StartActionTeam("Team")</font><BR>
+Action given to a team based on name (used to specify a particular team to get objectives). Generally this is used to specify special teams that are not controlled by a player. In Assault, this was the special AI team.
+
+	<hr>
+	<blockquote><font color="#00CCCC" face="courier">
+	StartActionTeam("worship")<br>
+	{<br>
+	&nbsp;NewObjective("assault.countdown");<br>
+	&nbsp;NewObjective("assault.counttimer");<br>
+	}</font>
+	</blockquote>
+	<hr>
+
+<BR><font color="#00CCCC" face="courier">StartActionAvailable()</font><br>
+Action given to a team based on the 'Available To Players' button pressed in the team setup.
+
+	<hr>
+	<blockquote><font color="#00CCCC" face="courier">
+	StartActionAvailable()<br>
+	{<br>
+	&nbsp;CreateVarInteger("@.assault.hqchecker", 0);<br>
+	&nbsp;CreateVarInteger("@.assault.timeron", 0);<br>
+	&nbsp;CreateVarInteger("@.assault.hqneed", 0);<br>
+	&nbsp;NewObjective("assault.spawn");<br>
+	}</font>
+	</blockquote>
+	<hr>
+
+<font color="#00CCCC" face="courier">StartActionAll()</font><br>
+Action given to all teams<p>
+
+<font color="#00CCCC" face="courier">StartActionSide("Side")</font><br>
+Action given to a team based on side. Mostly used in AI personalities, it can also be used in rulesets if need be. 'Side' should be Sprawler or JDA (unless you've created your own!)<p>
+</BLOCKQUOTE>
+
+
+
+<font size="3"><b>Standard Rulesets vs. Map Specific Rulesets</b></font><BR>
+One of the first things to decide when making a Ruleset is if you want it to work on ANY map or only maps that are made specifically for it. Map Specific rulesets give you much more flexibility to create, but you sacrifice having many maps to play on. There are quite a few ways of using different map features work well with a ruleset:<p>
+<blockquote>
+<b>Regions</b><br>
+These are probably used the most in Map Specific Rulesets. Using the <font color="#00CCCC" face="courier">InRegion()</font> function, you can trigger events when any specific type of unit, enemy, ally or self, moves in a region. You can also spawn units in regions. For an example of a complex <font color="#00CCCC" face="courier">InRegion()</font> check, look at Control Freak's <b><A href="Chapter7-2.htm">control_types.cfg</a></b> file. <p>
+<b>Tags</b><br>
+Tags are useful for attaching to units or other assets that you want to control later on in your mod. To create them, see <a href="chapter4-2.htm">Making Good Maps</a><p>
+<b>Assets</b><br>
+Using certain assets can help in any part of a ruleset. For instance, Control Freak has 5 Control Points on each map that you must take over. Assault has a large portal you must go through to win, as well as a fully fortified AI base.<p>
+<b>Strategies & Design</b><br>
+See <a href="chapter4-2.htm">Making Good Maps</a><p>
+</blockquote><p>
+
+<font size="3"><b>Files that can be in a ruleset </b></font><BR>
+Just about any file can be placed in a ruleset's directory, from textures, configs and audio clips to 3d objects and more. If you want to override specific files the game uses, naming files the same name and placing them in the ruleset directory should work perfectly. There are certain exceptions (such as Multilanguage configs.)<p>
+
+<a name="variables"><font size="3"><b>Variables</b></font><BR></a>
+Variables are covered a bit in SP, but are used much more in MP. They're really essential to rulesets and let you do just about everything. 
+<blockquote>
+<b>Global Variables</b><br>
+A global variable is something that every player's objectives can affect and see. Defining a global variables is done on <font color="#00CCCC" face="courier">StartActionClient()</font>. For instance, in Control Freak, five global variables are set, one for each control point. All other teams can see these five variables, and if a team takes a control point, the objective records that teams name into the variable. These are the best way to get each team's scripts to communicate with one another.  (Ex: <font color="#00CCCC" face="courier">~.control.CP-A</font>)<p>
+<b>Local Variables</b><br>
+Local variables are variables only seen by the one team running a script. All other teams cannot see what one team's local variables are. These are used mostly for triggers, timers and the like. (Ex: <font color="#00CCCC" face="courier">@.control.CP-A</font>)<p>
+<b>Special Variables</b><br>
+If you want a team's specific name, listen up: 
+<font color="#00CCCC" face="courier">@.engine.name</font> gives the name of the team. All maps currently have teams named '<font color="#00CCCC" face="courier">TeamX</font>' where X is a number 1-8, except for assault, which has the team 'assault.' This variable can come in handy in all sorts of situations, such as Control Freak, which gives <font color="#00CCCC" face="courier">@.engine.name</font> to a global variable, and checks to see if all five global variables for each control point are controlled by allies. In Assault, <font color="#00CCCC" face="courier">@.engine.name</font> is used for the regions which a Dezigner piece is spawned.<p>
+<b>CreateVarInteger</b><br>
+This creates an integer variable that stores whole numbers. <p>
+<b>CreateVarFloat</b><br>
+This creates a floating-point variable, that can store any number or decimal.<p>
+<b>CreateVarString</b><br>
+This creates a string variable that you can store text and/or numbers in.<p>
+<b>NOTE:</b> Variables can only have TWO periods in them, no more. (i.e. no <font color="#00CCCC" face="courier">@.ab.bc.cd</font>, but <font color="#00CCCC" face="courier">@.ab.bc-cd</font> will work)<p>
+More Information on variables is available in <a href="chapter5-7.htm">Section 5.7</a><p>
+</blockquote>
+
+<font size="3"><b>Common Objectives</b></font><BR>
+Dark Reign 2 has a few common functions that you can call using <font color="#00CCCC" face="courier">NewObjective()</font> These are all defined in <b>types_common.cfg</b> (in case you want to look at them directly.) They are as follows:<p>
+<blockquote>
+<font color="#00CCCC" face="courier">Common.deathcheck</font><br>
+This checks to see if a player's units have been destroyed, at which point that player will get <font color="#00CCCC" face="courier">common.eliminate</font>.<p>
+<font color="#00CCCC" face="courier">Common.killallenemy</font><br>
+This checks to see if all other player's have been destroyed. If so, player gets <font color="#00CCCC" face="courier">common.timer.win</font>.<p>
+<font color="#00CCCC" face="courier">Common.timer.win</font><br>
+Win condition (triggers end of game). This gives a 3 second delay between satisfying the victory conditions and getting the win condition (delay is there to allow for self destruction of units and other win condition objectives you want completed, such as earthquakes or whatnot.)<p>
+<font color="#00CCCC" face="courier">Common.aivictory</font><br>
+This checks to see if an AI player has won, and if so, triggers <font color="#00CCCC" face="courier">common.timer.win</font>.<p>
+<font color="#00CCCC" face="courier">Common.eliminate</font><br>
+This eliminates a specific player (and thus their team), but allows the game to continue. 4 second delay.<p>
+<font color="#00CCCC" face="courier">Common.timer.lose</font><br>
+Lose condition (triggers end of game). This also has a 3 second delay. If you feel it's easier to have teams lose than have the other team(s) win, you can use this.<p>
+</blockquote>
+
+
+
+<font size="3"><b><a href="manual/types/objectiveobj.html#tally" target="_top">Logging Types (cash, kills, etc)</a></b></font><BR>
+In rulesets such as Bloodbath and Gluttony, a condition known as 'Tally' will allow you to load up a variable with information about how many units a player constructed, destroyed, etc, how much taelon they collected, etc. These can be very useful not only for simple rulesets using one of these as a win condition, but for advanced ruleset/map combinations that involve a series of tallies to trigger actions.
+<hr>
+<blockquote><font color="#00CCCC" face="courier">
+    Condition("Tally")<br>
+    {<br>
+    &nbsp;&nbsp;Statistic("KillsSelf");<br>
+    &nbsp;&nbsp;Amount(10);<br>
+    &nbsp;&nbsp;Operator(">=");<br>
+    &nbsp;&nbsp;Var("@.self");<br>
+    }<br>
+</font></blockquote>
+<hr>
+
+<br><font size="3"><b><a href="chapter5-6.htm">Radio Events & Objective Text</a></b></font><BR>
+An important part in a ruleset is to make sure players know what they are supposed to do, and if they've done something right or wrong. Combining messages seen in the console and at the top of the screen with <a href="Chapter5-6.htm">Objective Text</a> in it's own pop up box will let you get your message across clearly. <p>
+
+Two types of Radio Events exist, <a href="manual/types/message.html#ConfigureLocationMessage" target="_top">Location Messages</a> and <a href="manual/types/message.html" target="_top">Game Messages</a>. You can attach a variable to a message if you need. <p>
+
+Often times the naming convention of messages usually follows what your mod is called. In Control Freak, for example, all objectives and radio events began with '<font color="#00CCCC" face="courier">control.</font>', such as '<font color="#00CCCC" face="courier">control.taken.</font>' This is not required, but is recommended to help you debug. <p>
+
+As we've learned, variables play a very big part in rulesets. You can use variables in Radio Events as shown below:
+<hr>
+<blockquote><font color="#00CCCC" face="courier">
+ConfigureRadioEvent("modname.radio")<br>
+{<br>
+&nbsp;&nbsp;Messages()<br>
+&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;LocationMessage::Self("modname.selfhelp", "@.engine.name");<br>
+&nbsp;&nbsp;}<br>
+}<p>
+
+ConfigureLocationMessage("modname.selfhelp")<br>
+{<br>
+&nbsp;&nbsp;Interval();<br>
+&nbsp;&nbsp;Sound();<br>
+&nbsp;&nbsp;Message()<br>
+&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Type("Message::Console");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Add("You, {1:s}, need some serious help."); <br>
+&nbsp;&nbsp;}<br>
+}
+</font></blockquote>
+<hr>
+
+<br>Notice that a variable was called in the message using <font color="#00CCCC" face="courier">{1:s}</font>. Since <font color="#00CCCC" face="courier">@.engine.name</font> will show up as a STRING, you must used {1:s}. If you had an integer, it would be <font color="#00CCCC" face="courier">{1:i}</font> and if you had a float it would be <font color="#00CCCC" face="courier">{1.0:f}</font>.<p>
+If you want to call a specific player or team in a message, using <font color="#00CCCC" face="courier">#player</font> and <font color="#00CCCC" face="courier">#team</font> in the variable section in <font color="#00CCCC" face="courier">GameMessage::</font> and <font color="#00CCCC" face="courier">LocationMessage::</font> will give you the player's name (if CoOp'd, only the first player will show), and if you use <font color="#00CCCC" face="courier">#team</font>, the player's team will show (not used at all in mods, but it's there.)<p>
+
+<b>NOTE:</b> If a string variable is used in a message, no other variables will work in it.<p>
+
+Also, if you JUST want a blip to show up, you do not have to fill in the <font color="#00CCCC" face="courier">Message()</font> at all, instead you can add '<font color="#00CCCC" face="courier">BlipColor()</font>' with an appropriate RGBA color. Only Location Messages give blips, so this is not useful for a Game Message.
+
+<hr>
+<blockquote><font color="#00CCCC" face="courier">
+ConfigureLocationMessage("modname.beep")<br>
+{<br>
+&nbsp;&nbsp;Interval();<br>
+&nbsp;&nbsp;Sound();<br>
+&nbsp;&nbsp;Message();<br>
+&nbsp;&nbsp;BlipColor(255, 100, 0, 100);<br>
+}<br>
+</font></blockquote>
+<hr>
+
+<br>Remember, Location Messages require a region to give a blip. So when you are calling a location message, you MUST give a region (that has been defined in the studio) for that message to show up on.
+
+<hr>
+<blockquote><font color="#00CCCC" face="courier">
+TriggerTeamRadio("modname.beep")<br>
+    {<br>
+    &nbsp;&nbsp;Region("beepland");<br>
+    }<br>
+</font></blockquote>
+<hr>
+
+
+<!-- End Text -->
+
+		</font></td>
+		</tr>
+		</table>
+	</td>
+</tr>
+</table>
+
+
+</body>
+</html>

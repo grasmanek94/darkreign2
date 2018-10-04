@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Dark Reign 2 Construction Kit - 5.15 Some Tips for the Hard of Core</title>
+</head>
+
+<body bgcolor="#000000" link="#33ff00" alink="#00ff00" vlink="#11cc00">
+<table border=0 cellpadding=0 cellspacing=0 width="100%">
+<TR>
+	<td bgcolor="#004400" width="100%">
+		<table border=0 cellpadding=4 border=0 cellspacing=2 width="100%">
+		<tr>
+			<td width="100%" bgcolor="#000000"><font color="#00cc00" face="Arial" size="2">
+<!-- Start Text -->
+<font size="4"><b>5.15 Some Tips for the Hard of Core</b></font><p>
+
+<blockquote>
+<li>Complicated camera movements are difficult to create and can often be distracting to the player.  Use them sparingly.  Concentrate instead on scripting exciting interactions between units on-screen during the cineractive.  Sometimes just a static camera point and focal point is best.<p>
+
+<li>Don't do too much in a mid-mission cineractive.  If the player has already taken control of units on the map, there are a lot of variables you cannot control.  Also, the player is usually not interested in pretty shots once the mission has begun.  Use the cineractives only to explain what the player must do.  Go in, go out, and once again keep it simple.<p>
+
+<li>If the cineractive is a stand-alone mission or if it is at the start of a mission, you can play with the CD music tracks to make them fit the action.  Look at the <b>J06_intro</b> mission cineractive for an example of the commands for playing CD tracks.<p>
+
+<li>You can also dump in your own music in mp3 format and trigger that in the cineractive.  Just include the file in your mission folder and call it properly in "<b>types_game_messages.cfg</b>".<p>
+
+<li>If you really want to jazz up a cineractive, you can trigger animations and effects on some units.  Each of the humanoid units in Dark Reign 2 have 2 idle animations that they can play using the "<font color="#00CCCC" face="courier">Animate</font>" command.  The animations are always titled "<font color="#00CCCC" face="courier">IDLE</font>" and "<font color="#00CCCC" face="courier">IDLE2</font>".  You can also trigger weapon effects, explosion effects and so forth on units using the "<font color="#00CCCC" face="courier">TriggerFX</font>" command.  For examples of both of these, look at the <b>S01_intro</b> mission cineractive.<p>
+
+<li>If the units in the game don't do exactly what you want them to do, you can drop custom versions of the units into your mission files using the existing names.  If it is in your mission file, it will overwrite the version of the unit in the packs directory, allowing you to do whatever you want with it.  You can speed them up or slow them down, make them not claim cells so they can stand anywhere, you can raise or lower the altitude of flying units, make them invulnerable to weapon damage, and so on.  If the cineractive is a stand-alone mission that never gives control to the player (like <b>S01_intro</b> and <b>J06_intro</b>), go nuts.<p>
+
+<li>If you're trying to match the camera path movement up with units running on the map and you can't get the speed right, dump a custom config in for that unit and set its running speed to 28.8.  That number will make them move at exactly 1 cell per second, allowing you to know exactly where they will be at what time.  This is, of course, only for the insanely fanatical cineractive-maker.
+</blockquote>
+
+<!-- End Text -->
+
+		</font></td>
+		</tr>
+		</table>
+	</td>
+</tr>
+</table>
+
+
+</body>
+</html><br>

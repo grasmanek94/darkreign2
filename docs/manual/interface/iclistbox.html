@@ -1,0 +1,69 @@
+<TITLE>ListBox</TITLE>
+<HTML>
+<H1>ListBox</H1>
+
+Ye old list box<BR>
+Derived from <A HREF="icontrol.html">IControl</A><BR>
+<BR>
+
+<B><U>Functions</U></B><BR>
+
+<BLOCKQUOTE>
+
+  <B>UseVar(<A HREF="interfacetables.html#RefVarNameSpec">VarNameSpecification</A> name)</B><BR>
+  <I>Optional(none)</I><BR>
+  name : Name of the var that will contain the selected item name<BR>
+  <BR>
+
+  <B>UseSlider(<A HREF="interfacetables.html#RefControlNameSpec">ControlNameSpecification</A> name)</B><BR>
+  <I>Optional(none)</I><BR>
+  name : Name of a list slider to use with this control<BR>
+  <BR>
+
+  <B>ItemConfig()</B><BR>
+  <I>Optional(none)</I><BR>
+  The body of this scope is applied to each item in the list<BR>
+  <BR>
+
+  <B>CellSize(integer x, integer y)</B><BR>
+  <I>Optional(0, 0)</I><BR>
+  Manually set the size of each list cell<BR>
+  <BR>
+
+  <B>AddTextItem(string name, string key)</B><BR>
+  <I>Multiple, name Required, key Optional(name)</I><BR>
+  name : The list item name<BR>
+  key : The multilanguage display key, or temporary text<BR>
+  <BR>
+
+  <B>SetSelected(integer index)</B><BR>
+  <I>Optional(0)</I><BR>
+  index : The index of the list item to set as selected<BR>
+  <BR>
+
+  <B>SetSelected(string name)</B><BR>
+  <I>Optional(none)</I><BR>
+  name : The name of the list item to set as selected<BR>
+  <BR>
+
+</BLOCKQUOTE>
+
+<B><U>Style Attributes</U></B><BR>
+VSlider - Add a vertical slider to the list<BR>
+NoSelection - Do not allow selection of items<BR>
+MultiSelect - Allow multiple selection of objects<BR>
+CanClear - Allow the selection to be cleared<BR>
+AutoScroll - Automatically scroll when new items added<BR>
+<BR>
+
+<B><U>Geometry Attributes</U></B><BR>
+None<BR>
+<BR>
+
+<B><U>Events</U></B><BR>
+ListBox::SelChange - The selection has changed<BR>
+ListBox::SelClear - The selection has been cleared<BR>
+ListBox::DblClick - A double click occurred on the selected item<BR>
+<BR>
+
+</HTML>

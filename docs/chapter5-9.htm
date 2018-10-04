@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Dark Reign 2 Construction Kit - 5.9 AI - Scripting Attacks</title>
+</head>
+
+<body bgcolor="#000000" link="#33ff00" alink="#00ff00" vlink="#11cc00">
+<table border=0 cellpadding=0 cellspacing=0 width="100%">
+<TR>
+	<td bgcolor="#004400" width="100%">
+		<table border=0 cellpadding=4 border=0 cellspacing=2 width="100%">
+		<tr>
+			<td width="100%" bgcolor="#000000"><font color="#00cc00" face="Arial" size="2">
+<!-- Start Text -->
+<font size="4"><b>5.9 AI - Scripting Attacks</b></font><p>
+Now that you've established some recruit types you can begin sending them out to attack. AI movement is handled through the standard objective actions that trigger other game events. Thus, you can trigger attacks when the player enters a region, a tag is destroyed, or a certain amount of time elapses, just to name a few. AI objectives are placed in the <b>objectives_ai.cfg</b> file you created earlier. AI scripts can be broken down into sub-sections: type of movement, type of recruitment and type of destination. Certain variants can be added to modify these types. <p>
+
+There are three general categories of script movement types: <font color="#00CCCC" face="courier">squad_explore</font>, <font color="#00CCCC" face="courier">squad_transport</font> and <font color="#00CCCC" face="courier">squad_move</font>. The <font color="#00CCCC" face="courier">squad_explore</font> scripts are used to order groups of AI units to explore the map (that is, uncover shrouded and fogged areas), attacking enemy units they encounter. <font color="#00CCCC" face="courier">Squad_transport</font> scripts are used to move AI units via available transports. The <font color="#00CCCC" face="courier">squad_move</font> category is the largest of the three, and is the most widely used. <p>
+
+All AI scripts follow a similar pattern, with certain variables supplementing the standard syntax. The objective action <font color="#00CCCC" face="courier">ExecuteScript</font> is used to trigger AI movement, and is used in the same manner as other objective actions:
+<hr>
+<blockquote><font color="#00CCCC" face="courier">
+CreateObjectType("ai_patrol", "Objective")<br>
+{<br>
+&nbsp;GameObj();<br>
+&nbsp;ObjectiveObj()<br>
+&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;Condition("Timer")<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Time(120);<br>
+&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;Action()<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ExecuteScript("[name]", "squad.explore.type")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Op("%.types", "=", "[recruit type name]");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;}<br>
+}
+</font></blockquote>
+<hr>
+
+<br>The above example utilizes the same format you used to create player objectives. The objective is given a unique name (in this case, "<font color="#00CCCC" face="courier">ai_patrol</font>") and an objective condition (a Timer). After the Timer counts down, the AI script is executed. The script itself breaks down as follows. Each script is given a unique name, followed by the script type (in this case, <font color="#00CCCC" face="courier">squad.explore.type</font>). This type requires one variable, the recruit type. The type referenced is the same recruit type you created earlier. In this example, 120 seconds after the objective is assigned to the AI it will recruit the type specified and have it explore the map. <p>
+
+The three categories of squad scripts (explore, transport and move) break down into four different methods of recruiting to fulfill their orders. Thus, you may have <font color="#00CCCC" face="courier">squad.explore.spawn</font>, <font color="#00CCCC" face="courier">squad.explore.tag</font>, <font color="#00CCCC" face="courier">squad.explore.type</font> and <font color="#00CCCC" face="courier">squad.explore.typebase</font> scripts in your missions. They will all order AI units to explore the map and attack enemies, but they differ in how they fill out their squads. The four types are as follows:<p>
+
+<b>Spawn</b> -	As the name implies, spawn scripts do not recruit units from the map, but instead create them at a specified region.<p>
+<b>Tag</b> - Tag scripts recruit a specific tag (usually named in the Studio) for the squad.<p>
+<b>Type</b> - Type scripts recruit units from a defined recruit type (as created in <b>recruit_types.cfg</b>).  Units recruited via type scripts are still counted as part of the base by the AI, so it will not create more units to replace them until they are killed. <p>
+<b>Typebase</b> - Typebase scripts are a variant of Type scripts. They function identically, but with typebase recruiting the AI no longer considers the recruited units to be part of the base. Thus, the AI will produce new units immediately to replace them. <p>
+
+With the exception of explore scripts, all scripts need a destination. The types of destinations are regions, trails and tags. A squad sent to a region will remain in that region until destroyed unless drawn out in pursuit of an enemy. Squads sent on one-way trails will follow that trail, then remain at the end point. Squads sent on other trails will remain on them indefinitely, leaving only long enough to engage enemy forces. Squads ordered to follow a tag will attempt to move to that tag as long as it exists.<p>
+
+Some examples of script types are as follows:
+<hr>
+<blockquote><font color="#00CCCC" face="courier">
+ExecuteScript("[name]", "squad.move.typetoregion")<br>
+{<br>
+&nbsp;Op("%.types", "=", "[name]");<br>
+&nbsp;Op("%.region.src", "=", "[name]");<br>
+&nbsp;Op("%.region.dst", "=", "[name]");<br>
+&nbsp;Op("%.acceptInsufficient","=", 1);<br>
+}
+</font></blockquote>
+<hr>
+
+<br>In the above example, the AI will attempt to form the squad from the recruit type specified ("<font color="#00CCCC" face="courier">types</font>") located within 100 meters of the source region ("<font color="#00CCCC" face="courier">region.src</font>"). It will then send the squad to its destination, specified in region.dst. In the event there are not enough units to fulfill the recruit type, it will launch the squad anyway. If you want the AI to wait until the recruit type is completely filled, remove the "<font color="#00CCCC" face="courier">acceptInsufficient</font>" line. 
+<hr>
+<blockquote><font color="#00CCCC" face="courier">
+ExecuteScript("[name]", "squad.move.typebasetoregion")<br>
+{<br>
+&nbsp;Op("%.types", "=", "[name]");<br>
+&nbsp;Op("%.base", "=", "[name]");<br>
+&nbsp;Op("%.region", "=", "[name]");<br>
+}
+</font></blockquote>
+<hr>
+
+In this example, the AI is executing a similar move. Instead of recruiting the type from a specific region, however, it is taking whichever units are available from the team (typebase). The squad will then move to the region specified. 
+
+Like explore and move, the transport script is another type of movement script. In transport scripts, the recruited units will board an available transport (as determined by the AI), then move to the specified destination.
+<hr>
+<blockquote><font color="#00CCCC" face="courier">
+ExecuteScript("[name]", "squad.transport.typebasetoregion")<br>
+{<br>
+&nbsp;Op("%.types", "=", "[name]");<br>
+&nbsp;Op("%.base", "=", "[name]");<br>
+&nbsp;Op("%.region", "=", "[name]");<br>
+}
+</font></blockquote>
+<hr>
+
+<br>In the above example, the AI will recruit the units specified in the recruit type from any available units. They will then board a transport and move to the region. Note that you do not specify the transport. The AI will choose an available transport and assign it to the squad. After delivering the squad, the transport will return to its previous location.<p>
+
+Several script types have the notation "repeating" in their name. These scripts are unusual in that they will start over if the squad is ever eliminated. Once all members of the squad are killed, the squad will recruit new members and begin again. NOTE: Unlike scripts that are executed once, it is important to add an asterix ("*") at the end of the script's name. Otherwise, the script will crash the first time it tries to repeat.
+<hr>
+<blockquote><font color="#00CCCC" face="courier">
+ExecuteScript("[name]*", "squad.explore.typebase.repeating")<br>
+{<br>
+&nbsp;Op("%.types", "=", "[name]");<br>
+&nbsp;Op("%.base", "=", "[name]");<br>
+}
+</font></blockquote>
+<hr>
+
+<!-- End Text -->
+
+		</font></td>
+		</tr>
+		</table>
+	</td>
+</tr>
+</table>
+
+
+</body>
+</html><br>

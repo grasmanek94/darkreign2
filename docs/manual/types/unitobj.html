@@ -1,0 +1,296 @@
+<TITLE>UnitObj</TITLE>
+<HTML>
+<H1>UnitObj</H1>
+
+<BLOCKQUOTE>
+<B>SeeingRange()</B><BR>
+<I>Optional</I><BR>
+
+  <BLOCKQUOTE>
+  <B>Value(float range)</B><BR>
+  <I>Optional(100), Range(0, 152)</I><BR>
+  range: Distance this unit can see in metres.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>Min(float min)</B><BR>
+  <I>Optional (range)</I><BR>
+  min: Minimum range<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>Max(float max)</B><BR>
+  <I>Optional (range)</I><BR>
+  time: Maximum range<BR>
+  </BLOCKQUOTE>
+
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>DayModifer(float percentage)</B><BR>
+<I>Optional(1)</I><BR>
+percentage: Percentage modifer to this units seeing range during the day.<BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>NightModifier(float percentage)</B><BR>
+<I>Optional(1)</I><BR>
+percentage: Percentage modifer to this units seeing range during the night.<BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>Constructor(string type)</B><BR>
+<I>Optional(none)</I><BR>
+type: The type that constructs this unit.<BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>ConstructionTime(float seconds)</B><BR>
+<I>Optional(4.0), Range(0, F32_MAX)</I><BR>
+seconds: Number of seconds it takes to construct this object (also used for upgrades)<BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>ConstructionHitPoints(float percent)</B><BR>
+<I>Optional(10%)</I><BR>
+percent: Percentage of total hitpoints that a building under construction starts with.<BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>ConstructionConsume(Bool flag)</B><BR>
+<I>Optional(FALSE)</I><BR>
+flag: Does this object consume its rig-type constructor, and replace when recycled.<BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>Companion(string type)</B><BR>
+<I>Optional(none)</I><BR>
+type: A unit that is constructed along with objects of this type (this type must have appropriate exit points)<BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>Selectable(bool flag)</B><BR>
+<I>Optional(type specific), Not Recommended</I><BR>
+flag: Determines if selectable from client side interface.<BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>FireIndirect(bool flag)</B><BR>
+<I>Optional(0)</I><BR>
+flag: If set then units of this type do not need to have direct line of sight to targets they wish to fire at.<BR>
+
+</BLOCKQUOTE>
+<BLOCKQUOTE>
+<B>CanAutoTarget(bool flag)</B><BR>
+<I>Optional(1)</I><BR>
+flag: If false, units of this type will never automatically acquire targets.<BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>DrivingStyle(string name)</B><BR>
+<I>Optional("Default"), name required</I><BR>
+name: Assign a driving style to the unit.<BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>TopSpeed()</B><BR>
+<I>Optional</I><BR>
+
+  <BLOCKQUOTE>
+  <B>Value(float speed)</B><BR>
+  <I>Optional (10), Min(0)</I><BR>
+  speed: Maximum speed at which this unit can travel in kilometres per hour.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>Min(float min)</B><BR>
+  <I>Optional (speed)</I><BR>
+  min: Minimum speed<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>Max(float max)</B><BR>
+  <I>Optional (speed)</I><BR>
+  time: Maximum speed<BR>
+  </BLOCKQUOTE>
+
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>DrivePower()</B><BR>
+<I>Optional</I><BR>
+
+  <BLOCKQUOTE>
+  <B>Value(float range)</B><BR>
+  <I>Optional(10), Min(0)</I><BR>
+  power: Drive power.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>Min(float min)</B><BR>
+  <I>Optional (power)</I><BR>
+  min: Minimum power<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>Max(float max)</B><BR>
+  <I>Optional (power)</I><BR>
+  time: Maximum power<BR>
+  </BLOCKQUOTE>
+
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>TurnRatio(float ratio)</B><BR>
+<I>Optional(4), Min(0)</I><BR>
+ratio: The turn ration is related to the power applied.  The higher the ration the faster the unit can turn.<BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>RollingFriction(float friction)</B><BR>
+<I>Optional(0.1)</I><BR>
+friction: Friction against rolling.<BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>ResourceCost(int cost)</B><BR>
+<I>Optional(1)</I><BR>
+cost: Amount of resource required to bring one object of this type to the playing field.<BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>CommandCost(int cost)</B><BR>
+<I>Optional(0)</I><BR>
+cost: The number of command points this unit uses (unit limit configuration)<BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>ResourceTransport(int resource)</B><BR>
+<I>Optional(0)</I><BR>
+resource: Amount of resource units of this type can transport.  Not very useful to set this unless this unit can perform TaskCollect.<BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>ResourceStore(int resource)</B><BR>
+<I>Optional(0)</I><BR>
+resource: Amount of resource units of thie type store.  When a team has this unit, the storage of this unit is added to the teams total storage capcity.<BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>ResourceInitialStore(int resource)</B><BR>
+<I>Optional(0)</I><BR>
+resource: Amount of resource a unit has stored initially.<BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>ResourceUnload(int resource)</B><BR>
+<I>Optional(10)</I><BR>
+resource: Amount of resource that is unloaded at a time.<BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>RecycleTime(float seconds)</B><BR>
+<I>Optional(ConstructTime() * 0.5)</I><BR>
+seconds: Number of seconds it takes to recycle this type (Must have Ability::Recycle to be able to recycle).<BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>RecyclePercentage(float percent)</B><BR>
+<I>Optional(0.5)</I><BR>
+percent: Percentage of the resource cost that is refunded.<BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>PowerDownTime(float seconds)</B><BR>
+<I>Optional(ConstructionTime() * 0.125 )</I><BR>
+seconds: Number of seconds it takes to power down this type.  Only units which require power can be powered down.<BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>PowerUpTime(float seconds)</B><BR>
+<I>Optional(PowerDownTime())</I><BR>
+seconds: Number of seconds it takes to power up this type.  Only units which require power can be powered down.<BR>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>Power()</B><BR>
+<I>Optional</I><BR>
+
+  <BLOCKQUOTE>
+  <B>ProducedDay(int power)</B><BR>
+  <I>Optional(0)</I><BR>
+  power: Amount of power this unit produces during the day.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>ProducedNight(int power)</B><BR>
+  <I>Optional(ProducedDay())</I><BR>
+  power: Amount of power this unit produces during the night.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>Required(int power)</B><BR>
+  <I>Optional(0)</I><BR>
+  power: Amount of power this unit requires.<BR>
+  </BLOCKQUOTE>
+
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>Efficiency()</B><BR>
+<I>Optional</I><BR>
+
+  <BLOCKQUOTE>
+  <B>Red(int efficiency)</B><BR>
+  <I>Optional(100)</I><BR>
+  efficiency: The efficiency of this unit when power is in the red.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>Yellow(int efficiency)</B><BR>
+  <I>Optional(100)</I><BR>
+  efficiency: The efficiency of this unit when power is in the yellow.<BR>
+  </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+  <B>Green(int efficiency)</B><BR>
+  <I>Optional(100)</I><BR>
+  efficiency: The efficiency of this unit when power is in the green.<BR>
+  </BLOCKQUOTE>
+
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>Upgrades()</B><BR>
+<I>Optional</I><BR>
+Specifies a list of sequential upgrades for this type<BR>
+
+  <BLOCKQUOTE>
+  <B>Add(string type, string point = "HP-UPGRADE")</B><BR>
+  <I>Multiple</I><BR>
+  type: The type identifier of the upgrade.<BR>
+  point: The hard point to attach to (only configure if necessary)
+  </BLOCKQUOTE>
+
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>Prereqs()</B><BR>
+<I>Optional</I><BR>
+Before an object of this type can be ordered, the team must have at least one of each of the types defined here.<BR>
+
+  <BLOCKQUOTE>
+  <B>Add(string type)</B><BR>
+  <I>Multiple</I><BR>
+  type: Type which is a prerequisite for this unit.<BR>
+  </BLOCKQUOTE>
+
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<B>Weapon(string weapon)</B><BR>
+<I>Optional(none)</I><BR>
+weapon: Name of the weapon this unit uses.  Weapons are created using CreateWeaponType.<BR>
+</BLOCKQUOTE>
+
+</HTML>
