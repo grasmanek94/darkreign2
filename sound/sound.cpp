@@ -43,7 +43,9 @@ namespace Sound
       dTracker = new DTrack("Sound", 128);
 
       // Tell MSS where to find its files
-      AIL_set_redist_directory("library\\mss");
+	  char mssdir[PATHNAME_MAX + 1];
+	  Utils::MakePath(mssdir, PATHNAME_MAX, FileSys::GetSub("@rootdir"), "library\\mss", NULL);
+      AIL_set_redist_directory(mssdir);
 
       // Initialize MSS
       AIL_startup();
