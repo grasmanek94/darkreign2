@@ -319,16 +319,17 @@ struct Vector
 	{
 		return Vector (A.y * B.z - A.z * B.y, A.z * B.x - A.x * B.z, A.x * B.y - A.y * B.x);
 	}
-	inline Vector Cross(const Vector &B) const
+	inline Vector Cross(const Vector &vv) const
 	{
-		return Vector(this->y * B.z - this->z * B.y, this->z * B.x - this->x * B.z, this->x * B.y - this->y * B.x);
+		return Vector::Cross(*this, vv);
 	}
 
 	F32 Dot(const Vector &vv) const
 	{
 		return x * vv.x + y * vv.y + z * vv.z;
 	}
-//  void Cross(Vector &dst, const Vector &vv) const;
+	
+	//void Cross(Vector &dst, const Vector &vv) const;
 	
 	// F32 functions
 	inline void operator=(F32 ss)
