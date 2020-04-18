@@ -197,11 +197,11 @@ namespace GameGod
   //
   static Bool FindOriginalCD()
   {
-    #ifdef DEVELOPMENT
+    //#ifdef DEVELOPMENT
 
       seenOriginal = TRUE;
 
-    #else
+    //#else
 
       // Have we seen the original, or we can see it now
       if (!seenOriginal && Setup::FindOriginalCD())
